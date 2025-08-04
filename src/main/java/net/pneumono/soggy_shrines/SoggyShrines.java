@@ -16,7 +16,7 @@ public class SoggyShrines implements ModInitializer {
 		LOGGER.info("Initializing Soggy Shrines");
 	}
 
-	public Identifier id(String path) {
+	public static Identifier id(String path) {
 		return Identifier.of(MOD_ID, path);
 	}
 }
