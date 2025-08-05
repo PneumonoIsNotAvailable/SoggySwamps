@@ -15,7 +15,7 @@
                 {
                     "type": "minecraft:item",
                     "name": "minecraft:redstone",
-                    "weight": 5,
+                    "weight": 15,
                     "functions": [
                         {
                             "function": "minecraft:set_count",
@@ -30,7 +30,7 @@
                 {
                     "type": "minecraft:item",
                     "name": "minecraft:glowstone_dust",
-                    "weight": 5,
+                    "weight": 15,
                     "quality": 1,
                     "functions": [
                         {
@@ -46,14 +46,14 @@
                 {
                     "type": "minecraft:item",
                     "name": "minecraft:nether_wart",
-                    "weight": 3,
+                    "weight": 10,
                     "quality": 1,
                     "functions": []
                 },
                 {
                     "type": "minecraft:item",
                     "name": "minecraft:golden_carrot",
-                    "weight": 5,
+                    "weight": 17,
                     "quality": 2,
                     "functions": [
                         {
@@ -70,7 +70,7 @@
                 {
                     "type": "minecraft:item",
                     "name": "minecraft:phantom_membrane",
-                    "weight": 5,
+                    "weight": 15,
                     "functions": [
                         {
                             "function": "minecraft:set_count",
