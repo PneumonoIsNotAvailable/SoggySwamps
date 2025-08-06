@@ -3,6 +3,7 @@ package net.pneumono.soggy_shrines;
 import net.fabricmc.api.ModInitializer;
 
 import net.minecraft.util.Identifier;
+import net.pneumono.soggy_shrines.content.SoggyShrinesRegistry;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -14,6 +15,8 @@ public class SoggyShrines implements ModInitializer {
 	@Override
 	public void onInitialize() {
 		LOGGER.info("Initializing Soggy Shrines");
+
+		SoggyShrinesRegistry.registerSoggyShrinesContent();
 	}
 
 	public static Identifier id(String path) {
