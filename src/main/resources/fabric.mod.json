@@ -22,9 +22,6 @@
 		"client": [
 			"net.pneumono.soggy_shrines.SoggyShrinesClient"
 		],
-		"fabric-datagen": [
-			"net.pneumono.soggy_shrines.SoggyShrinesDataGenerator"
-		],
 		"modmenu": [
 			"net.pneumono.soggy_shrines.SoggyShrinesModMenu"
 		]
