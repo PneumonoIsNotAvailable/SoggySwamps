@@ -4,6 +4,7 @@ import net.fabricmc.api.ModInitializer;
 
 import net.minecraft.util.Identifier;
 import net.pneumono.soggy_swamps.content.SoggySwampsRegistry;
+import net.pneumono.soggy_swamps.worldgen.SoggySwampsWorldgen;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -17,6 +18,7 @@ public class SoggySwamps implements ModInitializer {
 		LOGGER.info("Initializing Soggy Swamps");
 
 		SoggySwampsRegistry.registerSoggySwampsContent();
+		SoggySwampsWorldgen.registerSoggySwampsWorldgen();
 	}
 
 	public static Identifier id(String path) {
