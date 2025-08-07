@@ -29,7 +29,7 @@ loom {
 	splitEnvironmentSourceSets()
 
 	mods {
-		"soggy_shrines" {
+		"soggy_swamps" {
 			sourceSet sourceSets.main
 			sourceSet sourceSets.client
 		}

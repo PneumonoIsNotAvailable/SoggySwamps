@@ -1,0 +1,14 @@
+{
+    "fallback": "minecraft:empty",
+    "elements": [
+        {
+            "weight": 1,
+            "element": {
+                "element_type": "minecraft:single_pool_element",
+                "location": "soggy_swamps:soggy_shrine/center_shrine",
+                "projection": "rigid",
+                "processors": "soggy_swamps:degrade"
+            }
+        }
+    ]
+}

@@ -1,0 +1,149 @@
+{
+    "elements": [
+        {
+            "weight": 1,
+            "element": {
+                "element_type": "minecraft:single_pool_element",
+                "location": "soggy_swamps:soggy_shrine/path/path_i_1",
+                "projection": "terrain_matching",
+                "processors": "soggy_swamps:degrade"
+            }
+        },
+        {
+            "weight": 1,
+            "element": {
+                "element_type": "minecraft:single_pool_element",
+                "location": "soggy_swamps:soggy_shrine/path/path_i_2",
+                "projection": "terrain_matching",
+                "processors": "soggy_swamps:degrade"
+            }
+        },
+        {
+            "weight": 1,
+            "element": {
+                "element_type": "minecraft:single_pool_element",
+                "location": "soggy_swamps:soggy_shrine/path/path_i_3",
+                "projection": "terrain_matching",
+                "processors": "soggy_swamps:degrade"
+            }
+        },
+        {
+            "weight": 1,
+            "element": {
+                "element_type": "minecraft:single_pool_element",
+                "location": "soggy_swamps:soggy_shrine/path/path_i_4",
+                "projection": "terrain_matching",
+                "processors": "soggy_swamps:degrade"
+            }
+        },
+        {
+            "weight": 1,
+            "element": {
+                "element_type": "minecraft:single_pool_element",
+                "location": "soggy_swamps:soggy_shrine/path/path_l_1",
+                "projection": "terrain_matching",
+                "processors": "soggy_swamps:degrade"
+            }
+        },
+        {
+            "weight": 1,
+            "element": {
+                "element_type": "minecraft:single_pool_element",
+                "location": "soggy_swamps:soggy_shrine/path/path_l_2",
+                "projection": "terrain_matching",
+                "processors": "soggy_swamps:degrade"
+            }
+        },
+        {
+            "weight": 1,
+            "element": {
+                "element_type": "minecraft:single_pool_element",
+                "location": "soggy_swamps:soggy_shrine/path/path_l_3",
+                "projection": "terrain_matching",
+                "processors": "soggy_swamps:degrade"
+            }
+        },
+        {
+            "weight": 1,
+            "element": {
+                "element_type": "minecraft:single_pool_element",
+                "location": "soggy_swamps:soggy_shrine/path/path_l_4",
+                "projection": "terrain_matching",
+                "processors": "soggy_swamps:degrade"
+            }
+        },
+        {
+            "weight": 1,
+            "element": {
+                "element_type": "minecraft:single_pool_element",
+                "location": "soggy_swamps:soggy_shrine/path/path_t_1",
+                "projection": "terrain_matching",
+                "processors": "soggy_swamps:degrade"
+            }
+        },
+        {
+            "weight": 1,
+            "element": {
+                "element_type": "minecraft:single_pool_element",
+                "location": "soggy_swamps:soggy_shrine/path/path_t_2",
+                "projection": "terrain_matching",
+                "processors": "soggy_swamps:degrade"
+            }
+        },
+        {
+            "weight": 1,
+            "element": {
+                "element_type": "minecraft:single_pool_element",
+                "location": "soggy_swamps:soggy_shrine/path/path_t_3",
+                "projection": "terrain_matching",
+                "processors": "soggy_swamps:degrade"
+            }
+        },
+        {
+            "weight": 1,
+            "element": {
+                "element_type": "minecraft:single_pool_element",
+                "location": "soggy_swamps:soggy_shrine/path/path_t_4",
+                "projection": "terrain_matching",
+                "processors": "soggy_swamps:degrade"
+            }
+        },
+        {
+            "weight": 1,
+            "element": {
+                "element_type": "minecraft:single_pool_element",
+                "location": "soggy_swamps:soggy_shrine/path/intersection_1",
+                "projection": "rigid",
+                "processors": "soggy_swamps:degrade"
+            }
+        },
+        {
+            "weight": 1,
+            "element": {
+                "element_type": "minecraft:single_pool_element",
+                "location": "soggy_swamps:soggy_shrine/path/intersection_2",
+                "projection": "rigid",
+                "processors": "soggy_swamps:degrade"
+            }
+        },
+        {
+            "weight": 1,
+            "element": {
+                "element_type": "minecraft:single_pool_element",
+                "location": "soggy_swamps:soggy_shrine/path/intersection_3",
+                "projection": "rigid",
+                "processors": "soggy_swamps:degrade"
+            }
+        },
+        {
+            "weight": 1,
+            "element": {
+                "element_type": "minecraft:single_pool_element",
+                "location": "soggy_swamps:soggy_shrine/path/intersection_4",
+                "projection": "rigid",
+                "processors": "soggy_swamps:degrade"
+            }
+        }
+    ],
+    "fallback": "minecraft:empty"
+}
