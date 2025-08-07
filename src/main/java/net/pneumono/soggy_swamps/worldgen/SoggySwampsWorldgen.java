@@ -4,10 +4,13 @@ import net.fabricmc.fabric.api.biome.v1.BiomeModifications;
 import net.fabricmc.fabric.api.biome.v1.BiomeSelectionContext;
 import net.fabricmc.fabric.api.biome.v1.BiomeSelectors;
 import net.fabricmc.fabric.api.biome.v1.ModificationPhase;
+import net.minecraft.registry.Registries;
+import net.minecraft.registry.Registry;
 import net.minecraft.registry.RegistryKey;
 import net.minecraft.registry.RegistryKeys;
 import net.minecraft.world.biome.BiomeKeys;
 import net.minecraft.world.gen.GenerationStep;
+import net.minecraft.world.gen.feature.Feature;
 import net.minecraft.world.gen.feature.PlacedFeature;
 import net.minecraft.world.gen.feature.VegetationPlacedFeatures;
 import net.pneumono.soggy_swamps.SoggySwamps;
@@ -15,6 +18,12 @@ import net.pneumono.soggy_swamps.SoggySwamps;
 import java.util.function.Predicate;
 
 public class SoggySwampsWorldgen {
+    public static final Feature<SwampRuinFeature.Config> SWAMP_RUIN = Registry.register(
+            Registries.FEATURE,
+            SoggySwamps.id("swamp_ruin"),
+            new SwampRuinFeature(SwampRuinFeature.Config.CODEC)
+    );
+
     public static void registerSoggySwampsWorldgen() {
         Predicate<BiomeSelectionContext> selector = BiomeSelectors.includeByKey(BiomeKeys.SWAMP);
 
@@ -40,6 +49,12 @@ public class SoggySwampsWorldgen {
                 selector,
                 GenerationStep.Feature.UNDERGROUND_ORES,
                 placedFeature("disk_mud_land")
+        );
+
+        BiomeModifications.addFeature(
+                selector,
+                GenerationStep.Feature.LOCAL_MODIFICATIONS,
+                placedFeature("swamp_ruin")
         );
     }
 

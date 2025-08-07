@@ -1,0 +1,85 @@
+{
+  "type": "soggy_swamps:swamp_ruin",
+  "config": {
+    "height": {
+      "type": "uniform",
+      "min_inclusive": 2,
+      "max_inclusive": 5
+    },
+    "width": {
+      "type": "uniform",
+      "min_inclusive": 2,
+      "max_inclusive": 3
+    },
+    "base_state": {
+      "type": "minecraft:weighted_state_provider",
+      "entries": [
+        {
+          "weight": 4,
+          "data": {
+            "Name": "minecraft:stone_bricks"
+          }
+        },
+        {
+          "weight": 4,
+          "data": {
+            "Name": "minecraft:mossy_stone_bricks"
+          }
+        },
+        {
+          "weight": 2,
+          "data": {
+            "Name": "minecraft:cracked_stone_bricks"
+          }
+        },
+        {
+          "weight": 1,
+          "data": {
+            "Name": "minecraft:air"
+          }
+        }
+      ]
+    },
+    "top_state": {
+      "type": "minecraft:weighted_state_provider",
+      "entries": [
+        {
+          "weight": 2,
+          "data": {
+            "Name": "minecraft:stone_bricks"
+          }
+        },
+        {
+          "weight": 2,
+          "data": {
+            "Name": "minecraft:mossy_stone_bricks"
+          }
+        },
+        {
+          "weight": 1,
+          "data": {
+            "Name": "minecraft:cracked_stone_bricks"
+          }
+        },
+        {
+          "weight": 3,
+          "data": {
+            "Name": "minecraft:stone_brick_slab"
+          }
+        },
+        {
+          "weight": 3,
+          "data": {
+            "Name": "minecraft:mossy_stone_brick_slab"
+          }
+        },
+        {
+          "weight": 6,
+          "data": {
+            "Name": "minecraft:air"
+          }
+        }
+      ]
+    }
+  }
+}
