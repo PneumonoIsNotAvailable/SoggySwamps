@@ -10,7 +10,6 @@ import net.minecraft.registry.RegistryKey;
 import net.minecraft.registry.RegistryKeys;
 import net.minecraft.world.biome.BiomeKeys;
 import net.minecraft.world.gen.GenerationStep;
-import net.minecraft.world.gen.feature.Feature;
 import net.minecraft.world.gen.feature.PlacedFeature;
 import net.minecraft.world.gen.feature.VegetationPlacedFeatures;
 import net.pneumono.soggy_swamps.SoggySwamps;
@@ -18,13 +17,20 @@ import net.pneumono.soggy_swamps.SoggySwamps;
 import java.util.function.Predicate;
 
 public class SoggySwampsWorldgen {
-    public static final Feature<SwampRuinFeature.Config> SWAMP_RUIN = Registry.register(
-            Registries.FEATURE,
-            SoggySwamps.id("swamp_ruin"),
-            new SwampRuinFeature(SwampRuinFeature.Config.CODEC)
-    );
-
     public static void registerSoggySwampsWorldgen() {
+        registerWorldgen();
+        modifySwamp();
+    }
+
+    private static void registerWorldgen() {
+        Registry.register(
+                Registries.FEATURE,
+                SoggySwamps.id("swamp_ruin"),
+                new SwampRuinFeature(SwampRuinFeature.Config.CODEC)
+        );
+    }
+
+    private static void modifySwamp() {
         Predicate<BiomeSelectionContext> selector = BiomeSelectors.includeByKey(BiomeKeys.SWAMP);
 
         BiomeModifications.create(SoggySwamps.id("trees")).add(
