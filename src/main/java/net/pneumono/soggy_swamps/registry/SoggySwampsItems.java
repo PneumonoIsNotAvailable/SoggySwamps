@@ -2,7 +2,6 @@ package net.pneumono.soggy_swamps.registry;
 
 import net.fabricmc.fabric.api.itemgroup.v1.FabricItemGroup;
 import net.minecraft.block.Block;
-import net.minecraft.entity.EntityType;
 import net.minecraft.item.*;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
@@ -48,12 +47,12 @@ public class SoggySwampsItems {
     public static final BlockItem SWAMP_OAK_BUTTON = registerBlockItem(SoggySwampsBlocks.SWAMP_OAK_BUTTON);
     public static final BoatItem SWAMP_OAK_BOAT = register(
             "swamp_oak_boat",
-            settings -> new BoatItem(EntityType.ACACIA_BOAT, settings),
+            settings -> new BoatItem(SoggySwampsEntities.SWAMP_OAK_BOAT, settings),
             new Item.Settings().maxCount(1)
     );
     public static final BoatItem SWAMP_OAK_CHEST_BOAT = register(
             "swamp_oak_chest_boat",
-            settings -> new BoatItem(EntityType.ACACIA_CHEST_BOAT, settings),
+            settings -> new BoatItem(SoggySwampsEntities.SWAMP_OAK_CHEST_BOAT, settings),
             new Item.Settings().maxCount(1)
     );
 
