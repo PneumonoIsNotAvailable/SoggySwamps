@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "building",
+  "group": "planks",
+  "ingredients": [
+    "#soggy_swamps:swamp_oak_logs"
+  ],
+  "result": {
+    "count": 4,
+    "id": "soggy_swamps:swamp_oak_planks"
+  }
+}

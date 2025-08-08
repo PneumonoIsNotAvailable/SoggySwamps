@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/fence_inventory",
+  "textures": {
+    "texture": "soggy_swamps:block/swamp_oak_planks"
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "soggy_swamps:block/swamp_oak_slab"
+    },
+    "type=double": {
+      "model": "soggy_swamps:block/swamp_oak_planks"
+    },
+    "type=top": {
+      "model": "soggy_swamps:block/swamp_oak_slab_top"
+    }
+  }
+}

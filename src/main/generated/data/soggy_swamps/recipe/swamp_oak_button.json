@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "redstone",
+  "group": "wooden_button",
+  "ingredients": [
+    "soggy_swamps:swamp_oak_planks"
+  ],
+  "result": {
+    "count": 1,
+    "id": "soggy_swamps:swamp_oak_button"
+  }
+}

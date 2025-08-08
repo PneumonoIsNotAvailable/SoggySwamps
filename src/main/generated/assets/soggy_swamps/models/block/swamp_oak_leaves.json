@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/leaves",
+  "textures": {
+    "all": "soggy_swamps:block/swamp_oak_leaves"
+  }
+}

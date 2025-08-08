@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/flower_pot_cross",
+  "textures": {
+    "plant": "soggy_swamps:block/swamp_oak_sapling"
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "powered=false": {
+      "model": "soggy_swamps:block/swamp_oak_pressure_plate"
+    },
+    "powered=true": {
+      "model": "soggy_swamps:block/swamp_oak_pressure_plate_down"
+    }
+  }
+}
