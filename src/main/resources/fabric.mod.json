@@ -22,6 +22,9 @@
 		"client": [
 			"net.pneumono.soggy_swamps.SoggySwampsClient"
 		],
+		"fabric-datagen": [
+			"net.pneumono.soggy_swamps.SoggySwampsDataGenerator"
+		],
 		"modmenu": [
 			"net.pneumono.soggy_swamps.SoggySwampsModMenu"
 		]
