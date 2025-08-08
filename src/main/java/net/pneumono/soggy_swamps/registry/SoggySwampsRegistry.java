@@ -1,4 +1,4 @@
-package net.pneumono.soggy_swamps.content;
+package net.pneumono.soggy_swamps.registry;
 
 import net.fabricmc.fabric.api.object.builder.v1.block.type.BlockSetTypeBuilder;
 import net.fabricmc.fabric.api.object.builder.v1.block.type.WoodTypeBuilder;

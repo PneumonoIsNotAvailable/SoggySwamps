@@ -7,8 +7,8 @@ import net.minecraft.data.tag.ProvidedTagBuilder;
 import net.minecraft.registry.RegistryWrapper;
 import net.minecraft.registry.tag.BlockTags;
 import net.minecraft.registry.tag.TagKey;
-import net.pneumono.soggy_swamps.content.SoggySwampsBlocks;
-import net.pneumono.soggy_swamps.content.SoggySwampsTags;
+import net.pneumono.soggy_swamps.registry.SoggySwampsBlocks;
+import net.pneumono.soggy_swamps.registry.SoggySwampsTags;
 
 import java.util.concurrent.CompletableFuture;
 

@@ -5,10 +5,10 @@ import net.fabricmc.fabric.api.datagen.v1.provider.FabricLanguageProvider;
 import net.minecraft.registry.RegistryWrapper;
 import net.pneumono.pneumonocore.datagen.PneumonoCoreTranslationBuilder;
 import net.pneumono.soggy_swamps.SoggySwamps;
-import net.pneumono.soggy_swamps.content.SoggySwampsBlocks;
-import net.pneumono.soggy_swamps.content.SoggySwampsEntities;
-import net.pneumono.soggy_swamps.content.SoggySwampsItems;
-import net.pneumono.soggy_swamps.content.SoggySwampsTags;
+import net.pneumono.soggy_swamps.registry.SoggySwampsBlocks;
+import net.pneumono.soggy_swamps.registry.SoggySwampsEntities;
+import net.pneumono.soggy_swamps.registry.SoggySwampsItems;
+import net.pneumono.soggy_swamps.registry.SoggySwampsTags;
 
 import java.util.concurrent.CompletableFuture;
 

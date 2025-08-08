@@ -1,4 +1,4 @@
-package net.pneumono.soggy_swamps.content;
+package net.pneumono.soggy_swamps.registry;
 
 import net.fabricmc.fabric.api.registry.FlammableBlockRegistry;
 import net.fabricmc.fabric.api.registry.StrippableBlockRegistry;

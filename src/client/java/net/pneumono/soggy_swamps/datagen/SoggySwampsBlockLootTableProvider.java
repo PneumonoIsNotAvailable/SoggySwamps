@@ -3,7 +3,7 @@ package net.pneumono.soggy_swamps.datagen;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricBlockLootTableProvider;
 import net.minecraft.registry.RegistryWrapper;
-import net.pneumono.soggy_swamps.content.SoggySwampsBlocks;
+import net.pneumono.soggy_swamps.registry.SoggySwampsBlocks;
 
 import java.util.concurrent.CompletableFuture;
 

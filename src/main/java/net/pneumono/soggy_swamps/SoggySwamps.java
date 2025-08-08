@@ -3,7 +3,7 @@ package net.pneumono.soggy_swamps;
 import net.fabricmc.api.ModInitializer;
 
 import net.minecraft.util.Identifier;
-import net.pneumono.soggy_swamps.content.SoggySwampsRegistry;
+import net.pneumono.soggy_swamps.registry.SoggySwampsRegistry;
 import net.pneumono.soggy_swamps.worldgen.SoggySwampsWorldgen;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

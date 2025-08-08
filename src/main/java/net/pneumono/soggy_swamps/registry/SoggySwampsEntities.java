@@ -1,4 +1,4 @@
-package net.pneumono.soggy_swamps.content;
+package net.pneumono.soggy_swamps.registry;
 
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityType;

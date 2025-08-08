@@ -1,4 +1,4 @@
-package net.pneumono.soggy_swamps.content;
+package net.pneumono.soggy_swamps.registry;
 
 import net.fabricmc.fabric.api.itemgroup.v1.FabricItemGroup;
 import net.minecraft.block.Block;

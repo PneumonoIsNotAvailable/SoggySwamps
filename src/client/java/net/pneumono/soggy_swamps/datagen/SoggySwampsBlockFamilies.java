@@ -2,7 +2,7 @@ package net.pneumono.soggy_swamps.datagen;
 
 import net.minecraft.data.family.BlockFamily;
 import net.pneumono.pneumonocore.datagen.ModdedBlockFamilies;
-import net.pneumono.soggy_swamps.content.SoggySwampsBlocks;
+import net.pneumono.soggy_swamps.registry.SoggySwampsBlocks;
 
 public class SoggySwampsBlockFamilies extends ModdedBlockFamilies {
     public static final BlockFamily SWAMP_OAK = new BlockFamily.Builder(SoggySwampsBlocks.SWAMP_OAK_PLANKS)

@@ -10,8 +10,8 @@ import net.minecraft.client.render.BlockRenderLayer;
 import net.minecraft.client.render.entity.BoatEntityRenderer;
 import net.minecraft.client.render.entity.model.BoatEntityModel;
 import net.minecraft.client.render.entity.model.EntityModelLayer;
-import net.pneumono.soggy_swamps.content.SoggySwampsBlocks;
-import net.pneumono.soggy_swamps.content.SoggySwampsEntities;
+import net.pneumono.soggy_swamps.registry.SoggySwampsBlocks;
+import net.pneumono.soggy_swamps.registry.SoggySwampsEntities;
 
 public class SoggySwampsClient implements ClientModInitializer {
 	public static final EntityModelLayer SWAMP_OAK_BOAT = new EntityModelLayer(

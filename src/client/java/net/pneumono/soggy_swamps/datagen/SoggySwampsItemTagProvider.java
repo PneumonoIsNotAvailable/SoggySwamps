@@ -7,8 +7,8 @@ import net.minecraft.item.Item;
 import net.minecraft.registry.RegistryWrapper;
 import net.minecraft.registry.tag.ItemTags;
 import net.minecraft.registry.tag.TagKey;
-import net.pneumono.soggy_swamps.content.SoggySwampsItems;
-import net.pneumono.soggy_swamps.content.SoggySwampsTags;
+import net.pneumono.soggy_swamps.registry.SoggySwampsItems;
+import net.pneumono.soggy_swamps.registry.SoggySwampsTags;
 
 import java.util.concurrent.CompletableFuture;
 

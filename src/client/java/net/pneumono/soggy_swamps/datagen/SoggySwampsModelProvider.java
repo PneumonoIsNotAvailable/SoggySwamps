@@ -6,8 +6,8 @@ import net.minecraft.client.data.BlockStateModelGenerator;
 import net.minecraft.client.data.ItemModelGenerator;
 import net.minecraft.client.data.Models;
 import net.minecraft.client.data.TexturedModel;
-import net.pneumono.soggy_swamps.content.SoggySwampsBlocks;
-import net.pneumono.soggy_swamps.content.SoggySwampsItems;
+import net.pneumono.soggy_swamps.registry.SoggySwampsBlocks;
+import net.pneumono.soggy_swamps.registry.SoggySwampsItems;
 
 public class SoggySwampsModelProvider extends FabricModelProvider {
     public SoggySwampsModelProvider(FabricDataOutput output) {

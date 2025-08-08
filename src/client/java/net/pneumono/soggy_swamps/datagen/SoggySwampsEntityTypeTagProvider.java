@@ -4,7 +4,7 @@ import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricTagProvider;
 import net.minecraft.registry.RegistryWrapper;
 import net.minecraft.registry.tag.EntityTypeTags;
-import net.pneumono.soggy_swamps.content.SoggySwampsEntities;
+import net.pneumono.soggy_swamps.registry.SoggySwampsEntities;
 
 import java.util.concurrent.CompletableFuture;
 
