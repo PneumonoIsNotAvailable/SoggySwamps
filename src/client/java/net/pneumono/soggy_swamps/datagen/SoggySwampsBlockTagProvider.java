@@ -3,6 +3,7 @@ package net.pneumono.soggy_swamps.datagen;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricTagProvider;
 import net.minecraft.block.Block;
+import net.minecraft.block.Blocks;
 import net.minecraft.data.tag.ProvidedTagBuilder;
 import net.minecraft.registry.RegistryWrapper;
 import net.minecraft.registry.tag.BlockTags;
@@ -24,6 +25,11 @@ public class SoggySwampsBlockTagProvider extends FabricTagProvider.BlockTagProvi
                 SoggySwampsBlocks.SWAMP_OAK_WOOD,
                 SoggySwampsBlocks.STRIPPED_SWAMP_OAK_LOG,
                 SoggySwampsBlocks.STRIPPED_SWAMP_OAK_WOOD
+        );
+        tag(SoggySwampsTags.BLOCK_ALLOWS_SWAMP_RUINS).add(
+                Blocks.GRASS_BLOCK,
+                Blocks.DIRT,
+                Blocks.MUD
         );
 
         tag(BlockTags.LOGS_THAT_BURN).forceAddTag(SoggySwampsTags.BLOCK_SWAMP_OAK_LOGS);
