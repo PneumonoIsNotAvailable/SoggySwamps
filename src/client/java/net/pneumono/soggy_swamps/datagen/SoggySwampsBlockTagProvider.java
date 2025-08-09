@@ -2,6 +2,7 @@ package net.pneumono.soggy_swamps.datagen;
 
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricTagProvider;
+import net.fabricmc.fabric.api.tag.convention.v2.ConventionalBlockTags;
 import net.minecraft.block.Block;
 import net.minecraft.block.Blocks;
 import net.minecraft.data.tag.ProvidedTagBuilder;
@@ -50,6 +51,11 @@ public class SoggySwampsBlockTagProvider extends FabricTagProvider.BlockTagProvi
         tag(BlockTags.FENCE_GATES).add(SoggySwampsBlocks.SWAMP_OAK_FENCE_GATE);
         tag(BlockTags.WOODEN_PRESSURE_PLATES).add(SoggySwampsBlocks.SWAMP_OAK_PRESSURE_PLATE);
         tag(BlockTags.WOODEN_BUTTONS).add(SoggySwampsBlocks.SWAMP_OAK_BUTTON);
+
+        tag(ConventionalBlockTags.WOODEN_FENCES).add(SoggySwampsBlocks.SWAMP_OAK_FENCE);
+        tag(ConventionalBlockTags.WOODEN_FENCE_GATES).add(SoggySwampsBlocks.SWAMP_OAK_FENCE_GATE);
+        tag(ConventionalBlockTags.STRIPPED_LOGS).add(SoggySwampsBlocks.STRIPPED_SWAMP_OAK_LOG);
+        tag(ConventionalBlockTags.STRIPPED_WOODS).add(SoggySwampsBlocks.STRIPPED_SWAMP_OAK_WOOD);
     }
 
     private ProvidedTagBuilder<Block, Block> tag(TagKey<Block> tag) {

@@ -2,6 +2,7 @@ package net.pneumono.soggy_swamps.datagen;
 
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricTagProvider;
+import net.fabricmc.fabric.api.tag.convention.v2.ConventionalEntityTypeTags;
 import net.minecraft.registry.RegistryWrapper;
 import net.minecraft.registry.tag.EntityTypeTags;
 import net.pneumono.soggy_swamps.registry.SoggySwampsEntities;
@@ -23,6 +24,10 @@ public class SoggySwampsEntityTypeTagProvider extends FabricTagProvider.EntityTy
         );
         valueLookupBuilder(EntityTypeTags.BOAT).add(
                 SoggySwampsEntities.SWAMP_OAK_BOAT
+        );
+
+        valueLookupBuilder(ConventionalEntityTypeTags.BOATS).add(
+                SoggySwampsEntities.SWAMP_OAK_CHEST_BOAT
         );
     }
 }

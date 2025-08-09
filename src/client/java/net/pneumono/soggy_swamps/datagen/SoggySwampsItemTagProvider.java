@@ -2,6 +2,7 @@ package net.pneumono.soggy_swamps.datagen;
 
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricTagProvider;
+import net.fabricmc.fabric.api.tag.convention.v2.ConventionalItemTags;
 import net.minecraft.data.tag.ProvidedTagBuilder;
 import net.minecraft.item.Item;
 import net.minecraft.registry.RegistryWrapper;
@@ -45,6 +46,12 @@ public class SoggySwampsItemTagProvider extends FabricTagProvider.ItemTagProvide
         tag(ItemTags.WOODEN_BUTTONS).add(SoggySwampsItems.SWAMP_OAK_BUTTON);
         tag(ItemTags.BOATS).add(SoggySwampsItems.SWAMP_OAK_BOAT);
         tag(ItemTags.CHEST_BOATS).add(SoggySwampsItems.SWAMP_OAK_CHEST_BOAT);
+
+        tag(ConventionalItemTags.FENCES).add(SoggySwampsItems.SWAMP_OAK_FENCE);
+        tag(ConventionalItemTags.FENCE_GATES).add(SoggySwampsItems.SWAMP_OAK_FENCE_GATE);
+        tag(ConventionalItemTags.FOOD_POISONING_FOODS).add(SoggySwampsItems.SWAMP_SPIDER_EYE);
+        tag(ConventionalItemTags.STRIPPED_LOGS).add(SoggySwampsItems.STRIPPED_SWAMP_OAK_LOG);
+        tag(ConventionalItemTags.STRIPPED_WOODS).add(SoggySwampsItems.STRIPPED_SWAMP_OAK_WOOD);
     }
 
     private ProvidedTagBuilder<Item, Item> tag(TagKey<Item> tag) {
