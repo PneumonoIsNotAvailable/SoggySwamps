@@ -2,7 +2,12 @@ package net.pneumono.soggy_swamps.registry;
 
 import net.fabricmc.fabric.api.itemgroup.v1.FabricItemGroup;
 import net.minecraft.block.Block;
+import net.minecraft.component.type.ConsumableComponents;
+import net.minecraft.component.type.FoodComponent;
+import net.minecraft.entity.effect.StatusEffectInstance;
+import net.minecraft.entity.effect.StatusEffects;
 import net.minecraft.item.*;
+import net.minecraft.item.consume.ApplyEffectsConsumeEffect;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
 import net.minecraft.registry.RegistryKey;
@@ -10,6 +15,7 @@ import net.minecraft.registry.RegistryKeys;
 import net.minecraft.text.Text;
 import net.pneumono.soggy_swamps.SoggySwamps;
 
+import java.util.List;
 import java.util.function.Function;
 import java.util.stream.Stream;
 
@@ -20,6 +26,19 @@ public class SoggySwampsItems {
             "swamp_spider_spawn_egg",
             settings -> new SpawnEggItem(SoggySwampsEntities.SWAMP_SPIDER, settings),
             new Item.Settings()
+    );
+    public static final Item SWAMP_SPIDER_EYE = register(
+            "swamp_spider_eye",
+            Item::new,
+            new Item.Settings().food(
+                    new FoodComponent.Builder().nutrition(3).saturationModifier(0.8F).build(),
+                    ConsumableComponents.food()
+                            .consumeEffect(new ApplyEffectsConsumeEffect(List.of(
+                                    new StatusEffectInstance(SoggySwampsRegistry.VENOM, 160, 0),
+                                    new StatusEffectInstance(StatusEffects.POISON, 100, 0))
+                            ))
+                            .build()
+            )
     );
 
     public static final BlockItem SWAMP_OAK_SAPLING = registerBlockItem(SoggySwampsBlocks.SWAMP_OAK_SAPLING);
@@ -83,6 +102,7 @@ public class SoggySwampsItems {
                 .entries((displayContext, entries) -> {
                     entries.addAll(Stream.of(
                             SWAMP_SPIDER_SPAWN_EGG,
+                            SWAMP_SPIDER_EYE,
                             SWAMP_OAK_SAPLING,
                             SWAMP_OAK_LEAVES,
                             SWAMP_OAK_LOG,
