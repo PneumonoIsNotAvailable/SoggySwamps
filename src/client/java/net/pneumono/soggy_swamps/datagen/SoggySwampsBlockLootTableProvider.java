@@ -18,7 +18,7 @@ public class SoggySwampsBlockLootTableProvider extends FabricBlockLootTableProvi
         addPottedPlantDrops(SoggySwampsBlocks.POTTED_SWAMP_OAK_SAPLING);
         addDrop(
                 SoggySwampsBlocks.SWAMP_OAK_LEAVES,
-                block -> leavesDrops(block, SoggySwampsBlocks.SWAMP_OAK_SAPLING, SAPLING_DROP_CHANCE)
+                block -> oakLeavesDrops(block, SoggySwampsBlocks.SWAMP_OAK_SAPLING, SAPLING_DROP_CHANCE)
         );
         addDrop(SoggySwampsBlocks.SWAMP_OAK_LOG);
         addDrop(SoggySwampsBlocks.SWAMP_OAK_WOOD);
