@@ -4,6 +4,7 @@ import net.fabricmc.fabric.api.biome.v1.BiomeModifications;
 import net.fabricmc.fabric.api.biome.v1.BiomeSelectionContext;
 import net.fabricmc.fabric.api.biome.v1.BiomeSelectors;
 import net.fabricmc.fabric.api.biome.v1.ModificationPhase;
+import net.minecraft.entity.SpawnGroup;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
 import net.minecraft.registry.RegistryKey;
@@ -14,7 +15,9 @@ import net.minecraft.world.gen.feature.ConfiguredFeature;
 import net.minecraft.world.gen.feature.PlacedFeature;
 import net.minecraft.world.gen.feature.VegetationPlacedFeatures;
 import net.pneumono.soggy_swamps.SoggySwamps;
+import net.pneumono.soggy_swamps.registry.SoggySwampsEntities;
 
+import java.util.List;
 import java.util.function.Predicate;
 
 public class SoggySwampsWorldgen {
@@ -34,11 +37,19 @@ public class SoggySwampsWorldgen {
     }
 
     private static void modifySwamp() {
-        Predicate<BiomeSelectionContext> selector = BiomeSelectors.includeByKey(BiomeKeys.SWAMP);
+        Predicate<BiomeSelectionContext> swamp = BiomeSelectors.includeByKey(BiomeKeys.SWAMP);
+        Predicate<BiomeSelectionContext> swampAndMangrove = BiomeSelectors.includeByKey(List.of(BiomeKeys.SWAMP, BiomeKeys.MANGROVE_SWAMP));
+
+        BiomeModifications.addSpawn(
+                swampAndMangrove,
+                SpawnGroup.MONSTER,
+                SoggySwampsEntities.SWAMP_SPIDER,
+                100, 4, 5
+        );
 
         BiomeModifications.create(SoggySwamps.id("trees")).add(
                 ModificationPhase.REPLACEMENTS,
-                selector,
+                swamp,
                 context -> {
                     context.getGenerationSettings().removeFeature(VegetationPlacedFeatures.TREES_SWAMP);
                     context.getGenerationSettings().addFeature(
@@ -49,19 +60,19 @@ public class SoggySwampsWorldgen {
         );
 
         BiomeModifications.addFeature(
-                selector,
+                swamp,
                 GenerationStep.Feature.UNDERGROUND_ORES,
                 placedFeature("disk_mud")
         );
 
         BiomeModifications.addFeature(
-                selector,
+                swamp,
                 GenerationStep.Feature.UNDERGROUND_ORES,
                 placedFeature("disk_mud_land")
         );
 
         BiomeModifications.addFeature(
-                selector,
+                swampAndMangrove,
                 GenerationStep.Feature.LOCAL_MODIFICATIONS,
                 placedFeature("swamp_ruin")
         );

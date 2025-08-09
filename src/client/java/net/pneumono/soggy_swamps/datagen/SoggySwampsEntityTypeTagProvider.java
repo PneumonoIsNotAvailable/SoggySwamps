@@ -15,6 +15,12 @@ public class SoggySwampsEntityTypeTagProvider extends FabricTagProvider.EntityTy
 
     @Override
     protected void configure(RegistryWrapper.WrapperLookup wrapperLookup) {
+        valueLookupBuilder(EntityTypeTags.ARTHROPOD).add(
+                SoggySwampsEntities.SWAMP_SPIDER
+        );
+        valueLookupBuilder(EntityTypeTags.NO_ANGER_FROM_WIND_CHARGE).add(
+                SoggySwampsEntities.SWAMP_SPIDER
+        );
         valueLookupBuilder(EntityTypeTags.BOAT).add(
                 SoggySwampsEntities.SWAMP_OAK_BOAT
         );

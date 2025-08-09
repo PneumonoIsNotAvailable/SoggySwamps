@@ -10,10 +10,15 @@ import net.minecraft.client.render.BlockRenderLayer;
 import net.minecraft.client.render.entity.BoatEntityRenderer;
 import net.minecraft.client.render.entity.model.BoatEntityModel;
 import net.minecraft.client.render.entity.model.EntityModelLayer;
+import net.minecraft.client.render.entity.model.SpiderEntityModel;
+import net.pneumono.soggy_swamps.content.SwampSpiderEntityRenderer;
 import net.pneumono.soggy_swamps.registry.SoggySwampsBlocks;
 import net.pneumono.soggy_swamps.registry.SoggySwampsEntities;
 
 public class SoggySwampsClient implements ClientModInitializer {
+	public static final EntityModelLayer SWAMP_SPIDER = new EntityModelLayer(
+			SoggySwamps.id("swamp_spider"), "main"
+	);
 	public static final EntityModelLayer SWAMP_OAK_BOAT = new EntityModelLayer(
 			SoggySwamps.id("boat/swamp_oak"), "main"
 	);
@@ -34,9 +39,14 @@ public class SoggySwampsClient implements ClientModInitializer {
 				SoggySwampsBlocks.SWAMP_OAK_LEAVES
 		);
 
+		EntityModelLayerRegistry.registerModelLayer(SWAMP_SPIDER, SpiderEntityModel::getTexturedModelData);
 		EntityModelLayerRegistry.registerModelLayer(SWAMP_OAK_BOAT, BoatEntityModel::getTexturedModelData);
 		EntityModelLayerRegistry.registerModelLayer(SWAMP_OAK_CHEST_BOAT, BoatEntityModel::getChestTexturedModelData);
 
+		EntityRendererRegistry.register(
+				SoggySwampsEntities.SWAMP_SPIDER,
+				SwampSpiderEntityRenderer::new
+		);
 		EntityRendererRegistry.register(
 				SoggySwampsEntities.SWAMP_OAK_BOAT,
 				context -> new BoatEntityRenderer(context, SWAMP_OAK_BOAT)
