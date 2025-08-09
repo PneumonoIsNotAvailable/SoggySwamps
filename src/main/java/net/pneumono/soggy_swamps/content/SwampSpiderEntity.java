@@ -12,6 +12,7 @@ import net.minecraft.world.Difficulty;
 import net.minecraft.world.LocalDifficulty;
 import net.minecraft.world.ServerWorldAccess;
 import net.minecraft.world.World;
+import net.pneumono.soggy_swamps.registry.SoggySwampsRegistry;
 import org.jetbrains.annotations.Nullable;
 
 public class SwampSpiderEntity extends SpiderEntity {
@@ -40,7 +41,7 @@ public class SwampSpiderEntity extends SpiderEntity {
 
             if (time > 0) {
                 living.addStatusEffect(new StatusEffectInstance(StatusEffects.SLOWNESS, time * 20, 1), this);
-                living.addStatusEffect(new StatusEffectInstance(StatusEffects.POISON, time * 20, 0), this);
+                living.addStatusEffect(new StatusEffectInstance(SoggySwampsRegistry.VENOM, time * 30, 0), this);
             }
         }
 
