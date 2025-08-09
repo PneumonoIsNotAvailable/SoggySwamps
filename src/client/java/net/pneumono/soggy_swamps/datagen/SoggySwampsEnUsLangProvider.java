@@ -5,10 +5,7 @@ import net.fabricmc.fabric.api.datagen.v1.provider.FabricLanguageProvider;
 import net.minecraft.registry.RegistryWrapper;
 import net.pneumono.pneumonocore.datagen.PneumonoCoreTranslationBuilder;
 import net.pneumono.soggy_swamps.SoggySwamps;
-import net.pneumono.soggy_swamps.registry.SoggySwampsBlocks;
-import net.pneumono.soggy_swamps.registry.SoggySwampsEntities;
-import net.pneumono.soggy_swamps.registry.SoggySwampsItems;
-import net.pneumono.soggy_swamps.registry.SoggySwampsTags;
+import net.pneumono.soggy_swamps.registry.*;
 
 import java.util.concurrent.CompletableFuture;
 
@@ -47,6 +44,8 @@ public class SoggySwampsEnUsLangProvider extends FabricLanguageProvider {
         builder.add(SoggySwampsEntities.SWAMP_SPIDER, "Swamp Spider");
         builder.add(SoggySwampsEntities.SWAMP_OAK_BOAT, "Swamp Oak Boat");
         builder.add(SoggySwampsEntities.SWAMP_OAK_CHEST_BOAT, "Swamp Oak Chest Boat");
+
+        builder.add(SoggySwampsRegistry.VENOM.value(), "Venom");
 
         builder.add(SoggySwampsTags.ITEM_SWAMP_OAK_LOGS, "Swamp Oak Logs");
         builder.add(SoggySwampsTags.BLOCK_SWAMP_OAK_LOGS, "Swamp Oak Logs");

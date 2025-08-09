@@ -4,9 +4,21 @@ import net.fabricmc.fabric.api.object.builder.v1.block.type.BlockSetTypeBuilder;
 import net.fabricmc.fabric.api.object.builder.v1.block.type.WoodTypeBuilder;
 import net.minecraft.block.BlockSetType;
 import net.minecraft.block.WoodType;
+import net.minecraft.entity.effect.StatusEffect;
+import net.minecraft.entity.effect.StatusEffectCategory;
+import net.minecraft.registry.Registries;
+import net.minecraft.registry.Registry;
+import net.minecraft.registry.entry.RegistryEntry;
 import net.pneumono.soggy_swamps.SoggySwamps;
+import net.pneumono.soggy_swamps.content.VenomStatusEffect;
 
 public class SoggySwampsRegistry {
+    public static RegistryEntry<StatusEffect> VENOM = Registry.registerReference(
+            Registries.STATUS_EFFECT,
+            SoggySwamps.id("venom"),
+            new VenomStatusEffect(StatusEffectCategory.HARMFUL, 0xA5AF42)
+    );
+
     public static final BlockSetType SWAMP_OAK_BLOCK_SET_TYPE = BlockSetTypeBuilder
             .copyOf(BlockSetType.OAK)
             .register(SoggySwamps.id("swamp_oak"));
