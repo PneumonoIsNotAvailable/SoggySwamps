@@ -43,6 +43,7 @@ public class SoggySwampsEnUsLangProvider extends FabricLanguageProvider {
         builder.add(SoggySwampsItems.SWAMP_OAK_BOAT, "Swamp Oak Boat");
         builder.add(SoggySwampsItems.SWAMP_OAK_CHEST_BOAT, "Swamp Oak Chest Boat");
 
+        builder.add(SoggySwampsEntities.SWAMP_SPIDER, "Swamp Spider");
         builder.add(SoggySwampsEntities.SWAMP_OAK_BOAT, "Swamp Oak Boat");
         builder.add(SoggySwampsEntities.SWAMP_OAK_CHEST_BOAT, "Swamp Oak Chest Boat");
 
