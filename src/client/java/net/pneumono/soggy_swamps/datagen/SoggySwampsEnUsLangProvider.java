@@ -55,7 +55,7 @@ public class SoggySwampsEnUsLangProvider extends FabricLanguageProvider {
         builder.add(SoggySwampsTags.ITEM_SWAMP_OAK_LOGS, "Swamp Oak Logs");
         builder.add(SoggySwampsTags.BLOCK_SWAMP_OAK_LOGS, "Swamp Oak Logs");
 
-        builder.addItemGroup(SoggySwampsItems.ITEM_GROUP, "Soggy Swamps Items");
+        builder.addItemGroup(SoggySwampsItemGroups.ITEM_GROUP, "Soggy Swamps Items");
         builder.addConfigScreenTitle("Soggy Swamps Configs");
 
         builder.addModMenuTexts(

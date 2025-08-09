@@ -50,6 +50,7 @@ public class SoggySwampsRegistry {
         SoggySwampsBlocks.registerSoggySwampsBlocks();
         SoggySwampsItems.registerSoggySwampsItems();
         SoggySwampsEntities.registerSoggySwampsEntities();
+        SoggySwampsItemGroups.registerItemGroups();
 
         FabricBrewingRecipeRegistryBuilder.BUILD.register(builder -> {
             builder.registerRecipes(SoggySwampsItems.SWAMP_SPIDER_EYE, VENOM_POTION);

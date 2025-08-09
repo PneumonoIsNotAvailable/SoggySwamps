@@ -1,10 +1,8 @@
 package net.pneumono.soggy_swamps.registry;
 
-import net.fabricmc.fabric.api.itemgroup.v1.FabricItemGroup;
 import net.minecraft.block.Block;
 import net.minecraft.component.type.ConsumableComponents;
 import net.minecraft.component.type.FoodComponent;
-import net.minecraft.component.type.PotionContentsComponent;
 import net.minecraft.entity.effect.StatusEffectInstance;
 import net.minecraft.entity.effect.StatusEffects;
 import net.minecraft.item.*;
@@ -13,16 +11,12 @@ import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
 import net.minecraft.registry.RegistryKey;
 import net.minecraft.registry.RegistryKeys;
-import net.minecraft.text.Text;
 import net.pneumono.soggy_swamps.SoggySwamps;
 
 import java.util.List;
 import java.util.function.Function;
-import java.util.stream.Stream;
 
 public class SoggySwampsItems {
-    public static final RegistryKey<ItemGroup> ITEM_GROUP = RegistryKey.of(RegistryKeys.ITEM_GROUP, SoggySwamps.id("soggy_swamps"));
-
     public static final SpawnEggItem SWAMP_SPIDER_SPAWN_EGG = register(
             "swamp_spider_spawn_egg",
             settings -> new SpawnEggItem(SoggySwampsEntities.SWAMP_SPIDER, settings),
@@ -97,44 +91,6 @@ public class SoggySwampsItems {
     }
 
     public static void registerSoggySwampsItems() {
-        Registry.register(Registries.ITEM_GROUP, ITEM_GROUP, FabricItemGroup.builder()
-                .icon(SWAMP_OAK_SAPLING::getDefaultStack)
-                .displayName(Text.translatable("itemGroup.soggy_swamps.soggy_swamps"))
-                .entries((displayContext, entries) -> {
-                    entries.addAll(Stream.of(
-                            SWAMP_SPIDER_SPAWN_EGG,
-                            SWAMP_SPIDER_EYE,
-                            SWAMP_OAK_SAPLING,
-                            SWAMP_OAK_LEAVES,
-                            SWAMP_OAK_LOG,
-                            SWAMP_OAK_WOOD,
-                            STRIPPED_SWAMP_OAK_LOG,
-                            STRIPPED_SWAMP_OAK_WOOD,
-                            SWAMP_OAK_PLANKS,
-                            SWAMP_OAK_STAIRS,
-                            SWAMP_OAK_SLAB,
-                            SWAMP_OAK_SIGN,
-                            SWAMP_OAK_HANGING_SIGN,
-                            SWAMP_OAK_DOOR,
-                            SWAMP_OAK_TRAPDOOR,
-                            SWAMP_OAK_FENCE,
-                            SWAMP_OAK_FENCE_GATE,
-                            SWAMP_OAK_PRESSURE_PLATE,
-                            SWAMP_OAK_BUTTON,
-                            SWAMP_OAK_BOAT,
-                            SWAMP_OAK_CHEST_BOAT
-                    ).map(Item::getDefaultStack).toList());
-                    entries.add(PotionContentsComponent.createStack(Items.POTION, SoggySwampsRegistry.VENOM_POTION));
-                    entries.add(PotionContentsComponent.createStack(Items.POTION, SoggySwampsRegistry.LONG_VENOM_POTION));
-                    entries.add(PotionContentsComponent.createStack(Items.SPLASH_POTION, SoggySwampsRegistry.LONG_VENOM_POTION));
-                    entries.add(PotionContentsComponent.createStack(Items.SPLASH_POTION, SoggySwampsRegistry.VENOM_POTION));
-                    entries.add(PotionContentsComponent.createStack(Items.LINGERING_POTION, SoggySwampsRegistry.VENOM_POTION));
-                    entries.add(PotionContentsComponent.createStack(Items.LINGERING_POTION, SoggySwampsRegistry.LONG_VENOM_POTION));
-                    entries.add(PotionContentsComponent.createStack(Items.TIPPED_ARROW, SoggySwampsRegistry.VENOM_POTION));
-                    entries.add(PotionContentsComponent.createStack(Items.TIPPED_ARROW, SoggySwampsRegistry.LONG_VENOM_POTION));
 
-                })
-                .build()
-        );
     }
 }
