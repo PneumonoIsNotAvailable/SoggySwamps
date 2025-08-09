@@ -1,0 +1,17 @@
+{
+    "feature": "soggy_swamps:fallen_swamp_oak_tree",
+    "placement": [
+        {
+            "type": "minecraft:block_predicate_filter",
+            "predicate": {
+                "type": "minecraft:would_survive",
+                "state": {
+                    "Name": "soggy_swamps:swamp_oak_sapling",
+                    "Properties": {
+                        "stage": "0"
+                    }
+                }
+            }
+        }
+    ]
+}

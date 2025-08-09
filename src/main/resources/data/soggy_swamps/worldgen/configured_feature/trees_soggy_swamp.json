@@ -9,7 +9,7 @@
             },
             {
                 "chance": 0.1,
-                "feature": "minecraft:fallen_oak_tree"
+                "feature": "soggy_swamps:fallen_swamp_oak_tree"
             }
         ]
     }

@@ -1,5 +1,5 @@
 {
-  "feature": "minecraft:swamp_oak",
+  "feature": "soggy_swamps:swamp_oak",
   "placement": [
     {
       "type": "minecraft:surface_water_depth_filter",
@@ -10,7 +10,7 @@
       "predicate": {
         "type": "minecraft:would_survive",
         "state": {
-          "Name": "minecraft:oak_sapling",
+          "Name": "soggy_swamps:swamp_oak_sapling",
           "Properties": {
             "stage": "0"
           }
