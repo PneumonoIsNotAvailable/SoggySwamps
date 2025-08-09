@@ -11,8 +11,8 @@ import net.minecraft.registry.Registry;
 import net.minecraft.registry.RegistryKey;
 import net.minecraft.registry.RegistryKeys;
 import net.minecraft.sound.BlockSoundGroup;
-import net.minecraft.world.gen.feature.TreeConfiguredFeatures;
 import net.pneumono.soggy_swamps.SoggySwamps;
+import net.pneumono.soggy_swamps.worldgen.SoggySwampsWorldgen;
 
 import java.util.Optional;
 import java.util.function.Function;
@@ -24,7 +24,7 @@ public class SoggySwampsBlocks {
                     new SaplingGenerator(
                             "swamp_oak",
                             Optional.empty(),
-                            Optional.of(TreeConfiguredFeatures.SWAMP_OAK),
+                            Optional.of(SoggySwampsWorldgen.SWAMP_OAK),
                             Optional.empty()
                     ),
                     settings

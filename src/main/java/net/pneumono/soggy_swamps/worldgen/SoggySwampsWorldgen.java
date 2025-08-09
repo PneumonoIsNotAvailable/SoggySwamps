@@ -10,6 +10,7 @@ import net.minecraft.registry.RegistryKey;
 import net.minecraft.registry.RegistryKeys;
 import net.minecraft.world.biome.BiomeKeys;
 import net.minecraft.world.gen.GenerationStep;
+import net.minecraft.world.gen.feature.ConfiguredFeature;
 import net.minecraft.world.gen.feature.PlacedFeature;
 import net.minecraft.world.gen.feature.VegetationPlacedFeatures;
 import net.pneumono.soggy_swamps.SoggySwamps;
@@ -17,6 +18,8 @@ import net.pneumono.soggy_swamps.SoggySwamps;
 import java.util.function.Predicate;
 
 public class SoggySwampsWorldgen {
+    public static final RegistryKey<ConfiguredFeature<?, ?>> SWAMP_OAK = RegistryKey.of(RegistryKeys.CONFIGURED_FEATURE, SoggySwamps.id("swamp_oak"));
+
     public static void registerSoggySwampsWorldgen() {
         registerWorldgen();
         modifySwamp();
