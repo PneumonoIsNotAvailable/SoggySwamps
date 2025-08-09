@@ -41,6 +41,9 @@ public class SoggySwampsEnUsLangProvider extends FabricLanguageProvider {
         builder.add(SoggySwampsItems.SWAMP_SPIDER_EYE, "Swamp Spider Eye");
         builder.add(SoggySwampsItems.SWAMP_OAK_BOAT, "Swamp Oak Boat");
         builder.add(SoggySwampsItems.SWAMP_OAK_CHEST_BOAT, "Swamp Oak Chest Boat");
+        builder.add("item.minecraft.potion.effect.venom", "Potion of Venom");
+        builder.add("item.minecraft.splash_potion.effect.venom", "Splash Potion of Venom");
+        builder.add("item.minecraft.lingering_potion.effect.venom", "Lingering Potion of Venom");
 
         builder.add(SoggySwampsEntities.SWAMP_SPIDER, "Swamp Spider");
         builder.add(SoggySwampsEntities.SWAMP_OAK_BOAT, "Swamp Oak Boat");
