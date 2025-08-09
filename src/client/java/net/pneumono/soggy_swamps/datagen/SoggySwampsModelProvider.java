@@ -42,6 +42,7 @@ public class SoggySwampsModelProvider extends FabricModelProvider {
 
     @Override
     public void generateItemModels(ItemModelGenerator generator) {
+        generator.register(SoggySwampsItems.SWAMP_SPIDER_SPAWN_EGG, Models.GENERATED);
         generator.register(SoggySwampsItems.SWAMP_OAK_BOAT, Models.GENERATED);
         generator.register(SoggySwampsItems.SWAMP_OAK_CHEST_BOAT, Models.GENERATED);
     }

@@ -16,6 +16,12 @@ import java.util.stream.Stream;
 public class SoggySwampsItems {
     public static final RegistryKey<ItemGroup> ITEM_GROUP = RegistryKey.of(RegistryKeys.ITEM_GROUP, SoggySwamps.id("soggy_swamps"));
 
+    public static final SpawnEggItem SWAMP_SPIDER_SPAWN_EGG = register(
+            "swamp_spider_spawn_egg",
+            settings -> new SpawnEggItem(SoggySwampsEntities.SWAMP_SPIDER, settings),
+            new Item.Settings()
+    );
+
     public static final BlockItem SWAMP_OAK_SAPLING = registerBlockItem(SoggySwampsBlocks.SWAMP_OAK_SAPLING);
     public static final BlockItem SWAMP_OAK_LEAVES = registerBlockItem(SoggySwampsBlocks.SWAMP_OAK_LEAVES);
     public static final BlockItem SWAMP_OAK_LOG = registerBlockItem(SoggySwampsBlocks.SWAMP_OAK_LOG);
@@ -76,6 +82,7 @@ public class SoggySwampsItems {
                 .displayName(Text.translatable("itemGroup.soggy_swamps.soggy_swamps"))
                 .entries((displayContext, entries) -> {
                     entries.addAll(Stream.of(
+                            SWAMP_SPIDER_SPAWN_EGG,
                             SWAMP_OAK_SAPLING,
                             SWAMP_OAK_LEAVES,
                             SWAMP_OAK_LOG,
