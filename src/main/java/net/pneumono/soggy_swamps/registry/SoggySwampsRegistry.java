@@ -35,7 +35,7 @@ public class SoggySwampsRegistry {
     public static RegistryEntry<StatusEffect> VENOM = Registry.registerReference(
             Registries.STATUS_EFFECT,
             SoggySwamps.id("venom"),
-            new VenomStatusEffect(StatusEffectCategory.HARMFUL, 0xb3bf43)
+            new VenomStatusEffect(StatusEffectCategory.HARMFUL, 0xC42359)
     );
     public static RegistryEntry<Potion> VENOM_POTION = Registry.registerReference(
             Registries.POTION,
