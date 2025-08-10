@@ -1,25 +1,23 @@
 package net.pneumono.soggy_swamps.content;
 
 import com.mojang.serialization.MapCodec;
-import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Fertilizable;
 import net.minecraft.block.PlantBlock;
+import net.minecraft.registry.RegistryKey;
+import net.minecraft.registry.RegistryKeys;
 import net.minecraft.server.world.ServerWorld;
 import net.minecraft.sound.SoundCategory;
 import net.minecraft.sound.SoundEvents;
-import net.minecraft.state.StateManager;
-import net.minecraft.state.property.IntProperty;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.random.Random;
 import net.minecraft.world.World;
 import net.minecraft.world.WorldView;
+import net.pneumono.soggy_swamps.SoggySwamps;
 import net.pneumono.soggy_swamps.registry.SoggySwampsRegistry;
 
 public class RotCapBlock extends PlantBlock implements Fertilizable {
     public static final MapCodec<RotCapBlock> CODEC = createCodec(RotCapBlock::new);
-    public static final int MAX_SIZE = 2;
-    public static final IntProperty SIZE = IntProperty.of("size", 0, MAX_SIZE);
 
     @Override
     protected MapCodec<RotCapBlock> getCodec() {
@@ -28,12 +26,6 @@ public class RotCapBlock extends PlantBlock implements Fertilizable {
 
     public RotCapBlock(Settings settings) {
         super(settings);
-        this.setDefaultState(this.getDefaultState().with(SIZE, 0));
-    }
-
-    @Override
-    protected void appendProperties(StateManager.Builder<Block, BlockState> builder) {
-        builder.add(SIZE);
     }
 
     @Override
@@ -52,7 +44,7 @@ public class RotCapBlock extends PlantBlock implements Fertilizable {
 
     @Override
     public boolean isFertilizable(WorldView world, BlockPos pos, BlockState state) {
-        return state.get(SIZE) < MAX_SIZE;
+        return Fertilizable.canSpread(world, pos, state);
     }
 
     @Override
@@ -62,8 +54,15 @@ public class RotCapBlock extends PlantBlock implements Fertilizable {
 
     @Override
     public void grow(ServerWorld world, Random random, BlockPos pos, BlockState state) {
-        int size = state.get(SIZE);
-        if (size < MAX_SIZE) size++;
-        world.setBlockState(pos, state.with(SIZE, size));
+        world.getRegistryManager()
+                .getOptional(RegistryKeys.CONFIGURED_FEATURE)
+                .flatMap((registry) ->
+                        registry.getOptional(RegistryKey.of(
+                                RegistryKeys.CONFIGURED_FEATURE, SoggySwamps.id("patch_rot_cap_bonemeal")
+                        ))
+                )
+                .ifPresent((entry) ->
+                        entry.value().generate(world, world.getChunkManager().getChunkGenerator(), random, pos.up())
+                );
     }
 }
