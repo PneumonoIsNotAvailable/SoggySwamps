@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_rot_cap": {
+      "conditions": {
+        "items": [
+          {
+            "items": "soggy_swamps:rot_cap"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "soggy_swamps:purple_dye_from_rot_cap"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_rot_cap"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "soggy_swamps:purple_dye_from_rot_cap"
+    ]
+  }
+}
