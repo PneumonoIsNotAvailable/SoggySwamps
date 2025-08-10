@@ -21,7 +21,7 @@ public class SoggySwampsRecipeGenerator extends RecipeGenerator {
 
     @Override
     public void generate() {
-        offerSingleOutputShapelessRecipe(Items.PURPLE_DYE, SoggySwampsItems.ROT_CAP, "purple_dye");
+        offerShapelessRecipe(Items.PURPLE_DYE, SoggySwampsItems.ROT_CAP, "purple_dye", 2);
 
         generateFamily(SoggySwampsBlockFamilies.SWAMP_OAK, FeatureSet.of(FeatureFlags.VANILLA));
 
