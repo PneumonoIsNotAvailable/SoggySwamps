@@ -1,11 +1,13 @@
 package net.pneumono.soggy_swamps;
 
 import net.fabricmc.api.ClientModInitializer;
+import net.fabricmc.fabric.api.client.particle.v1.ParticleFactoryRegistry;
 import net.fabricmc.fabric.api.client.rendering.v1.BlockRenderLayerMap;
 import net.fabricmc.fabric.api.client.rendering.v1.ColorProviderRegistry;
 import net.fabricmc.fabric.api.client.rendering.v1.EntityModelLayerRegistry;
 import net.fabricmc.fabric.api.client.rendering.v1.EntityRendererRegistry;
 import net.minecraft.client.color.world.BiomeColors;
+import net.minecraft.client.particle.FireflyParticle;
 import net.minecraft.client.render.BlockRenderLayer;
 import net.minecraft.client.render.entity.BoatEntityRenderer;
 import net.minecraft.client.render.entity.model.BoatEntityModel;
@@ -14,6 +16,7 @@ import net.minecraft.client.render.entity.model.SpiderEntityModel;
 import net.pneumono.soggy_swamps.content.SwampSpiderEntityRenderer;
 import net.pneumono.soggy_swamps.registry.SoggySwampsBlocks;
 import net.pneumono.soggy_swamps.registry.SoggySwampsEntities;
+import net.pneumono.soggy_swamps.registry.SoggySwampsRegistry;
 
 public class SoggySwampsClient implements ClientModInitializer {
 	public static final EntityModelLayer SWAMP_SPIDER = new EntityModelLayer(
@@ -28,6 +31,8 @@ public class SoggySwampsClient implements ClientModInitializer {
 
 	@Override
 	public void onInitializeClient() {
+		ParticleFactoryRegistry.getInstance().register(SoggySwampsRegistry.FLY, FireflyParticle.Factory::new);
+
 		BlockRenderLayerMap.putBlock(SoggySwampsBlocks.SWAMP_OAK_SAPLING, BlockRenderLayer.CUTOUT);
 		BlockRenderLayerMap.putBlock(SoggySwampsBlocks.POTTED_SWAMP_OAK_SAPLING, BlockRenderLayer.CUTOUT);
 		BlockRenderLayerMap.putBlock(SoggySwampsBlocks.SWAMP_OAK_DOOR, BlockRenderLayer.CUTOUT);

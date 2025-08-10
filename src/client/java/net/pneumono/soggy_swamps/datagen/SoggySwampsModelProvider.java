@@ -16,7 +16,7 @@ public class SoggySwampsModelProvider extends FabricModelProvider {
 
     @Override
     public void generateBlockStateModels(BlockStateModelGenerator generator) {
-        generator.registerSimpleCubeAll(SoggySwampsBlocks.ROT_CAP);
+        generator.registerSimpleState(SoggySwampsBlocks.ROT_CAP);
 
         generator.registerFlowerPotPlantAndItem(
                 SoggySwampsBlocks.SWAMP_OAK_SAPLING,

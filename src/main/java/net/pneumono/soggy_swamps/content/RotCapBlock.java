@@ -5,7 +5,6 @@ import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Fertilizable;
 import net.minecraft.block.PlantBlock;
-import net.minecraft.particle.ParticleTypes;
 import net.minecraft.server.world.ServerWorld;
 import net.minecraft.sound.SoundCategory;
 import net.minecraft.sound.SoundEvents;
@@ -15,6 +14,7 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.random.Random;
 import net.minecraft.world.World;
 import net.minecraft.world.WorldView;
+import net.pneumono.soggy_swamps.registry.SoggySwampsRegistry;
 
 public class RotCapBlock extends PlantBlock implements Fertilizable {
     public static final MapCodec<RotCapBlock> CODEC = createCodec(RotCapBlock::new);
@@ -46,7 +46,7 @@ public class RotCapBlock extends PlantBlock implements Fertilizable {
             double x = pos.getX() + random.nextDouble() * 10.0 - 5.0;
             double y = pos.getY() + random.nextDouble() * 5.0;
             double z = pos.getZ() + random.nextDouble() * 10.0 - 5.0;
-            world.addParticleClient(ParticleTypes.FIREFLY, x, y, z, 0.0, 0.0, 0.0);
+            world.addParticleClient(SoggySwampsRegistry.FLY, x, y, z, 0.0, 0.0, 0.0);
         }
     }
 
