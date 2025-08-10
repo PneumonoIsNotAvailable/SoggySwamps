@@ -76,6 +76,12 @@ public class SoggySwampsWorldgen {
                 GenerationStep.Feature.LOCAL_MODIFICATIONS,
                 placedFeature("swamp_ruin")
         );
+
+        BiomeModifications.addFeature(
+                swamp,
+                GenerationStep.Feature.VEGETAL_DECORATION,
+                placedFeature("patch_rot_cap")
+        );
     }
 
     protected static RegistryKey<PlacedFeature> placedFeature(String name) {
