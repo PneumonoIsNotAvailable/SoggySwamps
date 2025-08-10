@@ -12,12 +12,24 @@ import net.minecraft.registry.RegistryKey;
 import net.minecraft.registry.RegistryKeys;
 import net.minecraft.sound.BlockSoundGroup;
 import net.pneumono.soggy_swamps.SoggySwamps;
+import net.pneumono.soggy_swamps.content.RotCapBlock;
 import net.pneumono.soggy_swamps.worldgen.SoggySwampsWorldgen;
 
 import java.util.Optional;
 import java.util.function.Function;
 
 public class SoggySwampsBlocks {
+    public static final RotCapBlock ROT_CAP = register(
+            "rot_cap",
+            RotCapBlock::new,
+            AbstractBlock.Settings.create()
+                    .mapColor(MapColor.DARK_GREEN)
+                    .luminance(state -> 1)
+                    .noCollision()
+                    .breakInstantly()
+                    .sounds(BlockSoundGroup.WET_GRASS)
+                    .pistonBehavior(PistonBehavior.DESTROY)
+    );
     public static final SaplingBlock SWAMP_OAK_SAPLING = register(
             "swamp_oak_sapling",
             settings -> new SaplingBlock(
