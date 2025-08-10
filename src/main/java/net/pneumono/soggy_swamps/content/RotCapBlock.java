@@ -1,9 +1,7 @@
 package net.pneumono.soggy_swamps.content;
 
 import com.mojang.serialization.MapCodec;
-import net.minecraft.block.BlockState;
-import net.minecraft.block.Fertilizable;
-import net.minecraft.block.PlantBlock;
+import net.minecraft.block.*;
 import net.minecraft.registry.RegistryKey;
 import net.minecraft.registry.RegistryKeys;
 import net.minecraft.server.world.ServerWorld;
@@ -11,6 +9,9 @@ import net.minecraft.sound.SoundCategory;
 import net.minecraft.sound.SoundEvents;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.random.Random;
+import net.minecraft.util.shape.VoxelShape;
+import net.minecraft.util.shape.VoxelShapes;
+import net.minecraft.world.BlockView;
 import net.minecraft.world.World;
 import net.minecraft.world.WorldView;
 import net.pneumono.soggy_swamps.SoggySwamps;
@@ -18,6 +19,7 @@ import net.pneumono.soggy_swamps.registry.SoggySwampsRegistry;
 
 public class RotCapBlock extends PlantBlock implements Fertilizable {
     public static final MapCodec<RotCapBlock> CODEC = createCodec(RotCapBlock::new);
+    private static final VoxelShape SHAPE = VoxelShapes.union(Block.createColumnShape(12.0, 4.0, 8.0), Block.createColumnShape(4.0, 0.0, 4.0));
 
     @Override
     protected MapCodec<RotCapBlock> getCodec() {
@@ -64,5 +66,10 @@ public class RotCapBlock extends PlantBlock implements Fertilizable {
                 .ifPresent((entry) ->
                         entry.value().generate(world, world.getChunkManager().getChunkGenerator(), random, pos.up())
                 );
+    }
+
+    @Override
+    protected VoxelShape getOutlineShape(BlockState state, BlockView world, BlockPos pos, ShapeContext context) {
+        return SHAPE;
     }
 }
