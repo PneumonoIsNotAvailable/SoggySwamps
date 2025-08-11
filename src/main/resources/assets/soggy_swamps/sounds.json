@@ -58,6 +58,59 @@
         ],
         "subtitle": "subtitles.block.generic.footsteps"
     },
+    "block.rot_cap.idle": {
+        "sounds": [
+            {
+                "name": "block/firefly_bush/firefly_bush1",
+                "volume": 4.0
+            },
+            {
+                "name": "block/firefly_bush/firefly_bush2",
+                "volume": 4.0
+            },
+            {
+                "name": "block/firefly_bush/firefly_bush3",
+                "volume": 4.0
+            },
+            {
+                "name": "block/firefly_bush/firefly_bush4",
+                "volume": 4.0
+            },
+            {
+                "name": "block/firefly_bush/firefly_bush5",
+                "volume": 4.0
+            },
+            {
+                "name": "block/firefly_bush/firefly_bush6",
+                "volume": 4.0
+            },
+            {
+                "name": "block/firefly_bush/firefly_bush7",
+                "volume": 4.0,
+                "weight": 2
+            },
+            {
+                "name": "block/firefly_bush/firefly_bush8",
+                "volume": 4.0,
+                "weight": 2
+            },
+            {
+                "name": "block/firefly_bush/firefly_bush9",
+                "volume": 4.0,
+                "weight": 2
+            },
+            {
+                "name": "block/firefly_bush/firefly_bush10",
+                "volume": 4.0,
+                "weight": 2
+            },
+            {
+                "name": "block/firefly_bush/firefly_bush11",
+                "volume": 4.0
+            }
+        ],
+        "subtitle": "subtitles.soggy_swamps.block.rot_cap.idle"
+    },
     "item.brush.brushing.mud": {
         "sounds": [
             {

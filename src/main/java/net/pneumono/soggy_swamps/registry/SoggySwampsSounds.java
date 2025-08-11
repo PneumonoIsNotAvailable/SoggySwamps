@@ -13,6 +13,8 @@ public class SoggySwampsSounds {
     public static final SoundEvent BLOCK_SUSPICIOUS_MUD_PLACE = register("block.suspicious_mud.place");
     public static final SoundEvent BLOCK_SUSPICIOUS_MUD_HIT = register("block.suspicious_mud.hit");
     public static final SoundEvent BLOCK_SUSPICIOUS_MUD_FALL = register("block.suspicious_mud.fall");
+    public static final SoundEvent BLOCK_ROT_CAP_IDLE = register("block.rot_cap.idle");
+
     public static final SoundEvent ITEM_BRUSH_BRUSHING_MUD =  register("item.brush.brushing.mud");
 
     public static final BlockSoundGroup GROUP_SUSPICIOUS_MUD = new BlockSoundGroup(

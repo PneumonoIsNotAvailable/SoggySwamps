@@ -54,11 +54,7 @@ public class SoggySwampsEnUsLangProvider extends FabricLanguageProvider {
 
         builder.add(SoggySwampsRegistry.VENOM.value(), "Venom");
 
-        builder.add(SoggySwampsSounds.BLOCK_SUSPICIOUS_MUD_BREAK, "Brushing Mud");
-        builder.add(SoggySwampsSounds.BLOCK_SUSPICIOUS_MUD_STEP, "Brushing Mud");
-        builder.add(SoggySwampsSounds.BLOCK_SUSPICIOUS_MUD_HIT, "Brushing Mud");
-        builder.add(SoggySwampsSounds.BLOCK_SUSPICIOUS_MUD_PLACE, "Brushing Mud");
-        builder.add(SoggySwampsSounds.BLOCK_SUSPICIOUS_MUD_FALL, "Brushing Mud");
+        builder.add(SoggySwampsSounds.BLOCK_ROT_CAP_IDLE, "Flies buzz");
         builder.add(SoggySwampsSounds.ITEM_BRUSH_BRUSHING_MUD, "Brushing Mud");
 
         builder.add(SoggySwampsTags.ITEM_SWAMP_OAK_LOGS, "Swamp Oak Logs");

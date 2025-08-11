@@ -6,7 +6,6 @@ import net.minecraft.registry.RegistryKey;
 import net.minecraft.registry.RegistryKeys;
 import net.minecraft.server.world.ServerWorld;
 import net.minecraft.sound.SoundCategory;
-import net.minecraft.sound.SoundEvents;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.random.Random;
 import net.minecraft.util.shape.VoxelShape;
@@ -16,6 +15,7 @@ import net.minecraft.world.World;
 import net.minecraft.world.WorldView;
 import net.pneumono.soggy_swamps.SoggySwamps;
 import net.pneumono.soggy_swamps.registry.SoggySwampsRegistry;
+import net.pneumono.soggy_swamps.registry.SoggySwampsSounds;
 
 public class RotCapBlock extends PlantBlock implements Fertilizable {
     public static final MapCodec<RotCapBlock> CODEC = createCodec(RotCapBlock::new);
@@ -33,7 +33,7 @@ public class RotCapBlock extends PlantBlock implements Fertilizable {
     @Override
     public void randomDisplayTick(BlockState state, World world, BlockPos pos, Random random) {
         if (random.nextInt(30) == 0) {
-            world.playSoundAtBlockCenterClient(pos, SoundEvents.BLOCK_FIREFLY_BUSH_IDLE, SoundCategory.AMBIENT, 1.0F, 1.0F, false);
+            world.playSoundAtBlockCenterClient(pos, SoggySwampsSounds.BLOCK_ROT_CAP_IDLE, SoundCategory.AMBIENT, 1.0F, 1.0F, false);
         }
 
         if (random.nextDouble() <= 0.7) {

@@ -36,11 +36,7 @@
   "modmenu.descriptionTranslation.soggy_swamps": "Adds swamp-related items, blocks, and structures",
   "modmenu.nameTranslation.soggy_swamps": "Soggy Swamps",
   "modmenu.summaryTranslation.soggy_swamps": "Adds swamp-related items, blocks, and structures",
-  "subtitles.soggy_swamps.block.suspicious_mud.break": "Brushing Mud",
-  "subtitles.soggy_swamps.block.suspicious_mud.fall": "Brushing Mud",
-  "subtitles.soggy_swamps.block.suspicious_mud.hit": "Brushing Mud",
-  "subtitles.soggy_swamps.block.suspicious_mud.place": "Brushing Mud",
-  "subtitles.soggy_swamps.block.suspicious_mud.step": "Brushing Mud",
+  "subtitles.soggy_swamps.block.rot_cap.idle": "Flies buzz",
   "subtitles.soggy_swamps.item.brush.brushing.mud": "Brushing Mud",
   "tag.block.soggy_swamps.swamp_oak_logs": "Swamp Oak Logs",
   "tag.item.soggy_swamps.swamp_oak_logs": "Swamp Oak Logs"
