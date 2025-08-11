@@ -37,9 +37,9 @@ public class RotCapBlock extends PlantBlock implements Fertilizable {
         }
 
         if (random.nextDouble() <= 0.7) {
-            double x = pos.getX() + random.nextDouble() * 10.0 - 5.0;
-            double y = pos.getY() + random.nextDouble() * 5.0;
-            double z = pos.getZ() + random.nextDouble() * 10.0 - 5.0;
+            double x = pos.getX() + random.nextDouble() * 5.0 - 2.5;
+            double y = pos.getY() + random.nextDouble() * 3.0 + (world.getBlockState(pos.up()).isSolidBlock(world, pos) ? 2 : 0);
+            double z = pos.getZ() + random.nextDouble() * 5.0 - 2.5;
             world.addParticleClient(SoggySwampsRegistry.FLY, x, y, z, 0.0, 0.0, 0.0);
         }
     }

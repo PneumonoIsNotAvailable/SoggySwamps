@@ -13,6 +13,7 @@ import net.minecraft.client.render.entity.BoatEntityRenderer;
 import net.minecraft.client.render.entity.model.BoatEntityModel;
 import net.minecraft.client.render.entity.model.EntityModelLayer;
 import net.minecraft.client.render.entity.model.SpiderEntityModel;
+import net.pneumono.soggy_swamps.content.FlyParticle;
 import net.pneumono.soggy_swamps.content.SwampSpiderEntityRenderer;
 import net.pneumono.soggy_swamps.registry.SoggySwampsBlocks;
 import net.pneumono.soggy_swamps.registry.SoggySwampsEntities;
@@ -31,7 +32,7 @@ public class SoggySwampsClient implements ClientModInitializer {
 
 	@Override
 	public void onInitializeClient() {
-		ParticleFactoryRegistry.getInstance().register(SoggySwampsRegistry.FLY, FireflyParticle.Factory::new);
+		ParticleFactoryRegistry.getInstance().register(SoggySwampsRegistry.FLY, FlyParticle.Factory::new);
 
 		BlockRenderLayerMap.putBlock(SoggySwampsBlocks.SWAMP_OAK_SAPLING, BlockRenderLayer.CUTOUT);
 		BlockRenderLayerMap.putBlock(SoggySwampsBlocks.POTTED_SWAMP_OAK_SAPLING, BlockRenderLayer.CUTOUT);
