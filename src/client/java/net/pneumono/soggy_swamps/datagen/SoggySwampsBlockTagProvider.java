@@ -42,7 +42,7 @@ public class SoggySwampsBlockTagProvider extends FabricTagProvider.BlockTagProvi
         tag(BlockTags.LEAVES).add(SoggySwampsBlocks.SWAMP_OAK_LEAVES);
         tag(BlockTags.OVERWORLD_NATURAL_LOGS).add(SoggySwampsBlocks.SWAMP_OAK_LOG);
         tag(BlockTags.PLANKS).add(SoggySwampsBlocks.SWAMP_OAK_PLANKS);
-        tag(BlockTags.STAIRS).add(SoggySwampsBlocks.SWAMP_OAK_STAIRS);
+        tag(BlockTags.WOODEN_STAIRS).add(SoggySwampsBlocks.SWAMP_OAK_STAIRS);
         tag(BlockTags.WOODEN_SLABS).add(SoggySwampsBlocks.SWAMP_OAK_SLAB);
         tag(BlockTags.STANDING_SIGNS).add(SoggySwampsBlocks.SWAMP_OAK_SIGN);
         tag(BlockTags.WALL_SIGNS).add(SoggySwampsBlocks.SWAMP_OAK_WALL_SIGN);
