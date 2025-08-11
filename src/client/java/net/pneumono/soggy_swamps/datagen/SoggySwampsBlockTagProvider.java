@@ -35,6 +35,7 @@ public class SoggySwampsBlockTagProvider extends FabricTagProvider.BlockTagProvi
 
         tag(BlockTags.LOGS_THAT_BURN).forceAddTag(SoggySwampsTags.BLOCK_SWAMP_OAK_LOGS);
 
+        tag(BlockTags.FROGS_SPAWNABLE_ON).add(SoggySwampsBlocks.SUSPICIOUS_MUD);
         tag(BlockTags.REPLACEABLE_BY_MUSHROOMS).add(SoggySwampsBlocks.ROT_CAP);
 
         tag(BlockTags.SAPLINGS).add(SoggySwampsBlocks.SWAMP_OAK_SAPLING);
@@ -53,6 +54,8 @@ public class SoggySwampsBlockTagProvider extends FabricTagProvider.BlockTagProvi
         tag(BlockTags.FENCE_GATES).add(SoggySwampsBlocks.SWAMP_OAK_FENCE_GATE);
         tag(BlockTags.WOODEN_PRESSURE_PLATES).add(SoggySwampsBlocks.SWAMP_OAK_PRESSURE_PLATE);
         tag(BlockTags.WOODEN_BUTTONS).add(SoggySwampsBlocks.SWAMP_OAK_BUTTON);
+
+        tag(BlockTags.SHOVEL_MINEABLE).add(SoggySwampsBlocks.SUSPICIOUS_MUD);
 
         tag(ConventionalBlockTags.WOODEN_FENCES).add(SoggySwampsBlocks.SWAMP_OAK_FENCE);
         tag(ConventionalBlockTags.WOODEN_FENCE_GATES).add(SoggySwampsBlocks.SWAMP_OAK_FENCE_GATE);

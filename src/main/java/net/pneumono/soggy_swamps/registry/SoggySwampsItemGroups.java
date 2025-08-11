@@ -19,7 +19,7 @@ import java.util.stream.Stream;
 public class SoggySwampsItemGroups {
     public static final RegistryKey<ItemGroup> ITEM_GROUP = RegistryKey.of(RegistryKeys.ITEM_GROUP, SoggySwamps.id("soggy_swamps"));
 
-    public static void registerItemGroups() {
+    public static void registerSoggySwampsItemGroups() {
         Registry.register(Registries.ITEM_GROUP, ITEM_GROUP, FabricItemGroup.builder()
                 .icon(SoggySwampsItems.SWAMP_OAK_SAPLING::getDefaultStack)
                 .displayName(Text.translatable("itemGroup.soggy_swamps.soggy_swamps"))
@@ -27,6 +27,7 @@ public class SoggySwampsItemGroups {
                     entries.addAll(Stream.of(
                             SoggySwampsItems.SWAMP_SPIDER_SPAWN_EGG,
                             SoggySwampsItems.SWAMP_SPIDER_EYE,
+                            SoggySwampsItems.SUSPICIOUS_MUD,
                             SoggySwampsItems.ROT_CAP,
                             SoggySwampsItems.SWAMP_OAK_SAPLING,
                             SoggySwampsItems.SWAMP_OAK_LEAVES,

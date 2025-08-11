@@ -18,6 +18,7 @@ public class SoggySwampsEnUsLangProvider extends FabricLanguageProvider {
     public void generateTranslations(RegistryWrapper.WrapperLookup registryLookup, TranslationBuilder translationBuilder) {
         PneumonoCoreTranslationBuilder builder = new PneumonoCoreTranslationBuilder(translationBuilder, SoggySwamps.MOD_ID);
 
+        builder.add(SoggySwampsBlocks.SUSPICIOUS_MUD, "Suspicious Mud");
         builder.add(SoggySwampsBlocks.ROT_CAP, "Rot Cap");
         builder.add(SoggySwampsBlocks.SWAMP_OAK_SAPLING, "Swamp Oak Sapling");
         builder.add(SoggySwampsBlocks.POTTED_SWAMP_OAK_SAPLING, "Potted Swamp Oak Sapling");
@@ -52,6 +53,13 @@ public class SoggySwampsEnUsLangProvider extends FabricLanguageProvider {
         builder.add(SoggySwampsEntities.SWAMP_OAK_CHEST_BOAT, "Swamp Oak Chest Boat");
 
         builder.add(SoggySwampsRegistry.VENOM.value(), "Venom");
+
+        builder.add(SoggySwampsSounds.BLOCK_SUSPICIOUS_MUD_BREAK, "Brushing Mud");
+        builder.add(SoggySwampsSounds.BLOCK_SUSPICIOUS_MUD_STEP, "Brushing Mud");
+        builder.add(SoggySwampsSounds.BLOCK_SUSPICIOUS_MUD_HIT, "Brushing Mud");
+        builder.add(SoggySwampsSounds.BLOCK_SUSPICIOUS_MUD_PLACE, "Brushing Mud");
+        builder.add(SoggySwampsSounds.BLOCK_SUSPICIOUS_MUD_FALL, "Brushing Mud");
+        builder.add(SoggySwampsSounds.ITEM_BRUSH_BRUSHING_MUD, "Brushing Mud");
 
         builder.add(SoggySwampsTags.ITEM_SWAMP_OAK_LOGS, "Swamp Oak Logs");
         builder.add(SoggySwampsTags.BLOCK_SWAMP_OAK_LOGS, "Swamp Oak Logs");

@@ -1,0 +1,86 @@
+{
+    "block.suspicious_mud.break": {
+        "sounds": [
+            "block/suspicious_gravel/break1",
+            "block/suspicious_gravel/break2",
+            "block/suspicious_gravel/break3",
+            "block/suspicious_gravel/break4",
+            "block/suspicious_gravel/break5",
+            "block/suspicious_gravel/break6"
+        ],
+        "subtitle": "subtitles.block.generic.break"
+    },
+    "block.suspicious_mud.fall": {
+        "sounds": [
+            "block/suspicious_gravel/step1",
+            "block/suspicious_gravel/step2",
+            "block/suspicious_gravel/step3",
+            "block/suspicious_gravel/step4"
+        ],
+        "subtitle": "subtitles.block.generic.fall"
+    },
+    "block.suspicious_mud.hit": {
+        "sounds": [
+            {
+                "name": "block/suspicious_gravel/step1",
+                "volume": 0.8
+            },
+            {
+                "name": "block/suspicious_gravel/step2",
+                "volume": 0.8
+            },
+            {
+                "name": "block/suspicious_gravel/step3",
+                "volume": 0.8
+            },
+            {
+                "name": "block/suspicious_gravel/step4",
+                "volume": 0.8
+            }
+        ],
+        "subtitle": "subtitles.block.generic.hit"
+    },
+    "block.suspicious_mud.place": {
+        "sounds": [
+            "block/suspicious_gravel/place1",
+            "block/suspicious_gravel/place2",
+            "block/suspicious_gravel/place3",
+            "block/suspicious_gravel/place4"
+        ],
+        "subtitle": "subtitles.block.generic.place"
+    },
+    "block.suspicious_mud.step": {
+        "sounds": [
+            "block/suspicious_gravel/step1",
+            "block/suspicious_gravel/step2",
+            "block/suspicious_gravel/step3",
+            "block/suspicious_gravel/step4"
+        ],
+        "subtitle": "subtitles.block.generic.footsteps"
+    },
+    "item.brush.brushing.mud": {
+        "sounds": [
+            {
+                "name": "item/brush/brushing_gravel1",
+                "pitch": 0.6,
+                "volume": 0.6
+            },
+            {
+                "name": "item/brush/brushing_gravel2",
+                "pitch": 0.6,
+                "volume": 0.6
+            },
+            {
+                "name": "item/brush/brushing_gravel3",
+                "pitch": 0.6,
+                "volume": 0.6
+            },
+            {
+                "name": "item/brush/brushing_gravel4",
+                "pitch": 0.6,
+                "volume": 0.6
+            }
+        ],
+        "subtitle": "subtitles.soggy_swamps.item.brush.brushing.mud"
+    }
+}

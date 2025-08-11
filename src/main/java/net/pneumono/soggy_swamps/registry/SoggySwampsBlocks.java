@@ -12,6 +12,7 @@ import net.minecraft.registry.RegistryKey;
 import net.minecraft.registry.RegistryKeys;
 import net.minecraft.sound.BlockSoundGroup;
 import net.pneumono.soggy_swamps.SoggySwamps;
+import net.pneumono.soggy_swamps.content.NonFallingBrushableBlock;
 import net.pneumono.soggy_swamps.content.RotCapBlock;
 import net.pneumono.soggy_swamps.worldgen.SoggySwampsWorldgen;
 
@@ -28,6 +29,15 @@ public class SoggySwampsBlocks {
                     .noCollision()
                     .breakInstantly()
                     .sounds(BlockSoundGroup.WET_GRASS)
+                    .pistonBehavior(PistonBehavior.DESTROY)
+    );
+    public static final NonFallingBrushableBlock SUSPICIOUS_MUD = register(
+            "suspicious_mud",
+            settings -> new NonFallingBrushableBlock(Blocks.MUD, SoggySwampsSounds.ITEM_BRUSH_BRUSHING_MUD, SoggySwampsSounds.ITEM_BRUSH_BRUSHING_MUD, settings),
+            AbstractBlock.Settings.create()
+                    .mapColor(MapColor.TERRACOTTA_CYAN)
+                    .strength(0.3F)
+                    .sounds(SoggySwampsSounds.GROUP_SUSPICIOUS_MUD)
                     .pistonBehavior(PistonBehavior.DESTROY)
     );
     public static final SaplingBlock SWAMP_OAK_SAPLING = register(
@@ -178,6 +188,7 @@ public class SoggySwampsBlocks {
     }
 
     public static void registerSoggySwampsBlocks() {
+        BlockEntityType.BRUSHABLE_BLOCK.addSupportedBlock(SUSPICIOUS_MUD);
         BlockEntityType.SIGN.addSupportedBlock(SWAMP_OAK_SIGN);
         BlockEntityType.SIGN.addSupportedBlock(SWAMP_OAK_WALL_SIGN);
         BlockEntityType.HANGING_SIGN.addSupportedBlock(SWAMP_OAK_HANGING_SIGN);
