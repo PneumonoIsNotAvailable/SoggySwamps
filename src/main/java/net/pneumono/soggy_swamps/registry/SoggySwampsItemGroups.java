@@ -27,6 +27,7 @@ public class SoggySwampsItemGroups {
                     entries.addAll(Stream.of(
                             SoggySwampsItems.SWAMP_SPIDER_SPAWN_EGG,
                             SoggySwampsItems.SWAMP_SPIDER_EYE,
+                            SoggySwampsItems.ROT_CAP,
                             SoggySwampsItems.SWAMP_OAK_SAPLING,
                             SoggySwampsItems.SWAMP_OAK_LEAVES,
                             SoggySwampsItems.SWAMP_OAK_LOG,
