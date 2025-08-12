@@ -43,6 +43,9 @@ public class SoggySwampsItemGroups {
                             SoggySwampsItems.SWAMP_OAK_CHEST_BOAT,
                             SoggySwampsItems.ROT_CAP,
                             SoggySwampsItems.SUSPICIOUS_MUD,
+                            SoggySwampsItems.HAT_POTTERY_SHERD,
+                            SoggySwampsItems.SLIME_POTTERY_SHERD,
+                            SoggySwampsItems.DECAY_POTTERY_SHERD,
                             SoggySwampsItems.SWAMP_SPIDER_EYE
                     ).map(ItemStack::new).toList());
 

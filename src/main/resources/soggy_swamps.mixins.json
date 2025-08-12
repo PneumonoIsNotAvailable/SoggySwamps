@@ -3,6 +3,7 @@
     "package": "net.pneumono.soggy_swamps.mixin",
     "compatibilityLevel": "JAVA_21",
     "mixins": [
+        "DecoratedPotPatternsMixin",
         "HungerManagerMixin",
         "SwampHutGeneratorMixin"
     ],

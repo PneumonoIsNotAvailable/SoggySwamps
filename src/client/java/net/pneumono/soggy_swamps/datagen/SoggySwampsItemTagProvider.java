@@ -46,6 +46,11 @@ public class SoggySwampsItemTagProvider extends FabricTagProvider.ItemTagProvide
         tag(ItemTags.WOODEN_BUTTONS).add(SoggySwampsItems.SWAMP_OAK_BUTTON);
         tag(ItemTags.BOATS).add(SoggySwampsItems.SWAMP_OAK_BOAT);
         tag(ItemTags.CHEST_BOATS).add(SoggySwampsItems.SWAMP_OAK_CHEST_BOAT);
+        tag(ItemTags.DECORATED_POT_SHERDS).add(
+                SoggySwampsItems.HAT_POTTERY_SHERD,
+                SoggySwampsItems.SLIME_POTTERY_SHERD,
+                SoggySwampsItems.DECAY_POTTERY_SHERD
+        );
 
         tag(ConventionalItemTags.FENCES).add(SoggySwampsItems.SWAMP_OAK_FENCE);
         tag(ConventionalItemTags.FENCE_GATES).add(SoggySwampsItems.SWAMP_OAK_FENCE_GATE);

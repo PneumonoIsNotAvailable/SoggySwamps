@@ -1,6 +1,7 @@
 package net.pneumono.soggy_swamps.registry;
 
 import net.minecraft.block.Block;
+import net.minecraft.block.DecoratedPotPattern;
 import net.minecraft.component.type.ConsumableComponents;
 import net.minecraft.component.type.FoodComponent;
 import net.minecraft.entity.effect.StatusEffectInstance;
@@ -11,6 +12,7 @@ import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
 import net.minecraft.registry.RegistryKey;
 import net.minecraft.registry.RegistryKeys;
+import net.minecraft.util.Rarity;
 import net.pneumono.soggy_swamps.SoggySwamps;
 
 import java.util.List;
@@ -42,6 +44,9 @@ public class SoggySwampsItems {
     );
 
     public static final BlockItem SUSPICIOUS_MUD = registerBlockItem(SoggySwampsBlocks.SUSPICIOUS_MUD);
+    public static final Item HAT_POTTERY_SHERD = registerPotterySherd("hat");
+    public static final Item SLIME_POTTERY_SHERD = registerPotterySherd("slime");
+    public static final Item DECAY_POTTERY_SHERD = registerPotterySherd("decay");
 
     public static final BlockItem ROT_CAP = registerBlockItem(SoggySwampsBlocks.ROT_CAP);
 
@@ -92,6 +97,17 @@ public class SoggySwampsItems {
                 settings -> new BlockItem(block, settings),
                 new Item.Settings().useBlockPrefixedTranslationKey()
         );
+    }
+
+    protected static Item registerPotterySherd(String name) {
+        RegistryKey<DecoratedPotPattern> key = RegistryKey.of(RegistryKeys.DECORATED_POT_PATTERN, SoggySwamps.id(name));
+        Registry.register(Registries.DECORATED_POT_PATTERN, key, new DecoratedPotPattern(SoggySwamps.id(name + "_pottery_pattern")));
+
+        Item item = register(name + "_pottery_sherd", Item::new, new Item.Settings().rarity(Rarity.UNCOMMON));
+
+        SoggySwampsRegistry.SHERD_TO_PATTERN.put(item, key);
+
+        return item;
     }
 
     protected static <T extends Item> T register(String name, Function<Item.Settings, T> factory, Item.Settings settings) {

@@ -8,10 +8,13 @@ import net.fabricmc.fabric.api.client.rendering.v1.EntityModelLayerRegistry;
 import net.fabricmc.fabric.api.client.rendering.v1.EntityRendererRegistry;
 import net.minecraft.client.color.world.BiomeColors;
 import net.minecraft.client.render.BlockRenderLayer;
+import net.minecraft.client.render.TexturedRenderLayers;
 import net.minecraft.client.render.entity.BoatEntityRenderer;
 import net.minecraft.client.render.entity.model.BoatEntityModel;
 import net.minecraft.client.render.entity.model.EntityModelLayer;
 import net.minecraft.client.render.entity.model.SpiderEntityModel;
+import net.minecraft.registry.RegistryKey;
+import net.minecraft.registry.RegistryKeys;
 import net.pneumono.soggy_swamps.content.AlchemistEntityModel;
 import net.pneumono.soggy_swamps.content.AlchemistEntityRenderer;
 import net.pneumono.soggy_swamps.content.FlyParticle;
@@ -69,6 +72,19 @@ public class SoggySwampsClient implements ClientModInitializer {
 		EntityRendererRegistry.register(
 				SoggySwampsEntities.SWAMP_OAK_CHEST_BOAT,
 				context -> new BoatEntityRenderer(context, SWAMP_OAK_CHEST_BOAT)
+		);
+
+		TexturedRenderLayers.DECORATED_POT_PATTERN_TEXTURES.put(
+				RegistryKey.of(RegistryKeys.DECORATED_POT_PATTERN, SoggySwamps.id("hat")),
+				TexturedRenderLayers.DECORATED_POT_SPRITE_MAPPER.map(SoggySwamps.id("hat_pottery_pattern"))
+		);
+		TexturedRenderLayers.DECORATED_POT_PATTERN_TEXTURES.put(
+				RegistryKey.of(RegistryKeys.DECORATED_POT_PATTERN, SoggySwamps.id("slime")),
+				TexturedRenderLayers.DECORATED_POT_SPRITE_MAPPER.map(SoggySwamps.id("slime_pottery_pattern"))
+		);
+		TexturedRenderLayers.DECORATED_POT_PATTERN_TEXTURES.put(
+				RegistryKey.of(RegistryKeys.DECORATED_POT_PATTERN, SoggySwamps.id("decay")),
+				TexturedRenderLayers.DECORATED_POT_SPRITE_MAPPER.map(SoggySwamps.id("decay_pottery_pattern"))
 		);
 	}
 }

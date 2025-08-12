@@ -5,20 +5,28 @@ import net.fabricmc.fabric.api.object.builder.v1.block.type.WoodTypeBuilder;
 import net.fabricmc.fabric.api.particle.v1.FabricParticleTypes;
 import net.fabricmc.fabric.api.registry.FabricBrewingRecipeRegistryBuilder;
 import net.minecraft.block.BlockSetType;
+import net.minecraft.block.DecoratedPotPattern;
 import net.minecraft.block.WoodType;
 import net.minecraft.entity.effect.StatusEffect;
 import net.minecraft.entity.effect.StatusEffectCategory;
 import net.minecraft.entity.effect.StatusEffectInstance;
+import net.minecraft.item.Item;
 import net.minecraft.item.Items;
 import net.minecraft.particle.SimpleParticleType;
 import net.minecraft.potion.Potion;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
+import net.minecraft.registry.RegistryKey;
 import net.minecraft.registry.entry.RegistryEntry;
 import net.pneumono.soggy_swamps.SoggySwamps;
 import net.pneumono.soggy_swamps.content.VenomStatusEffect;
 
+import java.util.HashMap;
+import java.util.Map;
+
 public class SoggySwampsRegistry {
+    public static final Map<Item, RegistryKey<DecoratedPotPattern>> SHERD_TO_PATTERN = new HashMap<>();
+
     public static final BlockSetType SWAMP_OAK_BLOCK_SET_TYPE = BlockSetTypeBuilder
             .copyOf(BlockSetType.OAK)
             .register(SoggySwamps.id("swamp_oak"));
