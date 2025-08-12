@@ -85,13 +85,15 @@ public class SoggySwampsItemGroups {
             entries.addBefore(Items.MUSHROOM_STEM, SoggySwampsItems.SWAMP_OAK_LOG);
             entries.addBefore(Items.AZALEA_LEAVES, SoggySwampsItems.SWAMP_OAK_LEAVES);
             entries.addBefore(Items.AZALEA, SoggySwampsItems.SWAMP_OAK_SAPLING);
+            entries.addAfter(Items.FIREFLY_BUSH, SoggySwampsItems.ROT_CAP);
         });
-        ItemGroupEvents.modifyEntriesEvent(ItemGroups.FUNCTIONAL).register(entries ->
-                entries.addBefore(Items.BAMBOO_SIGN,
-                        SoggySwampsItems.SWAMP_OAK_SIGN,
-                        SoggySwampsItems.SWAMP_OAK_HANGING_SIGN
-                )
-        );
+        ItemGroupEvents.modifyEntriesEvent(ItemGroups.FUNCTIONAL).register(entries -> {
+            entries.addBefore(Items.BAMBOO_SIGN,
+                    SoggySwampsItems.SWAMP_OAK_SIGN,
+                    SoggySwampsItems.SWAMP_OAK_HANGING_SIGN
+            );
+            entries.addAfter(Items.SUSPICIOUS_GRAVEL, SoggySwampsItems.SUSPICIOUS_MUD);
+        });
         ItemGroupEvents.modifyEntriesEvent(ItemGroups.TOOLS).register(entries ->
                 entries.addBefore(Items.BAMBOO_RAFT,
                         SoggySwampsItems.SWAMP_OAK_BOAT,
@@ -104,8 +106,9 @@ public class SoggySwampsItemGroups {
         ItemGroupEvents.modifyEntriesEvent(ItemGroups.INGREDIENTS).register(entries ->
                 entries.addAfter(Items.SPIDER_EYE, SoggySwampsItems.SWAMP_SPIDER_EYE)
         );
-        ItemGroupEvents.modifyEntriesEvent(ItemGroups.SPAWN_EGGS).register(entries ->
-                entries.addBefore(Items.TADPOLE_SPAWN_EGG, SoggySwampsItems.SWAMP_SPIDER_SPAWN_EGG)
-        );
+        ItemGroupEvents.modifyEntriesEvent(ItemGroups.SPAWN_EGGS).register(entries -> {
+            entries.addBefore(Items.ALLAY_SPAWN_EGG, SoggySwampsItems.ALCHEMIST_SPAWN_EGG);
+            entries.addBefore(Items.TADPOLE_SPAWN_EGG, SoggySwampsItems.SWAMP_SPIDER_SPAWN_EGG);
+        });
     }
 }
