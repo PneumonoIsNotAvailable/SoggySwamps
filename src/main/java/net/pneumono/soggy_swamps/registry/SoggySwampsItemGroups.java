@@ -25,6 +25,7 @@ public class SoggySwampsItemGroups {
                 .displayName(Text.translatable("itemGroup.soggy_swamps.soggy_swamps"))
                 .entries((displayContext, entries) -> {
                     entries.addAll(Stream.of(
+                            SoggySwampsItems.ALCHEMIST_SPAWN_EGG,
                             SoggySwampsItems.SWAMP_SPIDER_SPAWN_EGG,
                             SoggySwampsItems.SWAMP_SPIDER_EYE,
                             SoggySwampsItems.SUSPICIOUS_MUD,

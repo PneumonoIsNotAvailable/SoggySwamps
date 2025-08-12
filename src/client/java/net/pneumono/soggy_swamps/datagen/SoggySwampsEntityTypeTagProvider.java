@@ -6,6 +6,7 @@ import net.fabricmc.fabric.api.tag.convention.v2.ConventionalEntityTypeTags;
 import net.minecraft.registry.RegistryWrapper;
 import net.minecraft.registry.tag.EntityTypeTags;
 import net.pneumono.soggy_swamps.registry.SoggySwampsEntities;
+import net.pneumono.soggy_swamps.registry.SoggySwampsTags;
 
 import java.util.concurrent.CompletableFuture;
 
@@ -16,6 +17,13 @@ public class SoggySwampsEntityTypeTagProvider extends FabricTagProvider.EntityTy
 
     @Override
     protected void configure(RegistryWrapper.WrapperLookup wrapperLookup) {
+        valueLookupBuilder(SoggySwampsTags.ENTITY_ALCHEMIST_ALLIES).addTag(
+                EntityTypeTags.RAIDERS
+        );
+
+        valueLookupBuilder(EntityTypeTags.RAIDERS).add(
+                SoggySwampsEntities.ALCHEMIST
+        );
         valueLookupBuilder(EntityTypeTags.ARTHROPOD).add(
                 SoggySwampsEntities.SWAMP_SPIDER
         );
