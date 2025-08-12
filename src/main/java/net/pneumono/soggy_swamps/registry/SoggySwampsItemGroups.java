@@ -3,10 +3,7 @@ package net.pneumono.soggy_swamps.registry;
 import net.fabricmc.fabric.api.itemgroup.v1.FabricItemGroup;
 import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
 import net.minecraft.component.type.PotionContentsComponent;
-import net.minecraft.item.Item;
-import net.minecraft.item.ItemGroup;
-import net.minecraft.item.ItemGroups;
-import net.minecraft.item.Items;
+import net.minecraft.item.*;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
 import net.minecraft.registry.RegistryKey;
@@ -25,11 +22,6 @@ public class SoggySwampsItemGroups {
                 .displayName(Text.translatable("itemGroup.soggy_swamps.soggy_swamps"))
                 .entries((displayContext, entries) -> {
                     entries.addAll(Stream.of(
-                            SoggySwampsItems.ALCHEMIST_SPAWN_EGG,
-                            SoggySwampsItems.SWAMP_SPIDER_SPAWN_EGG,
-                            SoggySwampsItems.SWAMP_SPIDER_EYE,
-                            SoggySwampsItems.SUSPICIOUS_MUD,
-                            SoggySwampsItems.ROT_CAP,
                             SoggySwampsItems.SWAMP_OAK_SAPLING,
                             SoggySwampsItems.SWAMP_OAK_LEAVES,
                             SoggySwampsItems.SWAMP_OAK_LOG,
@@ -48,18 +40,25 @@ public class SoggySwampsItemGroups {
                             SoggySwampsItems.SWAMP_OAK_PRESSURE_PLATE,
                             SoggySwampsItems.SWAMP_OAK_BUTTON,
                             SoggySwampsItems.SWAMP_OAK_BOAT,
-                            SoggySwampsItems.SWAMP_OAK_CHEST_BOAT
-                    ).map(Item::getDefaultStack).toList());
+                            SoggySwampsItems.SWAMP_OAK_CHEST_BOAT,
+                            SoggySwampsItems.ROT_CAP,
+                            SoggySwampsItems.SUSPICIOUS_MUD,
+                            SoggySwampsItems.SWAMP_SPIDER_EYE
+                    ).map(ItemStack::new).toList());
 
                     entries.add(PotionContentsComponent.createStack(Items.POTION, SoggySwampsRegistry.VENOM_POTION));
                     entries.add(PotionContentsComponent.createStack(Items.POTION, SoggySwampsRegistry.LONG_VENOM_POTION));
-                    entries.add(PotionContentsComponent.createStack(Items.SPLASH_POTION, SoggySwampsRegistry.LONG_VENOM_POTION));
                     entries.add(PotionContentsComponent.createStack(Items.SPLASH_POTION, SoggySwampsRegistry.VENOM_POTION));
+                    entries.add(PotionContentsComponent.createStack(Items.SPLASH_POTION, SoggySwampsRegistry.LONG_VENOM_POTION));
                     entries.add(PotionContentsComponent.createStack(Items.LINGERING_POTION, SoggySwampsRegistry.VENOM_POTION));
                     entries.add(PotionContentsComponent.createStack(Items.LINGERING_POTION, SoggySwampsRegistry.LONG_VENOM_POTION));
                     entries.add(PotionContentsComponent.createStack(Items.TIPPED_ARROW, SoggySwampsRegistry.VENOM_POTION));
                     entries.add(PotionContentsComponent.createStack(Items.TIPPED_ARROW, SoggySwampsRegistry.LONG_VENOM_POTION));
 
+                    entries.addAll(Stream.of(
+                            SoggySwampsItems.ALCHEMIST_SPAWN_EGG,
+                            SoggySwampsItems.SWAMP_SPIDER_SPAWN_EGG
+                    ).map(ItemStack::new).toList());
                 })
                 .build()
         );
