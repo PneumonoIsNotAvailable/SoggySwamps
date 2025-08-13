@@ -44,7 +44,7 @@ public class SoggySwampsWorldgen {
                 swampAndMangrove,
                 SpawnGroup.MONSTER,
                 SoggySwampsEntities.SWAMP_SPIDER,
-                100, 4, 5
+                100, 3, 4
         );
 
         BiomeModifications.create(SoggySwamps.id("trees")).add(
