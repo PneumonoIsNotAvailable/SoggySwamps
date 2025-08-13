@@ -3,7 +3,6 @@ package net.pneumono.soggy_swamps.registry;
 import net.fabricmc.fabric.api.object.builder.v1.block.type.BlockSetTypeBuilder;
 import net.fabricmc.fabric.api.object.builder.v1.block.type.WoodTypeBuilder;
 import net.fabricmc.fabric.api.particle.v1.FabricParticleTypes;
-import net.fabricmc.fabric.api.registry.FabricBrewingRecipeRegistryBuilder;
 import net.minecraft.block.BlockSetType;
 import net.minecraft.block.DecoratedPotPattern;
 import net.minecraft.block.WoodType;
@@ -11,7 +10,6 @@ import net.minecraft.entity.effect.StatusEffect;
 import net.minecraft.entity.effect.StatusEffectCategory;
 import net.minecraft.entity.effect.StatusEffectInstance;
 import net.minecraft.item.Item;
-import net.minecraft.item.Items;
 import net.minecraft.particle.SimpleParticleType;
 import net.minecraft.potion.Potion;
 import net.minecraft.registry.Registries;
@@ -68,10 +66,5 @@ public class SoggySwampsRegistry {
         SoggySwampsEntities.registerSoggySwampsEntities();
         SoggySwampsItemGroups.registerSoggySwampsItemGroups();
         SoggySwampsSounds.registerSoggySwampsSounds();
-
-        FabricBrewingRecipeRegistryBuilder.BUILD.register(builder -> {
-            builder.registerRecipes(SoggySwampsItems.SWAMP_SPIDER_EYE, VENOM_POTION);
-            builder.registerPotionRecipe(VENOM_POTION, Items.REDSTONE, LONG_VENOM_POTION);
-        });
     }
 }

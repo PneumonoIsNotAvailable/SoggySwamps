@@ -1,5 +1,6 @@
 package net.pneumono.soggy_swamps.registry;
 
+import net.fabricmc.fabric.api.registry.FabricBrewingRecipeRegistryBuilder;
 import net.minecraft.block.Block;
 import net.minecraft.block.DecoratedPotPattern;
 import net.minecraft.component.type.ConsumableComponents;
@@ -116,6 +117,9 @@ public class SoggySwampsItems {
     }
 
     public static void registerSoggySwampsItems() {
-
+        FabricBrewingRecipeRegistryBuilder.BUILD.register(builder -> {
+            builder.registerRecipes(SWAMP_SPIDER_EYE, SoggySwampsRegistry.VENOM_POTION);
+            builder.registerPotionRecipe(SoggySwampsRegistry.VENOM_POTION, Items.REDSTONE, SoggySwampsRegistry.LONG_VENOM_POTION);
+        });
     }
 }
