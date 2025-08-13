@@ -38,6 +38,7 @@ public class SoggySwampsBlockTagProvider extends FabricTagProvider.BlockTagProvi
         tag(BlockTags.FROGS_SPAWNABLE_ON).add(SoggySwampsBlocks.SUSPICIOUS_MUD);
         tag(BlockTags.REPLACEABLE_BY_MUSHROOMS).add(SoggySwampsBlocks.ROT_CAP);
 
+        tag(BlockTags.SMALL_FLOWERS).add(SoggySwampsBlocks.VIBRANT_SPROUT);
         tag(BlockTags.SAPLINGS).add(SoggySwampsBlocks.SWAMP_OAK_SAPLING);
         tag(BlockTags.LEAVES).add(SoggySwampsBlocks.SWAMP_OAK_LEAVES);
         tag(BlockTags.OVERWORLD_NATURAL_LOGS).add(SoggySwampsBlocks.SWAMP_OAK_LOG);

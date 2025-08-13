@@ -6,6 +6,7 @@ import net.minecraft.block.*;
 import net.minecraft.block.entity.BlockEntityType;
 import net.minecraft.block.enums.NoteBlockInstrument;
 import net.minecraft.block.piston.PistonBehavior;
+import net.minecraft.entity.effect.StatusEffects;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
 import net.minecraft.registry.RegistryKey;
@@ -30,6 +31,22 @@ public class SoggySwampsBlocks {
                     .breakInstantly()
                     .sounds(BlockSoundGroup.WET_GRASS)
                     .pistonBehavior(PistonBehavior.DESTROY)
+    );
+    public static final FlowerBlock VIBRANT_SPROUT = register(
+            "vibrant_sprout",
+            settings -> new FlowerBlock(StatusEffects.REGENERATION, 10.0F, settings),
+            AbstractBlock.Settings.create()
+                    .mapColor(MapColor.DARK_GREEN)
+                    .noCollision()
+                    .breakInstantly()
+                    .sounds(BlockSoundGroup.WET_GRASS)
+                    .offset(AbstractBlock.OffsetType.XZ)
+                    .pistonBehavior(PistonBehavior.DESTROY)
+    );
+    public static final FlowerPotBlock POTTED_VIBRANT_SPROUT = register(
+            "potted_vibrant_sprout",
+            settings -> new FlowerPotBlock(VIBRANT_SPROUT, settings),
+            Blocks.createFlowerPotSettings()
     );
     public static final NonFallingBrushableBlock SUSPICIOUS_MUD = register(
             "suspicious_mud",

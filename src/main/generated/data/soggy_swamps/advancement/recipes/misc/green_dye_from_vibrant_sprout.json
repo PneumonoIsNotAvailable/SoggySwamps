@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "soggy_swamps:green_dye_from_vibrant_sprout"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    },
+    "has_vibrant_sprout": {
+      "conditions": {
+        "items": [
+          {
+            "items": "soggy_swamps:vibrant_sprout"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_vibrant_sprout"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "soggy_swamps:green_dye_from_vibrant_sprout"
+    ]
+  }
+}

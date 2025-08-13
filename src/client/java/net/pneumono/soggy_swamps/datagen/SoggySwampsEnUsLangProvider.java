@@ -20,6 +20,8 @@ public class SoggySwampsEnUsLangProvider extends FabricLanguageProvider {
 
         builder.add(SoggySwampsBlocks.SUSPICIOUS_MUD, "Suspicious Mud");
         builder.add(SoggySwampsBlocks.ROT_CAP, "Rot Cap");
+        builder.add(SoggySwampsBlocks.VIBRANT_SPROUT, "Vibrant Sprout");
+        builder.add(SoggySwampsBlocks.POTTED_VIBRANT_SPROUT, "Potted Vibrant Sprout");
         builder.add(SoggySwampsBlocks.SWAMP_OAK_SAPLING, "Swamp Oak Sapling");
         builder.add(SoggySwampsBlocks.POTTED_SWAMP_OAK_SAPLING, "Potted Swamp Oak Sapling");
         builder.add(SoggySwampsBlocks.SWAMP_OAK_LEAVES, "Swamp Oak Leaves");

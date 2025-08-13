@@ -31,6 +31,7 @@ public class SoggySwampsItemTagProvider extends FabricTagProvider.ItemTagProvide
 
         tag(ItemTags.ARMADILLO_FOOD).add(SoggySwampsItems.SWAMP_SPIDER_EYE);
 
+        tag(ItemTags.SMALL_FLOWERS).add(SoggySwampsItems.VIBRANT_SPROUT);
         tag(ItemTags.SAPLINGS).add(SoggySwampsItems.SWAMP_OAK_SAPLING);
         tag(ItemTags.LEAVES).add(SoggySwampsItems.SWAMP_OAK_LEAVES);
         tag(ItemTags.PLANKS).add(SoggySwampsItems.SWAMP_OAK_PLANKS);
