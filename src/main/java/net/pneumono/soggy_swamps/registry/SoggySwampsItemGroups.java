@@ -47,7 +47,8 @@ public class SoggySwampsItemGroups {
                             SoggySwampsItems.HAT_POTTERY_SHERD,
                             SoggySwampsItems.SLIME_POTTERY_SHERD,
                             SoggySwampsItems.DECAY_POTTERY_SHERD,
-                            SoggySwampsItems.SWAMP_SPIDER_EYE
+                            SoggySwampsItems.SWAMP_SPIDER_EYE,
+                            SoggySwampsItems.SWAMP_STEW
                     ).map(ItemStack::new).toList());
 
                     entries.add(PotionContentsComponent.createStack(Items.POTION, SoggySwampsRegistry.VENOM_POTION));
@@ -103,9 +104,10 @@ public class SoggySwampsItemGroups {
                         SoggySwampsItems.SWAMP_OAK_CHEST_BOAT
                 )
         );
-        ItemGroupEvents.modifyEntriesEvent(ItemGroups.FOOD_AND_DRINK).register(entries ->
-                entries.addAfter(Items.SPIDER_EYE, SoggySwampsItems.SWAMP_SPIDER_EYE)
-        );
+        ItemGroupEvents.modifyEntriesEvent(ItemGroups.FOOD_AND_DRINK).register(entries -> {
+            entries.addAfter(Items.SPIDER_EYE, SoggySwampsItems.SWAMP_SPIDER_EYE);
+            entries.addAfter(Items.RABBIT_STEW, SoggySwampsItems.SWAMP_STEW);
+        });
         ItemGroupEvents.modifyEntriesEvent(ItemGroups.INGREDIENTS).register(entries -> {
             entries.addAfter(Items.SPIDER_EYE, SoggySwampsItems.SWAMP_SPIDER_EYE);
             entries.addAfter(Items.DANGER_POTTERY_SHERD, SoggySwampsItems.DECAY_POTTERY_SHERD);

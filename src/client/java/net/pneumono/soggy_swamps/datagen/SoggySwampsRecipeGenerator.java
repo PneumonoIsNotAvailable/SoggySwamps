@@ -5,6 +5,7 @@ import net.fabricmc.fabric.api.datagen.v1.provider.FabricRecipeProvider;
 import net.minecraft.data.recipe.RecipeExporter;
 import net.minecraft.data.recipe.RecipeGenerator;
 import net.minecraft.item.Items;
+import net.minecraft.recipe.book.RecipeCategory;
 import net.minecraft.registry.RegistryWrapper;
 import net.minecraft.resource.featuretoggle.FeatureFlags;
 import net.minecraft.resource.featuretoggle.FeatureSet;
@@ -23,6 +24,25 @@ public class SoggySwampsRecipeGenerator extends RecipeGenerator {
     public void generate() {
         offerSingleOutputShapelessRecipe(Items.GREEN_DYE,  SoggySwampsItems.VIBRANT_SPROUT, "green_dye");
         offerShapelessRecipe(Items.PURPLE_DYE, SoggySwampsItems.ROT_CAP, "purple_dye", 2);
+
+        this.createShapeless(RecipeCategory.FOOD, SoggySwampsItems.SWAMP_STEW)
+                .input(Items.BOWL)
+                .input(SoggySwampsItems.VIBRANT_SPROUT)
+                .input(SoggySwampsItems.SWAMP_SPIDER_EYE)
+                .input(SoggySwampsItems.ROT_CAP)
+                .input(Items.BROWN_MUSHROOM)
+                .group("swamp_stew")
+                .criterion("has_swamp_spider_eye", this.conditionsFromItem(SoggySwampsItems.SWAMP_SPIDER_EYE))
+                .offerTo(this.exporter, convertBetween(SoggySwampsItems.SWAMP_STEW, Items.BROWN_MUSHROOM));
+        this.createShapeless(RecipeCategory.FOOD, SoggySwampsItems.SWAMP_STEW)
+                .input(Items.BOWL)
+                .input(SoggySwampsItems.VIBRANT_SPROUT)
+                .input(SoggySwampsItems.SWAMP_SPIDER_EYE)
+                .input(SoggySwampsItems.ROT_CAP)
+                .input(Items.RED_MUSHROOM)
+                .group("swamp_stew")
+                .criterion("has_swamp_spider_eye", this.conditionsFromItem(SoggySwampsItems.SWAMP_SPIDER_EYE))
+                .offerTo(this.exporter, convertBetween(SoggySwampsItems.SWAMP_STEW, Items.RED_MUSHROOM));
 
         generateFamily(SoggySwampsBlockFamilies.SWAMP_OAK, FeatureSet.of(FeatureFlags.VANILLA));
 

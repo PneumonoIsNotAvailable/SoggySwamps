@@ -43,6 +43,18 @@ public class SoggySwampsItems {
                             .build()
             )
     );
+    public static final Item SWAMP_STEW = register(
+            "swamp_stew",
+            Item::new,
+            new Item.Settings().useRemainder(Items.BOWL).maxCount(1).food(
+                    new FoodComponent.Builder().nutrition(100).saturationModifier(0.8F).build(),
+                    ConsumableComponents.food()
+                            .consumeEffect(new ApplyEffectsConsumeEffect(
+                                    new StatusEffectInstance(SoggySwampsRegistry.VENOM, 200, 0)
+                            ))
+                            .build()
+            )
+    );
 
     public static final BlockItem SUSPICIOUS_MUD = registerBlockItem(SoggySwampsBlocks.SUSPICIOUS_MUD);
     public static final Item HAT_POTTERY_SHERD = registerPotterySherd("hat");

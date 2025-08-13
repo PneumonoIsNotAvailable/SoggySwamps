@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "group": "swamp_stew",
+  "ingredients": [
+    "minecraft:bowl",
+    "soggy_swamps:vibrant_sprout",
+    "soggy_swamps:swamp_spider_eye",
+    "soggy_swamps:rot_cap",
+    "minecraft:brown_mushroom"
+  ],
+  "result": {
+    "count": 1,
+    "id": "soggy_swamps:swamp_stew"
+  }
+}

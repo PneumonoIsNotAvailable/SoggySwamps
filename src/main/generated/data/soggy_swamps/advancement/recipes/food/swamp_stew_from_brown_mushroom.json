@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_swamp_spider_eye": {
+      "conditions": {
+        "items": [
+          {
+            "items": "soggy_swamps:swamp_spider_eye"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "soggy_swamps:swamp_stew_from_brown_mushroom"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_swamp_spider_eye"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "soggy_swamps:swamp_stew_from_brown_mushroom"
+    ]
+  }
+}
