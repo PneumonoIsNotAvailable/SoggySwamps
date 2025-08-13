@@ -11,7 +11,7 @@ import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
 @Mixin(DecoratedPotPatterns.class)
-public class DecoratedPotPatternsMixin {
+public abstract class DecoratedPotPatternsMixin {
     @Inject(
             method = "fromSherd",
             at = @At("HEAD"),
