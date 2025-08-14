@@ -20,11 +20,6 @@ import java.util.List;
 import java.util.function.Function;
 
 public class SoggySwampsItems {
-    public static final SpawnEggItem ALCHEMIST_SPAWN_EGG = register(
-            "alchemist_spawn_egg",
-            settings -> new SpawnEggItem(SoggySwampsEntities.ALCHEMIST, settings),
-            new Item.Settings()
-    );
     public static final SpawnEggItem SWAMP_SPIDER_SPAWN_EGG = register(
             "swamp_spider_spawn_egg",
             settings -> new SpawnEggItem(SoggySwampsEntities.SWAMP_SPIDER, settings),

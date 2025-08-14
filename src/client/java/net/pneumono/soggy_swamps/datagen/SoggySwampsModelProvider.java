@@ -50,7 +50,6 @@ public class SoggySwampsModelProvider extends FabricModelProvider {
 
     @Override
     public void generateItemModels(ItemModelGenerator generator) {
-        generator.register(SoggySwampsItems.ALCHEMIST_SPAWN_EGG, Models.GENERATED);
         generator.register(SoggySwampsItems.SWAMP_SPIDER_SPAWN_EGG, Models.GENERATED);
         generator.register(SoggySwampsItems.SWAMP_SPIDER_EYE, Models.GENERATED);
         generator.register(SoggySwampsItems.SWAMP_STEW, Models.GENERATED);

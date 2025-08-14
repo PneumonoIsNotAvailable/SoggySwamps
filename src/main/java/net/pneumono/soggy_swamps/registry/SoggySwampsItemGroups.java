@@ -61,7 +61,6 @@ public class SoggySwampsItemGroups {
                     entries.add(PotionContentsComponent.createStack(Items.TIPPED_ARROW, SoggySwampsRegistry.LONG_VENOM_POTION));
 
                     entries.addAll(Stream.of(
-                            SoggySwampsItems.ALCHEMIST_SPAWN_EGG,
                             SoggySwampsItems.SWAMP_SPIDER_SPAWN_EGG
                     ).map(ItemStack::new).toList());
                 })
@@ -114,9 +113,8 @@ public class SoggySwampsItemGroups {
             entries.addAfter(Items.GUSTER_POTTERY_SHERD, SoggySwampsItems.HAT_POTTERY_SHERD);
             entries.addAfter(Items.SKULL_POTTERY_SHERD, SoggySwampsItems.SLIME_POTTERY_SHERD);
         });
-        ItemGroupEvents.modifyEntriesEvent(ItemGroups.SPAWN_EGGS).register(entries -> {
-            entries.addBefore(Items.ALLAY_SPAWN_EGG, SoggySwampsItems.ALCHEMIST_SPAWN_EGG);
-            entries.addBefore(Items.TADPOLE_SPAWN_EGG, SoggySwampsItems.SWAMP_SPIDER_SPAWN_EGG);
-        });
+        ItemGroupEvents.modifyEntriesEvent(ItemGroups.SPAWN_EGGS).register(entries ->
+                entries.addBefore(Items.TADPOLE_SPAWN_EGG, SoggySwampsItems.SWAMP_SPIDER_SPAWN_EGG)
+        );
     }
 }

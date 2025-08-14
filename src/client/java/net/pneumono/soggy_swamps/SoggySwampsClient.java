@@ -15,8 +15,6 @@ import net.minecraft.client.render.entity.model.EntityModelLayer;
 import net.minecraft.client.render.entity.model.SpiderEntityModel;
 import net.minecraft.registry.RegistryKey;
 import net.minecraft.registry.RegistryKeys;
-import net.pneumono.soggy_swamps.content.AlchemistEntityModel;
-import net.pneumono.soggy_swamps.content.AlchemistEntityRenderer;
 import net.pneumono.soggy_swamps.content.FlyParticle;
 import net.pneumono.soggy_swamps.content.SwampSpiderEntityRenderer;
 import net.pneumono.soggy_swamps.registry.SoggySwampsBlocks;
@@ -24,9 +22,6 @@ import net.pneumono.soggy_swamps.registry.SoggySwampsEntities;
 import net.pneumono.soggy_swamps.registry.SoggySwampsRegistry;
 
 public class SoggySwampsClient implements ClientModInitializer {
-	public static final EntityModelLayer ALCHEMIST = new EntityModelLayer(
-			SoggySwamps.id("alchemist"), "main"
-	);
 	public static final EntityModelLayer SWAMP_SPIDER = new EntityModelLayer(
 			SoggySwamps.id("swamp_spider"), "main"
 	);
@@ -54,15 +49,10 @@ public class SoggySwampsClient implements ClientModInitializer {
 				SoggySwampsBlocks.SWAMP_OAK_LEAVES
 		);
 
-		EntityModelLayerRegistry.registerModelLayer(ALCHEMIST, AlchemistEntityModel::getTexturedModelData);
 		EntityModelLayerRegistry.registerModelLayer(SWAMP_SPIDER, SpiderEntityModel::getTexturedModelData);
 		EntityModelLayerRegistry.registerModelLayer(SWAMP_OAK_BOAT, BoatEntityModel::getTexturedModelData);
 		EntityModelLayerRegistry.registerModelLayer(SWAMP_OAK_CHEST_BOAT, BoatEntityModel::getChestTexturedModelData);
 
-		EntityRendererRegistry.register(
-				SoggySwampsEntities.ALCHEMIST,
-				AlchemistEntityRenderer::new
-		);
 		EntityRendererRegistry.register(
 				SoggySwampsEntities.SWAMP_SPIDER,
 				SwampSpiderEntityRenderer::new

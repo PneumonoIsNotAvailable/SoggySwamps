@@ -12,20 +12,11 @@ import net.minecraft.registry.Registry;
 import net.minecraft.registry.RegistryKey;
 import net.minecraft.registry.RegistryKeys;
 import net.pneumono.soggy_swamps.SoggySwamps;
-import net.pneumono.soggy_swamps.content.AlchemistEntity;
 import net.pneumono.soggy_swamps.content.SwampSpiderEntity;
 
 import java.util.function.Supplier;
 
 public class SoggySwampsEntities {
-    public static EntityType<AlchemistEntity> ALCHEMIST = register(
-            "alchemist",
-            EntityType.Builder.create(AlchemistEntity::new, SpawnGroup.MONSTER)
-                    .dimensions(0.6F, 1.95F)
-                    .eyeHeight(1.62F)
-                    .passengerAttachments(2.2625F)
-                    .maxTrackingRange(16)
-    );
     public static EntityType<SwampSpiderEntity> SWAMP_SPIDER = register(
             "swamp_spider",
             EntityType.Builder.create(SwampSpiderEntity::new, SpawnGroup.MONSTER)
@@ -67,7 +58,6 @@ public class SoggySwampsEntities {
     }
 
     public static void registerSoggySwampsEntities() {
-        FabricDefaultAttributeRegistry.register(ALCHEMIST, AlchemistEntity.createAlchemistAttributes());
         FabricDefaultAttributeRegistry.register(SWAMP_SPIDER, SwampSpiderEntity.createSwampSpiderAttributes());
     }
 }
