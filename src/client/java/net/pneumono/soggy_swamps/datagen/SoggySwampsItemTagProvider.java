@@ -53,9 +53,15 @@ public class SoggySwampsItemTagProvider extends FabricTagProvider.ItemTagProvide
                 SoggySwampsItems.DECAY_POTTERY_SHERD
         );
 
+        tag(ConventionalItemTags.MUSHROOMS).add(SoggySwampsItems.ROT_CAP);
         tag(ConventionalItemTags.FENCES).add(SoggySwampsItems.SWAMP_OAK_FENCE);
         tag(ConventionalItemTags.FENCE_GATES).add(SoggySwampsItems.SWAMP_OAK_FENCE_GATE);
-        tag(ConventionalItemTags.FOOD_POISONING_FOODS).add(SoggySwampsItems.SWAMP_SPIDER_EYE);
+        tag(ConventionalItemTags.FOOD_POISONING_FOODS).add(
+                SoggySwampsItems.SWAMP_SPIDER_EYE,
+                SoggySwampsItems.SWAMP_STEW,
+                SoggySwampsItems.ROASTED_ROT_CAP
+        );
+        tag(ConventionalItemTags.SOUP_FOODS).add(SoggySwampsItems.SWAMP_STEW);
         tag(ConventionalItemTags.STRIPPED_LOGS).add(SoggySwampsItems.STRIPPED_SWAMP_OAK_LOG);
         tag(ConventionalItemTags.STRIPPED_WOODS).add(SoggySwampsItems.STRIPPED_SWAMP_OAK_WOOD);
     }

@@ -39,6 +39,11 @@ public class SoggySwampsBlockTagProvider extends FabricTagProvider.BlockTagProvi
         tag(BlockTags.REPLACEABLE_BY_MUSHROOMS).add(SoggySwampsBlocks.ROT_CAP);
 
         tag(BlockTags.SMALL_FLOWERS).add(SoggySwampsBlocks.VIBRANT_SPROUT);
+        tag(BlockTags.FLOWER_POTS).add(
+                SoggySwampsBlocks.POTTED_SWAMP_OAK_SAPLING,
+                SoggySwampsBlocks.POTTED_VIBRANT_SPROUT,
+                SoggySwampsBlocks.POTTED_ROT_CAP
+        );
         tag(BlockTags.SAPLINGS).add(SoggySwampsBlocks.SWAMP_OAK_SAPLING);
         tag(BlockTags.LEAVES).add(SoggySwampsBlocks.SWAMP_OAK_LEAVES);
         tag(BlockTags.OVERWORLD_NATURAL_LOGS).add(SoggySwampsBlocks.SWAMP_OAK_LOG);
@@ -58,10 +63,11 @@ public class SoggySwampsBlockTagProvider extends FabricTagProvider.BlockTagProvi
 
         tag(BlockTags.SHOVEL_MINEABLE).add(SoggySwampsBlocks.SUSPICIOUS_MUD);
 
-        tag(ConventionalBlockTags.WOODEN_FENCES).add(SoggySwampsBlocks.SWAMP_OAK_FENCE);
-        tag(ConventionalBlockTags.WOODEN_FENCE_GATES).add(SoggySwampsBlocks.SWAMP_OAK_FENCE_GATE);
+        tag(ConventionalBlockTags.SMALL_FLOWERS).add(SoggySwampsBlocks.VIBRANT_SPROUT);
         tag(ConventionalBlockTags.STRIPPED_LOGS).add(SoggySwampsBlocks.STRIPPED_SWAMP_OAK_LOG);
         tag(ConventionalBlockTags.STRIPPED_WOODS).add(SoggySwampsBlocks.STRIPPED_SWAMP_OAK_WOOD);
+        tag(ConventionalBlockTags.WOODEN_FENCES).add(SoggySwampsBlocks.SWAMP_OAK_FENCE);
+        tag(ConventionalBlockTags.WOODEN_FENCE_GATES).add(SoggySwampsBlocks.SWAMP_OAK_FENCE_GATE);
     }
 
     private ProvidedTagBuilder<Block, Block> tag(TagKey<Block> tag) {
