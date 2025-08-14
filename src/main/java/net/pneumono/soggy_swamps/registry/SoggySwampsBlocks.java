@@ -13,7 +13,7 @@ import net.minecraft.registry.RegistryKey;
 import net.minecraft.registry.RegistryKeys;
 import net.minecraft.sound.BlockSoundGroup;
 import net.pneumono.soggy_swamps.SoggySwamps;
-import net.pneumono.soggy_swamps.content.NonFallingBrushableBlock;
+import net.pneumono.soggy_swamps.content.BrushableMudBlock;
 import net.pneumono.soggy_swamps.content.PottedRotCapBlock;
 import net.pneumono.soggy_swamps.content.RotCapBlock;
 import net.pneumono.soggy_swamps.worldgen.SoggySwampsWorldgen;
@@ -54,11 +54,15 @@ public class SoggySwampsBlocks {
             settings -> new FlowerPotBlock(VIBRANT_SPROUT, settings),
             Blocks.createFlowerPotSettings()
     );
-    public static final NonFallingBrushableBlock SUSPICIOUS_MUD = register(
+    public static final BrushableMudBlock SUSPICIOUS_MUD = register(
             "suspicious_mud",
-            settings -> new NonFallingBrushableBlock(Blocks.MUD, SoggySwampsSounds.ITEM_BRUSH_BRUSHING_MUD, SoggySwampsSounds.ITEM_BRUSH_BRUSHING_MUD, settings),
+            settings -> new BrushableMudBlock(Blocks.MUD, SoggySwampsSounds.ITEM_BRUSH_BRUSHING_MUD, SoggySwampsSounds.ITEM_BRUSH_BRUSHING_MUD, settings),
             AbstractBlock.Settings.create()
                     .mapColor(MapColor.TERRACOTTA_CYAN)
+                    .allowsSpawning(Blocks::always)
+                    .solidBlock(Blocks::always)
+                    .blockVision(Blocks::always)
+                    .suffocates(Blocks::always)
                     .strength(0.3F)
                     .sounds(SoggySwampsSounds.GROUP_SUSPICIOUS_MUD)
                     .pistonBehavior(PistonBehavior.DESTROY)
