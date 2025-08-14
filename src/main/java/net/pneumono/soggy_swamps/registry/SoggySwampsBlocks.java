@@ -14,6 +14,7 @@ import net.minecraft.registry.RegistryKeys;
 import net.minecraft.sound.BlockSoundGroup;
 import net.pneumono.soggy_swamps.SoggySwamps;
 import net.pneumono.soggy_swamps.content.NonFallingBrushableBlock;
+import net.pneumono.soggy_swamps.content.PottedRotCapBlock;
 import net.pneumono.soggy_swamps.content.RotCapBlock;
 import net.pneumono.soggy_swamps.worldgen.SoggySwampsWorldgen;
 
@@ -31,6 +32,11 @@ public class SoggySwampsBlocks {
                     .breakInstantly()
                     .sounds(BlockSoundGroup.WET_GRASS)
                     .pistonBehavior(PistonBehavior.DESTROY)
+    );
+    public static final FlowerPotBlock POTTED_ROT_CAP = register(
+            "potted_rot_cap",
+            settings -> new PottedRotCapBlock(ROT_CAP, settings),
+            Blocks.createFlowerPotSettings()
     );
     public static final FlowerBlock VIBRANT_SPROUT = register(
             "vibrant_sprout",

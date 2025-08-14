@@ -18,6 +18,7 @@ public class SoggySwampsModelProvider extends FabricModelProvider {
     public void generateBlockStateModels(BlockStateModelGenerator generator) {
         generator.registerBrushableBlock(SoggySwampsBlocks.SUSPICIOUS_MUD);
         generator.registerSimpleState(SoggySwampsBlocks.ROT_CAP);
+        generator.registerSimpleState(SoggySwampsBlocks.POTTED_ROT_CAP);
         generator.registerFlowerPotPlantAndItem(
                 SoggySwampsBlocks.VIBRANT_SPROUT,
                 SoggySwampsBlocks.POTTED_VIBRANT_SPROUT,

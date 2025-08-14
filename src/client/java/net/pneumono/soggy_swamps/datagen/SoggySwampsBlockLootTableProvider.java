@@ -15,6 +15,7 @@ public class SoggySwampsBlockLootTableProvider extends FabricBlockLootTableProvi
     @Override
     public void generate() {
         addDrop(SoggySwampsBlocks.ROT_CAP);
+        addPottedPlantDrops(SoggySwampsBlocks.POTTED_ROT_CAP);
         addDrop(SoggySwampsBlocks.VIBRANT_SPROUT);
         addPottedPlantDrops(SoggySwampsBlocks.POTTED_VIBRANT_SPROUT);
         addDrop(SoggySwampsBlocks.SWAMP_OAK_SAPLING);
