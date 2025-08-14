@@ -42,7 +42,7 @@ public class SoggySwampsItems {
             "swamp_stew",
             Item::new,
             new Item.Settings().useRemainder(Items.BOWL).maxCount(1).food(
-                    new FoodComponent.Builder().nutrition(100).saturationModifier(0.8F).build(),
+                    new FoodComponent.Builder().nutrition(10).saturationModifier(0.8F).build(),
                     ConsumableComponents.food()
                             .consumeEffect(new ApplyEffectsConsumeEffect(
                                     new StatusEffectInstance(SoggySwampsRegistry.VENOM, 200, 0)
