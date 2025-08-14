@@ -11,7 +11,6 @@ import net.minecraft.entity.effect.StatusEffect;
 import net.minecraft.entity.effect.StatusEffectCategory;
 import net.minecraft.entity.effect.StatusEffectInstance;
 import net.minecraft.item.Item;
-import net.minecraft.item.Items;
 import net.minecraft.particle.SimpleParticleType;
 import net.minecraft.potion.Potion;
 import net.minecraft.registry.Registries;
