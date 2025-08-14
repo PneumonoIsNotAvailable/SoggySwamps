@@ -2,6 +2,7 @@ package net.pneumono.soggy_swamps.registry;
 
 import net.fabricmc.fabric.api.object.builder.v1.block.type.BlockSetTypeBuilder;
 import net.fabricmc.fabric.api.object.builder.v1.block.type.WoodTypeBuilder;
+import net.fabricmc.fabric.api.object.builder.v1.trade.TradeOfferHelper;
 import net.fabricmc.fabric.api.particle.v1.FabricParticleTypes;
 import net.minecraft.block.BlockSetType;
 import net.minecraft.block.DecoratedPotPattern;
@@ -10,12 +11,14 @@ import net.minecraft.entity.effect.StatusEffect;
 import net.minecraft.entity.effect.StatusEffectCategory;
 import net.minecraft.entity.effect.StatusEffectInstance;
 import net.minecraft.item.Item;
+import net.minecraft.item.Items;
 import net.minecraft.particle.SimpleParticleType;
 import net.minecraft.potion.Potion;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
 import net.minecraft.registry.RegistryKey;
 import net.minecraft.registry.entry.RegistryEntry;
+import net.minecraft.village.TradeOffers;
 import net.pneumono.soggy_swamps.SoggySwamps;
 import net.pneumono.soggy_swamps.content.VenomStatusEffect;
 
@@ -66,5 +69,11 @@ public class SoggySwampsRegistry {
         SoggySwampsEntities.registerSoggySwampsEntities();
         SoggySwampsItemGroups.registerSoggySwampsItemGroups();
         SoggySwampsSounds.registerSoggySwampsSounds();
+
+        TradeOfferHelper.registerWanderingTraderOffers(builder -> builder.addOffersToPool(
+                TradeOfferHelper.WanderingTraderOffersBuilder.SELL_COMMON_ITEMS_POOL,
+                new TradeOffers.SellItemFactory(SoggySwampsItems.SWAMP_OAK_SAPLING, 5, 1, 8, 1),
+                new TradeOffers.SellItemFactory(SoggySwampsItems.VIBRANT_SPROUT, 1, 1, 8, 1)
+        ));
     }
 }
