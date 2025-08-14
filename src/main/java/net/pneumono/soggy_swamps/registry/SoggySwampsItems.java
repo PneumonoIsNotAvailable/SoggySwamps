@@ -50,6 +50,18 @@ public class SoggySwampsItems {
                             .build()
             )
     );
+    public static final Item ROASTED_ROT_CAP = register(
+            "roasted_rot_cap",
+            Item::new,
+            new Item.Settings().food(
+                    new FoodComponent.Builder().nutrition(6).saturationModifier(0.3F).build(),
+                    ConsumableComponents.food()
+                            .consumeEffect(new ApplyEffectsConsumeEffect(
+                                    new StatusEffectInstance(StatusEffects.HUNGER, 600, 0), 0.7F
+                            ))
+                            .build()
+            )
+    );
 
     public static final BlockItem SUSPICIOUS_MUD = registerBlockItem(SoggySwampsBlocks.SUSPICIOUS_MUD);
     public static final Item HAT_POTTERY_SHERD = registerPotterySherd("hat");

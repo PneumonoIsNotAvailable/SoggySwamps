@@ -41,14 +41,15 @@ public class SoggySwampsItemGroups {
                             SoggySwampsItems.SWAMP_OAK_BUTTON,
                             SoggySwampsItems.SWAMP_OAK_BOAT,
                             SoggySwampsItems.SWAMP_OAK_CHEST_BOAT,
-                            SoggySwampsItems.ROT_CAP,
                             SoggySwampsItems.VIBRANT_SPROUT,
+                            SoggySwampsItems.ROT_CAP,
+                            SoggySwampsItems.ROASTED_ROT_CAP,
+                            SoggySwampsItems.SWAMP_SPIDER_EYE,
+                            SoggySwampsItems.SWAMP_STEW,
                             SoggySwampsItems.SUSPICIOUS_MUD,
                             SoggySwampsItems.HAT_POTTERY_SHERD,
                             SoggySwampsItems.SLIME_POTTERY_SHERD,
-                            SoggySwampsItems.DECAY_POTTERY_SHERD,
-                            SoggySwampsItems.SWAMP_SPIDER_EYE,
-                            SoggySwampsItems.SWAMP_STEW
+                            SoggySwampsItems.DECAY_POTTERY_SHERD
                     ).map(ItemStack::new).toList());
 
                     entries.add(PotionContentsComponent.createStack(Items.POTION, SoggySwampsRegistry.VENOM_POTION));
@@ -106,6 +107,7 @@ public class SoggySwampsItemGroups {
         ItemGroupEvents.modifyEntriesEvent(ItemGroups.FOOD_AND_DRINK).register(entries -> {
             entries.addAfter(Items.SPIDER_EYE, SoggySwampsItems.SWAMP_SPIDER_EYE);
             entries.addAfter(Items.RABBIT_STEW, SoggySwampsItems.SWAMP_STEW);
+            entries.addAfter(Items.ROTTEN_FLESH, SoggySwampsItems.ROASTED_ROT_CAP);
         });
         ItemGroupEvents.modifyEntriesEvent(ItemGroups.INGREDIENTS).register(entries -> {
             entries.addAfter(Items.SPIDER_EYE, SoggySwampsItems.SWAMP_SPIDER_EYE);

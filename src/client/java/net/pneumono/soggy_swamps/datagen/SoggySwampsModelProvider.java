@@ -53,6 +53,7 @@ public class SoggySwampsModelProvider extends FabricModelProvider {
         generator.register(SoggySwampsItems.SWAMP_SPIDER_SPAWN_EGG, Models.GENERATED);
         generator.register(SoggySwampsItems.SWAMP_SPIDER_EYE, Models.GENERATED);
         generator.register(SoggySwampsItems.SWAMP_STEW, Models.GENERATED);
+        generator.register(SoggySwampsItems.ROASTED_ROT_CAP, Models.GENERATED);
         generator.register(SoggySwampsItems.SWAMP_OAK_BOAT, Models.GENERATED);
         generator.register(SoggySwampsItems.SWAMP_OAK_CHEST_BOAT, Models.GENERATED);
         generator.register(SoggySwampsItems.HAT_POTTERY_SHERD, Models.GENERATED);

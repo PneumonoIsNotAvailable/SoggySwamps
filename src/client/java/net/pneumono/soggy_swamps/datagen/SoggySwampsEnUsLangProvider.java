@@ -44,6 +44,7 @@ public class SoggySwampsEnUsLangProvider extends FabricLanguageProvider {
         builder.add(SoggySwampsItems.SWAMP_SPIDER_SPAWN_EGG, "Swamp Spider Spawn Egg");
         builder.add(SoggySwampsItems.SWAMP_SPIDER_EYE, "Swamp Spider Eye");
         builder.add(SoggySwampsItems.SWAMP_STEW, "Swamp Stew");
+        builder.add(SoggySwampsItems.ROASTED_ROT_CAP, "Roasted Rot Cap");
         builder.add(SoggySwampsItems.SWAMP_OAK_BOAT, "Swamp Oak Boat");
         builder.add(SoggySwampsItems.SWAMP_OAK_CHEST_BOAT, "Swamp Oak Chest Boat");
         builder.add(SoggySwampsItems.HAT_POTTERY_SHERD, "Hat Pottery Sherd");
