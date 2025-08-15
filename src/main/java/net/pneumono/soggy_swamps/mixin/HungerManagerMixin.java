@@ -19,7 +19,7 @@ public abstract class HungerManagerMixin {
                     target = "Lnet/minecraft/world/GameRules;getBoolean(Lnet/minecraft/world/GameRules$Key;)Z"
             )
     )
-    private boolean preventNaturalRegenWithVenom(GameRules instance, GameRules.Key<GameRules.BooleanRule> gameRule, Operation<Boolean> original, @Local ServerPlayerEntity player) {
+    private boolean preventNaturalRegenWithVenom(GameRules instance, GameRules.Key<GameRules.BooleanRule> gameRule, Operation<Boolean> original, @Local(argsOnly = true) ServerPlayerEntity player) {
         if (player.hasStatusEffect(SoggySwampsRegistry.VENOM)) {
             return false;
         } else {
