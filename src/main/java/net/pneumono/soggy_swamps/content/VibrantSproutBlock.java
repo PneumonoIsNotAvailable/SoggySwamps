@@ -1,14 +1,14 @@
 package net.pneumono.soggy_swamps.content;
 
-import net.minecraft.block.BlockState;
-import net.minecraft.block.Fertilizable;
-import net.minecraft.block.FlowerBlock;
+import net.minecraft.block.*;
 import net.minecraft.entity.effect.StatusEffect;
 import net.minecraft.registry.entry.RegistryEntry;
 import net.minecraft.server.world.ServerWorld;
 import net.minecraft.util.Util;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.random.Random;
+import net.minecraft.util.shape.VoxelShape;
+import net.minecraft.world.BlockView;
 import net.minecraft.world.World;
 import net.minecraft.world.WorldView;
 
@@ -17,8 +17,15 @@ import java.util.List;
 import java.util.function.Consumer;
 
 public class VibrantSproutBlock extends FlowerBlock implements Fertilizable {
+    private static final VoxelShape SHAPE = Block.createColumnShape(12.0, 0.0, 12.0);
+
     public VibrantSproutBlock(RegistryEntry<StatusEffect> stewEffect, float effectLengthInSeconds, Settings settings) {
         super(stewEffect, effectLengthInSeconds, settings);
+    }
+
+    @Override
+    protected VoxelShape getOutlineShape(BlockState state, BlockView world, BlockPos pos, ShapeContext context) {
+        return SHAPE.offset(state.getModelOffset(pos));
     }
 
     @Override
