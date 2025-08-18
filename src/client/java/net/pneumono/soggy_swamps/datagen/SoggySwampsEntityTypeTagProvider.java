@@ -22,6 +22,9 @@ public class SoggySwampsEntityTypeTagProvider extends FabricTagProvider.EntityTy
         valueLookupBuilder(EntityTypeTags.FALL_DAMAGE_IMMUNE).add(
                 SoggySwampsEntities.SWAMP_SPIDER
         );
+        valueLookupBuilder(EntityTypeTags.FROG_FOOD).add(
+                SoggySwampsEntities.SWAMP_SPIDER
+        );
         valueLookupBuilder(EntityTypeTags.NO_ANGER_FROM_WIND_CHARGE).add(
                 SoggySwampsEntities.SWAMP_SPIDER
         );

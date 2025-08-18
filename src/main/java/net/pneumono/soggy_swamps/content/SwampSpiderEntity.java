@@ -1,12 +1,14 @@
 package net.pneumono.soggy_swamps.content;
 
 import net.minecraft.entity.*;
+import net.minecraft.entity.ai.goal.FleeEntityGoal;
 import net.minecraft.entity.attribute.DefaultAttributeContainer;
 import net.minecraft.entity.attribute.EntityAttributes;
 import net.minecraft.entity.effect.StatusEffectInstance;
 import net.minecraft.entity.effect.StatusEffects;
 import net.minecraft.entity.mob.HostileEntity;
 import net.minecraft.entity.mob.SpiderEntity;
+import net.minecraft.entity.passive.FrogEntity;
 import net.minecraft.server.world.ServerWorld;
 import net.minecraft.world.Difficulty;
 import net.minecraft.world.LocalDifficulty;
@@ -25,6 +27,12 @@ public class SwampSpiderEntity extends SpiderEntity {
                 .add(EntityAttributes.MAX_HEALTH, 10.0)
                 .add(EntityAttributes.MOVEMENT_SPEED, 0.4F)
                 .add(EntityAttributes.ATTACK_DAMAGE, 4F);
+    }
+
+    @Override
+    protected void initGoals() {
+        super.initGoals();
+        this.goalSelector.add(2, new FleeEntityGoal<>(this, FrogEntity.class, 6.0F, 0.8F, 1.0F));
     }
 
     @Override
