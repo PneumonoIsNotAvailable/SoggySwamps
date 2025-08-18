@@ -26,6 +26,7 @@ public class SoggySwampsRecipeGenerator extends RecipeGenerator {
     public void generate() {
         offerSingleOutputShapelessRecipe(Items.GREEN_DYE,  SoggySwampsItems.VIBRANT_SPROUT, "green_dye");
         offerShapelessRecipe(Items.PURPLE_DYE, SoggySwampsItems.ROT_CAP, "purple_dye", 2);
+        offerShapelessRecipe(Items.BROWN_DYE, SoggySwampsItems.CATTAIL, "brown_dye", 2);
 
         this.createShapeless(RecipeCategory.FOOD, SoggySwampsItems.SWAMP_STEW)
                 .input(Items.BOWL)

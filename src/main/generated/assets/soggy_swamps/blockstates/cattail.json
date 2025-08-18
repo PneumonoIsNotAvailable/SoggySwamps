@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "half=lower": {
+      "model": "soggy_swamps:block/cattail_bottom"
+    },
+    "half=upper": {
+      "model": "soggy_swamps:block/cattail_top"
+    }
+  }
+}

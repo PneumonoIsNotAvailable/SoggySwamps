@@ -23,6 +23,18 @@ import java.util.Optional;
 import java.util.function.Function;
 
 public class SoggySwampsBlocks {
+    public static final CattailBlock CATTAIL = register(
+            "cattail",
+            CattailBlock::new,
+            AbstractBlock.Settings.create()
+                    .mapColor(MapColor.GREEN)
+                    .replaceable()
+                    .noCollision()
+                    .breakInstantly()
+                    .sounds(BlockSoundGroup.CROP)
+                    .offset(AbstractBlock.OffsetType.XZ)
+                    .pistonBehavior(PistonBehavior.DESTROY)
+    );
     public static final RotCapBlock ROT_CAP = register(
             "rot_cap",
             RotCapBlock::new,

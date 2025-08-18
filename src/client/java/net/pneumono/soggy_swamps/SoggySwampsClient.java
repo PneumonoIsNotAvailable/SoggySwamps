@@ -36,6 +36,7 @@ public class SoggySwampsClient implements ClientModInitializer {
 	public void onInitializeClient() {
 		ParticleFactoryRegistry.getInstance().register(SoggySwampsRegistry.FLY, FlyParticle.Factory::new);
 
+		BlockRenderLayerMap.putBlock(SoggySwampsBlocks.CATTAIL, BlockRenderLayer.CUTOUT);
 		BlockRenderLayerMap.putBlock(SoggySwampsBlocks.POTTED_ROT_CAP, BlockRenderLayer.CUTOUT);
 		BlockRenderLayerMap.putBlock(SoggySwampsBlocks.VIBRANT_SPROUT, BlockRenderLayer.CUTOUT);
 		BlockRenderLayerMap.putBlock(SoggySwampsBlocks.POTTED_VIBRANT_SPROUT, BlockRenderLayer.CUTOUT);

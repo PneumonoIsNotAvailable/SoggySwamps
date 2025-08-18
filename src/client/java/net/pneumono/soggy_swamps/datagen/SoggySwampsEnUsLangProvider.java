@@ -19,6 +19,7 @@ public class SoggySwampsEnUsLangProvider extends FabricLanguageProvider {
         PneumonoCoreTranslationBuilder builder = new PneumonoCoreTranslationBuilder(translationBuilder, SoggySwamps.MOD_ID);
 
         builder.add(SoggySwampsBlocks.SUSPICIOUS_MUD, "Suspicious Mud");
+        builder.add(SoggySwampsBlocks.CATTAIL, "Cattail");
         builder.add(SoggySwampsBlocks.ROT_CAP, "Rot Cap");
         builder.add(SoggySwampsBlocks.POTTED_ROT_CAP, "Potted Rot Cap");
         builder.add(SoggySwampsBlocks.VIBRANT_SPROUT, "Vibrant Sprout");

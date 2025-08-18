@@ -69,6 +69,7 @@ public class SoggySwampsItems {
     public static final Item SLIME_POTTERY_SHERD = registerPotterySherd("slime");
     public static final Item DECAY_POTTERY_SHERD = registerPotterySherd("decay");
 
+    public static final BlockItem CATTAIL = registerBlockItem(SoggySwampsBlocks.CATTAIL);
     public static final BlockItem ROT_CAP = registerBlockItem(SoggySwampsBlocks.ROT_CAP);
     public static final BlockItem VIBRANT_SPROUT = registerBlockItem(SoggySwampsBlocks.VIBRANT_SPROUT);
     public static final BlockItem SWAMP_OAK_SAPLING = registerBlockItem(SoggySwampsBlocks.SWAMP_OAK_SAPLING);
@@ -146,6 +147,7 @@ public class SoggySwampsItems {
         composting.add(ROT_CAP, 0.65F);
         composting.add(ROASTED_ROT_CAP, 0.5F);
         composting.add(VIBRANT_SPROUT, 0.85F);
+        composting.add(CATTAIL, 0.65F);
         composting.add(SWAMP_OAK_SAPLING, 0.3F);
         composting.add(SWAMP_OAK_LEAVES, 0.3F);
     }

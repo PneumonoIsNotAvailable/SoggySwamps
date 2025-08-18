@@ -41,6 +41,7 @@ public class SoggySwampsItemGroups {
                             SoggySwampsItems.SWAMP_OAK_BUTTON,
                             SoggySwampsItems.SWAMP_OAK_BOAT,
                             SoggySwampsItems.SWAMP_OAK_CHEST_BOAT,
+                            SoggySwampsItems.CATTAIL,
                             SoggySwampsItems.ROT_CAP,
                             SoggySwampsItems.ROASTED_ROT_CAP,
                             SoggySwampsItems.VIBRANT_SPROUT,
@@ -89,7 +90,11 @@ public class SoggySwampsItemGroups {
             entries.addBefore(Items.MUSHROOM_STEM, SoggySwampsItems.SWAMP_OAK_LOG);
             entries.addBefore(Items.AZALEA_LEAVES, SoggySwampsItems.SWAMP_OAK_LEAVES);
             entries.addBefore(Items.AZALEA, SoggySwampsItems.SWAMP_OAK_SAPLING);
-            entries.addAfter(Items.FIREFLY_BUSH, SoggySwampsItems.ROT_CAP, SoggySwampsItems.VIBRANT_SPROUT);
+            entries.addAfter(Items.FIREFLY_BUSH,
+                    SoggySwampsItems.ROT_CAP,
+                    SoggySwampsItems.VIBRANT_SPROUT,
+                    SoggySwampsItems.CATTAIL
+            );
         });
         ItemGroupEvents.modifyEntriesEvent(ItemGroups.FUNCTIONAL).register(entries -> {
             entries.addBefore(Items.BAMBOO_SIGN,
