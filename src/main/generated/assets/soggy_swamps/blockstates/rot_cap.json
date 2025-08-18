@@ -1,7 +1,21 @@
 {
   "variants": {
-    "": {
-      "model": "soggy_swamps:block/rot_cap"
-    }
+    "": [
+      {
+        "model": "soggy_swamps:block/rot_cap"
+      },
+      {
+        "model": "soggy_swamps:block/rot_cap",
+        "y": 90
+      },
+      {
+        "model": "soggy_swamps:block/rot_cap",
+        "y": 180
+      },
+      {
+        "model": "soggy_swamps:block/rot_cap",
+        "y": 270
+      }
+    ]
   }
 }

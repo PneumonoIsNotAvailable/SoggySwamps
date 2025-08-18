@@ -2,10 +2,8 @@ package net.pneumono.soggy_swamps.datagen;
 
 import net.fabricmc.fabric.api.client.datagen.v1.provider.FabricModelProvider;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
-import net.minecraft.client.data.BlockStateModelGenerator;
-import net.minecraft.client.data.ItemModelGenerator;
-import net.minecraft.client.data.Models;
-import net.minecraft.client.data.TexturedModel;
+import net.minecraft.block.Block;
+import net.minecraft.client.data.*;
 import net.pneumono.soggy_swamps.registry.SoggySwampsBlocks;
 import net.pneumono.soggy_swamps.registry.SoggySwampsItems;
 
@@ -17,7 +15,7 @@ public class SoggySwampsModelProvider extends FabricModelProvider {
     @Override
     public void generateBlockStateModels(BlockStateModelGenerator generator) {
         generator.registerBrushableBlock(SoggySwampsBlocks.SUSPICIOUS_MUD);
-        generator.registerSimpleState(SoggySwampsBlocks.ROT_CAP);
+        registerSimpleStateWithYRotation(generator, SoggySwampsBlocks.ROT_CAP);
         generator.registerSimpleState(SoggySwampsBlocks.POTTED_ROT_CAP);
         generator.registerFlowerPotPlantAndItem(
                 SoggySwampsBlocks.VIBRANT_SPROUT,
@@ -46,6 +44,17 @@ public class SoggySwampsModelProvider extends FabricModelProvider {
                 SoggySwampsBlocks.STRIPPED_SWAMP_OAK_LOG,
                 SoggySwampsBlocks.SWAMP_OAK_HANGING_SIGN,
                 SoggySwampsBlocks.SWAMP_OAK_WALL_HANGING_SIGN
+        );
+    }
+
+    public void registerSimpleStateWithYRotation(BlockStateModelGenerator generator, Block block) {
+        generator.blockStateCollector.accept(
+                BlockStateModelGenerator.createSingletonBlockState(
+                        block,
+                        BlockStateModelGenerator.modelWithYRotation(
+                                BlockStateModelGenerator.createModelVariant(ModelIds.getBlockModelId(block))
+                        )
+                )
         );
     }
 
