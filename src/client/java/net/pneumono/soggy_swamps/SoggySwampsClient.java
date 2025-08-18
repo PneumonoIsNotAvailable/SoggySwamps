@@ -41,7 +41,7 @@ public class SoggySwampsClient implements ClientModInitializer {
 		BlockRenderLayerMap.putBlock(SoggySwampsBlocks.POTTED_VIBRANT_SPROUT, BlockRenderLayer.CUTOUT);
 		BlockRenderLayerMap.putBlock(SoggySwampsBlocks.SWAMP_OAK_SAPLING, BlockRenderLayer.CUTOUT);
 		BlockRenderLayerMap.putBlock(SoggySwampsBlocks.POTTED_SWAMP_OAK_SAPLING, BlockRenderLayer.CUTOUT);
-		BlockRenderLayerMap.putBlock(SoggySwampsBlocks.SWAMP_OAK_DOOR, BlockRenderLayer.CUTOUT);
+		BlockRenderLayerMap.putBlock(SoggySwampsBlocks.SWAMP_OAK_DOOR, BlockRenderLayer.TRANSLUCENT);
 		BlockRenderLayerMap.putBlock(SoggySwampsBlocks.SWAMP_OAK_TRAPDOOR, BlockRenderLayer.CUTOUT);
 		BlockRenderLayerMap.putBlock(SoggySwampsBlocks.SWAMP_OAK_LEAVES, BlockRenderLayer.CUTOUT_MIPPED);
 
