@@ -16,6 +16,7 @@ import net.pneumono.soggy_swamps.SoggySwamps;
 import net.pneumono.soggy_swamps.content.BrushableMudBlock;
 import net.pneumono.soggy_swamps.content.PottedRotCapBlock;
 import net.pneumono.soggy_swamps.content.RotCapBlock;
+import net.pneumono.soggy_swamps.content.VibrantSproutBlock;
 import net.pneumono.soggy_swamps.worldgen.SoggySwampsWorldgen;
 
 import java.util.Optional;
@@ -38,9 +39,9 @@ public class SoggySwampsBlocks {
             settings -> new PottedRotCapBlock(ROT_CAP, settings),
             Blocks.createFlowerPotSettings()
     );
-    public static final FlowerBlock VIBRANT_SPROUT = register(
+    public static final VibrantSproutBlock VIBRANT_SPROUT = register(
             "vibrant_sprout",
-            settings -> new FlowerBlock(StatusEffects.REGENERATION, 10.0F, settings),
+            settings -> new VibrantSproutBlock(StatusEffects.REGENERATION, 10.0F, settings),
             AbstractBlock.Settings.create()
                     .mapColor(MapColor.DARK_GREEN)
                     .noCollision()
