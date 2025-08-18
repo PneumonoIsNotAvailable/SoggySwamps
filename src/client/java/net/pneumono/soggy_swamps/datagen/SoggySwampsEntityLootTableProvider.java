@@ -49,6 +49,14 @@ public class SoggySwampsEntityLootTableProvider extends FabricEntityLootTablePro
                                 .apply(EnchantedCountIncreaseLootFunction.builder(this.registries, UniformLootNumberProvider.create(0.0F, 1.0F)))
                                 .conditionally(KilledByPlayerLootCondition.builder())
                         )
+                        .pool(LootPool.builder()
+                                .rolls(ConstantLootNumberProvider.create(1.0F))
+                                .with(ItemEntry.builder(Items.SLIME_BALL)
+                                        .apply(SetCountLootFunction.builder(UniformLootNumberProvider.create(-1.0F, 1.0F)))
+                                        .apply(EnchantedCountIncreaseLootFunction.builder(this.registries, UniformLootNumberProvider.create(0.0F, 1.0F)))
+                                )
+                                .conditionally(KilledByPlayerLootCondition.builder())
+                        )
         );
     }
 }
