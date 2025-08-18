@@ -8,10 +8,6 @@
                 "feature": "soggy_swamps:tree_swamp_mangrove"
             },
             {
-                "chance": 0.02,
-                "feature": "minecraft:oak"
-            },
-            {
                 "chance": 0.075,
                 "feature": "soggy_swamps:fallen_swamp_oak_tree"
             }
