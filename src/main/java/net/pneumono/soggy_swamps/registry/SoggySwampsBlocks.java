@@ -13,10 +13,7 @@ import net.minecraft.registry.RegistryKey;
 import net.minecraft.registry.RegistryKeys;
 import net.minecraft.sound.BlockSoundGroup;
 import net.pneumono.soggy_swamps.SoggySwamps;
-import net.pneumono.soggy_swamps.content.BrushableMudBlock;
-import net.pneumono.soggy_swamps.content.PottedRotCapBlock;
-import net.pneumono.soggy_swamps.content.RotCapBlock;
-import net.pneumono.soggy_swamps.content.VibrantSproutBlock;
+import net.pneumono.soggy_swamps.content.*;
 import net.pneumono.soggy_swamps.worldgen.SoggySwampsWorldgen;
 
 import java.util.Optional;

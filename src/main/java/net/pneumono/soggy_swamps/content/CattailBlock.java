@@ -1,4 +1,4 @@
-package net.pneumono.soggy_swamps.registry;
+package net.pneumono.soggy_swamps.content;
 
 import com.mojang.serialization.MapCodec;
 import net.minecraft.block.*;
