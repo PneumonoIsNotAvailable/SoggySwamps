@@ -1,5 +1,6 @@
 package net.pneumono.soggy_swamps.registry;
 
+import net.fabricmc.fabric.api.registry.CompostingChanceRegistry;
 import net.fabricmc.fabric.api.registry.FabricBrewingRecipeRegistryBuilder;
 import net.minecraft.block.Block;
 import net.minecraft.block.DecoratedPotPattern;
@@ -140,5 +141,12 @@ public class SoggySwampsItems {
             builder.registerRecipes(SWAMP_SPIDER_EYE, SoggySwampsRegistry.VENOM_POTION);
             builder.registerPotionRecipe(SoggySwampsRegistry.VENOM_POTION, Items.REDSTONE, SoggySwampsRegistry.LONG_VENOM_POTION);
         });
+
+        CompostingChanceRegistry composting = CompostingChanceRegistry.INSTANCE;
+        composting.add(ROT_CAP, 0.65F);
+        composting.add(ROASTED_ROT_CAP, 0.5F);
+        composting.add(VIBRANT_SPROUT, 0.85F);
+        composting.add(SWAMP_OAK_SAPLING, 0.3F);
+        composting.add(SWAMP_OAK_LEAVES, 0.3F);
     }
 }
