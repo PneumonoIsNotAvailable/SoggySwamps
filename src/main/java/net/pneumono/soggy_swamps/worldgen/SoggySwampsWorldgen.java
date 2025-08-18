@@ -80,6 +80,12 @@ public class SoggySwampsWorldgen {
         BiomeModifications.addFeature(
                 swamp,
                 GenerationStep.Feature.VEGETAL_DECORATION,
+                placedFeature("patch_cattail")
+        );
+
+        BiomeModifications.addFeature(
+                swamp,
+                GenerationStep.Feature.VEGETAL_DECORATION,
                 placedFeature("patch_rot_cap")
         );
 
