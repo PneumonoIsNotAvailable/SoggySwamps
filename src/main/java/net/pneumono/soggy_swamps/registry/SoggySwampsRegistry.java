@@ -72,7 +72,9 @@ public class SoggySwampsRegistry {
         TradeOfferHelper.registerWanderingTraderOffers(builder -> builder.addOffersToPool(
                 TradeOfferHelper.WanderingTraderOffersBuilder.SELL_COMMON_ITEMS_POOL,
                 new TradeOffers.SellItemFactory(SoggySwampsItems.SWAMP_OAK_SAPLING, 5, 1, 8, 1),
-                new TradeOffers.SellItemFactory(SoggySwampsItems.VIBRANT_SPROUT, 1, 1, 8, 1)
+                new TradeOffers.SellItemFactory(SoggySwampsItems.ROT_CAP, 2, 1, 8, 1),
+                new TradeOffers.SellItemFactory(SoggySwampsItems.VIBRANT_SPROUT, 1, 1, 8, 1),
+                new TradeOffers.SellItemFactory(SoggySwampsItems.CATTAIL, 1, 1, 8, 1)
         ));
     }
 }
