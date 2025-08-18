@@ -9,6 +9,12 @@
           "entries": [
             {
               "data": {
+                "Name": "minecraft:moss_carpet"
+              },
+              "weight": 5
+            },
+            {
+              "data": {
                 "Name": "minecraft:red_mushroom"
               },
               "weight": 2
@@ -24,7 +30,7 @@
         "directions": [
           "up"
         ],
-        "probability": 0.1
+        "probability": 0.3
       }
     ],
     "log_length": {
