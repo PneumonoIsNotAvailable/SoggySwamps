@@ -112,6 +112,11 @@ public class SoggySwampsItems {
             new Item.Settings().maxCount(1)
     );
 
+    public static final BlockItem MOSSY_MUD_BRICKS = registerBlockItem(SoggySwampsBlocks.MOSSY_MUD_BRICKS);
+    public static final BlockItem MOSSY_MUD_BRICK_STAIRS = registerBlockItem(SoggySwampsBlocks.MOSSY_MUD_BRICK_STAIRS);
+    public static final BlockItem MOSSY_MUD_BRICK_SLAB = registerBlockItem(SoggySwampsBlocks.MOSSY_MUD_BRICK_SLAB);
+    public static final BlockItem MOSSY_MUD_BRICK_WALL = registerBlockItem(SoggySwampsBlocks.MOSSY_MUD_BRICK_WALL);
+
     @SuppressWarnings("deprecation")
     protected static BlockItem registerBlockItem(Block block) {
         return SoggySwampsItems.register(

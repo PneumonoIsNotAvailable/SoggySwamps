@@ -2,6 +2,7 @@ package net.pneumono.soggy_swamps.datagen;
 
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricRecipeProvider;
+import net.minecraft.block.Blocks;
 import net.minecraft.data.recipe.CookingRecipeJsonBuilder;
 import net.minecraft.data.recipe.RecipeExporter;
 import net.minecraft.data.recipe.RecipeGenerator;
@@ -57,13 +58,29 @@ public class SoggySwampsRecipeGenerator extends RecipeGenerator {
                 .offerTo(this.exporter);
 
         generateFamily(SoggySwampsBlockFamilies.SWAMP_OAK, FeatureSet.of(FeatureFlags.VANILLA));
-
         offerPlanksRecipe(SoggySwampsBlocks.SWAMP_OAK_PLANKS, SoggySwampsTags.ITEM_SWAMP_OAK_LOGS, 4);
         offerBarkBlockRecipe(SoggySwampsBlocks.SWAMP_OAK_WOOD, SoggySwampsBlocks.SWAMP_OAK_LOG);
         offerBarkBlockRecipe(SoggySwampsBlocks.STRIPPED_SWAMP_OAK_WOOD, SoggySwampsBlocks.STRIPPED_SWAMP_OAK_LOG);
         offerHangingSignRecipe(SoggySwampsItems.SWAMP_OAK_HANGING_SIGN, SoggySwampsBlocks.STRIPPED_SWAMP_OAK_LOG);
         offerBoatRecipe(SoggySwampsItems.SWAMP_OAK_BOAT, SoggySwampsBlocks.SWAMP_OAK_PLANKS);
         offerChestBoatRecipe(SoggySwampsItems.SWAMP_OAK_CHEST_BOAT, SoggySwampsItems.SWAMP_OAK_BOAT);
+
+        generateFamily(SoggySwampsBlockFamilies.MOSSY_MUD_BRICK, FeatureSet.of(FeatureFlags.VANILLA));
+        this.createShapeless(RecipeCategory.BUILDING_BLOCKS, SoggySwampsBlocks.MOSSY_MUD_BRICKS)
+                .input(SoggySwampsBlocks.MOSSY_MUD_BRICKS)
+                .input(Blocks.VINE)
+                .group("mossy_mud_bricks")
+                .criterion("has_vine", this.conditionsFromItem(Blocks.VINE))
+                .offerTo(this.exporter, convertBetween(SoggySwampsBlocks.MOSSY_MUD_BRICKS, Blocks.VINE));
+        this.createShapeless(RecipeCategory.BUILDING_BLOCKS, SoggySwampsBlocks.MOSSY_MUD_BRICKS)
+                .input(SoggySwampsBlocks.MOSSY_MUD_BRICKS)
+                .input(Blocks.MOSS_BLOCK)
+                .group("mossy_mud_bricks")
+                .criterion("has_moss_block", this.conditionsFromItem(Blocks.MOSS_BLOCK))
+                .offerTo(this.exporter, convertBetween(SoggySwampsBlocks.MOSSY_MUD_BRICKS, Blocks.MOSS_BLOCK));
+        offerStonecuttingRecipe(RecipeCategory.BUILDING_BLOCKS, SoggySwampsBlocks.MOSSY_MUD_BRICK_SLAB, SoggySwampsBlocks.MOSSY_MUD_BRICKS, 2);
+        offerStonecuttingRecipe(RecipeCategory.BUILDING_BLOCKS, SoggySwampsBlocks.MOSSY_MUD_BRICK_STAIRS, SoggySwampsBlocks.MOSSY_MUD_BRICKS);
+        offerStonecuttingRecipe(RecipeCategory.DECORATIONS, SoggySwampsBlocks.MOSSY_MUD_BRICK_WALL, SoggySwampsBlocks.MOSSY_MUD_BRICKS);
     }
 
     public static class RecipeProvider extends FabricRecipeProvider {

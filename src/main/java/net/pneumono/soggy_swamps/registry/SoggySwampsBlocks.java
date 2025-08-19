@@ -210,6 +210,31 @@ public class SoggySwampsBlocks {
             settings -> new ButtonBlock(SoggySwampsRegistry.SWAMP_OAK_BLOCK_SET_TYPE, 30, settings),
             Blocks.createButtonSettings()
     );
+    public static final Block MOSSY_MUD_BRICKS = register(
+            "mossy_mud_bricks",
+            Block::new,
+            AbstractBlock.Settings.create()
+                    .mapColor(MapColor.TERRACOTTA_LIGHT_GRAY)
+                    .instrument(NoteBlockInstrument.BASEDRUM)
+                    .requiresTool()
+                    .strength(1.5F, 3.0F)
+                    .sounds(BlockSoundGroup.MUD_BRICKS)
+    );
+    public static final StairsBlock MOSSY_MUD_BRICK_STAIRS = register(
+            "mossy_mud_brick_stairs",
+            settings -> new StairsBlock(MOSSY_MUD_BRICKS.getDefaultState(), settings),
+            AbstractBlock.Settings.copy(MOSSY_MUD_BRICKS)
+    );
+    public static final SlabBlock MOSSY_MUD_BRICK_SLAB = register(
+            "mossy_mud_brick_slab",
+            SlabBlock::new,
+            AbstractBlock.Settings.copy(MOSSY_MUD_BRICKS)
+    );
+    public static final WallBlock MOSSY_MUD_BRICK_WALL = register(
+            "mossy_mud_brick_wall",
+            WallBlock::new,
+            AbstractBlock.Settings.copy(MOSSY_MUD_BRICKS).solid()
+    );
 
     private static AbstractBlock.Settings createSwampOak() {
         return AbstractBlock.Settings.create()
