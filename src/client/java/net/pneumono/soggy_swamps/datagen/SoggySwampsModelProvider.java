@@ -48,6 +48,7 @@ public class SoggySwampsModelProvider extends FabricModelProvider {
         );
 
         generator.registerCubeAllModelTexturePool(SoggySwampsBlocks.MOSSY_MUD_BRICKS).family(SoggySwampsBlockFamilies.MOSSY_MUD_BRICK);
+        generator.registerSimpleCubeAll(SoggySwampsBlocks.CHISELED_MUD_BRICKS);
     }
 
     public void registerSimpleStateWithYRotation(BlockStateModelGenerator generator, Block block) {

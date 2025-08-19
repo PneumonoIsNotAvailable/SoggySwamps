@@ -41,6 +41,7 @@ public class SoggySwampsItemGroups {
                             SoggySwampsItems.SWAMP_OAK_BUTTON,
                             SoggySwampsItems.SWAMP_OAK_BOAT,
                             SoggySwampsItems.SWAMP_OAK_CHEST_BOAT,
+                            SoggySwampsItems.CHISELED_MUD_BRICKS,
                             SoggySwampsItems.MOSSY_MUD_BRICKS,
                             SoggySwampsItems.MOSSY_MUD_BRICK_STAIRS,
                             SoggySwampsItems.MOSSY_MUD_BRICK_SLAB,
@@ -89,6 +90,7 @@ public class SoggySwampsItemGroups {
                         SoggySwampsItems.SWAMP_OAK_PRESSURE_PLATE,
                         SoggySwampsItems.SWAMP_OAK_BUTTON
                 );
+                entries.addAfter(Items.MUD_BRICK_WALL, SoggySwampsItems.CHISELED_MUD_BRICKS);
                 entries.addBefore(Items.RESIN_BRICKS,
                         SoggySwampsItems.MOSSY_MUD_BRICKS,
                         SoggySwampsItems.MOSSY_MUD_BRICK_STAIRS,

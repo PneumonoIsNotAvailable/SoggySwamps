@@ -66,21 +66,25 @@ public class SoggySwampsRecipeGenerator extends RecipeGenerator {
         offerChestBoatRecipe(SoggySwampsItems.SWAMP_OAK_CHEST_BOAT, SoggySwampsItems.SWAMP_OAK_BOAT);
 
         generateFamily(SoggySwampsBlockFamilies.MOSSY_MUD_BRICK, FeatureSet.of(FeatureFlags.VANILLA));
-        this.createShapeless(RecipeCategory.BUILDING_BLOCKS, SoggySwampsBlocks.MOSSY_MUD_BRICKS)
+        createShapeless(RecipeCategory.BUILDING_BLOCKS, SoggySwampsBlocks.MOSSY_MUD_BRICKS)
                 .input(SoggySwampsBlocks.MOSSY_MUD_BRICKS)
                 .input(Blocks.VINE)
                 .group("mossy_mud_bricks")
                 .criterion("has_vine", this.conditionsFromItem(Blocks.VINE))
                 .offerTo(this.exporter, convertBetween(SoggySwampsBlocks.MOSSY_MUD_BRICKS, Blocks.VINE));
-        this.createShapeless(RecipeCategory.BUILDING_BLOCKS, SoggySwampsBlocks.MOSSY_MUD_BRICKS)
+        createShapeless(RecipeCategory.BUILDING_BLOCKS, SoggySwampsBlocks.MOSSY_MUD_BRICKS)
                 .input(SoggySwampsBlocks.MOSSY_MUD_BRICKS)
                 .input(Blocks.MOSS_BLOCK)
                 .group("mossy_mud_bricks")
                 .criterion("has_moss_block", this.conditionsFromItem(Blocks.MOSS_BLOCK))
                 .offerTo(this.exporter, convertBetween(SoggySwampsBlocks.MOSSY_MUD_BRICKS, Blocks.MOSS_BLOCK));
+        createChiseledBlockRecipe(RecipeCategory.BUILDING_BLOCKS, SoggySwampsBlocks.CHISELED_MUD_BRICKS, Ingredient.ofItem(Blocks.MUD_BRICK_SLAB))
+                .criterion("has_tag", this.conditionsFromTag(SoggySwampsTags.ITEM_MUD_BRICKS))
+                .offerTo(this.exporter);
         offerStonecuttingRecipe(RecipeCategory.BUILDING_BLOCKS, SoggySwampsBlocks.MOSSY_MUD_BRICK_SLAB, SoggySwampsBlocks.MOSSY_MUD_BRICKS, 2);
         offerStonecuttingRecipe(RecipeCategory.BUILDING_BLOCKS, SoggySwampsBlocks.MOSSY_MUD_BRICK_STAIRS, SoggySwampsBlocks.MOSSY_MUD_BRICKS);
         offerStonecuttingRecipe(RecipeCategory.DECORATIONS, SoggySwampsBlocks.MOSSY_MUD_BRICK_WALL, SoggySwampsBlocks.MOSSY_MUD_BRICKS);
+        offerStonecuttingRecipe(RecipeCategory.BUILDING_BLOCKS, SoggySwampsBlocks.CHISELED_MUD_BRICKS, Items.MUD_BRICKS);
     }
 
     public static class RecipeProvider extends FabricRecipeProvider {

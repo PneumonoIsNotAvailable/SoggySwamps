@@ -67,7 +67,8 @@ public class SoggySwampsBlockTagProvider extends FabricTagProvider.BlockTagProvi
         tag(BlockTags.PICKAXE_MINEABLE).add(
                 SoggySwampsBlocks.MOSSY_MUD_BRICKS,
                 SoggySwampsBlocks.MOSSY_MUD_BRICK_STAIRS,
-                SoggySwampsBlocks.MOSSY_MUD_BRICK_SLAB
+                SoggySwampsBlocks.MOSSY_MUD_BRICK_SLAB,
+                SoggySwampsBlocks.CHISELED_MUD_BRICKS
         );
         tag(BlockTags.SHOVEL_MINEABLE).add(SoggySwampsBlocks.SUSPICIOUS_MUD);
 

@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_tag": {
+      "conditions": {
+        "items": [
+          {
+            "items": "#soggy_swamps:mud_bricks"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "soggy_swamps:chiseled_mud_bricks"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_tag"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "soggy_swamps:chiseled_mud_bricks"
+    ]
+  }
+}

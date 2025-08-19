@@ -235,6 +235,11 @@ public class SoggySwampsBlocks {
             WallBlock::new,
             AbstractBlock.Settings.copy(MOSSY_MUD_BRICKS).solid()
     );
+    public static final Block CHISELED_MUD_BRICKS = register(
+            "chiseled_mud_bricks",
+            Block::new,
+            AbstractBlock.Settings.copy(MOSSY_MUD_BRICKS)
+    );
 
     private static AbstractBlock.Settings createSwampOak() {
         return AbstractBlock.Settings.create()

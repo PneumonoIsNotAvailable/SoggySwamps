@@ -5,6 +5,7 @@ import net.fabricmc.fabric.api.datagen.v1.provider.FabricTagProvider;
 import net.fabricmc.fabric.api.tag.convention.v2.ConventionalItemTags;
 import net.minecraft.data.tag.ProvidedTagBuilder;
 import net.minecraft.item.Item;
+import net.minecraft.item.Items;
 import net.minecraft.registry.RegistryWrapper;
 import net.minecraft.registry.tag.ItemTags;
 import net.minecraft.registry.tag.TagKey;
@@ -25,6 +26,11 @@ public class SoggySwampsItemTagProvider extends FabricTagProvider.ItemTagProvide
                 SoggySwampsItems.SWAMP_OAK_WOOD,
                 SoggySwampsItems.STRIPPED_SWAMP_OAK_LOG,
                 SoggySwampsItems.STRIPPED_SWAMP_OAK_WOOD
+        );
+        tag(SoggySwampsTags.ITEM_MUD_BRICKS).add(
+                Items.MUD_BRICKS,
+                SoggySwampsItems.MOSSY_MUD_BRICKS,
+                SoggySwampsItems.CHISELED_MUD_BRICKS
         );
 
         tag(ItemTags.LOGS_THAT_BURN).forceAddTag(SoggySwampsTags.ITEM_SWAMP_OAK_LOGS);
