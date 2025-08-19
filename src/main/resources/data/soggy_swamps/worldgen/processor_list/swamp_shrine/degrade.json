@@ -6,40 +6,14 @@
                 {
                     "input_predicate": {
                         "predicate_type": "minecraft:random_block_match",
-                        "block": "minecraft:cobblestone",
-                        "probability": 0.35
+                        "block": "minecraft:mud_bricks",
+                        "probability": 0.33
                     },
                     "location_predicate": {
                         "predicate_type": "minecraft:always_true"
                     },
                     "output_state": {
-                        "Name": "minecraft:mossy_cobblestone"
-                    }
-                },
-                {
-                    "input_predicate": {
-                        "predicate_type": "minecraft:random_block_match",
-                        "block": "minecraft:stone_bricks",
-                        "probability": 0.25
-                    },
-                    "location_predicate": {
-                        "predicate_type": "minecraft:always_true"
-                    },
-                    "output_state": {
-                        "Name": "minecraft:mossy_stone_bricks"
-                    }
-                },
-                {
-                    "input_predicate": {
-                        "predicate_type": "minecraft:random_block_match",
-                        "block": "minecraft:stone_bricks",
-                        "probability": 0.25
-                    },
-                    "location_predicate": {
-                        "predicate_type": "minecraft:always_true"
-                    },
-                    "output_state": {
-                        "Name": "minecraft:cracked_stone_bricks"
+                        "Name": "soggy_swamps:mossy_mud_bricks"
                     }
                 }
             ]
