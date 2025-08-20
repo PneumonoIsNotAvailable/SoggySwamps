@@ -51,7 +51,7 @@ public class SwampSpiderEntity extends SpiderEntity {
 
             if (time > 0) {
                 living.addStatusEffect(new StatusEffectInstance(StatusEffects.SLOWNESS, time * 20, 1), this);
-                living.addStatusEffect(new StatusEffectInstance(SoggySwampsRegistry.VENOM, time * 30, 0), this);
+                living.addStatusEffect(new StatusEffectInstance(SoggySwampsRegistry.VENOM, time * 40, 0), this);
             }
         }
 
