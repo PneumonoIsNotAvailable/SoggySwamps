@@ -6,10 +6,12 @@ import net.minecraft.entity.attribute.DefaultAttributeContainer;
 import net.minecraft.entity.attribute.EntityAttributes;
 import net.minecraft.entity.effect.StatusEffectInstance;
 import net.minecraft.entity.effect.StatusEffects;
+import net.minecraft.entity.mob.BoggedEntity;
 import net.minecraft.entity.mob.HostileEntity;
 import net.minecraft.entity.mob.SpiderEntity;
 import net.minecraft.entity.passive.FrogEntity;
 import net.minecraft.server.world.ServerWorld;
+import net.minecraft.util.math.random.Random;
 import net.minecraft.world.Difficulty;
 import net.minecraft.world.LocalDifficulty;
 import net.minecraft.world.ServerWorldAccess;
@@ -59,6 +61,18 @@ public class SwampSpiderEntity extends SpiderEntity {
     @Nullable
     @Override
     public EntityData initialize(ServerWorldAccess world, LocalDifficulty difficulty, SpawnReason spawnReason, @Nullable EntityData entityData) {
+        entityData = super.initialize(world, difficulty, spawnReason, entityData);
+
+        Random random = world.getRandom();
+        if (random.nextInt(100) == 0) {
+            BoggedEntity boggedEntity = EntityType.BOGGED.create(this.getWorld(), SpawnReason.JOCKEY);
+            if (boggedEntity != null) {
+                boggedEntity.refreshPositionAndAngles(this.getX(), this.getY(), this.getZ(), this.getYaw(), 0.0F);
+                boggedEntity.initialize(world, difficulty, spawnReason, null);
+                boggedEntity.startRiding(this);
+            }
+        }
+
         return entityData;
     }
 }
