@@ -1,0 +1,50 @@
+{
+    "elements": [
+        {
+            "element": {
+                "element_type": "minecraft:single_pool_element",
+                "location": "soggy_swamps:swamp_temple/rooms/stair/1",
+                "processors": "soggy_swamps:swamp_temple/degrade",
+                "projection": "rigid"
+            },
+            "weight": 1
+        },
+        {
+            "element": {
+                "element_type": "minecraft:single_pool_element",
+                "location": "soggy_swamps:swamp_temple/rooms/stair/2",
+                "processors": "soggy_swamps:swamp_temple/degrade",
+                "projection": "rigid"
+            },
+            "weight": 1
+        },
+        {
+            "element": {
+                "element_type": "minecraft:single_pool_element",
+                "location": "soggy_swamps:swamp_temple/rooms/stair/3",
+                "processors": "soggy_swamps:swamp_temple/degrade",
+                "projection": "rigid"
+            },
+            "weight": 1
+        },
+        {
+            "element": {
+                "element_type": "minecraft:single_pool_element",
+                "location": "soggy_swamps:swamp_temple/rooms/stair/4",
+                "processors": "soggy_swamps:swamp_temple/degrade",
+                "projection": "rigid"
+            },
+            "weight": 1
+        },
+        {
+            "element": {
+                "element_type": "minecraft:single_pool_element",
+                "location": "soggy_swamps:swamp_temple/rooms/stair/5",
+                "processors": "soggy_swamps:swamp_temple/degrade",
+                "projection": "rigid"
+            },
+            "weight": 1
+        }
+    ],
+    "fallback": "minecraft:empty"
+}

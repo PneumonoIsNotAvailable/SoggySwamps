@@ -1,0 +1,140 @@
+{
+    "elements": [
+        {
+            "element": {
+                "element_type": "minecraft:single_pool_element",
+                "location": "soggy_swamps:swamp_temple/rooms/monster/spider/1",
+                "processors": "soggy_swamps:swamp_temple/degrade",
+                "projection": "rigid"
+            },
+            "weight": 1
+        },
+        {
+            "element": {
+                "element_type": "minecraft:single_pool_element",
+                "location": "soggy_swamps:swamp_temple/rooms/monster/spider/2",
+                "processors": "soggy_swamps:swamp_temple/degrade",
+                "projection": "rigid"
+            },
+            "weight": 1
+        },
+        {
+            "element": {
+                "element_type": "minecraft:single_pool_element",
+                "location": "soggy_swamps:swamp_temple/rooms/monster/spider/3",
+                "processors": "soggy_swamps:swamp_temple/degrade",
+                "projection": "rigid"
+            },
+            "weight": 1
+        },
+        {
+            "element": {
+                "element_type": "minecraft:single_pool_element",
+                "location": "soggy_swamps:swamp_temple/rooms/monster/spider/4",
+                "processors": "soggy_swamps:swamp_temple/degrade",
+                "projection": "rigid"
+            },
+            "weight": 1
+        },
+        {
+            "element": {
+                "element_type": "minecraft:single_pool_element",
+                "location": "soggy_swamps:swamp_temple/rooms/monster/spider/5",
+                "processors": "soggy_swamps:swamp_temple/degrade",
+                "projection": "rigid"
+            },
+            "weight": 1
+        },
+        {
+            "element": {
+                "element_type": "minecraft:single_pool_element",
+                "location": "soggy_swamps:swamp_temple/rooms/monster/skeleton/1",
+                "processors": "soggy_swamps:swamp_temple/degrade",
+                "projection": "rigid"
+            },
+            "weight": 1
+        },
+        {
+            "element": {
+                "element_type": "minecraft:single_pool_element",
+                "location": "soggy_swamps:swamp_temple/rooms/monster/skeleton/2",
+                "processors": "soggy_swamps:swamp_temple/degrade",
+                "projection": "rigid"
+            },
+            "weight": 1
+        },
+        {
+            "element": {
+                "element_type": "minecraft:single_pool_element",
+                "location": "soggy_swamps:swamp_temple/rooms/monster/skeleton/3",
+                "processors": "soggy_swamps:swamp_temple/degrade",
+                "projection": "rigid"
+            },
+            "weight": 1
+        },
+        {
+            "element": {
+                "element_type": "minecraft:single_pool_element",
+                "location": "soggy_swamps:swamp_temple/rooms/monster/skeleton/4",
+                "processors": "soggy_swamps:swamp_temple/degrade",
+                "projection": "rigid"
+            },
+            "weight": 1
+        },
+        {
+            "element": {
+                "element_type": "minecraft:single_pool_element",
+                "location": "soggy_swamps:swamp_temple/rooms/monster/skeleton/5",
+                "processors": "soggy_swamps:swamp_temple/degrade",
+                "projection": "rigid"
+            },
+            "weight": 1
+        },
+        {
+            "element": {
+                "element_type": "minecraft:single_pool_element",
+                "location": "soggy_swamps:swamp_temple/rooms/monster/mixed/1",
+                "processors": "soggy_swamps:swamp_temple/degrade",
+                "projection": "rigid"
+            },
+            "weight": 1
+        },
+        {
+            "element": {
+                "element_type": "minecraft:single_pool_element",
+                "location": "soggy_swamps:swamp_temple/rooms/monster/mixed/2",
+                "processors": "soggy_swamps:swamp_temple/degrade",
+                "projection": "rigid"
+            },
+            "weight": 1
+        },
+        {
+            "element": {
+                "element_type": "minecraft:single_pool_element",
+                "location": "soggy_swamps:swamp_temple/rooms/monster/mixed/3",
+                "processors": "soggy_swamps:swamp_temple/degrade",
+                "projection": "rigid"
+            },
+            "weight": 1
+        },
+        {
+            "element": {
+                "element_type": "minecraft:single_pool_element",
+                "location": "soggy_swamps:swamp_temple/rooms/monster/mixed/4",
+                "processors": "soggy_swamps:swamp_temple/degrade",
+                "projection": "rigid"
+            },
+            "weight": 1
+        },
+        {
+            "element": {
+                "element_type": "minecraft:single_pool_element",
+                "location": "soggy_swamps:swamp_temple/rooms/monster/mixed/5",
+                "processors": "soggy_swamps:swamp_temple/degrade",
+                "projection": "rigid"
+            },
+            "weight": 1
+        }
+    ],
+    "fallback": "minecraft:empty"
+}

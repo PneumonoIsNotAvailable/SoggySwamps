@@ -1,0 +1,41 @@
+{
+    "elements": [
+        {
+            "element": {
+                "element_type": "minecraft:single_pool_element",
+                "location": "soggy_swamps:swamp_temple/deco/mud_pile/1",
+                "processors": [],
+                "projection": "rigid"
+            },
+            "weight": 1
+        },
+        {
+            "element": {
+                "element_type": "minecraft:single_pool_element",
+                "location": "soggy_swamps:swamp_temple/deco/mud_pile/2",
+                "processors": [],
+                "projection": "rigid"
+            },
+            "weight": 1
+        },
+        {
+            "element": {
+                "element_type": "minecraft:single_pool_element",
+                "location": "soggy_swamps:swamp_temple/deco/mud_pile/3",
+                "processors": [],
+                "projection": "rigid"
+            },
+            "weight": 1
+        },
+        {
+            "element": {
+                "element_type": "minecraft:single_pool_element",
+                "location": "soggy_swamps:swamp_temple/deco/mud_pile/4",
+                "processors": [],
+                "projection": "rigid"
+            },
+            "weight": 1
+        }
+    ],
+    "fallback": "minecraft:empty"
+}

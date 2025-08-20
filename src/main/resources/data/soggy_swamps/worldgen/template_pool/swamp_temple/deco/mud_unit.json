@@ -1,0 +1,77 @@
+{
+    "elements": [
+        {
+            "element": {
+                "element_type": "minecraft:single_pool_element",
+                "location": "soggy_swamps:swamp_temple/deco/mud_unit/1",
+                "processors": [],
+                "projection": "rigid"
+            },
+            "weight": 1
+        },
+        {
+            "element": {
+                "element_type": "minecraft:single_pool_element",
+                "location": "soggy_swamps:swamp_temple/deco/mud_unit/2",
+                "processors": [],
+                "projection": "rigid"
+            },
+            "weight": 1
+        },
+        {
+            "element": {
+                "element_type": "minecraft:single_pool_element",
+                "location": "soggy_swamps:swamp_temple/deco/mud_unit/3",
+                "processors": [],
+                "projection": "rigid"
+            },
+            "weight": 1
+        },
+        {
+            "element": {
+                "element_type": "minecraft:single_pool_element",
+                "location": "soggy_swamps:swamp_temple/deco/mud_unit/4",
+                "processors": [],
+                "projection": "rigid"
+            },
+            "weight": 1
+        },
+        {
+            "element": {
+                "element_type": "minecraft:single_pool_element",
+                "location": "soggy_swamps:swamp_temple/deco/mud_unit/5",
+                "processors": [],
+                "projection": "rigid"
+            },
+            "weight": 1
+        },
+        {
+            "element": {
+                "element_type": "minecraft:single_pool_element",
+                "location": "soggy_swamps:swamp_temple/deco/mud_unit/6",
+                "processors": [],
+                "projection": "rigid"
+            },
+            "weight": 1
+        },
+        {
+            "element": {
+                "element_type": "minecraft:single_pool_element",
+                "location": "soggy_swamps:swamp_temple/deco/mud_unit/7",
+                "processors": [],
+                "projection": "rigid"
+            },
+            "weight": 1
+        },
+        {
+            "element": {
+                "element_type": "minecraft:single_pool_element",
+                "location": "soggy_swamps:swamp_temple/deco/mud_unit/8",
+                "processors": [],
+                "projection": "rigid"
+            },
+            "weight": 1
+        }
+    ],
+    "fallback": "minecraft:empty"
+}

@@ -1,0 +1,77 @@
+{
+    "elements": [
+        {
+            "element": {
+                "element_type": "minecraft:single_pool_element",
+                "location": "soggy_swamps:swamp_temple/deco/clutter/1",
+                "processors": [],
+                "projection": "rigid"
+            },
+            "weight": 1
+        },
+        {
+            "element": {
+                "element_type": "minecraft:single_pool_element",
+                "location": "soggy_swamps:swamp_temple/deco/clutter/2",
+                "processors": [],
+                "projection": "rigid"
+            },
+            "weight": 1
+        },
+        {
+            "element": {
+                "element_type": "minecraft:single_pool_element",
+                "location": "soggy_swamps:swamp_temple/deco/clutter/3",
+                "processors": [],
+                "projection": "rigid"
+            },
+            "weight": 1
+        },
+        {
+            "element": {
+                "element_type": "minecraft:single_pool_element",
+                "location": "soggy_swamps:swamp_temple/deco/clutter/4",
+                "processors": [],
+                "projection": "rigid"
+            },
+            "weight": 1
+        },
+        {
+            "element": {
+                "element_type": "minecraft:single_pool_element",
+                "location": "soggy_swamps:swamp_temple/deco/clutter/5",
+                "processors": [],
+                "projection": "rigid"
+            },
+            "weight": 1
+        },
+        {
+            "element": {
+                "element_type": "minecraft:single_pool_element",
+                "location": "soggy_swamps:swamp_temple/deco/clutter/6",
+                "processors": [],
+                "projection": "rigid"
+            },
+            "weight": 1
+        },
+        {
+            "element": {
+                "element_type": "minecraft:single_pool_element",
+                "location": "soggy_swamps:swamp_temple/deco/clutter/7",
+                "processors": [],
+                "projection": "rigid"
+            },
+            "weight": 1
+        },
+        {
+            "element": {
+                "element_type": "minecraft:single_pool_element",
+                "location": "soggy_swamps:swamp_temple/deco/clutter/8",
+                "processors": [],
+                "projection": "rigid"
+            },
+            "weight": 1
+        }
+    ],
+    "fallback": "minecraft:empty"
+}

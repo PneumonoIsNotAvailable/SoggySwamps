@@ -1,0 +1,174 @@
+{
+  "type": "minecraft:archaeology",
+  "random_sequence": "soggy_swamps:archaeology/swamp_temple_common",
+  "pools": [
+    {
+      "rolls": 1,
+      "bonus_rolls": 0,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "soggy_swamps:hat_pottery_sherd"
+        },
+        {
+          "type": "minecraft:item",
+          "name": "soggy_swamps:slime_pottery_sherd"
+        },
+        {
+          "type": "minecraft:item",
+          "name": "soggy_swamps:decay_pottery_sherd"
+        },
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:tipped_arrow",
+          "weight": 4,
+          "functions": [
+            {
+              "function": "minecraft:set_potion",
+              "id": "soggy_swamps:long_venom"
+            }
+          ]
+        },
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:stone_shovel",
+          "weight": 2
+        },
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:emerald",
+          "weight": 3
+        },
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:wheat",
+          "weight": 4
+        },
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:clay",
+          "weight": 2
+        },
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:mud_bricks"
+        },
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:packed_mud"
+        },
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:brick",
+          "weight": 6
+        },
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:yellow_dye"
+        },
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:light_blue_dye"
+        },
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:white_dye"
+        },
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:green_dye"
+        },
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:purple_dye"
+        },
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:yellow_banner"
+        },
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:green_candle"
+        },
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:purple_banner"
+        },
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:brown_candle"
+        },
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:yellow_stained_glass_pane"
+        },
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:green_stained_glass_pane"
+        },
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:purple_stained_glass_pane"
+        },
+        {
+          "type": "minecraft:item",
+          "name": "soggy_swamps:swamp_oak_hanging_sign"
+        },
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:gold_nugget",
+          "weight": 4
+        },
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:iron_nugget",
+          "weight": 4
+        },
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:copper_ingot",
+          "weight": 5
+        },
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:iron_ingot",
+          "weight": 3
+        },
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:coal",
+          "weight": 4
+        },
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:wheat_seeds"
+        },
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:beetroot_seeds"
+        },
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:dead_bush"
+        },
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:flower_pot"
+        },
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:lead"
+        },
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:slime_ball"
+        },
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:stick",
+          "weight": 8
+        }
+      ]
+    }
+  ]
+}

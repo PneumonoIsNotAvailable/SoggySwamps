@@ -1,0 +1,14 @@
+{
+    "placement": {
+        "type": "minecraft:random_spread",
+        "salt": 74267790,
+        "separation": 8,
+        "spacing": 32
+    },
+    "structures": [
+        {
+            "structure": "soggy_swamps:swamp_temple",
+            "weight": 1
+        }
+    ]
+}
