@@ -10,15 +10,7 @@
         },
         {
           "type": "minecraft:item",
-          "name": "soggy_swamps:slime_pottery_sherd"
-        },
-        {
-          "type": "minecraft:item",
           "name": "soggy_swamps:decay_pottery_sherd"
-        },
-        {
-          "type": "minecraft:item",
-          "name": "soggy_swamps:wealth_pottery_sherd"
         },
         {
           "type": "minecraft:item",
