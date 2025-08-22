@@ -4,6 +4,9 @@ import com.mojang.serialization.Codec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
+import net.minecraft.block.Blocks;
+import net.minecraft.fluid.Fluids;
+import net.minecraft.state.property.Properties;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.intprovider.IntProvider;
 import net.minecraft.util.math.random.Random;
@@ -50,8 +53,17 @@ public class SwampRuinFeature extends Feature<SwampRuinFeature.Config> {
 
             for (int x = 0; x < xWidth; ++x) for (int z = 0; z < zWidth; ++z) {
                 BlockPos pos = lowest.add(x, y, z);
-                BlockState state = (useTopState ? config.topProvider() : config.baseProvider()).get(random, pos);
-                world.setBlockState(pos, state, Block.NOTIFY_ALL);
+                BlockState currentState = world.getBlockState(pos);
+                BlockState newState = (useTopState ? config.topProvider() : config.baseProvider()).get(random, pos);
+
+                boolean shouldWaterlog = currentState.getFluidState().isOf(Fluids.WATER);
+                if (newState.contains(Properties.WATERLOGGED)) {
+                    newState = newState.with(Properties.WATERLOGGED, shouldWaterlog);
+                } else if (shouldWaterlog && newState.isAir()) {
+                    newState = Blocks.WATER.getDefaultState();
+                }
+
+                world.setBlockState(pos, newState, Block.NOTIFY_ALL);
             }
         }
 
