@@ -5,20 +5,6 @@
     {
       "rolls": {
         "type": "minecraft:uniform",
-        "min": 0,
-        "max": 1
-      },
-      "bonus_rolls": 0,
-      "entries": [
-        {
-          "type": "minecraft:item",
-          "name": "minecraft:brush"
-        }
-      ]
-    },
-    {
-      "rolls": {
-        "type": "minecraft:uniform",
         "min": 3,
         "max": 4
       },
@@ -36,7 +22,7 @@
               "function": "minecraft:set_count",
               "count": {
                 "type": "minecraft:uniform",
-                "min": 2,
+                "min": 1,
                 "max": 3
               }
             }
@@ -50,8 +36,8 @@
               "function": "minecraft:set_count",
               "count": {
                 "type": "minecraft:uniform",
-                "min": 3,
-                "max": 5
+                "min": 2,
+                "max": 4
               }
             }
           ]
@@ -75,8 +61,8 @@
               "function": "minecraft:set_count",
               "count": {
                 "type": "minecraft:uniform",
-                "min": 2,
-                "max": 4
+                "min": 1,
+                "max": 3
               }
             }
           ]
@@ -89,8 +75,8 @@
               "function": "minecraft:set_count",
               "count": {
                 "type": "minecraft:uniform",
-                "min": 3,
-                "max": 5
+                "min": 4,
+                "max": 7
               }
             }
           ]
