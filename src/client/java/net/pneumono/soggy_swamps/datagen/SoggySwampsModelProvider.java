@@ -4,6 +4,8 @@ import net.fabricmc.fabric.api.client.datagen.v1.provider.FabricModelProvider;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.minecraft.block.Block;
 import net.minecraft.client.data.*;
+import net.minecraft.client.render.model.json.WeightedVariant;
+import net.minecraft.util.Identifier;
 import net.pneumono.soggy_swamps.registry.SoggySwampsBlocks;
 import net.pneumono.soggy_swamps.registry.SoggySwampsItems;
 
@@ -49,6 +51,8 @@ public class SoggySwampsModelProvider extends FabricModelProvider {
 
         generator.registerCubeAllModelTexturePool(SoggySwampsBlocks.MOSSY_MUD_BRICKS).family(SoggySwampsBlockFamilies.MOSSY_MUD_BRICK);
         generator.registerSimpleCubeAll(SoggySwampsBlocks.CHISELED_MUD_BRICKS);
+
+        registerTempleSpawner(generator);
     }
 
     public void registerSimpleStateWithYRotation(BlockStateModelGenerator generator, Block block) {
@@ -60,6 +64,22 @@ public class SoggySwampsModelProvider extends FabricModelProvider {
                         )
                 )
         );
+    }
+
+    private void registerTempleSpawner(BlockStateModelGenerator generator) {
+        Block block = SoggySwampsBlocks.TEMPLE_SPAWNER;
+
+        TextureMap textureMap = new TextureMap()
+                .put(TextureKey.SIDE, TextureMap.getSubId(block, "_side"))
+                .put(TextureKey.TOP, TextureMap.getSubId(block, "_top"))
+                .put(TextureKey.BOTTOM, TextureMap.getSubId(block, "_bottom"));
+
+        Identifier identifier =
+                Models.CUBE_BOTTOM_TOP_INNER_FACES.upload(block, textureMap, generator.modelCollector);
+        WeightedVariant variant = BlockStateModelGenerator.createWeightedVariant(identifier);
+
+        generator.registerParentedItemModel(block, identifier);
+        generator.blockStateCollector.accept(BlockStateModelGenerator.createSingletonBlockState(block, variant));
     }
 
     @Override

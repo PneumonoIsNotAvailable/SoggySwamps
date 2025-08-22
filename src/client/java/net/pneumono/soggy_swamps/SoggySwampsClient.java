@@ -9,6 +9,7 @@ import net.fabricmc.fabric.api.client.rendering.v1.EntityRendererRegistry;
 import net.minecraft.client.color.world.BiomeColors;
 import net.minecraft.client.render.BlockRenderLayer;
 import net.minecraft.client.render.TexturedRenderLayers;
+import net.minecraft.client.render.block.entity.BlockEntityRendererFactories;
 import net.minecraft.client.render.entity.BoatEntityRenderer;
 import net.minecraft.client.render.entity.model.BoatEntityModel;
 import net.minecraft.client.render.entity.model.EntityModelLayer;
@@ -17,6 +18,7 @@ import net.minecraft.registry.RegistryKey;
 import net.minecraft.registry.RegistryKeys;
 import net.pneumono.soggy_swamps.content.FlyParticle;
 import net.pneumono.soggy_swamps.content.SwampSpiderEntityRenderer;
+import net.pneumono.soggy_swamps.content.TempleSpawnerBlockEntityRenderer;
 import net.pneumono.soggy_swamps.registry.SoggySwampsBlocks;
 import net.pneumono.soggy_swamps.registry.SoggySwampsEntities;
 import net.pneumono.soggy_swamps.registry.SoggySwampsRegistry;
@@ -36,6 +38,8 @@ public class SoggySwampsClient implements ClientModInitializer {
 	public void onInitializeClient() {
 		ParticleFactoryRegistry.getInstance().register(SoggySwampsRegistry.FLY, FlyParticle.Factory::new);
 
+		BlockEntityRendererFactories.register(SoggySwampsRegistry.TEMPLE_SPAWNER, TempleSpawnerBlockEntityRenderer::new);
+
 		BlockRenderLayerMap.putBlock(SoggySwampsBlocks.CATTAIL, BlockRenderLayer.CUTOUT);
 		BlockRenderLayerMap.putBlock(SoggySwampsBlocks.POTTED_ROT_CAP, BlockRenderLayer.CUTOUT);
 		BlockRenderLayerMap.putBlock(SoggySwampsBlocks.VIBRANT_SPROUT, BlockRenderLayer.CUTOUT);
@@ -45,6 +49,7 @@ public class SoggySwampsClient implements ClientModInitializer {
 		BlockRenderLayerMap.putBlock(SoggySwampsBlocks.SWAMP_OAK_DOOR, BlockRenderLayer.TRANSLUCENT);
 		BlockRenderLayerMap.putBlock(SoggySwampsBlocks.SWAMP_OAK_TRAPDOOR, BlockRenderLayer.CUTOUT);
 		BlockRenderLayerMap.putBlock(SoggySwampsBlocks.SWAMP_OAK_LEAVES, BlockRenderLayer.CUTOUT_MIPPED);
+		BlockRenderLayerMap.putBlock(SoggySwampsBlocks.TEMPLE_SPAWNER, BlockRenderLayer.CUTOUT);
 
 		ColorProviderRegistry.BLOCK.register(
 				(state, world, pos, tintIndex) -> world != null && pos != null ? BiomeColors.getFoliageColor(world, pos) : -12012264,

@@ -14,6 +14,7 @@ import net.minecraft.registry.RegistryKeys;
 import net.minecraft.sound.BlockSoundGroup;
 import net.pneumono.soggy_swamps.SoggySwamps;
 import net.pneumono.soggy_swamps.content.*;
+import net.pneumono.soggy_swamps.content.templespawner.TempleSpawnerBlock;
 import net.pneumono.soggy_swamps.worldgen.SoggySwampsWorldgen;
 
 import java.util.Optional;
@@ -239,6 +240,22 @@ public class SoggySwampsBlocks {
             "chiseled_mud_bricks",
             Block::new,
             AbstractBlock.Settings.copy(MOSSY_MUD_BRICKS)
+    );
+    public static final TempleSpawnerBlock TEMPLE_SPAWNER = register(
+            "temple_spawner",
+            TempleSpawnerBlock::new,
+            AbstractBlock.Settings.create()
+                    .mapColor(MapColor.TERRACOTTA_LIGHT_GRAY)
+                    .instrument(NoteBlockInstrument.BASEDRUM)
+                    .luminance(state -> switch (state.get(TempleSpawnerBlock.STATE)) {
+                        case INACTIVE -> 3;
+                        case ACTIVE -> 8;
+                        case COOLDOWN -> 1;
+                    })
+                    .strength(50.0F)
+                    .sounds(BlockSoundGroup.TRIAL_SPAWNER)
+                    .blockVision(Blocks::never)
+                    .nonOpaque()
     );
 
     private static AbstractBlock.Settings createSwampOak() {
