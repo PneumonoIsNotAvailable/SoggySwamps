@@ -53,7 +53,7 @@ public class TempleSpawnerLogic {
     private Entity renderedEntity;
     private int maxNearbyEntities = 6;
     private int requiredPlayerXZRange = 16;
-    private int requiredPlayerYRange = 16;
+    private int requiredPlayerYRange = 2;
     private int spawnRange = 4;
 
     public void readData(@Nullable World world, BlockPos pos, ReadView view) {
