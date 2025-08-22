@@ -28,11 +28,11 @@
         },
         {
           "type": "minecraft:item",
-          "name": "minecraft:raiser_armor_trim_smithing_template"
+          "name": "soggy_swamps:spore_armor_trim_smithing_template"
         },
         {
           "type": "minecraft:item",
-          "name": "minecraft:shaper_armor_trim_smithing_template"
+          "name": "soggy_swamps:bubble_armor_trim_smithing_template"
         },
         {
           "type": "minecraft:item",
