@@ -28,7 +28,7 @@ public class SwampSpiderEntity extends SpiderEntity {
         return HostileEntity.createHostileAttributes()
                 .add(EntityAttributes.MAX_HEALTH, 10.0)
                 .add(EntityAttributes.MOVEMENT_SPEED, 0.4F)
-                .add(EntityAttributes.ATTACK_DAMAGE, 4F);
+                .add(EntityAttributes.ATTACK_DAMAGE, 3F);
     }
 
     @Override
