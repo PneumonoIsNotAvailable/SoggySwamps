@@ -58,6 +58,8 @@ public class SoggySwampsEnUsLangProvider extends FabricLanguageProvider {
         builder.add(SoggySwampsItems.HAT_POTTERY_SHERD, "Hat Pottery Sherd");
         builder.add(SoggySwampsItems.SLIME_POTTERY_SHERD, "Slime Pottery Sherd");
         builder.add(SoggySwampsItems.DECAY_POTTERY_SHERD, "Decay Pottery Sherd");
+        builder.add(SoggySwampsItems.WEALTH_POTTERY_SHERD, "Wealth Pottery Sherd");
+        builder.add(SoggySwampsItems.DROP_POTTERY_SHERD, "Drop Pottery Sherd");
         builder.add("item.minecraft.potion.effect.venom", "Potion of Venom");
         builder.add("item.minecraft.splash_potion.effect.venom", "Splash Potion of Venom");
         builder.add("item.minecraft.lingering_potion.effect.venom", "Lingering Potion of Venom");

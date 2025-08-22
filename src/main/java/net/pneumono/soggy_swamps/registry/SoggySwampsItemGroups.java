@@ -56,7 +56,9 @@ public class SoggySwampsItemGroups {
                             SoggySwampsItems.SUSPICIOUS_MUD,
                             SoggySwampsItems.HAT_POTTERY_SHERD,
                             SoggySwampsItems.SLIME_POTTERY_SHERD,
-                            SoggySwampsItems.DECAY_POTTERY_SHERD
+                            SoggySwampsItems.DECAY_POTTERY_SHERD,
+                            SoggySwampsItems.WEALTH_POTTERY_SHERD,
+                            SoggySwampsItems.DROP_POTTERY_SHERD
                     ).map(ItemStack::new).toList());
 
                     entries.add(PotionContentsComponent.createStack(Items.POTION, SoggySwampsRegistry.VENOM_POTION));
@@ -129,9 +131,11 @@ public class SoggySwampsItemGroups {
         });
         ItemGroupEvents.modifyEntriesEvent(ItemGroups.INGREDIENTS).register(entries -> {
             entries.addAfter(Items.SPIDER_EYE, SoggySwampsItems.SWAMP_SPIDER_EYE);
-            entries.addAfter(Items.DANGER_POTTERY_SHERD, SoggySwampsItems.DECAY_POTTERY_SHERD);
+            entries.addAfter(Items.DANGER_POTTERY_SHERD,
+                    SoggySwampsItems.DECAY_POTTERY_SHERD, SoggySwampsItems.DROP_POTTERY_SHERD);
             entries.addAfter(Items.GUSTER_POTTERY_SHERD, SoggySwampsItems.HAT_POTTERY_SHERD);
             entries.addAfter(Items.SKULL_POTTERY_SHERD, SoggySwampsItems.SLIME_POTTERY_SHERD);
+            entries.addAfter(Items.SNORT_POTTERY_SHERD, SoggySwampsItems.WEALTH_POTTERY_SHERD);
         });
         ItemGroupEvents.modifyEntriesEvent(ItemGroups.SPAWN_EGGS).register(entries -> {
             entries.addAfter(Items.TRIAL_SPAWNER, SoggySwampsItems.TEMPLE_SPAWNER);

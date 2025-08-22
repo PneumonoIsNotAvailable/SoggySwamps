@@ -68,6 +68,8 @@ public class SoggySwampsItems {
     public static final Item HAT_POTTERY_SHERD = registerPotterySherd("hat");
     public static final Item SLIME_POTTERY_SHERD = registerPotterySherd("slime");
     public static final Item DECAY_POTTERY_SHERD = registerPotterySherd("decay");
+    public static final Item WEALTH_POTTERY_SHERD = registerPotterySherd("wealth");
+    public static final Item DROP_POTTERY_SHERD = registerPotterySherd("drop");
 
     public static final BlockItem CATTAIL = registerBlockItem(SoggySwampsBlocks.CATTAIL);
     public static final BlockItem ROT_CAP = registerBlockItem(SoggySwampsBlocks.ROT_CAP);

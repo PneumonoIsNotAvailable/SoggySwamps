@@ -20,11 +20,11 @@
         },
         {
           "type": "minecraft:item",
-          "name": "minecraft:heart_pottery_sherd"
+          "name": "soggy_swamps:wealth_pottery_sherd"
         },
         {
           "type": "minecraft:item",
-          "name": "minecraft:heartbreak_pottery_sherd"
+          "name": "soggy_swamps:drop_pottery_sherd"
         },
         {
           "type": "minecraft:item",

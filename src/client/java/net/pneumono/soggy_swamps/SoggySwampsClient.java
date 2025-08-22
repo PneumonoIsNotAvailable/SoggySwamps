@@ -72,18 +72,17 @@ public class SoggySwampsClient implements ClientModInitializer {
 				SoggySwampsEntities.SWAMP_OAK_CHEST_BOAT,
 				context -> new BoatEntityRenderer(context, SWAMP_OAK_CHEST_BOAT)
 		);
+		addSherd("hat");
+		addSherd("slime");
+		addSherd("decay");
+		addSherd("wealth");
+		addSherd("drop");
+	}
 
+	private static void addSherd(String name) {
 		TexturedRenderLayers.DECORATED_POT_PATTERN_TEXTURES.put(
-				RegistryKey.of(RegistryKeys.DECORATED_POT_PATTERN, SoggySwamps.id("hat")),
-				TexturedRenderLayers.DECORATED_POT_SPRITE_MAPPER.map(SoggySwamps.id("hat_pottery_pattern"))
-		);
-		TexturedRenderLayers.DECORATED_POT_PATTERN_TEXTURES.put(
-				RegistryKey.of(RegistryKeys.DECORATED_POT_PATTERN, SoggySwamps.id("slime")),
-				TexturedRenderLayers.DECORATED_POT_SPRITE_MAPPER.map(SoggySwamps.id("slime_pottery_pattern"))
-		);
-		TexturedRenderLayers.DECORATED_POT_PATTERN_TEXTURES.put(
-				RegistryKey.of(RegistryKeys.DECORATED_POT_PATTERN, SoggySwamps.id("decay")),
-				TexturedRenderLayers.DECORATED_POT_SPRITE_MAPPER.map(SoggySwamps.id("decay_pottery_pattern"))
+				RegistryKey.of(RegistryKeys.DECORATED_POT_PATTERN, SoggySwamps.id(name)),
+				TexturedRenderLayers.DECORATED_POT_SPRITE_MAPPER.map(SoggySwamps.id(name + "_pottery_pattern"))
 		);
 	}
 }

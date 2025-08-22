@@ -6,18 +6,23 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "soggy_swamps:hat_pottery_sherd",
-          "weight": 2
+          "name": "soggy_swamps:hat_pottery_sherd"
         },
         {
           "type": "minecraft:item",
-          "name": "soggy_swamps:slime_pottery_sherd",
-          "weight": 2
+          "name": "soggy_swamps:slime_pottery_sherd"
         },
         {
           "type": "minecraft:item",
-          "name": "soggy_swamps:decay_pottery_sherd",
-          "weight": 2
+          "name": "soggy_swamps:decay_pottery_sherd"
+        },
+        {
+          "type": "minecraft:item",
+          "name": "soggy_swamps:wealth_pottery_sherd"
+        },
+        {
+          "type": "minecraft:item",
+          "name": "soggy_swamps:drop_pottery_sherd"
         },
         {
           "type": "minecraft:item",

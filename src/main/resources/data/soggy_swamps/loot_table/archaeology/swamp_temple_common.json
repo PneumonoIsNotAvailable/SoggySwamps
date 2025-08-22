@@ -20,6 +20,14 @@
         },
         {
           "type": "minecraft:item",
+          "name": "soggy_swamps:wealth_pottery_sherd"
+        },
+        {
+          "type": "minecraft:item",
+          "name": "soggy_swamps:drop_pottery_sherd"
+        },
+        {
+          "type": "minecraft:item",
           "name": "minecraft:tipped_arrow",
           "weight": 4,
           "functions": [
@@ -122,7 +130,7 @@
         {
           "type": "minecraft:item",
           "name": "minecraft:iron_nugget",
-          "weight": 4
+          "weight": 5
         },
         {
           "type": "minecraft:item",
@@ -153,7 +161,8 @@
         },
         {
           "type": "minecraft:item",
-          "name": "minecraft:flower_pot"
+          "name": "minecraft:flower_pot",
+          "weight": 2
         },
         {
           "type": "minecraft:item",
@@ -161,7 +170,8 @@
         },
         {
           "type": "minecraft:item",
-          "name": "minecraft:slime_ball"
+          "name": "minecraft:slime_ball",
+          "weight": 2
         },
         {
           "type": "minecraft:item",
