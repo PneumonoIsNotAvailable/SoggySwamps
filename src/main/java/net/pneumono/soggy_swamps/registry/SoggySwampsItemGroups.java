@@ -58,7 +58,9 @@ public class SoggySwampsItemGroups {
                             SoggySwampsItems.SLIME_POTTERY_SHERD,
                             SoggySwampsItems.DECAY_POTTERY_SHERD,
                             SoggySwampsItems.WEALTH_POTTERY_SHERD,
-                            SoggySwampsItems.DROP_POTTERY_SHERD
+                            SoggySwampsItems.DROP_POTTERY_SHERD,
+                            SoggySwampsItems.SPORE_ARMOR_TRIM_SMITHING_TEMPLATE,
+                            SoggySwampsItems.BUBBLE_ARMOR_TRIM_SMITHING_TEMPLATE
                     ).map(ItemStack::new).toList());
 
                     entries.add(PotionContentsComponent.createStack(Items.POTION, SoggySwampsRegistry.VENOM_POTION));

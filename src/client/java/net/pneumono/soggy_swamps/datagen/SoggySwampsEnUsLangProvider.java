@@ -60,6 +60,10 @@ public class SoggySwampsEnUsLangProvider extends FabricLanguageProvider {
         builder.add(SoggySwampsItems.DECAY_POTTERY_SHERD, "Decay Pottery Sherd");
         builder.add(SoggySwampsItems.WEALTH_POTTERY_SHERD, "Wealth Pottery Sherd");
         builder.add(SoggySwampsItems.DROP_POTTERY_SHERD, "Drop Pottery Sherd");
+        builder.add(SoggySwampsItems.SPORE_ARMOR_TRIM_SMITHING_TEMPLATE, "Spore Armor Trim");
+        builder.add(SoggySwampsItems.BUBBLE_ARMOR_TRIM_SMITHING_TEMPLATE, "Bubble Armor Trim");
+        builder.add("trim_pattern.soggy_swamps.spore", "Spore Armor Trim");
+        builder.add("trim_pattern.soggy_swamps.bubble", "Bubble Armor Trim");
         builder.add("item.minecraft.potion.effect.venom", "Potion of Venom");
         builder.add("item.minecraft.splash_potion.effect.venom", "Splash Potion of Venom");
         builder.add("item.minecraft.lingering_potion.effect.venom", "Lingering Potion of Venom");

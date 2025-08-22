@@ -1,0 +1,7 @@
+{
+  "type": "minecraft:smithing_trim",
+  "addition": "#minecraft:trim_materials",
+  "base": "#minecraft:trimmable_armor",
+  "pattern": "soggy_swamps:spore",
+  "template": "soggy_swamps:spore_armor_trim_smithing_template"
+}

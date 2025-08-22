@@ -95,5 +95,7 @@ public class SoggySwampsModelProvider extends FabricModelProvider {
         generator.register(SoggySwampsItems.DECAY_POTTERY_SHERD, Models.GENERATED);
         generator.register(SoggySwampsItems.WEALTH_POTTERY_SHERD, Models.GENERATED);
         generator.register(SoggySwampsItems.DROP_POTTERY_SHERD, Models.GENERATED);
+        generator.register(SoggySwampsItems.SPORE_ARMOR_TRIM_SMITHING_TEMPLATE, Models.GENERATED);
+        generator.register(SoggySwampsItems.BUBBLE_ARMOR_TRIM_SMITHING_TEMPLATE, Models.GENERATED);
     }
 }

@@ -9,9 +9,12 @@ import net.minecraft.data.recipe.RecipeGenerator;
 import net.minecraft.item.Items;
 import net.minecraft.recipe.Ingredient;
 import net.minecraft.recipe.book.RecipeCategory;
+import net.minecraft.registry.RegistryKey;
+import net.minecraft.registry.RegistryKeys;
 import net.minecraft.registry.RegistryWrapper;
 import net.minecraft.resource.featuretoggle.FeatureFlags;
 import net.minecraft.resource.featuretoggle.FeatureSet;
+import net.pneumono.soggy_swamps.SoggySwamps;
 import net.pneumono.soggy_swamps.registry.SoggySwampsBlocks;
 import net.pneumono.soggy_swamps.registry.SoggySwampsItems;
 import net.pneumono.soggy_swamps.registry.SoggySwampsTags;
@@ -85,6 +88,19 @@ public class SoggySwampsRecipeGenerator extends RecipeGenerator {
         offerStonecuttingRecipe(RecipeCategory.BUILDING_BLOCKS, SoggySwampsBlocks.MOSSY_MUD_BRICK_STAIRS, SoggySwampsBlocks.MOSSY_MUD_BRICKS);
         offerStonecuttingRecipe(RecipeCategory.DECORATIONS, SoggySwampsBlocks.MOSSY_MUD_BRICK_WALL, SoggySwampsBlocks.MOSSY_MUD_BRICKS);
         offerStonecuttingRecipe(RecipeCategory.BUILDING_BLOCKS, SoggySwampsBlocks.CHISELED_MUD_BRICKS, Items.MUD_BRICKS);
+
+        offerSmithingTemplateCopyingRecipe(SoggySwampsItems.SPORE_ARMOR_TRIM_SMITHING_TEMPLATE, Items.MUD_BRICKS);
+        offerSmithingTemplateCopyingRecipe(SoggySwampsItems.BUBBLE_ARMOR_TRIM_SMITHING_TEMPLATE, Items.MUD_BRICKS);
+        offerSmithingTrimRecipe(
+                SoggySwampsItems.SPORE_ARMOR_TRIM_SMITHING_TEMPLATE,
+                RegistryKey.of(RegistryKeys.TRIM_PATTERN, SoggySwamps.id("spore")),
+                RegistryKey.of(RegistryKeys.RECIPE, SoggySwamps.id("spore_armor_trim_smithing_template_smithing_trim"))
+        );
+        offerSmithingTrimRecipe(
+                SoggySwampsItems.BUBBLE_ARMOR_TRIM_SMITHING_TEMPLATE,
+                RegistryKey.of(RegistryKeys.TRIM_PATTERN, SoggySwamps.id("bubble")),
+                RegistryKey.of(RegistryKeys.RECIPE, SoggySwamps.id("bubble_armor_trim_smithing_template_smithing_trim"))
+        );
     }
 
     public static class RecipeProvider extends FabricRecipeProvider {
