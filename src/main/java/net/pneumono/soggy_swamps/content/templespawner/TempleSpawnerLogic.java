@@ -24,6 +24,7 @@ import net.minecraft.util.TypeFilter;
 import net.minecraft.util.collection.Pool;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Box;
+import net.minecraft.util.math.Direction;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.util.math.random.Random;
 import net.minecraft.world.Difficulty;
@@ -132,6 +133,10 @@ public class TempleSpawnerLogic {
 
     public void serverTick(ServerWorld world, BlockPos pos) {
         if (!this.isPlayerInRange(world, pos)) return;
+
+        for (Direction direction : Direction.values()) {
+            if (world.getLightLevel(pos.offset(direction)) > 12) return;
+        }
 
         if (this.spawnDelay == -1) {
             this.updateSpawns(world, pos);
