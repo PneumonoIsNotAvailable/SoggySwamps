@@ -54,11 +54,11 @@ public class SoggySwampsItemGroups {
                             SoggySwampsItems.SWAMP_STEW,
                             SoggySwampsItems.TEMPLE_SPAWNER,
                             SoggySwampsItems.SUSPICIOUS_MUD,
+                            SoggySwampsItems.DECAY_POTTERY_SHERD,
+                            SoggySwampsItems.DROP_POTTERY_SHERD,
                             SoggySwampsItems.HAT_POTTERY_SHERD,
                             SoggySwampsItems.SLIME_POTTERY_SHERD,
-                            SoggySwampsItems.DECAY_POTTERY_SHERD,
                             SoggySwampsItems.WEALTH_POTTERY_SHERD,
-                            SoggySwampsItems.DROP_POTTERY_SHERD,
                             SoggySwampsItems.SPORE_ARMOR_TRIM_SMITHING_TEMPLATE,
                             SoggySwampsItems.BUBBLE_ARMOR_TRIM_SMITHING_TEMPLATE
                     ).map(ItemStack::new).toList());
@@ -138,6 +138,10 @@ public class SoggySwampsItemGroups {
             entries.addAfter(Items.GUSTER_POTTERY_SHERD, SoggySwampsItems.HAT_POTTERY_SHERD);
             entries.addAfter(Items.SKULL_POTTERY_SHERD, SoggySwampsItems.SLIME_POTTERY_SHERD);
             entries.addAfter(Items.SNORT_POTTERY_SHERD, SoggySwampsItems.WEALTH_POTTERY_SHERD);
+            entries.addAfter(Items.BOLT_ARMOR_TRIM_SMITHING_TEMPLATE,
+                    SoggySwampsItems.SPORE_ARMOR_TRIM_SMITHING_TEMPLATE,
+                    SoggySwampsItems.BUBBLE_ARMOR_TRIM_SMITHING_TEMPLATE
+            );
         });
         ItemGroupEvents.modifyEntriesEvent(ItemGroups.SPAWN_EGGS).register(entries -> {
             entries.addAfter(Items.TRIAL_SPAWNER, SoggySwampsItems.TEMPLE_SPAWNER);
