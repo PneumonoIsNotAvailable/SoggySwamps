@@ -3,8 +3,24 @@
     "biomes": "#soggy_swamps:has_structure/swamp_temple",
     "step": "surface_structures",
     "spawn_overrides": {
+        "ambient": {
+            "bounding_box": "piece",
+            "spawns": []
+        },
+        "axolotls": {
+            "bounding_box": "piece",
+            "spawns": []
+        },
+        "creature": {
+            "bounding_box": "piece",
+            "spawns": []
+        },
+        "misc": {
+            "bounding_box": "piece",
+            "spawns": []
+        },
         "monster": {
-            "bounding_box": "full",
+            "bounding_box": "piece",
             "spawns": [
                 {
                     "type": "minecraft:bogged",
@@ -13,6 +29,18 @@
                     "weight": 1
                 }
             ]
+        },
+        "underground_water_creature": {
+            "bounding_box": "piece",
+            "spawns": []
+        },
+        "water_ambient": {
+            "bounding_box": "piece",
+            "spawns": []
+        },
+        "water_creature": {
+            "bounding_box": "piece",
+            "spawns": []
         }
     },
     "terrain_adaptation": "beard_thin",
