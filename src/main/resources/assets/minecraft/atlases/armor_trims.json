@@ -4,9 +4,7 @@
             "type": "minecraft:paletted_permutations",
             "textures": [
                 "soggy_swamps:trims/entity/humanoid/spore",
-                "soggy_swamps:trims/entity/humanoid_leggings/spore",
-                "soggy_swamps:trims/entity/humanoid/bubble",
-                "soggy_swamps:trims/entity/humanoid_leggings/bubble"
+                "soggy_swamps:trims/entity/humanoid_leggings/spore"
             ],
             "palette_key": "minecraft:trims/color_palettes/trim_palette",
             "permutations": {

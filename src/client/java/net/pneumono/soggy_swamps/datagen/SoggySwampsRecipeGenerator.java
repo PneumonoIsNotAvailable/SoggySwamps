@@ -90,16 +90,10 @@ public class SoggySwampsRecipeGenerator extends RecipeGenerator {
         offerStonecuttingRecipe(RecipeCategory.BUILDING_BLOCKS, SoggySwampsBlocks.CHISELED_MUD_BRICKS, Items.MUD_BRICKS);
 
         offerSmithingTemplateCopyingRecipe(SoggySwampsItems.SPORE_ARMOR_TRIM_SMITHING_TEMPLATE, Items.MUD_BRICKS);
-        offerSmithingTemplateCopyingRecipe(SoggySwampsItems.BUBBLE_ARMOR_TRIM_SMITHING_TEMPLATE, Items.MUD_BRICKS);
         offerSmithingTrimRecipe(
                 SoggySwampsItems.SPORE_ARMOR_TRIM_SMITHING_TEMPLATE,
                 RegistryKey.of(RegistryKeys.TRIM_PATTERN, SoggySwamps.id("spore")),
                 RegistryKey.of(RegistryKeys.RECIPE, SoggySwamps.id("spore_armor_trim_smithing_template_smithing_trim"))
-        );
-        offerSmithingTrimRecipe(
-                SoggySwampsItems.BUBBLE_ARMOR_TRIM_SMITHING_TEMPLATE,
-                RegistryKey.of(RegistryKeys.TRIM_PATTERN, SoggySwamps.id("bubble")),
-                RegistryKey.of(RegistryKeys.RECIPE, SoggySwamps.id("bubble_armor_trim_smithing_template_smithing_trim"))
         );
     }
 

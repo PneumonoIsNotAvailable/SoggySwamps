@@ -69,14 +69,8 @@ public class SoggySwampsItems {
     public static final Item SLIME_POTTERY_SHERD = registerPotterySherd("slime");
     public static final Item DECAY_POTTERY_SHERD = registerPotterySherd("decay");
     public static final Item WEALTH_POTTERY_SHERD = registerPotterySherd("wealth");
-    public static final Item DROP_POTTERY_SHERD = registerPotterySherd("drop");
     public static final SmithingTemplateItem SPORE_ARMOR_TRIM_SMITHING_TEMPLATE = register(
             "spore_armor_trim_smithing_template",
-            SmithingTemplateItem::of,
-            new Item.Settings().rarity(Rarity.UNCOMMON)
-    );
-    public static final SmithingTemplateItem BUBBLE_ARMOR_TRIM_SMITHING_TEMPLATE = register(
-            "bubble_armor_trim_smithing_template",
             SmithingTemplateItem::of,
             new Item.Settings().rarity(Rarity.UNCOMMON)
     );

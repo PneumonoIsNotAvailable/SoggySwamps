@@ -24,15 +24,7 @@
         },
         {
           "type": "minecraft:item",
-          "name": "soggy_swamps:drop_pottery_sherd"
-        },
-        {
-          "type": "minecraft:item",
           "name": "soggy_swamps:spore_armor_trim_smithing_template"
-        },
-        {
-          "type": "minecraft:item",
-          "name": "soggy_swamps:bubble_armor_trim_smithing_template"
         },
         {
           "type": "minecraft:item",

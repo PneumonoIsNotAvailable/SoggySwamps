@@ -24,10 +24,6 @@
         },
         {
           "type": "minecraft:item",
-          "name": "soggy_swamps:drop_pottery_sherd"
-        },
-        {
-          "type": "minecraft:item",
           "name": "minecraft:tipped_arrow",
           "weight": 4,
           "functions": [

@@ -61,8 +61,7 @@ public class SoggySwampsItemTagProvider extends FabricTagProvider.ItemTagProvide
                 SoggySwampsItems.HAT_POTTERY_SHERD,
                 SoggySwampsItems.SLIME_POTTERY_SHERD,
                 SoggySwampsItems.DECAY_POTTERY_SHERD,
-                SoggySwampsItems.WEALTH_POTTERY_SHERD,
-                SoggySwampsItems.DROP_POTTERY_SHERD
+                SoggySwampsItems.WEALTH_POTTERY_SHERD
         );
 
         tag(ConventionalItemTags.MUSHROOMS).add(SoggySwampsItems.ROT_CAP);

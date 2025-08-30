@@ -76,7 +76,6 @@ public class SoggySwampsClient implements ClientModInitializer {
 		addSherd("slime");
 		addSherd("decay");
 		addSherd("wealth");
-		addSherd("drop");
 	}
 
 	private static void addSherd(String name) {

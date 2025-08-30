@@ -14,10 +14,6 @@
         },
         {
           "type": "minecraft:item",
-          "name": "soggy_swamps:drop_pottery_sherd"
-        },
-        {
-          "type": "minecraft:item",
           "name": "minecraft:glass_bottle"
         },
         {
