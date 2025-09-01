@@ -78,7 +78,7 @@ public class SoggySwampsWorldgen {
         );
 
         BiomeModifications.addFeature(
-                swamp,
+                swampAndMangrove,
                 GenerationStep.Feature.VEGETAL_DECORATION,
                 placedFeature("patch_cattail")
         );
