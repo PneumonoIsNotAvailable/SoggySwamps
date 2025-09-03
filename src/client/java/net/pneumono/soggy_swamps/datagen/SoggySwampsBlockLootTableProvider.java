@@ -3,6 +3,8 @@ package net.pneumono.soggy_swamps.datagen;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricBlockLootTableProvider;
 import net.minecraft.block.Blocks;
+import net.minecraft.block.TallPlantBlock;
+import net.minecraft.block.enums.DoubleBlockHalf;
 import net.minecraft.registry.RegistryWrapper;
 import net.pneumono.soggy_swamps.registry.SoggySwampsBlocks;
 
@@ -15,7 +17,10 @@ public class SoggySwampsBlockLootTableProvider extends FabricBlockLootTableProvi
 
     @Override
     public void generate() {
-        addDrop(Blocks.SMALL_DRIPLEAF, this::dropsWithShears);
+        addDrop(
+                SoggySwampsBlocks.CATTAIL,
+                block -> dropsWithProperty(block, TallPlantBlock.HALF, DoubleBlockHalf.LOWER)
+        );
         addDrop(SoggySwampsBlocks.ROT_CAP);
         addPottedPlantDrops(SoggySwampsBlocks.POTTED_ROT_CAP);
         addDrop(SoggySwampsBlocks.VIBRANT_SPROUT);
