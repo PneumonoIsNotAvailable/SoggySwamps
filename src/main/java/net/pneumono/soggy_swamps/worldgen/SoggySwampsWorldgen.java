@@ -4,12 +4,14 @@ import net.fabricmc.fabric.api.biome.v1.BiomeModifications;
 import net.fabricmc.fabric.api.biome.v1.BiomeSelectionContext;
 import net.fabricmc.fabric.api.biome.v1.BiomeSelectors;
 import net.fabricmc.fabric.api.biome.v1.ModificationPhase;
+import net.minecraft.entity.EntityType;
 import net.minecraft.entity.SpawnGroup;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
 import net.minecraft.registry.RegistryKey;
 import net.minecraft.registry.RegistryKeys;
 import net.minecraft.world.biome.BiomeKeys;
+import net.minecraft.world.biome.SpawnSettings;
 import net.minecraft.world.gen.GenerationStep;
 import net.minecraft.world.gen.feature.ConfiguredFeature;
 import net.minecraft.world.gen.feature.PlacedFeature;
@@ -40,11 +42,17 @@ public class SoggySwampsWorldgen {
         Predicate<BiomeSelectionContext> swamp = BiomeSelectors.includeByKey(BiomeKeys.SWAMP);
         Predicate<BiomeSelectionContext> swampAndMangrove = BiomeSelectors.includeByKey(List.of(BiomeKeys.SWAMP, BiomeKeys.MANGROVE_SWAMP));
 
-        BiomeModifications.addSpawn(
+        BiomeModifications.create(SoggySwamps.id("witch")).add(
+                ModificationPhase.REPLACEMENTS,
                 swampAndMangrove,
-                SpawnGroup.MONSTER,
-                SoggySwampsEntities.SWAMP_SPIDER,
-                100, 2, 3
+                context -> {
+                    context.getSpawnSettings().removeSpawnsOfEntityType(EntityType.WITCH);
+                    context.getSpawnSettings().addSpawn(SpawnGroup.MONSTER, new SpawnSettings.SpawnEntry(EntityType.WITCH, 1, 2), 15);
+
+                    context.getSpawnSettings().removeSpawnsOfEntityType(EntityType.SPIDER);
+                    context.getSpawnSettings().addSpawn(SpawnGroup.MONSTER, new SpawnSettings.SpawnEntry(EntityType.SPIDER, 4, 4), 50);
+                    context.getSpawnSettings().addSpawn(SpawnGroup.MONSTER, new SpawnSettings.SpawnEntry(SoggySwampsEntities.SWAMP_SPIDER, 4, 4), 75);
+                }
         );
 
         BiomeModifications.create(SoggySwamps.id("trees")).add(
