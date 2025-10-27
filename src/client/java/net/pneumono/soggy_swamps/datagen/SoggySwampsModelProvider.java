@@ -21,8 +21,8 @@ public class SoggySwampsModelProvider extends FabricModelProvider {
         registerSimpleStateWithYRotation(generator, SoggySwampsBlocks.ROT_CAP);
         generator.registerSimpleState(SoggySwampsBlocks.POTTED_ROT_CAP);
         generator.registerFlowerPotPlantAndItem(
-                SoggySwampsBlocks.VIBRANT_SPROUT,
-                SoggySwampsBlocks.POTTED_VIBRANT_SPROUT,
+                SoggySwampsBlocks.BOGSPROUT,
+                SoggySwampsBlocks.POTTED_BOGSPROUT,
                 BlockStateModelGenerator.CrossType.NOT_TINTED
         );
 

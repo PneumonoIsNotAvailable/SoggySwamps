@@ -49,9 +49,9 @@ public class SoggySwampsBlocks {
             settings -> new PottedRotCapBlock(ROT_CAP, settings),
             Blocks.createFlowerPotSettings()
     );
-    public static final VibrantSproutBlock VIBRANT_SPROUT = register(
-            "vibrant_sprout",
-            settings -> new VibrantSproutBlock(StatusEffects.REGENERATION, 10.0F, settings),
+    public static final BogsproutBlock BOGSPROUT = register(
+            "bogsprout",
+            settings -> new BogsproutBlock(StatusEffects.REGENERATION, 10.0F, settings),
             AbstractBlock.Settings.create()
                     .mapColor(MapColor.DARK_GREEN)
                     .noCollision()
@@ -60,9 +60,9 @@ public class SoggySwampsBlocks {
                     .offset(AbstractBlock.OffsetType.XZ)
                     .pistonBehavior(PistonBehavior.DESTROY)
     );
-    public static final FlowerPotBlock POTTED_VIBRANT_SPROUT = register(
-            "potted_vibrant_sprout",
-            settings -> new FlowerPotBlock(VIBRANT_SPROUT, settings),
+    public static final FlowerPotBlock POTTED_BOGSPROUT = register(
+            "potted_bogsprout",
+            settings -> new FlowerPotBlock(BOGSPROUT, settings),
             Blocks.createFlowerPotSettings()
     );
     public static final BrushableMudBlock SUSPICIOUS_MUD = register(

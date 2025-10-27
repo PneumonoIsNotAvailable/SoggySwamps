@@ -39,10 +39,10 @@ public class SoggySwampsBlockTagProvider extends FabricTagProvider.BlockTagProvi
         tag(BlockTags.FROGS_SPAWNABLE_ON).add(SoggySwampsBlocks.SUSPICIOUS_MUD);
         tag(BlockTags.REPLACEABLE_BY_MUSHROOMS).add(SoggySwampsBlocks.ROT_CAP);
 
-        tag(BlockTags.SMALL_FLOWERS).add(SoggySwampsBlocks.VIBRANT_SPROUT);
+        tag(BlockTags.SMALL_FLOWERS).add(SoggySwampsBlocks.BOGSPROUT);
         tag(BlockTags.FLOWER_POTS).add(
                 SoggySwampsBlocks.POTTED_SWAMP_OAK_SAPLING,
-                SoggySwampsBlocks.POTTED_VIBRANT_SPROUT,
+                SoggySwampsBlocks.POTTED_BOGSPROUT,
                 SoggySwampsBlocks.POTTED_ROT_CAP
         );
         tag(BlockTags.SAPLINGS).add(SoggySwampsBlocks.SWAMP_OAK_SAPLING);
@@ -73,7 +73,7 @@ public class SoggySwampsBlockTagProvider extends FabricTagProvider.BlockTagProvi
         );
         tag(BlockTags.SHOVEL_MINEABLE).add(SoggySwampsBlocks.SUSPICIOUS_MUD);
 
-        tag(ConventionalBlockTags.SMALL_FLOWERS).add(SoggySwampsBlocks.VIBRANT_SPROUT);
+        tag(ConventionalBlockTags.SMALL_FLOWERS).add(SoggySwampsBlocks.BOGSPROUT);
         tag(ConventionalBlockTags.STRIPPED_LOGS).add(SoggySwampsBlocks.STRIPPED_SWAMP_OAK_LOG);
         tag(ConventionalBlockTags.STRIPPED_WOODS).add(SoggySwampsBlocks.STRIPPED_SWAMP_OAK_WOOD);
         tag(ConventionalBlockTags.WOODEN_FENCES).add(SoggySwampsBlocks.SWAMP_OAK_FENCE);

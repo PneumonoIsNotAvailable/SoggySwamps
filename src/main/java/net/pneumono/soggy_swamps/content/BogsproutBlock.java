@@ -16,10 +16,10 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.function.Consumer;
 
-public class VibrantSproutBlock extends FlowerBlock implements Fertilizable {
+public class BogsproutBlock extends FlowerBlock implements Fertilizable {
     private static final VoxelShape SHAPE = Block.createColumnShape(12.0, 0.0, 12.0);
 
-    public VibrantSproutBlock(RegistryEntry<StatusEffect> stewEffect, float effectLengthInSeconds, Settings settings) {
+    public BogsproutBlock(RegistryEntry<StatusEffect> stewEffect, float effectLengthInSeconds, Settings settings) {
         super(stewEffect, effectLengthInSeconds, settings);
     }
 

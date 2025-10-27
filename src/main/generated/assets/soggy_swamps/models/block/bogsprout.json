@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:block/cross",
   "textures": {
-    "cross": "soggy_swamps:block/vibrant_sprout"
+    "cross": "soggy_swamps:block/bogsprout"
   }
 }

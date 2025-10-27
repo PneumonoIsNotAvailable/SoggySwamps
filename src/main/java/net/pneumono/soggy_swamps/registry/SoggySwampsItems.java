@@ -77,7 +77,7 @@ public class SoggySwampsItems {
 
     public static final BlockItem CATTAIL = registerBlockItem(SoggySwampsBlocks.CATTAIL);
     public static final BlockItem ROT_CAP = registerBlockItem(SoggySwampsBlocks.ROT_CAP);
-    public static final BlockItem VIBRANT_SPROUT = registerBlockItem(SoggySwampsBlocks.VIBRANT_SPROUT);
+    public static final BlockItem VIBRANT_SPROUT = registerBlockItem(SoggySwampsBlocks.BOGSPROUT);
     public static final BlockItem SWAMP_OAK_SAPLING = registerBlockItem(SoggySwampsBlocks.SWAMP_OAK_SAPLING);
     public static final BlockItem SWAMP_OAK_LEAVES = registerBlockItem(SoggySwampsBlocks.SWAMP_OAK_LEAVES);
     public static final BlockItem SWAMP_OAK_LOG = registerBlockItem(SoggySwampsBlocks.SWAMP_OAK_LOG);

@@ -100,7 +100,7 @@ public class SoggySwampsWorldgen {
         BiomeModifications.addFeature(
                 swampAndMangrove,
                 GenerationStep.Feature.VEGETAL_DECORATION,
-                placedFeature("patch_vibrant_sprout")
+                placedFeature("patch_bogsprout")
         );
     }
 
