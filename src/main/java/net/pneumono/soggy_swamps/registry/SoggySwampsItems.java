@@ -23,8 +23,8 @@ import java.util.function.Function;
 public class SoggySwampsItems {
     public static final SpawnEggItem SWAMP_SPIDER_SPAWN_EGG = register(
             "swamp_spider_spawn_egg",
-            settings -> new SpawnEggItem(SoggySwampsEntities.SWAMP_SPIDER, settings),
-            new Item.Settings()
+            SpawnEggItem::new,
+            new Item.Settings().spawnEgg(SoggySwampsEntities.SWAMP_SPIDER)
     );
     public static final Item SWAMP_SPIDER_EYE = register(
             "swamp_spider_eye",

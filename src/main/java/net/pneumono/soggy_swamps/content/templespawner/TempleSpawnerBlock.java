@@ -45,7 +45,7 @@ public class TempleSpawnerBlock extends BlockWithEntity {
         return validateTicker(
                 type,
                 SoggySwampsRegistry.TEMPLE_SPAWNER,
-                world.isClient ? TempleSpawnerBlockEntity::clientTick : TempleSpawnerBlockEntity::serverTick
+                world.isClient() ? TempleSpawnerBlockEntity::clientTick : TempleSpawnerBlockEntity::serverTick
         );
     }
 }

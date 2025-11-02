@@ -274,7 +274,7 @@ public class TempleSpawnerLogic {
 
     public boolean handleStatus(World world, int status) {
         if (status == 1) {
-            if (world.isClient) {
+            if (world.isClient()) {
                 this.spawnDelay = this.minSpawnDelay;
             }
 

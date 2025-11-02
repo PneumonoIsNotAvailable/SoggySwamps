@@ -49,9 +49,9 @@ public class SwampSpiderEntity extends SpiderEntity {
 
         if (target instanceof LivingEntity living) {
             int time = 0;
-            if (this.getWorld().getDifficulty() == Difficulty.NORMAL) {
+            if (world.getDifficulty() == Difficulty.NORMAL) {
                 time = 5;
-            } else if (this.getWorld().getDifficulty() == Difficulty.HARD) {
+            } else if (world.getDifficulty() == Difficulty.HARD) {
                 time = 10;
             }
 
@@ -79,7 +79,7 @@ public class SwampSpiderEntity extends SpiderEntity {
         }
 
         if (random.nextInt(100) == 0) {
-            BoggedEntity boggedEntity = EntityType.BOGGED.create(this.getWorld(), SpawnReason.JOCKEY);
+            BoggedEntity boggedEntity = EntityType.BOGGED.create(getEntityWorld(), SpawnReason.JOCKEY);
             if (boggedEntity != null) {
                 boggedEntity.refreshPositionAndAngles(this.getX(), this.getY(), this.getZ(), this.getYaw(), 0.0F);
                 boggedEntity.initialize(world, difficulty, spawnReason, null);

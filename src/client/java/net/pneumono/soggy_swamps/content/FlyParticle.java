@@ -3,19 +3,22 @@ package net.pneumono.soggy_swamps.content;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
 import net.minecraft.client.particle.*;
+import net.minecraft.client.texture.Sprite;
 import net.minecraft.client.world.ClientWorld;
 import net.minecraft.entity.ai.pathing.NavigationType;
 import net.minecraft.particle.SimpleParticleType;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.MathHelper;
+import net.minecraft.util.math.random.Random;
+import org.jetbrains.annotations.Nullable;
 
-public class FlyParticle extends SpriteBillboardParticle {
+public class FlyParticle extends BillboardParticle {
     protected double lastVelocityX;
     protected double lastVelocityY;
     protected double lastVelocityZ;
 
-    protected FlyParticle(ClientWorld clientWorld, double x, double y, double z, double velocityX, double velocityY, double velocityZ) {
-        super(clientWorld, x, y, z, velocityX, velocityY, velocityZ);
+    protected FlyParticle(ClientWorld clientWorld, double x, double y, double z, double velocityX, double velocityY, double velocityZ, Sprite sprite) {
+        super(clientWorld, x, y, z, velocityX, velocityY, velocityZ, sprite);
         this.ascending = true;
         this.velocityMultiplier = 0.96F;
         this.scale *= 0.75F;
@@ -26,8 +29,8 @@ public class FlyParticle extends SpriteBillboardParticle {
     }
 
     @Override
-    public ParticleTextureSheet getType() {
-        return ParticleTextureSheet.PARTICLE_SHEET_TRANSLUCENT;
+    public RenderType getRenderType() {
+        return RenderType.PARTICLE_ATLAS_TRANSLUCENT;
     }
 
     @Override
@@ -115,13 +118,14 @@ public class FlyParticle extends SpriteBillboardParticle {
             this.spriteProvider = spriteProvider;
         }
 
-        public Particle createParticle(SimpleParticleType simpleParticleType, ClientWorld clientWorld, double d, double e, double f, double g, double h, double i) {
+        @Nullable
+        @Override
+        public Particle createParticle(SimpleParticleType parameters, ClientWorld world, double x, double y, double z, double velocityX, double velocityY, double velocityZ, Random random) {
             FlyParticle flyParticle = new FlyParticle(
-                    clientWorld, d, e, f, 0.5 - clientWorld.random.nextDouble(), clientWorld.random.nextBoolean() ? h : -h, 0.5 - clientWorld.random.nextDouble()
+                    world, x, y, z, 0.5 - world.random.nextDouble(), world.random.nextBoolean() ? velocityY : -velocityY, 0.5 - world.random.nextDouble(), this.spriteProvider.getSprite(random)
             );
-            flyParticle.setMaxAge(clientWorld.random.nextBetween(200, 300));
+            flyParticle.setMaxAge(world.random.nextBetween(200, 300));
             flyParticle.scale(1.5F);
-            flyParticle.setSprite(this.spriteProvider);
             flyParticle.setAlpha(0.0F);
             flyParticle.collidesWithWorld = false;
             return flyParticle;

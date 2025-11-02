@@ -39,7 +39,7 @@
 	"accessWidener" : "soggy_swamps.accesswidener",
 	"depends": {
 		"fabricloader": ">=0.16.14",
-		"minecraft": ">=1.21.6 <=1.21.8",
+		"minecraft": ">=1.21.9 <=1.21.10",
 		"java": ">=21",
 		"fabric-api": "*",
 		"pneumonocore": "*"
