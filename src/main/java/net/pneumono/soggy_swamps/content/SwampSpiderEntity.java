@@ -1,51 +1,55 @@
 package net.pneumono.soggy_swamps.content;
 
-import net.minecraft.entity.*;
-import net.minecraft.entity.ai.goal.FleeEntityGoal;
-import net.minecraft.entity.attribute.DefaultAttributeContainer;
-import net.minecraft.entity.attribute.EntityAttributeInstance;
-import net.minecraft.entity.attribute.EntityAttributeModifier;
-import net.minecraft.entity.attribute.EntityAttributes;
-import net.minecraft.entity.effect.StatusEffect;
-import net.minecraft.entity.effect.StatusEffectInstance;
-import net.minecraft.entity.effect.StatusEffects;
-import net.minecraft.entity.mob.BoggedEntity;
-import net.minecraft.entity.mob.HostileEntity;
-import net.minecraft.entity.mob.SpiderEntity;
-import net.minecraft.entity.passive.FrogEntity;
-import net.minecraft.registry.entry.RegistryEntry;
-import net.minecraft.server.world.ServerWorld;
-import net.minecraft.util.math.random.Random;
+import net.minecraft.core.Holder;
+import net.minecraft.server.level.ServerLevel;
+import net.minecraft.util.RandomSource;
 import net.minecraft.world.Difficulty;
-import net.minecraft.world.LocalDifficulty;
-import net.minecraft.world.ServerWorldAccess;
-import net.minecraft.world.World;
+import net.minecraft.world.DifficultyInstance;
+import net.minecraft.world.effect.MobEffect;
+import net.minecraft.world.effect.MobEffectInstance;
+import net.minecraft.world.effect.MobEffects;
+import net.minecraft.world.entity.Entity;
+import net.minecraft.world.entity.EntitySpawnReason;
+import net.minecraft.world.entity.EntityType;
+import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.entity.SpawnGroupData;
+import net.minecraft.world.entity.ai.attributes.AttributeInstance;
+import net.minecraft.world.entity.ai.attributes.AttributeModifier;
+import net.minecraft.world.entity.ai.attributes.AttributeSupplier;
+import net.minecraft.world.entity.ai.attributes.Attributes;
+import net.minecraft.world.entity.ai.goal.AvoidEntityGoal;
+import net.minecraft.world.entity.animal.frog.Frog;
+import net.minecraft.world.entity.monster.Bogged;
+import net.minecraft.world.entity.monster.Monster;
+import net.minecraft.world.entity.monster.Spider;
+import net.minecraft.world.level.Level;
+import net.minecraft.world.level.ServerLevelAccessor;
 import net.pneumono.soggy_swamps.registry.SoggySwampsRegistry;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.Objects;
 
-public class SwampSpiderEntity extends SpiderEntity {
-    public SwampSpiderEntity(EntityType<? extends SpiderEntity> entityType, World world) {
+public class SwampSpiderEntity extends Spider {
+    public SwampSpiderEntity(EntityType<? extends Spider> entityType, Level world) {
         super(entityType, world);
     }
 
-    public static DefaultAttributeContainer.Builder createSwampSpiderAttributes() {
-        return HostileEntity.createHostileAttributes()
-                .add(EntityAttributes.MAX_HEALTH, 10.0)
-                .add(EntityAttributes.MOVEMENT_SPEED, 0.4F)
-                .add(EntityAttributes.ATTACK_DAMAGE, 3F);
+    public static AttributeSupplier.Builder createSwampSpiderAttributes() {
+        return Monster.createMonsterAttributes()
+                .add(Attributes.MAX_HEALTH, 10.0)
+                .add(Attributes.MOVEMENT_SPEED, 0.4F)
+                .add(Attributes.ATTACK_DAMAGE, 3F);
     }
 
     @Override
-    protected void initGoals() {
-        super.initGoals();
-        this.goalSelector.add(2, new FleeEntityGoal<>(this, FrogEntity.class, 6.0F, 0.8F, 1.0F));
+    protected void registerGoals() {
+        super.registerGoals();
+        this.goalSelector.addGoal(2, new AvoidEntityGoal<>(this, Frog.class, 6.0F, 0.8F, 1.0F));
     }
 
     @Override
-    public boolean tryAttack(ServerWorld world, Entity target) {
-        if (!super.tryAttack(world, target)) return false;
+    public boolean doHurtTarget(ServerLevel world, Entity target) {
+        if (!super.doHurtTarget(world, target)) return false;
 
         if (target instanceof LivingEntity living) {
             int time = 0;
@@ -56,8 +60,8 @@ public class SwampSpiderEntity extends SpiderEntity {
             }
 
             if (time > 0) {
-                living.addStatusEffect(new StatusEffectInstance(StatusEffects.SLOWNESS, time * 20, 1), this);
-                living.addStatusEffect(new StatusEffectInstance(SoggySwampsRegistry.VENOM, time * 40, 0), this);
+                living.addEffect(new MobEffectInstance(MobEffects.SLOWNESS, time * 20, 1), this);
+                living.addEffect(new MobEffectInstance(SoggySwampsRegistry.VENOM, time * 40, 0), this);
             }
         }
 
@@ -66,38 +70,38 @@ public class SwampSpiderEntity extends SpiderEntity {
 
     @Nullable
     @Override
-    public EntityData initialize(ServerWorldAccess world, LocalDifficulty difficulty, SpawnReason spawnReason, @Nullable EntityData entityData) {
-        Random random = world.getRandom();
+    public SpawnGroupData finalizeSpawn(ServerLevelAccessor world, DifficultyInstance difficulty, EntitySpawnReason spawnReason, @Nullable SpawnGroupData entityData) {
+        RandomSource random = world.getRandom();
 
-        EntityAttributeInstance entityAttributeInstance = Objects.requireNonNull(this.getAttributeInstance(EntityAttributes.FOLLOW_RANGE));
-        if (!entityAttributeInstance.hasModifier(RANDOM_SPAWN_BONUS_MODIFIER_ID)) {
-            entityAttributeInstance.addPersistentModifier(
-                    new EntityAttributeModifier(
-                            RANDOM_SPAWN_BONUS_MODIFIER_ID, random.nextTriangular(0.0, 0.11485000000000001), EntityAttributeModifier.Operation.ADD_MULTIPLIED_BASE
+        AttributeInstance entityAttributeInstance = Objects.requireNonNull(this.getAttribute(Attributes.FOLLOW_RANGE));
+        if (!entityAttributeInstance.hasModifier(RANDOM_SPAWN_BONUS_ID)) {
+            entityAttributeInstance.addPermanentModifier(
+                    new AttributeModifier(
+                            RANDOM_SPAWN_BONUS_ID, random.triangle(0.0, 0.11485000000000001), AttributeModifier.Operation.ADD_MULTIPLIED_BASE
                     )
             );
         }
 
         if (random.nextInt(100) == 0) {
-            BoggedEntity boggedEntity = EntityType.BOGGED.create(getEntityWorld(), SpawnReason.JOCKEY);
+            Bogged boggedEntity = EntityType.BOGGED.create(level(), EntitySpawnReason.JOCKEY);
             if (boggedEntity != null) {
-                boggedEntity.refreshPositionAndAngles(this.getX(), this.getY(), this.getZ(), this.getYaw(), 0.0F);
-                boggedEntity.initialize(world, difficulty, spawnReason, null);
+                boggedEntity.snapTo(this.getX(), this.getY(), this.getZ(), this.getYRot(), 0.0F);
+                boggedEntity.finalizeSpawn(world, difficulty, spawnReason, null);
                 boggedEntity.startRiding(this);
             }
         }
 
         if (entityData == null) {
-            entityData = new SpiderEntity.SpiderData();
-            if (world.getDifficulty() == Difficulty.HARD && random.nextFloat() < 0.1F * difficulty.getClampedLocalDifficulty()) {
-                ((SpiderEntity.SpiderData)entityData).setEffect(random);
+            entityData = new Spider.SpiderEffectsGroupData();
+            if (world.getDifficulty() == Difficulty.HARD && random.nextFloat() < 0.1F * difficulty.getSpecialMultiplier()) {
+                ((Spider.SpiderEffectsGroupData)entityData).setRandomEffect(random);
             }
         }
 
-        if (entityData instanceof SpiderEntity.SpiderData spiderData) {
-            RegistryEntry<StatusEffect> registryEntry = spiderData.effect;
+        if (entityData instanceof Spider.SpiderEffectsGroupData spiderData) {
+            Holder<MobEffect> registryEntry = spiderData.effect;
             if (registryEntry != null) {
-                this.addStatusEffect(new StatusEffectInstance(registryEntry, -1));
+                this.addEffect(new MobEffectInstance(registryEntry, -1));
             }
         }
 

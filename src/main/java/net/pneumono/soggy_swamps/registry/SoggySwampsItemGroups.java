@@ -2,26 +2,29 @@ package net.pneumono.soggy_swamps.registry;
 
 import net.fabricmc.fabric.api.itemgroup.v1.FabricItemGroup;
 import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
-import net.minecraft.component.type.PotionContentsComponent;
-import net.minecraft.item.*;
-import net.minecraft.registry.Registries;
-import net.minecraft.registry.Registry;
-import net.minecraft.registry.RegistryKey;
-import net.minecraft.registry.RegistryKeys;
-import net.minecraft.text.Text;
+import net.minecraft.core.Registry;
+import net.minecraft.core.registries.BuiltInRegistries;
+import net.minecraft.core.registries.Registries;
+import net.minecraft.network.chat.Component;
+import net.minecraft.resources.ResourceKey;
+import net.minecraft.world.item.CreativeModeTab;
+import net.minecraft.world.item.CreativeModeTabs;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.Items;
+import net.minecraft.world.item.alchemy.PotionContents;
 import net.pneumono.soggy_swamps.SoggySwamps;
 
 import java.util.stream.Stream;
 
 public class SoggySwampsItemGroups {
-    public static final RegistryKey<ItemGroup> ITEM_GROUP = RegistryKey.of(RegistryKeys.ITEM_GROUP, SoggySwamps.id("soggy_swamps"));
+    public static final ResourceKey<CreativeModeTab> ITEM_GROUP = ResourceKey.create(Registries.CREATIVE_MODE_TAB, SoggySwamps.id("soggy_swamps"));
 
     public static void registerSoggySwampsItemGroups() {
-        Registry.register(Registries.ITEM_GROUP, ITEM_GROUP, FabricItemGroup.builder()
-                .icon(SoggySwampsItems.SWAMP_OAK_SAPLING::getDefaultStack)
-                .displayName(Text.translatable("itemGroup.soggy_swamps.soggy_swamps"))
-                .entries((displayContext, entries) -> {
-                    entries.addAll(Stream.of(
+        Registry.register(BuiltInRegistries.CREATIVE_MODE_TAB, ITEM_GROUP, FabricItemGroup.builder()
+                .icon(SoggySwampsItems.SWAMP_OAK_SAPLING::getDefaultInstance)
+                .title(Component.translatable("itemGroup.soggy_swamps.soggy_swamps"))
+                .displayItems((displayContext, entries) -> {
+                    entries.acceptAll(Stream.of(
                             SoggySwampsItems.SWAMP_OAK_SAPLING,
                             SoggySwampsItems.SWAMP_OAK_LEAVES,
                             SoggySwampsItems.SWAMP_OAK_LOG,
@@ -55,23 +58,23 @@ public class SoggySwampsItemGroups {
                             SoggySwampsItems.SPORE_ARMOR_TRIM_SMITHING_TEMPLATE
                     ).map(ItemStack::new).toList());
 
-                    entries.add(PotionContentsComponent.createStack(Items.POTION, SoggySwampsRegistry.VENOM_POTION));
-                    entries.add(PotionContentsComponent.createStack(Items.POTION, SoggySwampsRegistry.LONG_VENOM_POTION));
-                    entries.add(PotionContentsComponent.createStack(Items.SPLASH_POTION, SoggySwampsRegistry.VENOM_POTION));
-                    entries.add(PotionContentsComponent.createStack(Items.SPLASH_POTION, SoggySwampsRegistry.LONG_VENOM_POTION));
-                    entries.add(PotionContentsComponent.createStack(Items.LINGERING_POTION, SoggySwampsRegistry.VENOM_POTION));
-                    entries.add(PotionContentsComponent.createStack(Items.LINGERING_POTION, SoggySwampsRegistry.LONG_VENOM_POTION));
-                    entries.add(PotionContentsComponent.createStack(Items.TIPPED_ARROW, SoggySwampsRegistry.VENOM_POTION));
-                    entries.add(PotionContentsComponent.createStack(Items.TIPPED_ARROW, SoggySwampsRegistry.LONG_VENOM_POTION));
+                    entries.accept(PotionContents.createItemStack(Items.POTION, SoggySwampsRegistry.VENOM_POTION));
+                    entries.accept(PotionContents.createItemStack(Items.POTION, SoggySwampsRegistry.LONG_VENOM_POTION));
+                    entries.accept(PotionContents.createItemStack(Items.SPLASH_POTION, SoggySwampsRegistry.VENOM_POTION));
+                    entries.accept(PotionContents.createItemStack(Items.SPLASH_POTION, SoggySwampsRegistry.LONG_VENOM_POTION));
+                    entries.accept(PotionContents.createItemStack(Items.LINGERING_POTION, SoggySwampsRegistry.VENOM_POTION));
+                    entries.accept(PotionContents.createItemStack(Items.LINGERING_POTION, SoggySwampsRegistry.LONG_VENOM_POTION));
+                    entries.accept(PotionContents.createItemStack(Items.TIPPED_ARROW, SoggySwampsRegistry.VENOM_POTION));
+                    entries.accept(PotionContents.createItemStack(Items.TIPPED_ARROW, SoggySwampsRegistry.LONG_VENOM_POTION));
 
-                    entries.addAll(Stream.of(
+                    entries.acceptAll(Stream.of(
                             SoggySwampsItems.SWAMP_SPIDER_SPAWN_EGG
                     ).map(ItemStack::new).toList());
                 })
                 .build()
         );
 
-        ItemGroupEvents.modifyEntriesEvent(ItemGroups.BUILDING_BLOCKS).register(entries ->
+        ItemGroupEvents.modifyEntriesEvent(CreativeModeTabs.BUILDING_BLOCKS).register(entries ->
                 entries.addBefore(Items.BAMBOO_BLOCK,
                         SoggySwampsItems.SWAMP_OAK_LOG,
                         SoggySwampsItems.SWAMP_OAK_WOOD,
@@ -88,7 +91,7 @@ public class SoggySwampsItemGroups {
                         SoggySwampsItems.SWAMP_OAK_BUTTON
                 )
         );
-        ItemGroupEvents.modifyEntriesEvent(ItemGroups.NATURAL).register(entries -> {
+        ItemGroupEvents.modifyEntriesEvent(CreativeModeTabs.NATURAL_BLOCKS).register(entries -> {
             entries.addBefore(Items.MUSHROOM_STEM, SoggySwampsItems.SWAMP_OAK_LOG);
             entries.addBefore(Items.AZALEA_LEAVES, SoggySwampsItems.SWAMP_OAK_LEAVES);
             entries.addBefore(Items.AZALEA, SoggySwampsItems.SWAMP_OAK_SAPLING);
@@ -98,25 +101,25 @@ public class SoggySwampsItemGroups {
                     SoggySwampsItems.CATTAIL
             );
         });
-        ItemGroupEvents.modifyEntriesEvent(ItemGroups.FUNCTIONAL).register(entries -> {
+        ItemGroupEvents.modifyEntriesEvent(CreativeModeTabs.FUNCTIONAL_BLOCKS).register(entries -> {
             entries.addBefore(Items.BAMBOO_SIGN,
                     SoggySwampsItems.SWAMP_OAK_SIGN,
                     SoggySwampsItems.SWAMP_OAK_HANGING_SIGN
             );
             entries.addAfter(Items.SUSPICIOUS_GRAVEL, SoggySwampsItems.SUSPICIOUS_MUD);
         });
-        ItemGroupEvents.modifyEntriesEvent(ItemGroups.TOOLS).register(entries ->
+        ItemGroupEvents.modifyEntriesEvent(CreativeModeTabs.TOOLS_AND_UTILITIES).register(entries ->
                 entries.addBefore(Items.BAMBOO_RAFT,
                         SoggySwampsItems.SWAMP_OAK_BOAT,
                         SoggySwampsItems.SWAMP_OAK_CHEST_BOAT
                 )
         );
-        ItemGroupEvents.modifyEntriesEvent(ItemGroups.FOOD_AND_DRINK).register(entries -> {
+        ItemGroupEvents.modifyEntriesEvent(CreativeModeTabs.FOOD_AND_DRINKS).register(entries -> {
             entries.addAfter(Items.SPIDER_EYE, SoggySwampsItems.SWAMP_SPIDER_EYE);
             entries.addAfter(Items.RABBIT_STEW, SoggySwampsItems.SWAMP_STEW);
             entries.addAfter(Items.ROTTEN_FLESH, SoggySwampsItems.ROASTED_ROT_CAP);
         });
-        ItemGroupEvents.modifyEntriesEvent(ItemGroups.INGREDIENTS).register(entries -> {
+        ItemGroupEvents.modifyEntriesEvent(CreativeModeTabs.INGREDIENTS).register(entries -> {
             entries.addAfter(Items.SPIDER_EYE, SoggySwampsItems.SWAMP_SPIDER_EYE);
             entries.addAfter(Items.DANGER_POTTERY_SHERD, SoggySwampsItems.DECAY_POTTERY_SHERD);
             entries.addAfter(Items.GUSTER_POTTERY_SHERD, SoggySwampsItems.HAT_POTTERY_SHERD);
@@ -126,7 +129,7 @@ public class SoggySwampsItemGroups {
                     SoggySwampsItems.SPORE_ARMOR_TRIM_SMITHING_TEMPLATE
             );
         });
-        ItemGroupEvents.modifyEntriesEvent(ItemGroups.SPAWN_EGGS).register(entries ->
+        ItemGroupEvents.modifyEntriesEvent(CreativeModeTabs.SPAWN_EGGS).register(entries ->
                 entries.addBefore(Items.TADPOLE_SPAWN_EGG, SoggySwampsItems.SWAMP_SPIDER_SPAWN_EGG));
     }
 }

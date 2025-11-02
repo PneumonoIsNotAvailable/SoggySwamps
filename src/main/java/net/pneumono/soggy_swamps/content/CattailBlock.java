@@ -1,64 +1,69 @@
 package net.pneumono.soggy_swamps.content;
 
 import com.mojang.serialization.MapCodec;
-import net.minecraft.block.*;
-import net.minecraft.block.enums.DoubleBlockHalf;
-import net.minecraft.entity.LivingEntity;
-import net.minecraft.fluid.Fluid;
-import net.minecraft.fluid.FluidState;
-import net.minecraft.fluid.Fluids;
-import net.minecraft.registry.tag.FluidTags;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.shape.VoxelShape;
-import net.minecraft.world.BlockView;
-import net.minecraft.world.WorldAccess;
-import net.minecraft.world.WorldView;
+import net.minecraft.core.BlockPos;
+import net.minecraft.tags.FluidTags;
+import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.level.BlockGetter;
+import net.minecraft.world.level.LevelAccessor;
+import net.minecraft.world.level.LevelReader;
+import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.DoublePlantBlock;
+import net.minecraft.world.level.block.LiquidBlockContainer;
+import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.block.state.properties.DoubleBlockHalf;
+import net.minecraft.world.level.material.Fluid;
+import net.minecraft.world.level.material.FluidState;
+import net.minecraft.world.level.material.Fluids;
+import net.minecraft.world.phys.shapes.CollisionContext;
+import net.minecraft.world.phys.shapes.VoxelShape;
+import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
-public class CattailBlock extends TallPlantBlock implements FluidFillable {
-    public static final MapCodec<CattailBlock> CODEC = createCodec(CattailBlock::new);
-    private static final VoxelShape SHAPE = Block.createColumnShape(12.0, 0.0, 16.0);
+public class CattailBlock extends DoublePlantBlock implements LiquidBlockContainer {
+    public static final MapCodec<CattailBlock> CODEC = simpleCodec(CattailBlock::new);
+    private static final VoxelShape SHAPE = Block.column(12.0, 0.0, 16.0);
 
     @Override
-    public MapCodec<CattailBlock> getCodec() {
+    public @NotNull MapCodec<CattailBlock> codec() {
         return CODEC;
     }
 
-    public CattailBlock(Settings settings) {
+    public CattailBlock(Properties settings) {
         super(settings);
     }
 
     @Override
-    protected VoxelShape getOutlineShape(BlockState state, BlockView world, BlockPos pos, ShapeContext context) {
+    protected @NotNull VoxelShape getShape(BlockState state, BlockGetter world, BlockPos pos, CollisionContext context) {
         return SHAPE;
     }
 
     @Override
-    protected boolean canPlaceAt(BlockState state, WorldView world, BlockPos pos) {
-        if (state.get(HALF) == DoubleBlockHalf.UPPER) {
-            BlockState blockState = world.getBlockState(pos.down());
-            return blockState.isOf(this) && blockState.get(HALF) == DoubleBlockHalf.LOWER;
+    protected boolean canSurvive(BlockState state, LevelReader world, BlockPos pos) {
+        if (state.getValue(HALF) == DoubleBlockHalf.UPPER) {
+            BlockState blockState = world.getBlockState(pos.below());
+            return blockState.is(this) && blockState.getValue(HALF) == DoubleBlockHalf.LOWER;
         } else {
             FluidState fluidState = world.getFluidState(pos);
-            return super.canPlaceAt(state, world, pos) &&
-                    fluidState.isIn(FluidTags.WATER) &&
-                    fluidState.getLevel() == 8 &&
-                    world.getFluidState(pos.up()).isEmpty();
+            return super.canSurvive(state, world, pos) &&
+                    fluidState.is(FluidTags.WATER) &&
+                    fluidState.getAmount() == 8 &&
+                    world.getFluidState(pos.above()).isEmpty();
         }
     }
 
     @Override
-    protected FluidState getFluidState(BlockState state) {
-        return state.get(HALF) == DoubleBlockHalf.LOWER ? Fluids.WATER.getStill(false) : Fluids.EMPTY.getDefaultState();
+    protected @NotNull FluidState getFluidState(BlockState state) {
+        return state.getValue(HALF) == DoubleBlockHalf.LOWER ? Fluids.WATER.getSource(false) : Fluids.EMPTY.defaultFluidState();
     }
 
     @Override
-    public boolean canFillWithFluid(@Nullable LivingEntity filler, BlockView world, BlockPos pos, BlockState state, Fluid fluid) {
+    public boolean canPlaceLiquid(@Nullable LivingEntity filler, BlockGetter world, BlockPos pos, BlockState state, Fluid fluid) {
         return false;
     }
 
     @Override
-    public boolean tryFillWithFluid(WorldAccess world, BlockPos pos, BlockState state, FluidState fluidState) {
+    public boolean placeLiquid(LevelAccessor world, BlockPos pos, BlockState state, FluidState fluidState) {
         return false;
     }
 }

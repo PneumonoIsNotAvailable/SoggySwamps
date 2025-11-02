@@ -3,23 +3,23 @@ package net.pneumono.soggy_swamps.datagen;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricTagProvider;
 import net.fabricmc.fabric.api.tag.convention.v2.ConventionalItemTags;
-import net.minecraft.data.tag.ProvidedTagBuilder;
-import net.minecraft.item.Item;
-import net.minecraft.registry.RegistryWrapper;
-import net.minecraft.registry.tag.ItemTags;
-import net.minecraft.registry.tag.TagKey;
+import net.minecraft.core.HolderLookup;
+import net.minecraft.data.tags.TagAppender;
+import net.minecraft.tags.ItemTags;
+import net.minecraft.tags.TagKey;
+import net.minecraft.world.item.Item;
 import net.pneumono.soggy_swamps.registry.SoggySwampsItems;
 import net.pneumono.soggy_swamps.registry.SoggySwampsTags;
 
 import java.util.concurrent.CompletableFuture;
 
 public class SoggySwampsItemTagProvider extends FabricTagProvider.ItemTagProvider {
-    public SoggySwampsItemTagProvider(FabricDataOutput output, CompletableFuture<RegistryWrapper.WrapperLookup> registriesFuture) {
+    public SoggySwampsItemTagProvider(FabricDataOutput output, CompletableFuture<HolderLookup.Provider> registriesFuture) {
         super(output, registriesFuture);
     }
 
     @Override
-    protected void configure(RegistryWrapper.WrapperLookup wrapperLookup) {
+    protected void addTags(HolderLookup.Provider wrapperLookup) {
         tag(SoggySwampsTags.ITEM_SWAMP_OAK_LOGS).add(
                 SoggySwampsItems.SWAMP_OAK_LOG,
                 SoggySwampsItems.SWAMP_OAK_WOOD,
@@ -68,7 +68,7 @@ public class SoggySwampsItemTagProvider extends FabricTagProvider.ItemTagProvide
         tag(ConventionalItemTags.STRIPPED_WOODS).add(SoggySwampsItems.STRIPPED_SWAMP_OAK_WOOD);
     }
 
-    private ProvidedTagBuilder<Item, Item> tag(TagKey<Item> tag) {
+    private TagAppender<Item, Item> tag(TagKey<Item> tag) {
         return valueLookupBuilder(tag);
     }
 }

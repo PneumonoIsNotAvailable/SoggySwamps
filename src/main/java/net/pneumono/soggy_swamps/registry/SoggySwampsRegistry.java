@@ -4,20 +4,20 @@ import net.fabricmc.fabric.api.object.builder.v1.block.type.BlockSetTypeBuilder;
 import net.fabricmc.fabric.api.object.builder.v1.block.type.WoodTypeBuilder;
 import net.fabricmc.fabric.api.object.builder.v1.trade.TradeOfferHelper;
 import net.fabricmc.fabric.api.particle.v1.FabricParticleTypes;
-import net.minecraft.block.BlockSetType;
-import net.minecraft.block.DecoratedPotPattern;
-import net.minecraft.block.WoodType;
-import net.minecraft.entity.effect.StatusEffect;
-import net.minecraft.entity.effect.StatusEffectCategory;
-import net.minecraft.entity.effect.StatusEffectInstance;
-import net.minecraft.item.Item;
-import net.minecraft.particle.SimpleParticleType;
-import net.minecraft.potion.Potion;
-import net.minecraft.registry.Registries;
-import net.minecraft.registry.Registry;
-import net.minecraft.registry.RegistryKey;
-import net.minecraft.registry.entry.RegistryEntry;
-import net.minecraft.village.TradeOffers;
+import net.minecraft.core.Holder;
+import net.minecraft.core.Registry;
+import net.minecraft.core.particles.SimpleParticleType;
+import net.minecraft.core.registries.BuiltInRegistries;
+import net.minecraft.resources.ResourceKey;
+import net.minecraft.world.effect.MobEffect;
+import net.minecraft.world.effect.MobEffectCategory;
+import net.minecraft.world.effect.MobEffectInstance;
+import net.minecraft.world.entity.npc.VillagerTrades;
+import net.minecraft.world.item.Item;
+import net.minecraft.world.item.alchemy.Potion;
+import net.minecraft.world.level.block.entity.DecoratedPotPattern;
+import net.minecraft.world.level.block.state.properties.BlockSetType;
+import net.minecraft.world.level.block.state.properties.WoodType;
 import net.pneumono.soggy_swamps.SoggySwamps;
 import net.pneumono.soggy_swamps.content.VenomStatusEffect;
 
@@ -25,7 +25,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class SoggySwampsRegistry {
-    public static final Map<Item, RegistryKey<DecoratedPotPattern>> SHERD_TO_PATTERN = new HashMap<>();
+    public static final Map<Item, ResourceKey<DecoratedPotPattern>> SHERD_TO_PATTERN = new HashMap<>();
 
     public static final BlockSetType SWAMP_OAK_BLOCK_SET_TYPE = BlockSetTypeBuilder
             .copyOf(BlockSetType.OAK)
@@ -35,30 +35,30 @@ public class SoggySwampsRegistry {
             .register(SoggySwamps.id("swamp_oak"), SWAMP_OAK_BLOCK_SET_TYPE);
 
     public static final SimpleParticleType FLY = Registry.register(
-            Registries.PARTICLE_TYPE,
+            BuiltInRegistries.PARTICLE_TYPE,
             SoggySwamps.id("fly"),
             FabricParticleTypes.simple()
     );
 
-    public static RegistryEntry<StatusEffect> VENOM = Registry.registerReference(
-            Registries.STATUS_EFFECT,
+    public static Holder<MobEffect> VENOM = Registry.registerForHolder(
+            BuiltInRegistries.MOB_EFFECT,
             SoggySwamps.id("venom"),
-            new VenomStatusEffect(StatusEffectCategory.HARMFUL, 0xC42359)
+            new VenomStatusEffect(MobEffectCategory.HARMFUL, 0xC42359)
     );
-    public static RegistryEntry<Potion> VENOM_POTION = Registry.registerReference(
-            Registries.POTION,
+    public static Holder<Potion> VENOM_POTION = Registry.registerForHolder(
+            BuiltInRegistries.POTION,
             SoggySwamps.id("venom"),
             new Potion(
                     "venom",
-                    new StatusEffectInstance(VENOM, 900)
+                    new MobEffectInstance(VENOM, 900)
             )
     );
-    public static RegistryEntry<Potion> LONG_VENOM_POTION = Registry.registerReference(
-            Registries.POTION,
+    public static Holder<Potion> LONG_VENOM_POTION = Registry.registerForHolder(
+            BuiltInRegistries.POTION,
             SoggySwamps.id("long_venom"),
             new Potion(
                     "venom",
-                    new StatusEffectInstance(VENOM, 1800)
+                    new MobEffectInstance(VENOM, 1800)
             )
     );
 
@@ -71,10 +71,10 @@ public class SoggySwampsRegistry {
 
         TradeOfferHelper.registerWanderingTraderOffers(builder -> builder.addOffersToPool(
                 TradeOfferHelper.WanderingTraderOffersBuilder.SELL_COMMON_ITEMS_POOL,
-                new TradeOffers.SellItemFactory(SoggySwampsItems.SWAMP_OAK_SAPLING, 5, 1, 8, 1),
-                new TradeOffers.SellItemFactory(SoggySwampsItems.ROT_CAP, 2, 1, 8, 1),
-                new TradeOffers.SellItemFactory(SoggySwampsItems.VIBRANT_SPROUT, 1, 1, 8, 1),
-                new TradeOffers.SellItemFactory(SoggySwampsItems.CATTAIL, 1, 1, 8, 1)
+                new VillagerTrades.ItemsForEmeralds(SoggySwampsItems.SWAMP_OAK_SAPLING, 5, 1, 8, 1),
+                new VillagerTrades.ItemsForEmeralds(SoggySwampsItems.ROT_CAP, 2, 1, 8, 1),
+                new VillagerTrades.ItemsForEmeralds(SoggySwampsItems.VIBRANT_SPROUT, 1, 1, 8, 1),
+                new VillagerTrades.ItemsForEmeralds(SoggySwampsItems.CATTAIL, 1, 1, 8, 1)
         ));
     }
 }

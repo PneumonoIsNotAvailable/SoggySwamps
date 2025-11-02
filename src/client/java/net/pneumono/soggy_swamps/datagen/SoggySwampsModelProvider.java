@@ -2,8 +2,12 @@ package net.pneumono.soggy_swamps.datagen;
 
 import net.fabricmc.fabric.api.client.datagen.v1.provider.FabricModelProvider;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
-import net.minecraft.block.Block;
-import net.minecraft.client.data.*;
+import net.minecraft.client.data.models.BlockModelGenerators;
+import net.minecraft.client.data.models.ItemModelGenerators;
+import net.minecraft.client.data.models.model.ModelLocationUtils;
+import net.minecraft.client.data.models.model.ModelTemplates;
+import net.minecraft.client.data.models.model.TexturedModel;
+import net.minecraft.world.level.block.Block;
 import net.pneumono.soggy_swamps.registry.SoggySwampsBlocks;
 import net.pneumono.soggy_swamps.registry.SoggySwampsItems;
 
@@ -13,64 +17,64 @@ public class SoggySwampsModelProvider extends FabricModelProvider {
     }
 
     @Override
-    public void generateBlockStateModels(BlockStateModelGenerator generator) {
-        generator.registerBrushableBlock(SoggySwampsBlocks.SUSPICIOUS_MUD);
-        generator.registerDoubleBlockAndItem(SoggySwampsBlocks.CATTAIL, BlockStateModelGenerator.CrossType.TINTED);
+    public void generateBlockStateModels(BlockModelGenerators generator) {
+        generator.createBrushableBlock(SoggySwampsBlocks.SUSPICIOUS_MUD);
+        generator.createDoublePlantWithDefaultItem(SoggySwampsBlocks.CATTAIL, BlockModelGenerators.PlantType.TINTED);
         registerSimpleStateWithYRotation(generator, SoggySwampsBlocks.ROT_CAP);
-        generator.registerSimpleState(SoggySwampsBlocks.POTTED_ROT_CAP);
-        generator.registerFlowerPotPlantAndItem(
+        generator.createNonTemplateModelBlock(SoggySwampsBlocks.POTTED_ROT_CAP);
+        generator.createPlantWithDefaultItem(
                 SoggySwampsBlocks.BOGSPROUT,
                 SoggySwampsBlocks.POTTED_BOGSPROUT,
-                BlockStateModelGenerator.CrossType.NOT_TINTED
+                BlockModelGenerators.PlantType.NOT_TINTED
         );
 
-        generator.registerFlowerPotPlantAndItem(
+        generator.createPlantWithDefaultItem(
                 SoggySwampsBlocks.SWAMP_OAK_SAPLING,
                 SoggySwampsBlocks.POTTED_SWAMP_OAK_SAPLING,
-                BlockStateModelGenerator.CrossType.NOT_TINTED
+                BlockModelGenerators.PlantType.NOT_TINTED
         );
 
-        generator.registerTintedBlockAndItem(SoggySwampsBlocks.SWAMP_OAK_LEAVES, TexturedModel.LEAVES, 0x6A7039 - 0xFFFFFF);
+        generator.createTintedLeaves(SoggySwampsBlocks.SWAMP_OAK_LEAVES, TexturedModel.LEAVES, 0x6A7039 - 0xFFFFFF);
 
-        generator.createLogTexturePool(SoggySwampsBlocks.SWAMP_OAK_LOG)
+        generator.woodProvider(SoggySwampsBlocks.SWAMP_OAK_LOG)
                 .log(SoggySwampsBlocks.SWAMP_OAK_LOG)
                 .wood(SoggySwampsBlocks.SWAMP_OAK_WOOD);
-        generator.createLogTexturePool(SoggySwampsBlocks.STRIPPED_SWAMP_OAK_LOG)
+        generator.woodProvider(SoggySwampsBlocks.STRIPPED_SWAMP_OAK_LOG)
                 .log(SoggySwampsBlocks.STRIPPED_SWAMP_OAK_LOG)
                 .wood(SoggySwampsBlocks.STRIPPED_SWAMP_OAK_WOOD);
 
-        generator.registerCubeAllModelTexturePool(SoggySwampsBlocks.SWAMP_OAK_PLANKS).family(SoggySwampsBlockFamilies.SWAMP_OAK);
+        generator.family(SoggySwampsBlocks.SWAMP_OAK_PLANKS).generateFor(SoggySwampsBlockFamilies.SWAMP_OAK);
 
-        generator.registerHangingSign(
+        generator.createHangingSign(
                 SoggySwampsBlocks.STRIPPED_SWAMP_OAK_LOG,
                 SoggySwampsBlocks.SWAMP_OAK_HANGING_SIGN,
                 SoggySwampsBlocks.SWAMP_OAK_WALL_HANGING_SIGN
         );
     }
 
-    public void registerSimpleStateWithYRotation(BlockStateModelGenerator generator, Block block) {
-        generator.blockStateCollector.accept(
-                BlockStateModelGenerator.createSingletonBlockState(
+    public void registerSimpleStateWithYRotation(BlockModelGenerators generator, Block block) {
+        generator.blockStateOutput.accept(
+                BlockModelGenerators.createSimpleBlock(
                         block,
-                        BlockStateModelGenerator.modelWithYRotation(
-                                BlockStateModelGenerator.createModelVariant(ModelIds.getBlockModelId(block))
+                        BlockModelGenerators.createRotatedVariants(
+                                BlockModelGenerators.plainModel(ModelLocationUtils.getModelLocation(block))
                         )
                 )
         );
     }
 
     @Override
-    public void generateItemModels(ItemModelGenerator generator) {
-        generator.register(SoggySwampsItems.SWAMP_SPIDER_SPAWN_EGG, Models.GENERATED);
-        generator.register(SoggySwampsItems.SWAMP_SPIDER_EYE, Models.GENERATED);
-        generator.register(SoggySwampsItems.SWAMP_STEW, Models.GENERATED);
-        generator.register(SoggySwampsItems.ROASTED_ROT_CAP, Models.GENERATED);
-        generator.register(SoggySwampsItems.SWAMP_OAK_BOAT, Models.GENERATED);
-        generator.register(SoggySwampsItems.SWAMP_OAK_CHEST_BOAT, Models.GENERATED);
-        generator.register(SoggySwampsItems.HAT_POTTERY_SHERD, Models.GENERATED);
-        generator.register(SoggySwampsItems.SLIME_POTTERY_SHERD, Models.GENERATED);
-        generator.register(SoggySwampsItems.DECAY_POTTERY_SHERD, Models.GENERATED);
-        generator.register(SoggySwampsItems.WEALTH_POTTERY_SHERD, Models.GENERATED);
-        generator.register(SoggySwampsItems.SPORE_ARMOR_TRIM_SMITHING_TEMPLATE, Models.GENERATED);
+    public void generateItemModels(ItemModelGenerators generator) {
+        generator.generateFlatItem(SoggySwampsItems.SWAMP_SPIDER_SPAWN_EGG, ModelTemplates.FLAT_ITEM);
+        generator.generateFlatItem(SoggySwampsItems.SWAMP_SPIDER_EYE, ModelTemplates.FLAT_ITEM);
+        generator.generateFlatItem(SoggySwampsItems.SWAMP_STEW, ModelTemplates.FLAT_ITEM);
+        generator.generateFlatItem(SoggySwampsItems.ROASTED_ROT_CAP, ModelTemplates.FLAT_ITEM);
+        generator.generateFlatItem(SoggySwampsItems.SWAMP_OAK_BOAT, ModelTemplates.FLAT_ITEM);
+        generator.generateFlatItem(SoggySwampsItems.SWAMP_OAK_CHEST_BOAT, ModelTemplates.FLAT_ITEM);
+        generator.generateFlatItem(SoggySwampsItems.HAT_POTTERY_SHERD, ModelTemplates.FLAT_ITEM);
+        generator.generateFlatItem(SoggySwampsItems.SLIME_POTTERY_SHERD, ModelTemplates.FLAT_ITEM);
+        generator.generateFlatItem(SoggySwampsItems.DECAY_POTTERY_SHERD, ModelTemplates.FLAT_ITEM);
+        generator.generateFlatItem(SoggySwampsItems.WEALTH_POTTERY_SHERD, ModelTemplates.FLAT_ITEM);
+        generator.generateFlatItem(SoggySwampsItems.SPORE_ARMOR_TRIM_SMITHING_TEMPLATE, ModelTemplates.FLAT_ITEM);
     }
 }

@@ -1,10 +1,10 @@
 package net.pneumono.soggy_swamps.registry;
 
-import net.minecraft.registry.Registries;
-import net.minecraft.registry.Registry;
-import net.minecraft.sound.BlockSoundGroup;
-import net.minecraft.sound.SoundEvent;
-import net.minecraft.util.Identifier;
+import net.minecraft.core.Registry;
+import net.minecraft.core.registries.BuiltInRegistries;
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.sounds.SoundEvent;
+import net.minecraft.world.level.block.SoundType;
 import net.pneumono.soggy_swamps.SoggySwamps;
 
 public class SoggySwampsSounds {
@@ -24,7 +24,7 @@ public class SoggySwampsSounds {
     public static final SoundEvent ENTITY_ALCHEMIST_HURT = register("entity.alchemist.hurt");
     public static final SoundEvent ENTITY_ALCHEMIST_THROW = register("entity.alchemist.throw");
 
-    public static final BlockSoundGroup GROUP_SUSPICIOUS_MUD = new BlockSoundGroup(
+    public static final SoundType GROUP_SUSPICIOUS_MUD = new SoundType(
             1.0F,
             1.0F,
             BLOCK_SUSPICIOUS_MUD_BREAK,
@@ -35,8 +35,8 @@ public class SoggySwampsSounds {
     );
 
     private static SoundEvent register(String name) {
-        Identifier id = SoggySwamps.id(name);
-        return Registry.register(Registries.SOUND_EVENT, id, SoundEvent.of(id));
+        ResourceLocation id = SoggySwamps.id(name);
+        return Registry.register(BuiltInRegistries.SOUND_EVENT, id, SoundEvent.createVariableRangeEvent(id));
     }
 
     public static void registerSoggySwampsSounds() {

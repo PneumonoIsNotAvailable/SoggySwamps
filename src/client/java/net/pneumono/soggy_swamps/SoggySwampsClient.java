@@ -5,16 +5,16 @@ import net.fabricmc.fabric.api.client.particle.v1.ParticleFactoryRegistry;
 import net.fabricmc.fabric.api.client.rendering.v1.BlockRenderLayerMap;
 import net.fabricmc.fabric.api.client.rendering.v1.ColorProviderRegistry;
 import net.fabricmc.fabric.api.client.rendering.v1.EntityModelLayerRegistry;
-import net.minecraft.client.color.world.BiomeColors;
-import net.minecraft.client.render.BlockRenderLayer;
-import net.minecraft.client.render.TexturedRenderLayers;
-import net.minecraft.client.render.entity.BoatEntityRenderer;
-import net.minecraft.client.render.entity.EntityRendererFactories;
-import net.minecraft.client.render.entity.model.BoatEntityModel;
-import net.minecraft.client.render.entity.model.EntityModelLayer;
-import net.minecraft.client.render.entity.model.SpiderEntityModel;
-import net.minecraft.registry.RegistryKey;
-import net.minecraft.registry.RegistryKeys;
+import net.minecraft.client.model.BoatModel;
+import net.minecraft.client.model.SpiderModel;
+import net.minecraft.client.model.geom.ModelLayerLocation;
+import net.minecraft.client.renderer.BiomeColors;
+import net.minecraft.client.renderer.Sheets;
+import net.minecraft.client.renderer.chunk.ChunkSectionLayer;
+import net.minecraft.client.renderer.entity.BoatRenderer;
+import net.minecraft.client.renderer.entity.EntityRenderers;
+import net.minecraft.core.registries.Registries;
+import net.minecraft.resources.ResourceKey;
 import net.pneumono.soggy_swamps.content.FlyParticle;
 import net.pneumono.soggy_swamps.content.SwampSpiderEntityRenderer;
 import net.pneumono.soggy_swamps.registry.SoggySwampsBlocks;
@@ -22,13 +22,13 @@ import net.pneumono.soggy_swamps.registry.SoggySwampsEntities;
 import net.pneumono.soggy_swamps.registry.SoggySwampsRegistry;
 
 public class SoggySwampsClient implements ClientModInitializer {
-	public static final EntityModelLayer SWAMP_SPIDER = new EntityModelLayer(
+	public static final ModelLayerLocation SWAMP_SPIDER = new ModelLayerLocation(
 			SoggySwamps.id("swamp_spider"), "main"
 	);
-	public static final EntityModelLayer SWAMP_OAK_BOAT = new EntityModelLayer(
+	public static final ModelLayerLocation SWAMP_OAK_BOAT = new ModelLayerLocation(
 			SoggySwamps.id("boat/swamp_oak"), "main"
 	);
-	public static final EntityModelLayer SWAMP_OAK_CHEST_BOAT = new EntityModelLayer(
+	public static final ModelLayerLocation SWAMP_OAK_CHEST_BOAT = new ModelLayerLocation(
 			SoggySwamps.id("chest_boat/swamp_oak"), "main"
 	);
 
@@ -36,36 +36,36 @@ public class SoggySwampsClient implements ClientModInitializer {
 	public void onInitializeClient() {
 		ParticleFactoryRegistry.getInstance().register(SoggySwampsRegistry.FLY, FlyParticle.Factory::new);
 
-		BlockRenderLayerMap.putBlock(SoggySwampsBlocks.CATTAIL, BlockRenderLayer.CUTOUT);
-		BlockRenderLayerMap.putBlock(SoggySwampsBlocks.POTTED_ROT_CAP, BlockRenderLayer.CUTOUT);
-		BlockRenderLayerMap.putBlock(SoggySwampsBlocks.BOGSPROUT, BlockRenderLayer.CUTOUT);
-		BlockRenderLayerMap.putBlock(SoggySwampsBlocks.POTTED_BOGSPROUT, BlockRenderLayer.CUTOUT);
-		BlockRenderLayerMap.putBlock(SoggySwampsBlocks.SWAMP_OAK_SAPLING, BlockRenderLayer.CUTOUT);
-		BlockRenderLayerMap.putBlock(SoggySwampsBlocks.POTTED_SWAMP_OAK_SAPLING, BlockRenderLayer.CUTOUT);
-		BlockRenderLayerMap.putBlock(SoggySwampsBlocks.SWAMP_OAK_DOOR, BlockRenderLayer.TRANSLUCENT);
-		BlockRenderLayerMap.putBlock(SoggySwampsBlocks.SWAMP_OAK_TRAPDOOR, BlockRenderLayer.CUTOUT);
-		BlockRenderLayerMap.putBlock(SoggySwampsBlocks.SWAMP_OAK_LEAVES, BlockRenderLayer.CUTOUT_MIPPED);
+		BlockRenderLayerMap.putBlock(SoggySwampsBlocks.CATTAIL, ChunkSectionLayer.CUTOUT);
+		BlockRenderLayerMap.putBlock(SoggySwampsBlocks.POTTED_ROT_CAP, ChunkSectionLayer.CUTOUT);
+		BlockRenderLayerMap.putBlock(SoggySwampsBlocks.BOGSPROUT, ChunkSectionLayer.CUTOUT);
+		BlockRenderLayerMap.putBlock(SoggySwampsBlocks.POTTED_BOGSPROUT, ChunkSectionLayer.CUTOUT);
+		BlockRenderLayerMap.putBlock(SoggySwampsBlocks.SWAMP_OAK_SAPLING, ChunkSectionLayer.CUTOUT);
+		BlockRenderLayerMap.putBlock(SoggySwampsBlocks.POTTED_SWAMP_OAK_SAPLING, ChunkSectionLayer.CUTOUT);
+		BlockRenderLayerMap.putBlock(SoggySwampsBlocks.SWAMP_OAK_DOOR, ChunkSectionLayer.TRANSLUCENT);
+		BlockRenderLayerMap.putBlock(SoggySwampsBlocks.SWAMP_OAK_TRAPDOOR, ChunkSectionLayer.CUTOUT);
+		BlockRenderLayerMap.putBlock(SoggySwampsBlocks.SWAMP_OAK_LEAVES, ChunkSectionLayer.CUTOUT_MIPPED);
 
 		ColorProviderRegistry.BLOCK.register(
-				(state, world, pos, tintIndex) -> world != null && pos != null ? BiomeColors.getFoliageColor(world, pos) : -12012264,
+				(state, world, pos, tintIndex) -> world != null && pos != null ? BiomeColors.getAverageFoliageColor(world, pos) : -12012264,
 				SoggySwampsBlocks.SWAMP_OAK_LEAVES
 		);
 
-		EntityModelLayerRegistry.registerModelLayer(SWAMP_SPIDER, SpiderEntityModel::getTexturedModelData);
-		EntityModelLayerRegistry.registerModelLayer(SWAMP_OAK_BOAT, BoatEntityModel::getTexturedModelData);
-		EntityModelLayerRegistry.registerModelLayer(SWAMP_OAK_CHEST_BOAT, BoatEntityModel::getChestTexturedModelData);
+		EntityModelLayerRegistry.registerModelLayer(SWAMP_SPIDER, SpiderModel::createSpiderBodyLayer);
+		EntityModelLayerRegistry.registerModelLayer(SWAMP_OAK_BOAT, BoatModel::createBoatModel);
+		EntityModelLayerRegistry.registerModelLayer(SWAMP_OAK_CHEST_BOAT, BoatModel::createChestBoatModel);
 
-		EntityRendererFactories.register(
+		EntityRenderers.register(
 				SoggySwampsEntities.SWAMP_SPIDER,
 				SwampSpiderEntityRenderer::new
 		);
-		EntityRendererFactories.register(
+		EntityRenderers.register(
 				SoggySwampsEntities.SWAMP_OAK_BOAT,
-				context -> new BoatEntityRenderer(context, SWAMP_OAK_BOAT)
+				context -> new BoatRenderer(context, SWAMP_OAK_BOAT)
 		);
-		EntityRendererFactories.register(
+		EntityRenderers.register(
 				SoggySwampsEntities.SWAMP_OAK_CHEST_BOAT,
-				context -> new BoatEntityRenderer(context, SWAMP_OAK_CHEST_BOAT)
+				context -> new BoatRenderer(context, SWAMP_OAK_CHEST_BOAT)
 		);
 		addSherd("hat");
 		addSherd("slime");
@@ -74,9 +74,9 @@ public class SoggySwampsClient implements ClientModInitializer {
 	}
 
 	private static void addSherd(String name) {
-		TexturedRenderLayers.DECORATED_POT_PATTERN_TEXTURES.put(
-				RegistryKey.of(RegistryKeys.DECORATED_POT_PATTERN, SoggySwamps.id(name)),
-				TexturedRenderLayers.DECORATED_POT_SPRITE_MAPPER.map(SoggySwamps.id(name + "_pottery_pattern"))
+		Sheets.DECORATED_POT_MATERIALS.put(
+				ResourceKey.create(Registries.DECORATED_POT_PATTERN, SoggySwamps.id(name)),
+				Sheets.DECORATED_POT_MAPPER.apply(SoggySwamps.id(name + "_pottery_pattern"))
 		);
 	}
 }

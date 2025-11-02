@@ -1,21 +1,22 @@
 package net.pneumono.soggy_swamps.content;
 
-import net.minecraft.client.render.RenderLayer;
-import net.minecraft.client.render.entity.feature.FeatureRendererContext;
-import net.minecraft.client.render.entity.feature.SpiderEyesFeatureRenderer;
-import net.minecraft.client.render.entity.model.SpiderEntityModel;
-import net.minecraft.client.render.entity.state.LivingEntityRenderState;
+import net.minecraft.client.model.SpiderModel;
+import net.minecraft.client.renderer.RenderType;
+import net.minecraft.client.renderer.entity.RenderLayerParent;
+import net.minecraft.client.renderer.entity.layers.SpiderEyesLayer;
+import net.minecraft.client.renderer.entity.state.LivingEntityRenderState;
 import net.pneumono.soggy_swamps.SoggySwamps;
+import org.jetbrains.annotations.NotNull;
 
-public class SwampSpiderEyesFeatureRenderer<M extends SpiderEntityModel> extends SpiderEyesFeatureRenderer<M> {
-    private static final RenderLayer SKIN = RenderLayer.getEyes(SoggySwamps.id("textures/entity/swamp_spider/eyes.png"));
+public class SwampSpiderEyesFeatureRenderer<M extends SpiderModel> extends SpiderEyesLayer<M> {
+    private static final RenderType SKIN = RenderType.eyes(SoggySwamps.id("textures/entity/swamp_spider/eyes.png"));
 
-    public SwampSpiderEyesFeatureRenderer(FeatureRendererContext<LivingEntityRenderState, M> featureRendererContext) {
+    public SwampSpiderEyesFeatureRenderer(RenderLayerParent<LivingEntityRenderState, M> featureRendererContext) {
         super(featureRendererContext);
     }
 
     @Override
-    public RenderLayer getEyesTexture() {
+    public @NotNull RenderType renderType() {
         return SKIN;
     }
 }

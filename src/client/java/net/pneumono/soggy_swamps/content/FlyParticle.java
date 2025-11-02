@@ -2,35 +2,36 @@ package net.pneumono.soggy_swamps.content;
 
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
+import net.minecraft.client.multiplayer.ClientLevel;
 import net.minecraft.client.particle.*;
-import net.minecraft.client.texture.Sprite;
-import net.minecraft.client.world.ClientWorld;
-import net.minecraft.entity.ai.pathing.NavigationType;
-import net.minecraft.particle.SimpleParticleType;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.math.MathHelper;
-import net.minecraft.util.math.random.Random;
+import net.minecraft.client.renderer.texture.TextureAtlasSprite;
+import net.minecraft.core.BlockPos;
+import net.minecraft.core.particles.SimpleParticleType;
+import net.minecraft.util.Mth;
+import net.minecraft.util.RandomSource;
+import net.minecraft.world.level.pathfinder.PathComputationType;
+import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
-public class FlyParticle extends BillboardParticle {
+public class FlyParticle extends SingleQuadParticle {
     protected double lastVelocityX;
     protected double lastVelocityY;
     protected double lastVelocityZ;
 
-    protected FlyParticle(ClientWorld clientWorld, double x, double y, double z, double velocityX, double velocityY, double velocityZ, Sprite sprite) {
+    protected FlyParticle(ClientLevel clientWorld, double x, double y, double z, double velocityX, double velocityY, double velocityZ, TextureAtlasSprite sprite) {
         super(clientWorld, x, y, z, velocityX, velocityY, velocityZ, sprite);
-        this.ascending = true;
-        this.velocityMultiplier = 0.96F;
-        this.scale *= 0.75F;
-        this.velocityY *= 0.8F;
-        this.velocityX *= 0.8F;
-        this.velocityZ *= 0.8F;
+        this.speedUpWhenYMotionIsBlocked = true;
+        this.friction = 0.96F;
+        this.quadSize *= 0.75F;
+        this.yd *= 0.8F;
+        this.xd *= 0.8F;
+        this.zd *= 0.8F;
         updateLastVelocity();
     }
 
     @Override
-    public RenderType getRenderType() {
-        return RenderType.PARTICLE_ATLAS_TRANSLUCENT;
+    public @NotNull Layer getLayer() {
+        return Layer.TRANSLUCENT;
     }
 
     @Override
@@ -46,22 +47,22 @@ public class FlyParticle extends BillboardParticle {
         double maxChange = 0.5;
         double avoidanceStrength = 0.5;
 
-        double velocityXChange = this.velocityX - this.lastVelocityX;
-        double velocityYChange = this.velocityY - this.lastVelocityY;
-        double velocityZChange = this.velocityZ - this.lastVelocityZ;
+        double velocityXChange = this.xd - this.lastVelocityX;
+        double velocityYChange = this.yd - this.lastVelocityY;
+        double velocityZChange = this.zd - this.lastVelocityZ;
 
         // Kill grounded flies
         if (
                 blocksMovement(0, 0, 0)
         ) {
-            this.markDead();
+            this.remove();
             return;
         }
 
         // Get new "base" velocity using previous velocities
-        double newVelocityX = Math.clamp(this.velocityX + Math.clamp(velocityXChange, -maxChange, maxChange), -maxSpeed, maxSpeed);
-        double newVelocityY = Math.clamp(this.velocityY + Math.clamp(velocityYChange, -maxChange, maxChange), -maxSpeed, maxSpeed);
-        double newVelocityZ = Math.clamp(this.velocityZ + Math.clamp(velocityZChange, -maxChange, maxChange), -maxSpeed, maxSpeed);
+        double newVelocityX = Math.clamp(this.xd + Math.clamp(velocityXChange, -maxChange, maxChange), -maxSpeed, maxSpeed);
+        double newVelocityY = Math.clamp(this.yd + Math.clamp(velocityYChange, -maxChange, maxChange), -maxSpeed, maxSpeed);
+        double newVelocityZ = Math.clamp(this.zd + Math.clamp(velocityZChange, -maxChange, maxChange), -maxSpeed, maxSpeed);
 
         // Change velocity to avoid blocks
         if (blocksMovement(1, 0, 0)) {
@@ -84,20 +85,20 @@ public class FlyParticle extends BillboardParticle {
 
         // Set new velocity + random offset
         updateLastVelocity();
-        this.velocityX = newVelocityX + speed * this.random.nextFloat() - (speed / 2);
-        this.velocityY = newVelocityY + speed * this.random.nextFloat() - (speed / 2);
-        this.velocityZ = newVelocityZ + speed * this.random.nextFloat() - (speed / 2);
+        this.xd = newVelocityX + speed * this.random.nextFloat() - (speed / 2);
+        this.yd = newVelocityY + speed * this.random.nextFloat() - (speed / 2);
+        this.zd = newVelocityZ + speed * this.random.nextFloat() - (speed / 2);
     }
 
     private boolean blocksMovement(double xOffset, double yOffset, double zOffset) {
-        return !this.world.getBlockState(
-                BlockPos.ofFloored(this.x + xOffset, this.y + yOffset, this.z + zOffset)
-        ).canPathfindThrough(NavigationType.LAND);
+        return !this.level.getBlockState(
+                BlockPos.containing(this.x + xOffset, this.y + yOffset, this.z + zOffset)
+        ).isPathfindable(PathComputationType.LAND);
     }
 
     private float getAlpha(float age) {
-        float ageFloat = MathHelper.clamp(age / this.maxAge, 0.0F, 1.0F);
-        return MathHelper.clamp(-pow4((ageFloat * 2) - 1) + 1, 0.0F, 1.0F);
+        float ageFloat = Mth.clamp(age / this.lifetime, 0.0F, 1.0F);
+        return Mth.clamp(-pow4((ageFloat * 2) - 1) + 1, 0.0F, 1.0F);
     }
 
     private float pow4(float value) {
@@ -105,29 +106,29 @@ public class FlyParticle extends BillboardParticle {
     }
 
     private void updateLastVelocity() {
-        this.lastVelocityX = this.velocityX;
-        this.lastVelocityY = this.velocityY;
-        this.lastVelocityZ = this.velocityZ;
+        this.lastVelocityX = this.xd;
+        this.lastVelocityY = this.yd;
+        this.lastVelocityZ = this.zd;
     }
 
     @Environment(EnvType.CLIENT)
-    public static class Factory implements ParticleFactory<SimpleParticleType> {
-        private final SpriteProvider spriteProvider;
+    public static class Factory implements ParticleProvider<SimpleParticleType> {
+        private final SpriteSet spriteProvider;
 
-        public Factory(SpriteProvider spriteProvider) {
+        public Factory(SpriteSet spriteProvider) {
             this.spriteProvider = spriteProvider;
         }
 
         @Nullable
         @Override
-        public Particle createParticle(SimpleParticleType parameters, ClientWorld world, double x, double y, double z, double velocityX, double velocityY, double velocityZ, Random random) {
+        public Particle createParticle(SimpleParticleType parameters, ClientLevel world, double x, double y, double z, double velocityX, double velocityY, double velocityZ, RandomSource random) {
             FlyParticle flyParticle = new FlyParticle(
-                    world, x, y, z, 0.5 - world.random.nextDouble(), world.random.nextBoolean() ? velocityY : -velocityY, 0.5 - world.random.nextDouble(), this.spriteProvider.getSprite(random)
+                    world, x, y, z, 0.5 - world.random.nextDouble(), world.random.nextBoolean() ? velocityY : -velocityY, 0.5 - world.random.nextDouble(), this.spriteProvider.get(random)
             );
-            flyParticle.setMaxAge(world.random.nextBetween(200, 300));
+            flyParticle.setLifetime(world.random.nextIntBetweenInclusive(200, 300));
             flyParticle.scale(1.5F);
             flyParticle.setAlpha(0.0F);
-            flyParticle.collidesWithWorld = false;
+            flyParticle.hasPhysics = false;
             return flyParticle;
         }
     }

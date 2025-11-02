@@ -2,21 +2,21 @@ package net.pneumono.soggy_swamps.mixin;
 
 import com.llamalad7.mixinextras.injector.wrapoperation.Operation;
 import com.llamalad7.mixinextras.injector.wrapoperation.WrapOperation;
-import net.minecraft.block.Block;
-import net.minecraft.block.BlockState;
-import net.minecraft.block.Blocks;
-import net.minecraft.structure.SwampHutGenerator;
+import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.levelgen.structure.structures.SwampHutPiece;
 import net.pneumono.soggy_swamps.registry.SoggySwampsBlocks;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 
-@Mixin(SwampHutGenerator.class)
-public abstract class SwampHutGeneratorMixin {
+@Mixin(SwampHutPiece.class)
+public abstract class SwampHutPieceMixin {
     @WrapOperation(
-            method = "generate",
+            method = "postProcess",
             at = @At(
                     value = "INVOKE",
-                    target = "Lnet/minecraft/block/Block;getDefaultState()Lnet/minecraft/block/BlockState;"
+                    target = "Lnet/minecraft/world/level/block/Block;defaultBlockState()Lnet/minecraft/world/level/block/state/BlockState;"
             )
     )
     private BlockState useSwampOak(Block block, Operation<BlockState> original) {

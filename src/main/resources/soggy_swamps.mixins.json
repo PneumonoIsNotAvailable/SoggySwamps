@@ -4,8 +4,8 @@
     "compatibilityLevel": "JAVA_21",
     "mixins": [
         "DecoratedPotPatternsMixin",
-        "HungerManagerMixin",
-        "SwampHutGeneratorMixin"
+        "FoodDataMixin",
+        "SwampHutPieceMixin"
     ],
     "injectors": {
         "defaultRequire": 1

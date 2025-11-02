@@ -2,91 +2,91 @@ package net.pneumono.soggy_swamps.datagen;
 
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricRecipeProvider;
-import net.minecraft.data.recipe.CookingRecipeJsonBuilder;
-import net.minecraft.data.recipe.RecipeExporter;
-import net.minecraft.data.recipe.RecipeGenerator;
-import net.minecraft.item.Items;
-import net.minecraft.recipe.Ingredient;
-import net.minecraft.recipe.book.RecipeCategory;
-import net.minecraft.registry.RegistryKey;
-import net.minecraft.registry.RegistryKeys;
-import net.minecraft.registry.RegistryWrapper;
-import net.minecraft.resource.featuretoggle.FeatureFlags;
-import net.minecraft.resource.featuretoggle.FeatureSet;
+import net.minecraft.core.HolderLookup;
+import net.minecraft.core.registries.Registries;
+import net.minecraft.data.recipes.RecipeCategory;
+import net.minecraft.data.recipes.RecipeOutput;
+import net.minecraft.data.recipes.SimpleCookingRecipeBuilder;
+import net.minecraft.resources.ResourceKey;
+import net.minecraft.world.flag.FeatureFlagSet;
+import net.minecraft.world.flag.FeatureFlags;
+import net.minecraft.world.item.Items;
+import net.minecraft.world.item.crafting.Ingredient;
 import net.pneumono.soggy_swamps.SoggySwamps;
 import net.pneumono.soggy_swamps.registry.SoggySwampsBlocks;
 import net.pneumono.soggy_swamps.registry.SoggySwampsItems;
 import net.pneumono.soggy_swamps.registry.SoggySwampsTags;
+import org.jetbrains.annotations.NotNull;
 
 import java.util.concurrent.CompletableFuture;
 
-public class SoggySwampsRecipeGenerator extends RecipeGenerator {
-    public SoggySwampsRecipeGenerator(RegistryWrapper.WrapperLookup registries, RecipeExporter exporter) {
+public class SoggySwampsRecipeGenerator extends net.minecraft.data.recipes.RecipeProvider {
+    public SoggySwampsRecipeGenerator(HolderLookup.Provider registries, RecipeOutput exporter) {
         super(registries, exporter);
     }
 
     @Override
-    public void generate() {
-        offerSingleOutputShapelessRecipe(Items.GREEN_DYE,  SoggySwampsItems.VIBRANT_SPROUT, "green_dye");
-        offerShapelessRecipe(Items.PURPLE_DYE, SoggySwampsItems.ROT_CAP, "purple_dye", 2);
-        offerShapelessRecipe(Items.BROWN_DYE, SoggySwampsItems.CATTAIL, "brown_dye", 2);
+    public void buildRecipes() {
+        oneToOneConversionRecipe(Items.GREEN_DYE,  SoggySwampsItems.VIBRANT_SPROUT, "green_dye");
+        oneToOneConversionRecipe(Items.PURPLE_DYE, SoggySwampsItems.ROT_CAP, "purple_dye", 2);
+        oneToOneConversionRecipe(Items.BROWN_DYE, SoggySwampsItems.CATTAIL, "brown_dye", 2);
 
-        this.createShapeless(RecipeCategory.FOOD, SoggySwampsItems.SWAMP_STEW)
-                .input(Items.BOWL)
-                .input(SoggySwampsItems.VIBRANT_SPROUT)
-                .input(SoggySwampsItems.SWAMP_SPIDER_EYE)
-                .input(SoggySwampsItems.ROT_CAP)
-                .input(Items.BROWN_MUSHROOM)
+        this.shapeless(RecipeCategory.FOOD, SoggySwampsItems.SWAMP_STEW)
+                .requires(Items.BOWL)
+                .requires(SoggySwampsItems.VIBRANT_SPROUT)
+                .requires(SoggySwampsItems.SWAMP_SPIDER_EYE)
+                .requires(SoggySwampsItems.ROT_CAP)
+                .requires(Items.BROWN_MUSHROOM)
                 .group("swamp_stew")
-                .criterion("has_swamp_spider_eye", this.conditionsFromItem(SoggySwampsItems.SWAMP_SPIDER_EYE))
-                .offerTo(this.exporter, convertBetween(SoggySwampsItems.SWAMP_STEW, Items.BROWN_MUSHROOM));
-        this.createShapeless(RecipeCategory.FOOD, SoggySwampsItems.SWAMP_STEW)
-                .input(Items.BOWL)
-                .input(SoggySwampsItems.VIBRANT_SPROUT)
-                .input(SoggySwampsItems.SWAMP_SPIDER_EYE)
-                .input(SoggySwampsItems.ROT_CAP)
-                .input(Items.RED_MUSHROOM)
+                .unlockedBy("has_swamp_spider_eye", this.has(SoggySwampsItems.SWAMP_SPIDER_EYE))
+                .save(this.output, getConversionRecipeName(SoggySwampsItems.SWAMP_STEW, Items.BROWN_MUSHROOM));
+        this.shapeless(RecipeCategory.FOOD, SoggySwampsItems.SWAMP_STEW)
+                .requires(Items.BOWL)
+                .requires(SoggySwampsItems.VIBRANT_SPROUT)
+                .requires(SoggySwampsItems.SWAMP_SPIDER_EYE)
+                .requires(SoggySwampsItems.ROT_CAP)
+                .requires(Items.RED_MUSHROOM)
                 .group("swamp_stew")
-                .criterion("has_swamp_spider_eye", this.conditionsFromItem(SoggySwampsItems.SWAMP_SPIDER_EYE))
-                .offerTo(this.exporter, convertBetween(SoggySwampsItems.SWAMP_STEW, Items.RED_MUSHROOM));
+                .unlockedBy("has_swamp_spider_eye", this.has(SoggySwampsItems.SWAMP_SPIDER_EYE))
+                .save(this.output, getConversionRecipeName(SoggySwampsItems.SWAMP_STEW, Items.RED_MUSHROOM));
 
-        CookingRecipeJsonBuilder.createSmelting(
-                Ingredient.ofItem(SoggySwampsItems.ROT_CAP),
+        SimpleCookingRecipeBuilder.smelting(
+                Ingredient.of(SoggySwampsItems.ROT_CAP),
                 RecipeCategory.FOOD,
                 SoggySwampsItems.ROASTED_ROT_CAP,
                 0.35F, 200
         )
-                .criterion("has_rot_cap", this.conditionsFromItem(SoggySwampsItems.ROT_CAP))
-                .offerTo(this.exporter);
+                .unlockedBy("has_rot_cap", this.has(SoggySwampsItems.ROT_CAP))
+                .save(this.output);
 
-        generateFamily(SoggySwampsBlockFamilies.SWAMP_OAK, FeatureSet.of(FeatureFlags.VANILLA));
-        offerPlanksRecipe(SoggySwampsBlocks.SWAMP_OAK_PLANKS, SoggySwampsTags.ITEM_SWAMP_OAK_LOGS, 4);
-        offerBarkBlockRecipe(SoggySwampsBlocks.SWAMP_OAK_WOOD, SoggySwampsBlocks.SWAMP_OAK_LOG);
-        offerBarkBlockRecipe(SoggySwampsBlocks.STRIPPED_SWAMP_OAK_WOOD, SoggySwampsBlocks.STRIPPED_SWAMP_OAK_LOG);
-        offerHangingSignRecipe(SoggySwampsItems.SWAMP_OAK_HANGING_SIGN, SoggySwampsBlocks.STRIPPED_SWAMP_OAK_LOG);
-        offerBoatRecipe(SoggySwampsItems.SWAMP_OAK_BOAT, SoggySwampsBlocks.SWAMP_OAK_PLANKS);
-        offerChestBoatRecipe(SoggySwampsItems.SWAMP_OAK_CHEST_BOAT, SoggySwampsItems.SWAMP_OAK_BOAT);
+        generateRecipes(SoggySwampsBlockFamilies.SWAMP_OAK, FeatureFlagSet.of(FeatureFlags.VANILLA));
+        planksFromLogs(SoggySwampsBlocks.SWAMP_OAK_PLANKS, SoggySwampsTags.ITEM_SWAMP_OAK_LOGS, 4);
+        woodFromLogs(SoggySwampsBlocks.SWAMP_OAK_WOOD, SoggySwampsBlocks.SWAMP_OAK_LOG);
+        woodFromLogs(SoggySwampsBlocks.STRIPPED_SWAMP_OAK_WOOD, SoggySwampsBlocks.STRIPPED_SWAMP_OAK_LOG);
+        hangingSign(SoggySwampsItems.SWAMP_OAK_HANGING_SIGN, SoggySwampsBlocks.STRIPPED_SWAMP_OAK_LOG);
+        woodenBoat(SoggySwampsItems.SWAMP_OAK_BOAT, SoggySwampsBlocks.SWAMP_OAK_PLANKS);
+        chestBoat(SoggySwampsItems.SWAMP_OAK_CHEST_BOAT, SoggySwampsItems.SWAMP_OAK_BOAT);
 
-        offerSmithingTemplateCopyingRecipe(SoggySwampsItems.SPORE_ARMOR_TRIM_SMITHING_TEMPLATE, Items.MUD_BRICKS);
-        offerSmithingTrimRecipe(
+        copySmithingTemplate(SoggySwampsItems.SPORE_ARMOR_TRIM_SMITHING_TEMPLATE, Items.MUD_BRICKS);
+        trimSmithing(
                 SoggySwampsItems.SPORE_ARMOR_TRIM_SMITHING_TEMPLATE,
-                RegistryKey.of(RegistryKeys.TRIM_PATTERN, SoggySwamps.id("spore")),
-                RegistryKey.of(RegistryKeys.RECIPE, SoggySwamps.id("spore_armor_trim_smithing_template_smithing_trim"))
+                ResourceKey.create(Registries.TRIM_PATTERN, SoggySwamps.id("spore")),
+                ResourceKey.create(Registries.RECIPE, SoggySwamps.id("spore_armor_trim_smithing_template_smithing_trim"))
         );
     }
 
     public static class RecipeProvider extends FabricRecipeProvider {
-        public RecipeProvider(FabricDataOutput output, CompletableFuture<RegistryWrapper.WrapperLookup> registriesFuture) {
+        public RecipeProvider(FabricDataOutput output, CompletableFuture<HolderLookup.Provider> registriesFuture) {
             super(output, registriesFuture);
         }
 
         @Override
-        protected RecipeGenerator getRecipeGenerator(RegistryWrapper.WrapperLookup registryLookup, RecipeExporter exporter) {
+        protected net.minecraft.data.recipes.RecipeProvider createRecipeProvider(HolderLookup.Provider registryLookup, RecipeOutput exporter) {
             return new SoggySwampsRecipeGenerator(registryLookup, exporter);
         }
 
         @Override
-        public String getName() {
+        public @NotNull String getName() {
             return "Recipes";
         }
     }

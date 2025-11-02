@@ -3,24 +3,24 @@ package net.pneumono.soggy_swamps.datagen;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricTagProvider;
 import net.fabricmc.fabric.api.tag.convention.v2.ConventionalBlockTags;
-import net.minecraft.block.Block;
-import net.minecraft.block.Blocks;
-import net.minecraft.data.tag.ProvidedTagBuilder;
-import net.minecraft.registry.RegistryWrapper;
-import net.minecraft.registry.tag.BlockTags;
-import net.minecraft.registry.tag.TagKey;
+import net.minecraft.core.HolderLookup;
+import net.minecraft.data.tags.TagAppender;
+import net.minecraft.tags.BlockTags;
+import net.minecraft.tags.TagKey;
+import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.Blocks;
 import net.pneumono.soggy_swamps.registry.SoggySwampsBlocks;
 import net.pneumono.soggy_swamps.registry.SoggySwampsTags;
 
 import java.util.concurrent.CompletableFuture;
 
 public class SoggySwampsBlockTagProvider extends FabricTagProvider.BlockTagProvider {
-    public SoggySwampsBlockTagProvider(FabricDataOutput output, CompletableFuture<RegistryWrapper.WrapperLookup> registriesFuture) {
+    public SoggySwampsBlockTagProvider(FabricDataOutput output, CompletableFuture<HolderLookup.Provider> registriesFuture) {
         super(output, registriesFuture);
     }
 
     @Override
-    protected void configure(RegistryWrapper.WrapperLookup wrapperLookup) {
+    protected void addTags(HolderLookup.Provider wrapperLookup) {
         tag(SoggySwampsTags.BLOCK_SWAMP_OAK_LOGS).add(
                 SoggySwampsBlocks.SWAMP_OAK_LOG,
                 SoggySwampsBlocks.SWAMP_OAK_WOOD,
@@ -61,7 +61,7 @@ public class SoggySwampsBlockTagProvider extends FabricTagProvider.BlockTagProvi
         tag(BlockTags.WOODEN_PRESSURE_PLATES).add(SoggySwampsBlocks.SWAMP_OAK_PRESSURE_PLATE);
         tag(BlockTags.WOODEN_BUTTONS).add(SoggySwampsBlocks.SWAMP_OAK_BUTTON);
 
-        tag(BlockTags.SHOVEL_MINEABLE).add(SoggySwampsBlocks.SUSPICIOUS_MUD);
+        tag(BlockTags.MINEABLE_WITH_SHOVEL).add(SoggySwampsBlocks.SUSPICIOUS_MUD);
 
         tag(ConventionalBlockTags.SMALL_FLOWERS).add(SoggySwampsBlocks.BOGSPROUT);
         tag(ConventionalBlockTags.STRIPPED_LOGS).add(SoggySwampsBlocks.STRIPPED_SWAMP_OAK_LOG);
@@ -70,7 +70,7 @@ public class SoggySwampsBlockTagProvider extends FabricTagProvider.BlockTagProvi
         tag(ConventionalBlockTags.WOODEN_FENCE_GATES).add(SoggySwampsBlocks.SWAMP_OAK_FENCE_GATE);
     }
 
-    private ProvidedTagBuilder<Block, Block> tag(TagKey<Block> tag) {
+    private TagAppender<Block, Block> tag(TagKey<Block> tag) {
         return valueLookupBuilder(tag);
     }
 }

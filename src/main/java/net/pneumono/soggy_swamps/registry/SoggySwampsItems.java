@@ -2,19 +2,26 @@ package net.pneumono.soggy_swamps.registry;
 
 import net.fabricmc.fabric.api.registry.CompostingChanceRegistry;
 import net.fabricmc.fabric.api.registry.FabricBrewingRecipeRegistryBuilder;
-import net.minecraft.block.Block;
-import net.minecraft.block.DecoratedPotPattern;
-import net.minecraft.component.type.ConsumableComponents;
-import net.minecraft.component.type.FoodComponent;
-import net.minecraft.entity.effect.StatusEffectInstance;
-import net.minecraft.entity.effect.StatusEffects;
-import net.minecraft.item.*;
-import net.minecraft.item.consume.ApplyEffectsConsumeEffect;
-import net.minecraft.registry.Registries;
-import net.minecraft.registry.Registry;
-import net.minecraft.registry.RegistryKey;
-import net.minecraft.registry.RegistryKeys;
-import net.minecraft.util.Rarity;
+import net.minecraft.core.Registry;
+import net.minecraft.core.registries.BuiltInRegistries;
+import net.minecraft.core.registries.Registries;
+import net.minecraft.resources.ResourceKey;
+import net.minecraft.world.effect.MobEffectInstance;
+import net.minecraft.world.effect.MobEffects;
+import net.minecraft.world.food.FoodProperties;
+import net.minecraft.world.item.BlockItem;
+import net.minecraft.world.item.BoatItem;
+import net.minecraft.world.item.DoubleHighBlockItem;
+import net.minecraft.world.item.Item;
+import net.minecraft.world.item.Items;
+import net.minecraft.world.item.Rarity;
+import net.minecraft.world.item.SignItem;
+import net.minecraft.world.item.SmithingTemplateItem;
+import net.minecraft.world.item.SpawnEggItem;
+import net.minecraft.world.item.component.Consumables;
+import net.minecraft.world.item.consume_effects.ApplyStatusEffectsConsumeEffect;
+import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.entity.DecoratedPotPattern;
 import net.pneumono.soggy_swamps.SoggySwamps;
 
 import java.util.List;
@@ -24,17 +31,17 @@ public class SoggySwampsItems {
     public static final SpawnEggItem SWAMP_SPIDER_SPAWN_EGG = register(
             "swamp_spider_spawn_egg",
             SpawnEggItem::new,
-            new Item.Settings().spawnEgg(SoggySwampsEntities.SWAMP_SPIDER)
+            new Item.Properties().spawnEgg(SoggySwampsEntities.SWAMP_SPIDER)
     );
     public static final Item SWAMP_SPIDER_EYE = register(
             "swamp_spider_eye",
             Item::new,
-            new Item.Settings().food(
-                    new FoodComponent.Builder().nutrition(3).saturationModifier(0.8F).build(),
-                    ConsumableComponents.food()
-                            .consumeEffect(new ApplyEffectsConsumeEffect(List.of(
-                                    new StatusEffectInstance(SoggySwampsRegistry.VENOM, 160, 0),
-                                    new StatusEffectInstance(StatusEffects.POISON, 100, 0))
+            new Item.Properties().food(
+                    new FoodProperties.Builder().nutrition(3).saturationModifier(0.8F).build(),
+                    Consumables.defaultFood()
+                            .onConsume(new ApplyStatusEffectsConsumeEffect(List.of(
+                                    new MobEffectInstance(SoggySwampsRegistry.VENOM, 160, 0),
+                                    new MobEffectInstance(MobEffects.POISON, 100, 0))
                             ))
                             .build()
             )
@@ -42,11 +49,11 @@ public class SoggySwampsItems {
     public static final Item SWAMP_STEW = register(
             "swamp_stew",
             Item::new,
-            new Item.Settings().useRemainder(Items.BOWL).maxCount(1).food(
-                    new FoodComponent.Builder().nutrition(10).saturationModifier(0.8F).build(),
-                    ConsumableComponents.food()
-                            .consumeEffect(new ApplyEffectsConsumeEffect(
-                                    new StatusEffectInstance(SoggySwampsRegistry.VENOM, 200, 0)
+            new Item.Properties().usingConvertsTo(Items.BOWL).stacksTo(1).food(
+                    new FoodProperties.Builder().nutrition(10).saturationModifier(0.8F).build(),
+                    Consumables.defaultFood()
+                            .onConsume(new ApplyStatusEffectsConsumeEffect(
+                                    new MobEffectInstance(SoggySwampsRegistry.VENOM, 200, 0)
                             ))
                             .build()
             )
@@ -54,11 +61,11 @@ public class SoggySwampsItems {
     public static final Item ROASTED_ROT_CAP = register(
             "roasted_rot_cap",
             Item::new,
-            new Item.Settings().food(
-                    new FoodComponent.Builder().nutrition(6).saturationModifier(0.3F).build(),
-                    ConsumableComponents.food()
-                            .consumeEffect(new ApplyEffectsConsumeEffect(
-                                    new StatusEffectInstance(StatusEffects.HUNGER, 600, 0), 0.7F
+            new Item.Properties().food(
+                    new FoodProperties.Builder().nutrition(6).saturationModifier(0.3F).build(),
+                    Consumables.defaultFood()
+                            .onConsume(new ApplyStatusEffectsConsumeEffect(
+                                    new MobEffectInstance(MobEffects.HUNGER, 600, 0), 0.7F
                             ))
                             .build()
             )
@@ -71,8 +78,8 @@ public class SoggySwampsItems {
     public static final Item WEALTH_POTTERY_SHERD = registerPotterySherd("wealth");
     public static final SmithingTemplateItem SPORE_ARMOR_TRIM_SMITHING_TEMPLATE = register(
             "spore_armor_trim_smithing_template",
-            SmithingTemplateItem::of,
-            new Item.Settings().rarity(Rarity.UNCOMMON)
+            SmithingTemplateItem::createArmorTrimTemplate,
+            new Item.Properties().rarity(Rarity.UNCOMMON)
     );
 
     public static final BlockItem CATTAIL = registerBlockItem(SoggySwampsBlocks.CATTAIL);
@@ -90,17 +97,17 @@ public class SoggySwampsItems {
     public static final SignItem SWAMP_OAK_SIGN = register(
             "swamp_oak_sign",
             settings -> new SignItem(SoggySwampsBlocks.SWAMP_OAK_SIGN, SoggySwampsBlocks.SWAMP_OAK_WALL_SIGN, settings),
-            new Item.Settings().useBlockPrefixedTranslationKey().maxCount(16)
+            new Item.Properties().useBlockDescriptionPrefix().stacksTo(16)
     );
     public static final SignItem SWAMP_OAK_HANGING_SIGN = register(
             "swamp_oak_hanging_sign",
             settings -> new SignItem(SoggySwampsBlocks.SWAMP_OAK_HANGING_SIGN, SoggySwampsBlocks.SWAMP_OAK_WALL_HANGING_SIGN, settings),
-            new Item.Settings().useBlockPrefixedTranslationKey().maxCount(16)
+            new Item.Properties().useBlockDescriptionPrefix().stacksTo(16)
     );
-    public static final TallBlockItem SWAMP_OAK_DOOR = register(
+    public static final DoubleHighBlockItem SWAMP_OAK_DOOR = register(
             "swamp_oak_door",
-            settings -> new TallBlockItem(SoggySwampsBlocks.SWAMP_OAK_DOOR, settings),
-            new Item.Settings().useBlockPrefixedTranslationKey()
+            settings -> new DoubleHighBlockItem(SoggySwampsBlocks.SWAMP_OAK_DOOR, settings),
+            new Item.Properties().useBlockDescriptionPrefix()
     );
     public static final BlockItem SWAMP_OAK_TRAPDOOR = registerBlockItem(SoggySwampsBlocks.SWAMP_OAK_TRAPDOOR);
     public static final BlockItem SWAMP_OAK_FENCE = registerBlockItem(SoggySwampsBlocks.SWAMP_OAK_FENCE);
@@ -110,43 +117,43 @@ public class SoggySwampsItems {
     public static final BoatItem SWAMP_OAK_BOAT = register(
             "swamp_oak_boat",
             settings -> new BoatItem(SoggySwampsEntities.SWAMP_OAK_BOAT, settings),
-            new Item.Settings().maxCount(1)
+            new Item.Properties().stacksTo(1)
     );
     public static final BoatItem SWAMP_OAK_CHEST_BOAT = register(
             "swamp_oak_chest_boat",
             settings -> new BoatItem(SoggySwampsEntities.SWAMP_OAK_CHEST_BOAT, settings),
-            new Item.Settings().maxCount(1)
+            new Item.Properties().stacksTo(1)
     );
 
     @SuppressWarnings("deprecation")
     protected static BlockItem registerBlockItem(Block block) {
         return SoggySwampsItems.register(
-                block.getRegistryEntry().registryKey().getValue().getPath(),
+                block.builtInRegistryHolder().key().location().getPath(),
                 settings -> new BlockItem(block, settings),
-                new Item.Settings().useBlockPrefixedTranslationKey()
+                new Item.Properties().useBlockDescriptionPrefix()
         );
     }
 
     protected static Item registerPotterySherd(String name) {
-        RegistryKey<DecoratedPotPattern> key = RegistryKey.of(RegistryKeys.DECORATED_POT_PATTERN, SoggySwamps.id(name));
-        Registry.register(Registries.DECORATED_POT_PATTERN, key, new DecoratedPotPattern(SoggySwamps.id(name + "_pottery_pattern")));
+        ResourceKey<DecoratedPotPattern> key = ResourceKey.create(Registries.DECORATED_POT_PATTERN, SoggySwamps.id(name));
+        Registry.register(BuiltInRegistries.DECORATED_POT_PATTERN, key, new DecoratedPotPattern(SoggySwamps.id(name + "_pottery_pattern")));
 
-        Item item = register(name + "_pottery_sherd", Item::new, new Item.Settings().rarity(Rarity.UNCOMMON));
+        Item item = register(name + "_pottery_sherd", Item::new, new Item.Properties().rarity(Rarity.UNCOMMON));
 
         SoggySwampsRegistry.SHERD_TO_PATTERN.put(item, key);
 
         return item;
     }
 
-    protected static <T extends Item> T register(String name, Function<Item.Settings, T> factory, Item.Settings settings) {
-        RegistryKey<Item> key = RegistryKey.of(RegistryKeys.ITEM, SoggySwamps.id(name));
-        return Registry.register(Registries.ITEM, key, factory.apply(settings.registryKey(key)));
+    protected static <T extends Item> T register(String name, Function<Item.Properties, T> factory, Item.Properties settings) {
+        ResourceKey<Item> key = ResourceKey.create(Registries.ITEM, SoggySwamps.id(name));
+        return Registry.register(BuiltInRegistries.ITEM, key, factory.apply(settings.setId(key)));
     }
 
     public static void registerSoggySwampsItems() {
         FabricBrewingRecipeRegistryBuilder.BUILD.register(builder -> {
-            builder.registerRecipes(SWAMP_SPIDER_EYE, SoggySwampsRegistry.VENOM_POTION);
-            builder.registerPotionRecipe(SoggySwampsRegistry.VENOM_POTION, Items.REDSTONE, SoggySwampsRegistry.LONG_VENOM_POTION);
+            builder.addStartMix(SWAMP_SPIDER_EYE, SoggySwampsRegistry.VENOM_POTION);
+            builder.addMix(SoggySwampsRegistry.VENOM_POTION, Items.REDSTONE, SoggySwampsRegistry.LONG_VENOM_POTION);
         });
 
         CompostingChanceRegistry composting = CompostingChanceRegistry.INSTANCE;

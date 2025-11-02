@@ -2,17 +2,17 @@ package net.pneumono.soggy_swamps.datagen;
 
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricEntityLootTableProvider;
-import net.minecraft.item.Items;
-import net.minecraft.loot.LootPool;
-import net.minecraft.loot.LootTable;
-import net.minecraft.loot.condition.KilledByPlayerLootCondition;
-import net.minecraft.loot.entry.EmptyEntry;
-import net.minecraft.loot.entry.ItemEntry;
-import net.minecraft.loot.function.EnchantedCountIncreaseLootFunction;
-import net.minecraft.loot.function.SetCountLootFunction;
-import net.minecraft.loot.provider.number.ConstantLootNumberProvider;
-import net.minecraft.loot.provider.number.UniformLootNumberProvider;
-import net.minecraft.registry.RegistryWrapper;
+import net.minecraft.core.HolderLookup;
+import net.minecraft.world.item.Items;
+import net.minecraft.world.level.storage.loot.LootPool;
+import net.minecraft.world.level.storage.loot.LootTable;
+import net.minecraft.world.level.storage.loot.entries.EmptyLootItem;
+import net.minecraft.world.level.storage.loot.entries.LootItem;
+import net.minecraft.world.level.storage.loot.functions.EnchantedCountIncreaseFunction;
+import net.minecraft.world.level.storage.loot.functions.SetItemCountFunction;
+import net.minecraft.world.level.storage.loot.predicates.LootItemKilledByPlayerCondition;
+import net.minecraft.world.level.storage.loot.providers.number.ConstantValue;
+import net.minecraft.world.level.storage.loot.providers.number.UniformGenerator;
 import net.pneumono.soggy_swamps.registry.SoggySwampsEntities;
 import net.pneumono.soggy_swamps.registry.SoggySwampsItems;
 import org.jetbrains.annotations.NotNull;
@@ -20,42 +20,42 @@ import org.jetbrains.annotations.NotNull;
 import java.util.concurrent.CompletableFuture;
 
 public class SoggySwampsEntityLootTableProvider extends FabricEntityLootTableProvider {
-    public SoggySwampsEntityLootTableProvider(FabricDataOutput output, @NotNull CompletableFuture<RegistryWrapper.WrapperLookup> registryLookup) {
+    public SoggySwampsEntityLootTableProvider(FabricDataOutput output, @NotNull CompletableFuture<HolderLookup.Provider> registryLookup) {
         super(output, registryLookup);
     }
 
     @Override
     public void generate() {
-        this.register(
+        this.add(
                 SoggySwampsEntities.SWAMP_SPIDER,
-                LootTable.builder()
-                        .pool(LootPool.builder()
-                                .rolls(ConstantLootNumberProvider.create(1.0F))
-                                .with(ItemEntry.builder(Items.STRING)
-                                        .apply(SetCountLootFunction.builder(UniformLootNumberProvider.create(0.0F, 2.0F)))
-                                        .apply(EnchantedCountIncreaseLootFunction.builder(this.registries, UniformLootNumberProvider.create(0.0F, 1.0F)))
+                LootTable.lootTable()
+                        .withPool(LootPool.lootPool()
+                                .setRolls(ConstantValue.exactly(1.0F))
+                                .add(LootItem.lootTableItem(Items.STRING)
+                                        .apply(SetItemCountFunction.setCount(UniformGenerator.between(0.0F, 2.0F)))
+                                        .apply(EnchantedCountIncreaseFunction.lootingMultiplier(this.registries, UniformGenerator.between(0.0F, 1.0F)))
                                 )
                         )
-                        .pool(LootPool.builder()
-                                .rolls(ConstantLootNumberProvider.create(1.0F))
-                                .with(ItemEntry.builder(SoggySwampsItems.SWAMP_SPIDER_EYE)
-                                        .weight(2)
+                        .withPool(LootPool.lootPool()
+                                .setRolls(ConstantValue.exactly(1.0F))
+                                .add(LootItem.lootTableItem(SoggySwampsItems.SWAMP_SPIDER_EYE)
+                                        .setWeight(2)
                                 )
-                                .with(ItemEntry.builder(Items.SPIDER_EYE)
+                                .add(LootItem.lootTableItem(Items.SPIDER_EYE))
+                                .add(EmptyLootItem.emptyItem()
+                                        .setWeight(3)
                                 )
-                                .with(EmptyEntry.builder()
-                                        .weight(3)
-                                )
-                                .apply(EnchantedCountIncreaseLootFunction.builder(this.registries, UniformLootNumberProvider.create(0.0F, 1.0F)))
-                                .conditionally(KilledByPlayerLootCondition.builder())
+                                .apply(EnchantedCountIncreaseFunction.lootingMultiplier(this.registries, UniformGenerator.between(0.0F, 1.0F)))
+                                .when(LootItemKilledByPlayerCondition.killedByPlayer())
                         )
-                        .pool(LootPool.builder()
-                                .rolls(ConstantLootNumberProvider.create(1.0F))
-                                .with(ItemEntry.builder(Items.SLIME_BALL)
-                                        .apply(SetCountLootFunction.builder(UniformLootNumberProvider.create(-1.0F, 1.0F)))
-                                        .apply(EnchantedCountIncreaseLootFunction.builder(this.registries, UniformLootNumberProvider.create(0.0F, 1.0F)))
+                        .pool(LootPool.lootPool()
+                                .setRolls(ConstantValue.exactly(1.0F))
+                                .add(LootItem.lootTableItem(Items.SLIME_BALL)
+                                        .apply(SetItemCountFunction.setCount(UniformGenerator.between(-1.0F, 1.0F)))
+                                        .apply(EnchantedCountIncreaseFunction.lootingMultiplier(this.registries, UniformGenerator.between(0.0F, 1.0F)))
                                 )
-                                .conditionally(KilledByPlayerLootCondition.builder())
+                                .when(LootItemKilledByPlayerCondition.killedByPlayer())
+                                .build()
                         )
         );
     }

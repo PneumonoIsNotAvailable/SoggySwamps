@@ -1,6 +1,6 @@
 package net.pneumono.soggy_swamps.datagen;
 
-import net.minecraft.data.family.BlockFamily;
+import net.minecraft.data.BlockFamily;
 import net.pneumono.pneumonocore.datagen.ModdedBlockFamilies;
 import net.pneumono.soggy_swamps.registry.SoggySwampsBlocks;
 
@@ -15,7 +15,7 @@ public class SoggySwampsBlockFamilies extends ModdedBlockFamilies {
             .fenceGate(SoggySwampsBlocks.SWAMP_OAK_FENCE_GATE)
             .pressurePlate(SoggySwampsBlocks.SWAMP_OAK_PRESSURE_PLATE)
             .button(SoggySwampsBlocks.SWAMP_OAK_BUTTON)
-            .group("wooden")
-            .unlockCriterionName("has_planks")
-            .build();
+            .recipeGroupPrefix("wooden")
+            .recipeUnlockedBy("has_planks")
+            .getFamily();
 }

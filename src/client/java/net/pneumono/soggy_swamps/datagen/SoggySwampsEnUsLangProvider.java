@@ -2,7 +2,7 @@ package net.pneumono.soggy_swamps.datagen;
 
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricLanguageProvider;
-import net.minecraft.registry.RegistryWrapper;
+import net.minecraft.core.HolderLookup;
 import net.pneumono.pneumonocore.datagen.PneumonoCoreTranslationBuilder;
 import net.pneumono.soggy_swamps.SoggySwamps;
 import net.pneumono.soggy_swamps.registry.*;
@@ -10,12 +10,12 @@ import net.pneumono.soggy_swamps.registry.*;
 import java.util.concurrent.CompletableFuture;
 
 public class SoggySwampsEnUsLangProvider extends FabricLanguageProvider {
-    public SoggySwampsEnUsLangProvider(FabricDataOutput dataOutput, CompletableFuture<RegistryWrapper.WrapperLookup> registryLookup) {
+    public SoggySwampsEnUsLangProvider(FabricDataOutput dataOutput, CompletableFuture<HolderLookup.Provider> registryLookup) {
         super(dataOutput, registryLookup);
     }
 
     @Override
-    public void generateTranslations(RegistryWrapper.WrapperLookup registryLookup, TranslationBuilder translationBuilder) {
+    public void generateTranslations(HolderLookup.Provider registryLookup, TranslationBuilder translationBuilder) {
         PneumonoCoreTranslationBuilder builder = new PneumonoCoreTranslationBuilder(translationBuilder, SoggySwamps.MOD_ID);
 
         builder.add(SoggySwampsBlocks.SUSPICIOUS_MUD, "Suspicious Mud");

@@ -1,9 +1,9 @@
 package net.pneumono.soggy_swamps.registry;
 
-import net.minecraft.block.Block;
-import net.minecraft.item.Item;
-import net.minecraft.registry.RegistryKeys;
-import net.minecraft.registry.tag.TagKey;
+import net.minecraft.core.registries.Registries;
+import net.minecraft.tags.TagKey;
+import net.minecraft.world.item.Item;
+import net.minecraft.world.level.block.Block;
 import net.pneumono.soggy_swamps.SoggySwamps;
 
 public class SoggySwampsTags {
@@ -13,10 +13,10 @@ public class SoggySwampsTags {
     public static final TagKey<Item> ITEM_SWAMP_OAK_LOGS = item("swamp_oak_logs");
 
     private static TagKey<Item> item(String name) {
-        return TagKey.of(RegistryKeys.ITEM, SoggySwamps.id(name));
+        return TagKey.create(Registries.ITEM, SoggySwamps.id(name));
     }
 
     private static TagKey<Block> block(String name) {
-        return TagKey.of(RegistryKeys.BLOCK, SoggySwamps.id(name));
+        return TagKey.create(Registries.BLOCK, SoggySwamps.id(name));
     }
 }

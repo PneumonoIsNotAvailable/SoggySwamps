@@ -2,16 +2,37 @@ package net.pneumono.soggy_swamps.registry;
 
 import net.fabricmc.fabric.api.registry.FlammableBlockRegistry;
 import net.fabricmc.fabric.api.registry.StrippableBlockRegistry;
-import net.minecraft.block.*;
-import net.minecraft.block.entity.BlockEntityType;
-import net.minecraft.block.enums.NoteBlockInstrument;
-import net.minecraft.block.piston.PistonBehavior;
-import net.minecraft.entity.effect.StatusEffects;
-import net.minecraft.registry.Registries;
-import net.minecraft.registry.Registry;
-import net.minecraft.registry.RegistryKey;
-import net.minecraft.registry.RegistryKeys;
-import net.minecraft.sound.BlockSoundGroup;
+import net.minecraft.core.Registry;
+import net.minecraft.core.registries.BuiltInRegistries;
+import net.minecraft.core.registries.Registries;
+import net.minecraft.resources.ResourceKey;
+import net.minecraft.world.effect.MobEffects;
+import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.ButtonBlock;
+import net.minecraft.world.level.block.CeilingHangingSignBlock;
+import net.minecraft.world.level.block.DoorBlock;
+import net.minecraft.world.level.block.FenceBlock;
+import net.minecraft.world.level.block.FenceGateBlock;
+import net.minecraft.world.level.block.FlowerPotBlock;
+import net.minecraft.world.level.block.LeavesBlock;
+import net.minecraft.world.level.block.PressurePlateBlock;
+import net.minecraft.world.level.block.RotatedPillarBlock;
+import net.minecraft.world.level.block.SaplingBlock;
+import net.minecraft.world.level.block.SlabBlock;
+import net.minecraft.world.level.block.SoundType;
+import net.minecraft.world.level.block.StairBlock;
+import net.minecraft.world.level.block.StandingSignBlock;
+import net.minecraft.world.level.block.TintedParticleLeavesBlock;
+import net.minecraft.world.level.block.TrapDoorBlock;
+import net.minecraft.world.level.block.WallHangingSignBlock;
+import net.minecraft.world.level.block.WallSignBlock;
+import net.minecraft.world.level.block.entity.BlockEntityType;
+import net.minecraft.world.level.block.grower.TreeGrower;
+import net.minecraft.world.level.block.state.BlockBehaviour;
+import net.minecraft.world.level.block.state.properties.NoteBlockInstrument;
+import net.minecraft.world.level.material.MapColor;
+import net.minecraft.world.level.material.PushReaction;
 import net.pneumono.soggy_swamps.SoggySwamps;
 import net.pneumono.soggy_swamps.content.*;
 import net.pneumono.soggy_swamps.worldgen.SoggySwampsWorldgen;
@@ -23,64 +44,64 @@ public class SoggySwampsBlocks {
     public static final CattailBlock CATTAIL = register(
             "cattail",
             CattailBlock::new,
-            AbstractBlock.Settings.create()
-                    .mapColor(MapColor.GREEN)
+            BlockBehaviour.Properties.of()
+                    .mapColor(MapColor.COLOR_GREEN)
                     .replaceable()
                     .noCollision()
-                    .breakInstantly()
-                    .sounds(BlockSoundGroup.CROP)
-                    .offset(AbstractBlock.OffsetType.XZ)
-                    .pistonBehavior(PistonBehavior.DESTROY)
+                    .instabreak()
+                    .sound(SoundType.CROP)
+                    .offsetType(BlockBehaviour.OffsetType.XZ)
+                    .pushReaction(PushReaction.DESTROY)
     );
     public static final RotCapBlock ROT_CAP = register(
             "rot_cap",
             RotCapBlock::new,
-            AbstractBlock.Settings.create()
-                    .mapColor(MapColor.DARK_GREEN)
-                    .luminance(state -> 1)
+            BlockBehaviour.Properties.of()
+                    .mapColor(MapColor.PLANT)
+                    .lightLevel(state -> 1)
                     .noCollision()
-                    .breakInstantly()
-                    .sounds(BlockSoundGroup.WET_GRASS)
-                    .pistonBehavior(PistonBehavior.DESTROY)
+                    .instabreak()
+                    .sound(SoundType.WET_GRASS)
+                    .pushReaction(PushReaction.DESTROY)
     );
     public static final FlowerPotBlock POTTED_ROT_CAP = register(
             "potted_rot_cap",
             settings -> new PottedRotCapBlock(ROT_CAP, settings),
-            Blocks.createFlowerPotSettings()
+            Blocks.flowerPotProperties()
     );
     public static final BogsproutBlock BOGSPROUT = register(
             "bogsprout",
-            settings -> new BogsproutBlock(StatusEffects.REGENERATION, 10.0F, settings),
-            AbstractBlock.Settings.create()
-                    .mapColor(MapColor.DARK_GREEN)
+            settings -> new BogsproutBlock(MobEffects.REGENERATION, 10.0F, settings),
+            BlockBehaviour.Properties.of()
+                    .mapColor(MapColor.PLANT)
                     .noCollision()
-                    .breakInstantly()
-                    .sounds(BlockSoundGroup.WET_GRASS)
-                    .offset(AbstractBlock.OffsetType.XZ)
-                    .pistonBehavior(PistonBehavior.DESTROY)
+                    .instabreak()
+                    .sound(SoundType.WET_GRASS)
+                    .offsetType(BlockBehaviour.OffsetType.XZ)
+                    .pushReaction(PushReaction.DESTROY)
     );
     public static final FlowerPotBlock POTTED_BOGSPROUT = register(
             "potted_bogsprout",
             settings -> new FlowerPotBlock(BOGSPROUT, settings),
-            Blocks.createFlowerPotSettings()
+            Blocks.flowerPotProperties()
     );
     public static final BrushableMudBlock SUSPICIOUS_MUD = register(
             "suspicious_mud",
             settings -> new BrushableMudBlock(Blocks.MUD, SoggySwampsSounds.ITEM_BRUSH_BRUSHING_MUD, SoggySwampsSounds.ITEM_BRUSH_BRUSHING_MUD, settings),
-            AbstractBlock.Settings.create()
+            BlockBehaviour.Properties.of()
                     .mapColor(MapColor.TERRACOTTA_CYAN)
-                    .allowsSpawning(Blocks::always)
-                    .solidBlock(Blocks::always)
-                    .blockVision(Blocks::always)
-                    .suffocates(Blocks::always)
+                    .isValidSpawn(Blocks::always)
+                    .isRedstoneConductor(Blocks::always)
+                    .isViewBlocking(Blocks::always)
+                    .isSuffocating(Blocks::always)
                     .strength(0.3F)
-                    .sounds(SoggySwampsSounds.GROUP_SUSPICIOUS_MUD)
-                    .pistonBehavior(PistonBehavior.DESTROY)
+                    .sound(SoggySwampsSounds.GROUP_SUSPICIOUS_MUD)
+                    .pushReaction(PushReaction.DESTROY)
     );
     public static final SaplingBlock SWAMP_OAK_SAPLING = register(
             "swamp_oak_sapling",
             settings -> new SaplingBlock(
-                    new SaplingGenerator(
+                    new TreeGrower(
                             "swamp_oak",
                             Optional.empty(),
                             Optional.of(SoggySwampsWorldgen.SWAMP_OAK),
@@ -88,45 +109,45 @@ public class SoggySwampsBlocks {
                     ),
                     settings
             ),
-            AbstractBlock.Settings.create()
-                    .mapColor(MapColor.DARK_GREEN)
+            BlockBehaviour.Properties.of()
+                    .mapColor(MapColor.PLANT)
                     .noCollision()
-                    .ticksRandomly()
-                    .breakInstantly()
-                    .sounds(BlockSoundGroup.GRASS)
-                    .pistonBehavior(PistonBehavior.DESTROY)
+                    .randomTicks()
+                    .instabreak()
+                    .sound(SoundType.GRASS)
+                    .pushReaction(PushReaction.DESTROY)
     );
     public static final FlowerPotBlock POTTED_SWAMP_OAK_SAPLING = register(
             "potted_swamp_oak_sapling",
             settings -> new FlowerPotBlock(SWAMP_OAK_SAPLING, settings),
-            Blocks.createFlowerPotSettings()
+            Blocks.flowerPotProperties()
     );
     public static final LeavesBlock SWAMP_OAK_LEAVES = register(
             "swamp_oak_leaves",
             settings -> new TintedParticleLeavesBlock(0.01F, settings),
-            Blocks.createLeavesSettings(BlockSoundGroup.GRASS)
+            Blocks.leavesProperties(SoundType.GRASS)
     );
-    public static final PillarBlock SWAMP_OAK_LOG = register(
+    public static final RotatedPillarBlock SWAMP_OAK_LOG = register(
             "swamp_oak_log",
-            PillarBlock::new,
-            Blocks.createLogSettings(MapColor.OAK_TAN, MapColor.SPRUCE_BROWN, BlockSoundGroup.WOOD)
+            RotatedPillarBlock::new,
+            Blocks.logProperties(MapColor.WOOD, MapColor.PODZOL, SoundType.WOOD)
     );
-    public static final PillarBlock SWAMP_OAK_WOOD = register(
+    public static final RotatedPillarBlock SWAMP_OAK_WOOD = register(
             "swamp_oak_wood",
-            PillarBlock::new,
+            RotatedPillarBlock::new,
             createSwampOak()
                     .strength(2.0F)
     );
-    public static final PillarBlock STRIPPED_SWAMP_OAK_LOG = register(
+    public static final RotatedPillarBlock STRIPPED_SWAMP_OAK_LOG = register(
             "stripped_swamp_oak_log",
-            PillarBlock::new,
+            RotatedPillarBlock::new,
             createSwampOak()
                     .strength(2.0F)
     );
-    public static final PillarBlock STRIPPED_SWAMP_OAK_WOOD = register(
+    public static final RotatedPillarBlock STRIPPED_SWAMP_OAK_WOOD = register(
             "stripped_swamp_oak_wood",
-            PillarBlock::new,
-            AbstractBlock.Settings.copy(SWAMP_OAK_WOOD)
+            RotatedPillarBlock::new,
+            BlockBehaviour.Properties.ofFullCopy(SWAMP_OAK_WOOD)
     );
     public static final Block SWAMP_OAK_PLANKS = register(
             "swamp_oak_planks",
@@ -134,94 +155,94 @@ public class SoggySwampsBlocks {
             createSwampOak()
                     .strength(2.0F, 3.0F)
     );
-    public static final StairsBlock SWAMP_OAK_STAIRS = register(
+    public static final StairBlock SWAMP_OAK_STAIRS = register(
             "swamp_oak_stairs",
-            settings -> new StairsBlock(SWAMP_OAK_PLANKS.getDefaultState(), settings),
-            AbstractBlock.Settings.copy(SWAMP_OAK_PLANKS)
+            settings -> new StairBlock(SWAMP_OAK_PLANKS.defaultBlockState(), settings),
+            BlockBehaviour.Properties.ofFullCopy(SWAMP_OAK_PLANKS)
     );
     public static final SlabBlock SWAMP_OAK_SLAB = register(
             "swamp_oak_slab",
             SlabBlock::new,
-            AbstractBlock.Settings.copy(SWAMP_OAK_PLANKS)
+            BlockBehaviour.Properties.ofFullCopy(SWAMP_OAK_PLANKS)
     );
-    public static final SignBlock SWAMP_OAK_SIGN = register(
+    public static final StandingSignBlock SWAMP_OAK_SIGN = register(
             "swamp_oak_sign",
-            settings -> new SignBlock(SoggySwampsRegistry.SWAMP_OAK_WOOD_TYPE, settings),
+            settings -> new StandingSignBlock(SoggySwampsRegistry.SWAMP_OAK_WOOD_TYPE, settings),
             createSwampOak()
                     .strength(1.0F)
-                    .solid()
+                    .forceSolidOn()
                     .noCollision()
     );
     public static final WallSignBlock SWAMP_OAK_WALL_SIGN = register(
             "swamp_oak_wall_sign",
             settings -> new WallSignBlock(SoggySwampsRegistry.SWAMP_OAK_WOOD_TYPE, settings),
-            AbstractBlock.Settings.copy(SWAMP_OAK_SIGN)
-                    .lootTable(SWAMP_OAK_SIGN.getLootTableKey())
-                    .overrideTranslationKey(SWAMP_OAK_SIGN.getTranslationKey())
+            BlockBehaviour.Properties.ofFullCopy(SWAMP_OAK_SIGN)
+                    .overrideLootTable(SWAMP_OAK_SIGN.getLootTable())
+                    .overrideDescription(SWAMP_OAK_SIGN.getDescriptionId())
     );
-    public static final HangingSignBlock SWAMP_OAK_HANGING_SIGN = register(
+    public static final CeilingHangingSignBlock SWAMP_OAK_HANGING_SIGN = register(
             "swamp_oak_hanging_sign",
-            settings -> new HangingSignBlock(SoggySwampsRegistry.SWAMP_OAK_WOOD_TYPE, settings),
-            AbstractBlock.Settings.copy(SWAMP_OAK_SIGN)
+            settings -> new CeilingHangingSignBlock(SoggySwampsRegistry.SWAMP_OAK_WOOD_TYPE, settings),
+            BlockBehaviour.Properties.ofFullCopy(SWAMP_OAK_SIGN)
     );
     public static final WallHangingSignBlock SWAMP_OAK_WALL_HANGING_SIGN = register(
             "swamp_oak_wall_hanging_sign",
             settings -> new WallHangingSignBlock(SoggySwampsRegistry.SWAMP_OAK_WOOD_TYPE, settings),
-            AbstractBlock.Settings.copy(SWAMP_OAK_HANGING_SIGN)
-                    .lootTable(SWAMP_OAK_HANGING_SIGN.getLootTableKey())
-                    .overrideTranslationKey(SWAMP_OAK_HANGING_SIGN.getTranslationKey())
+            BlockBehaviour.Properties.ofFullCopy(SWAMP_OAK_HANGING_SIGN)
+                    .overrideLootTable(SWAMP_OAK_HANGING_SIGN.getLootTable())
+                    .overrideDescription(SWAMP_OAK_HANGING_SIGN.getDescriptionId())
     );
     public static final DoorBlock SWAMP_OAK_DOOR = register(
             "swamp_oak_door",
             settings -> new DoorBlock(SoggySwampsRegistry.SWAMP_OAK_BLOCK_SET_TYPE, settings),
-            AbstractBlock.Settings.copy(SWAMP_OAK_PLANKS)
+            BlockBehaviour.Properties.ofFullCopy(SWAMP_OAK_PLANKS)
                     .strength(3.0F)
-                    .nonOpaque()
+                    .noOcclusion()
     );
-    public static final TrapdoorBlock SWAMP_OAK_TRAPDOOR = register(
+    public static final TrapDoorBlock SWAMP_OAK_TRAPDOOR = register(
             "swamp_oak_trapdoor",
-            settings -> new TrapdoorBlock(SoggySwampsRegistry.SWAMP_OAK_BLOCK_SET_TYPE, settings),
-            AbstractBlock.Settings.copy(SWAMP_OAK_PLANKS)
+            settings -> new TrapDoorBlock(SoggySwampsRegistry.SWAMP_OAK_BLOCK_SET_TYPE, settings),
+            BlockBehaviour.Properties.ofFullCopy(SWAMP_OAK_PLANKS)
                     .strength(3.0F)
-                    .nonOpaque()
-                    .allowsSpawning(Blocks::never)
+                    .noOcclusion()
+                    .isValidSpawn(Blocks::never)
     );
     public static final FenceBlock SWAMP_OAK_FENCE = register(
             "swamp_oak_fence",
             FenceBlock::new,
-            AbstractBlock.Settings.copy(SWAMP_OAK_PLANKS)
+            BlockBehaviour.Properties.ofFullCopy(SWAMP_OAK_PLANKS)
     );
     public static final FenceGateBlock SWAMP_OAK_FENCE_GATE = register(
             "swamp_oak_fence_gate",
             settings -> new FenceGateBlock(SoggySwampsRegistry.SWAMP_OAK_WOOD_TYPE, settings),
-            AbstractBlock.Settings.copy(SWAMP_OAK_PLANKS).solid()
+            BlockBehaviour.Properties.ofFullCopy(SWAMP_OAK_PLANKS).forceSolidOn()
     );
     public static final PressurePlateBlock SWAMP_OAK_PRESSURE_PLATE = register(
             "swamp_oak_pressure_plate",
             settings -> new PressurePlateBlock(SoggySwampsRegistry.SWAMP_OAK_BLOCK_SET_TYPE, settings),
-            AbstractBlock.Settings.copy(SWAMP_OAK_PLANKS)
-                    .solid()
+            BlockBehaviour.Properties.ofFullCopy(SWAMP_OAK_PLANKS)
+                    .forceSolidOn()
                     .noCollision()
                     .strength(0.5F)
-                    .pistonBehavior(PistonBehavior.DESTROY)
+                    .pushReaction(PushReaction.DESTROY)
     );
     public static final ButtonBlock SWAMP_OAK_BUTTON = register(
             "swamp_oak_button",
             settings -> new ButtonBlock(SoggySwampsRegistry.SWAMP_OAK_BLOCK_SET_TYPE, 30, settings),
-            Blocks.createButtonSettings()
+            Blocks.buttonProperties()
     );
 
-    private static AbstractBlock.Settings createSwampOak() {
-        return AbstractBlock.Settings.create()
-                .mapColor(MapColor.OAK_TAN)
+    private static BlockBehaviour.Properties createSwampOak() {
+        return BlockBehaviour.Properties.of()
+                .mapColor(MapColor.WOOD)
                 .instrument(NoteBlockInstrument.BASS)
-                .sounds(BlockSoundGroup.WOOD)
-                .burnable();
+                .sound(SoundType.WOOD)
+                .ignitedByLava();
     }
 
-    protected static <T extends Block> T register(String name, Function<AbstractBlock.Settings, T> factory, AbstractBlock.Settings settings) {
-        RegistryKey<Block> key = RegistryKey.of(RegistryKeys.BLOCK, SoggySwamps.id(name));
-        return Registry.register(Registries.BLOCK, key, factory.apply(settings.registryKey(key)));
+    protected static <T extends Block> T register(String name, Function<BlockBehaviour.Properties, T> factory, BlockBehaviour.Properties settings) {
+        ResourceKey<Block> key = ResourceKey.create(Registries.BLOCK, SoggySwamps.id(name));
+        return Registry.register(BuiltInRegistries.BLOCK, key, factory.apply(settings.setId(key)));
     }
 
     public static void registerSoggySwampsBlocks() {
