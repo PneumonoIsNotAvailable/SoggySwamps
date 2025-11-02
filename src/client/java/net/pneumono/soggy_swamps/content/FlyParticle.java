@@ -7,7 +7,6 @@ import net.minecraft.client.particle.*;
 import net.minecraft.client.renderer.texture.TextureAtlasSprite;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.particles.SimpleParticleType;
-import net.minecraft.util.Mth;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.level.pathfinder.PathComputationType;
 import org.jetbrains.annotations.NotNull;
@@ -39,18 +38,6 @@ public class FlyParticle extends SingleQuadParticle {
         super.tick();
         if (!isAlive()) return;
 
-        this.setAlpha(getAlpha(this.age));
-
-        // Constants
-        double speed = 0.01;
-        double maxSpeed = 0.25;
-        double maxChange = 0.5;
-        double avoidanceStrength = 0.5;
-
-        double velocityXChange = this.xd - this.lastVelocityX;
-        double velocityYChange = this.yd - this.lastVelocityY;
-        double velocityZChange = this.zd - this.lastVelocityZ;
-
         // Kill grounded flies
         if (
                 blocksMovement(0, 0, 0)
@@ -59,28 +46,41 @@ public class FlyParticle extends SingleQuadParticle {
             return;
         }
 
+        // Update alpha
+        this.setAlpha(getAlpha(this.age));
+
+        // Constants
+        double speed = 0.015;
+        double maxSpeed = 0.25;
+        double maxChange = 0.5;
+        double dragFactor = 0.98;
+
+        double velocityXChange = this.xd - this.lastVelocityX;
+        double velocityYChange = this.yd - this.lastVelocityY;
+        double velocityZChange = this.zd - this.lastVelocityZ;
+
         // Get new "base" velocity using previous velocities
-        double newVelocityX = Math.clamp(this.xd + Math.clamp(velocityXChange, -maxChange, maxChange), -maxSpeed, maxSpeed);
-        double newVelocityY = Math.clamp(this.yd + Math.clamp(velocityYChange, -maxChange, maxChange), -maxSpeed, maxSpeed);
-        double newVelocityZ = Math.clamp(this.zd + Math.clamp(velocityZChange, -maxChange, maxChange), -maxSpeed, maxSpeed);
+        double newVelocityX = Math.clamp(this.xd + Math.clamp(velocityXChange, -maxChange, maxChange), -maxSpeed, maxSpeed) * dragFactor;
+        double newVelocityY = Math.clamp(this.yd + Math.clamp(velocityYChange, -maxChange, maxChange), -maxSpeed, maxSpeed) * dragFactor;
+        double newVelocityZ = Math.clamp(this.zd + Math.clamp(velocityZChange, -maxChange, maxChange), -maxSpeed, maxSpeed) * dragFactor;
 
         // Change velocity to avoid blocks
-        if (blocksMovement(1, 0, 0)) {
-            newVelocityX -= avoidanceStrength * (1.0 - (this.x - Math.floor(this.x)));
-        } else if (blocksMovement(-1, 0, 0)) {
-            newVelocityX += avoidanceStrength * (this.x - Math.floor(this.x));
+        if (blocksMovement(0.5, 0, 0)) {
+            newVelocityX += newVelocityFleeNegative(this.x);
+        } else if (blocksMovement(-0.5, 0, 0)) {
+            newVelocityX += newVelocityFleePositive(this.x);
         }
 
-        if (blocksMovement(0, 1, 0)) {
-            newVelocityY -= avoidanceStrength * (1.0 - (this.y - Math.floor(this.y)));
-        } else if (blocksMovement(0, 1, 0)) {
-            newVelocityY += avoidanceStrength * (this.y - Math.floor(this.y));
+        if (blocksMovement(0, 0.5, 0)) {
+            newVelocityY += newVelocityFleeNegative(this.y);
+        } else if (blocksMovement(0, -0.5, 0)) {
+            newVelocityY += newVelocityFleePositive(this.y);
         }
 
-        if (blocksMovement(0, 0, 1)) {
-            newVelocityZ -= avoidanceStrength * (1.0 - (this.z - Math.floor(this.z)));
-        } else if (blocksMovement(0, 0, 1)) {
-            newVelocityZ += avoidanceStrength * (this.z - Math.floor(this.z));
+        if (blocksMovement(0, 0, 0.5)) {
+            newVelocityZ += newVelocityFleeNegative(this.z);
+        } else if (blocksMovement(0, 0, -0.5)) {
+            newVelocityZ += newVelocityFleePositive(this.z);
         }
 
         // Set new velocity + random offset
@@ -96,13 +96,17 @@ public class FlyParticle extends SingleQuadParticle {
         ).isPathfindable(PathComputationType.LAND);
     }
 
-    private float getAlpha(float age) {
-        float ageFloat = Mth.clamp(age / this.lifetime, 0.0F, 1.0F);
-        return Mth.clamp(-pow4((ageFloat * 2) - 1) + 1, 0.0F, 1.0F);
+    private double newVelocityFleePositive(double velocity) {
+        return Math.pow((1 + Math.floor(velocity) - velocity) / 2D, 2);
     }
 
-    private float pow4(float value) {
-        return value  * value * value * value;
+    private double newVelocityFleeNegative(double velocity) {
+        return -Math.pow((velocity - Math.floor(velocity)) / 2D, 2);
+    }
+
+    private float getAlpha(float age) {
+        float ageFloat = Math.clamp(age / this.lifetime, 0.0F, 1.0F);
+        return (float) Math.clamp(-Math.pow((ageFloat * 2) - 1, 4) + 1, 0.0F, 1.0F);
     }
 
     private void updateLastVelocity() {
