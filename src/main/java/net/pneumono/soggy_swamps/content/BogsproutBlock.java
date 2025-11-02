@@ -29,43 +29,43 @@ public class BogsproutBlock extends FlowerBlock implements BonemealableBlock {
     }
 
     @Override
-    protected @NotNull VoxelShape getShape(BlockState state, BlockGetter world, BlockPos pos, CollisionContext context) {
+    protected @NotNull VoxelShape getShape(BlockState state, BlockGetter level, BlockPos pos, CollisionContext context) {
         return SHAPE.move(state.getOffset(pos));
     }
 
     @Override
-    public boolean isBonemealSuccess(Level world, RandomSource random, BlockPos pos, BlockState state) {
+    public boolean isBonemealSuccess(Level level, RandomSource random, BlockPos pos, BlockState state) {
         return true;
     }
 
     @Override
-    public boolean isValidBonemealTarget(LevelReader world, BlockPos pos, BlockState state) {
+    public boolean isValidBonemealTarget(LevelReader level, BlockPos pos, BlockState state) {
         List<BlockPos> validPositions = new ArrayList<>();
-        forValidPos(world, pos, defaultBlockState(), validPositions::add, true);
+        forValidPos(level, pos, defaultBlockState(), validPositions::add, true);
 
         return !validPositions.isEmpty();
     }
 
     @Override
-    public void performBonemeal(ServerLevel world, RandomSource random, BlockPos pos, BlockState state) {
+    public void performBonemeal(ServerLevel level, RandomSource random, BlockPos pos, BlockState state) {
         List<BlockPos> validPositions = new ArrayList<>();
 
         BlockState placeState = defaultBlockState();
 
-        forValidPos(world, pos, placeState, validPositions::add, false);
+        forValidPos(level, pos, placeState, validPositions::add, false);
 
-        Util.shuffle(validPositions, world.getRandom());
+        Util.shuffle(validPositions, level.getRandom());
 
-        int count = world.getRandom().nextIntBetweenInclusive(1, 2);
+        int count = level.getRandom().nextIntBetweenInclusive(1, 2);
         for (int i = 0; i < count && i < validPositions.size(); ++i) {
             BlockPos placePos = validPositions.get(i);
-            world.setBlockAndUpdate(placePos, placeState);
+            level.setBlockAndUpdate(placePos, placeState);
         }
     }
 
-    public void forValidPos(LevelReader world, BlockPos origin, BlockState placeState, Consumer<BlockPos> consumer, boolean shouldBreak) {
+    public void forValidPos(LevelReader level, BlockPos origin, BlockState placeState, Consumer<BlockPos> consumer, boolean shouldBreak) {
         for (BlockPos checkedPos : BlockPos.betweenClosed(origin.offset(-2, -1, -2), origin.offset(2, 1, 2))) {
-            if (world.isEmptyBlock(checkedPos) && placeState.canSurvive(world, checkedPos)) {
+            if (level.isEmptyBlock(checkedPos) && placeState.canSurvive(level, checkedPos)) {
                 consumer.accept(new BlockPos(checkedPos));
                 if (shouldBreak) break;
             }

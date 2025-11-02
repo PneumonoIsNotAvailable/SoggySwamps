@@ -24,17 +24,17 @@ public class BrushableMudBlock extends BrushableBlock {
     }
 
     @Override
-    protected @NotNull VoxelShape getCollisionShape(BlockState state, BlockGetter world, BlockPos pos, CollisionContext context) {
+    protected @NotNull VoxelShape getCollisionShape(BlockState state, BlockGetter level, BlockPos pos, CollisionContext context) {
         return COLLISION_SHAPE;
     }
 
     @Override
-    protected @NotNull VoxelShape getBlockSupportShape(BlockState state, BlockGetter world, BlockPos pos) {
+    protected @NotNull VoxelShape getBlockSupportShape(BlockState state, BlockGetter level, BlockPos pos) {
         return Shapes.block();
     }
 
     @Override
-    protected @NotNull VoxelShape getVisualShape(BlockState state, BlockGetter world, BlockPos pos, CollisionContext context) {
+    protected @NotNull VoxelShape getVisualShape(BlockState state, BlockGetter level, BlockPos pos, CollisionContext context) {
         return Shapes.block();
     }
 
@@ -44,19 +44,19 @@ public class BrushableMudBlock extends BrushableBlock {
     }
 
     @Override
-    protected float getShadeBrightness(BlockState state, BlockGetter world, BlockPos pos) {
+    protected float getShadeBrightness(BlockState state, BlockGetter level, BlockPos pos) {
         return 0.2F;
     }
 
     @Override
-    public void tick(BlockState state, ServerLevel world, BlockPos pos, RandomSource random) {
-        if (world.getBlockEntity(pos) instanceof BrushableBlockEntity brushableBlockEntity) {
-            brushableBlockEntity.checkReset(world);
+    public void tick(BlockState state, ServerLevel level, BlockPos pos, RandomSource random) {
+        if (level.getBlockEntity(pos) instanceof BrushableBlockEntity brushableBlockEntity) {
+            brushableBlockEntity.checkReset(level);
         }
     }
 
     @Override
-    public void animateTick(BlockState state, Level world, BlockPos pos, RandomSource random) {
+    public void animateTick(BlockState state, Level level, BlockPos pos, RandomSource random) {
 
     }
 }

@@ -48,13 +48,13 @@ public abstract class GuiMixin {
             at = @At("HEAD"),
             cancellable = true
     )
-    private void drawVenomHeart(GuiGraphics context, Gui.HeartType type, int x, int y, boolean hardcore, boolean blinking, boolean half, CallbackInfo info) {
+    private void drawVenomHeart(GuiGraphics graphics, Gui.HeartType type, int x, int y, boolean hardcore, boolean blinking, boolean half, CallbackInfo info) {
         if (
                 type == Gui.HeartType.NORMAL &&
                 this.minecraft.player != null &&
                 this.minecraft.player.hasEffect(SoggySwampsRegistry.VENOM)
         ) {
-            context.blitSprite(RenderPipelines.GUI_TEXTURED, getVenomHeartTexture(hardcore, half, blinking), x, y, 9, 9);
+            graphics.blitSprite(RenderPipelines.GUI_TEXTURED, getVenomHeartTexture(hardcore, half, blinking), x, y, 9, 9);
             info.cancel();
         }
     }

@@ -47,7 +47,7 @@ public class SoggySwampsClient implements ClientModInitializer {
 		BlockRenderLayerMap.putBlock(SoggySwampsBlocks.SWAMP_OAK_LEAVES, ChunkSectionLayer.CUTOUT_MIPPED);
 
 		ColorProviderRegistry.BLOCK.register(
-				(state, world, pos, tintIndex) -> world != null && pos != null ? BiomeColors.getAverageFoliageColor(world, pos) : -12012264,
+				(state, level, pos, tintIndex) -> level != null && pos != null ? BiomeColors.getAverageFoliageColor(level, pos) : -12012264,
 				SoggySwampsBlocks.SWAMP_OAK_LEAVES
 		);
 

@@ -30,8 +30,8 @@ import org.jetbrains.annotations.Nullable;
 import java.util.Objects;
 
 public class SwampSpiderEntity extends Spider {
-    public SwampSpiderEntity(EntityType<? extends Spider> entityType, Level world) {
-        super(entityType, world);
+    public SwampSpiderEntity(EntityType<? extends Spider> entityType, Level level) {
+        super(entityType, level);
     }
 
     public static AttributeSupplier.Builder createSwampSpiderAttributes() {
@@ -48,14 +48,14 @@ public class SwampSpiderEntity extends Spider {
     }
 
     @Override
-    public boolean doHurtTarget(ServerLevel world, Entity target) {
-        if (!super.doHurtTarget(world, target)) return false;
+    public boolean doHurtTarget(ServerLevel level, Entity target) {
+        if (!super.doHurtTarget(level, target)) return false;
 
         if (target instanceof LivingEntity living) {
             int time = 0;
-            if (world.getDifficulty() == Difficulty.NORMAL) {
+            if (level.getDifficulty() == Difficulty.NORMAL) {
                 time = 5;
-            } else if (world.getDifficulty() == Difficulty.HARD) {
+            } else if (level.getDifficulty() == Difficulty.HARD) {
                 time = 10;
             }
 
@@ -70,8 +70,8 @@ public class SwampSpiderEntity extends Spider {
 
     @Nullable
     @Override
-    public SpawnGroupData finalizeSpawn(ServerLevelAccessor world, DifficultyInstance difficulty, EntitySpawnReason spawnReason, @Nullable SpawnGroupData entityData) {
-        RandomSource random = world.getRandom();
+    public SpawnGroupData finalizeSpawn(ServerLevelAccessor level, DifficultyInstance difficulty, EntitySpawnReason spawnReason, @Nullable SpawnGroupData spawnData) {
+        RandomSource random = level.getRandom();
 
         AttributeInstance entityAttributeInstance = Objects.requireNonNull(this.getAttribute(Attributes.FOLLOW_RANGE));
         if (!entityAttributeInstance.hasModifier(RANDOM_SPAWN_BONUS_ID)) {
@@ -86,25 +86,25 @@ public class SwampSpiderEntity extends Spider {
             Bogged boggedEntity = EntityType.BOGGED.create(level(), EntitySpawnReason.JOCKEY);
             if (boggedEntity != null) {
                 boggedEntity.snapTo(this.getX(), this.getY(), this.getZ(), this.getYRot(), 0.0F);
-                boggedEntity.finalizeSpawn(world, difficulty, spawnReason, null);
+                boggedEntity.finalizeSpawn(level, difficulty, spawnReason, null);
                 boggedEntity.startRiding(this);
             }
         }
 
-        if (entityData == null) {
-            entityData = new Spider.SpiderEffectsGroupData();
-            if (world.getDifficulty() == Difficulty.HARD && random.nextFloat() < 0.1F * difficulty.getSpecialMultiplier()) {
-                ((Spider.SpiderEffectsGroupData)entityData).setRandomEffect(random);
+        if (spawnData == null) {
+            spawnData = new Spider.SpiderEffectsGroupData();
+            if (level.getDifficulty() == Difficulty.HARD && random.nextFloat() < 0.1F * difficulty.getSpecialMultiplier()) {
+                ((Spider.SpiderEffectsGroupData) spawnData).setRandomEffect(random);
             }
         }
 
-        if (entityData instanceof Spider.SpiderEffectsGroupData spiderData) {
+        if (spawnData instanceof Spider.SpiderEffectsGroupData spiderData) {
             Holder<MobEffect> registryEntry = spiderData.effect;
             if (registryEntry != null) {
                 this.addEffect(new MobEffectInstance(registryEntry, -1));
             }
         }
 
-        return entityData;
+        return spawnData;
     }
 }

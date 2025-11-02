@@ -18,8 +18,8 @@ public class FlyParticle extends SingleQuadParticle {
     protected double lastVelocityY;
     protected double lastVelocityZ;
 
-    protected FlyParticle(ClientLevel clientWorld, double x, double y, double z, double velocityX, double velocityY, double velocityZ, TextureAtlasSprite sprite) {
-        super(clientWorld, x, y, z, velocityX, velocityY, velocityZ, sprite);
+    protected FlyParticle(ClientLevel level, double x, double y, double z, double velocityX, double velocityY, double velocityZ, TextureAtlasSprite sprite) {
+        super(level, x, y, z, velocityX, velocityY, velocityZ, sprite);
         this.speedUpWhenYMotionIsBlocked = true;
         this.friction = 0.96F;
         this.quadSize *= 0.75F;
@@ -121,11 +121,11 @@ public class FlyParticle extends SingleQuadParticle {
 
         @Nullable
         @Override
-        public Particle createParticle(SimpleParticleType parameters, ClientLevel world, double x, double y, double z, double velocityX, double velocityY, double velocityZ, RandomSource random) {
+        public Particle createParticle(SimpleParticleType parameters, ClientLevel level, double x, double y, double z, double velocityX, double velocityY, double velocityZ, RandomSource random) {
             FlyParticle flyParticle = new FlyParticle(
-                    world, x, y, z, 0.5 - world.random.nextDouble(), world.random.nextBoolean() ? velocityY : -velocityY, 0.5 - world.random.nextDouble(), this.spriteProvider.get(random)
+                    level, x, y, z, 0.5 - level.random.nextDouble(), level.random.nextBoolean() ? velocityY : -velocityY, 0.5 - level.random.nextDouble(), this.spriteProvider.get(random)
             );
-            flyParticle.setLifetime(world.random.nextIntBetweenInclusive(200, 300));
+            flyParticle.setLifetime(level.random.nextIntBetweenInclusive(200, 300));
             flyParticle.scale(1.5F);
             flyParticle.setAlpha(0.0F);
             flyParticle.hasPhysics = false;

@@ -16,16 +16,16 @@ public class PottedRotCapBlock extends FlowerPotBlock {
     }
 
     @Override
-    public void animateTick(BlockState state, Level world, BlockPos pos, RandomSource random) {
+    public void animateTick(BlockState state, Level level, BlockPos pos, RandomSource random) {
         if (random.nextInt(30) == 0) {
-            world.playLocalSound(pos, SoggySwampsSounds.BLOCK_ROT_CAP_IDLE, SoundSource.AMBIENT, 1.0F, 1.0F, false);
+            level.playLocalSound(pos, SoggySwampsSounds.BLOCK_ROT_CAP_IDLE, SoundSource.AMBIENT, 1.0F, 1.0F, false);
         }
 
         if (random.nextDouble() <= 0.3) {
             double x = pos.getX() + random.nextDouble() * 3.0 - 1.5;
             double y = pos.getY() + random.nextDouble();
             double z = pos.getZ() + random.nextDouble() * 3.0 - 1.5;
-            world.addParticle(SoggySwampsRegistry.FLY, x, y, z, 0.0, 0.0, 0.0);
+            level.addParticle(SoggySwampsRegistry.FLY, x, y, z, 0.0, 0.0, 0.0);
         }
     }
 }

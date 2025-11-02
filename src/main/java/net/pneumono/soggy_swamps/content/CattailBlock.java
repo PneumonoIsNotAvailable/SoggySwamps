@@ -34,21 +34,21 @@ public class CattailBlock extends DoublePlantBlock implements LiquidBlockContain
     }
 
     @Override
-    protected @NotNull VoxelShape getShape(BlockState state, BlockGetter world, BlockPos pos, CollisionContext context) {
+    protected @NotNull VoxelShape getShape(BlockState state, BlockGetter level, BlockPos pos, CollisionContext context) {
         return SHAPE;
     }
 
     @Override
-    protected boolean canSurvive(BlockState state, LevelReader world, BlockPos pos) {
+    protected boolean canSurvive(BlockState state, LevelReader level, BlockPos pos) {
         if (state.getValue(HALF) == DoubleBlockHalf.UPPER) {
-            BlockState blockState = world.getBlockState(pos.below());
+            BlockState blockState = level.getBlockState(pos.below());
             return blockState.is(this) && blockState.getValue(HALF) == DoubleBlockHalf.LOWER;
         } else {
-            FluidState fluidState = world.getFluidState(pos);
-            return super.canSurvive(state, world, pos) &&
+            FluidState fluidState = level.getFluidState(pos);
+            return super.canSurvive(state, level, pos) &&
                     fluidState.is(FluidTags.WATER) &&
                     fluidState.getAmount() == 8 &&
-                    world.getFluidState(pos.above()).isEmpty();
+                    level.getFluidState(pos.above()).isEmpty();
         }
     }
 
@@ -58,12 +58,12 @@ public class CattailBlock extends DoublePlantBlock implements LiquidBlockContain
     }
 
     @Override
-    public boolean canPlaceLiquid(@Nullable LivingEntity filler, BlockGetter world, BlockPos pos, BlockState state, Fluid fluid) {
+    public boolean canPlaceLiquid(@Nullable LivingEntity filler, BlockGetter level, BlockPos pos, BlockState state, Fluid fluid) {
         return false;
     }
 
     @Override
-    public boolean placeLiquid(LevelAccessor world, BlockPos pos, BlockState state, FluidState fluidState) {
+    public boolean placeLiquid(LevelAccessor level, BlockPos pos, BlockState state, FluidState fluidState) {
         return false;
     }
 }

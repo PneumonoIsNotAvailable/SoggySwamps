@@ -24,7 +24,7 @@ public class SwampRuinFeature extends Feature<SwampRuinFeature.Config> {
     @Override
     public boolean place(FeaturePlaceContext<Config> context) {
         BlockPos origin = context.origin();
-        WorldGenLevel world = context.level();
+        WorldGenLevel level = context.level();
         RandomSource random = context.random();
         Config config = context.config();
 
@@ -39,7 +39,7 @@ public class SwampRuinFeature extends Feature<SwampRuinFeature.Config> {
             for (int i = 0; i < 3; ++i) {
                 BlockPos loweredPos = checkedPos.below(i);
 
-                if (!world.getBlockState(loweredPos.below(i)).canBeReplaced()) {
+                if (!level.getBlockState(loweredPos.below(i)).canBeReplaced()) {
                     if (lowest.getY() > loweredPos.below(i).getY()) {
                         lowest = loweredPos;
                     }
@@ -53,7 +53,7 @@ public class SwampRuinFeature extends Feature<SwampRuinFeature.Config> {
 
             for (int x = 0; x < xWidth; ++x) for (int z = 0; z < zWidth; ++z) {
                 BlockPos pos = lowest.offset(x, y, z);
-                BlockState currentState = world.getBlockState(pos);
+                BlockState currentState = level.getBlockState(pos);
                 BlockState newState = (useTopState ? config.topProvider() : config.baseProvider()).getState(random, pos);
 
                 boolean shouldWaterlog = currentState.getFluidState().is(Fluids.WATER);
@@ -63,7 +63,7 @@ public class SwampRuinFeature extends Feature<SwampRuinFeature.Config> {
                     newState = Blocks.WATER.defaultBlockState();
                 }
 
-                world.setBlock(pos, newState, Block.UPDATE_ALL);
+                level.setBlock(pos, newState, Block.UPDATE_ALL);
             }
         }
 
