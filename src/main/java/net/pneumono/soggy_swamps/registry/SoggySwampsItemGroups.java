@@ -52,7 +52,6 @@ public class SoggySwampsItemGroups {
                             SoggySwampsItems.VIBRANT_SPROUT,
                             SoggySwampsItems.SWAMP_SPIDER_EYE,
                             SoggySwampsItems.SWAMP_STEW,
-                            SoggySwampsItems.TEMPLE_SPAWNER,
                             SoggySwampsItems.SUSPICIOUS_MUD,
                             SoggySwampsItems.DECAY_POTTERY_SHERD,
                             SoggySwampsItems.HAT_POTTERY_SHERD,
@@ -139,9 +138,7 @@ public class SoggySwampsItemGroups {
                     SoggySwampsItems.SPORE_ARMOR_TRIM_SMITHING_TEMPLATE
             );
         });
-        ItemGroupEvents.modifyEntriesEvent(ItemGroups.SPAWN_EGGS).register(entries -> {
-            entries.addAfter(Items.TRIAL_SPAWNER, SoggySwampsItems.TEMPLE_SPAWNER);
-            entries.addBefore(Items.TADPOLE_SPAWN_EGG, SoggySwampsItems.SWAMP_SPIDER_SPAWN_EGG);
-        });
+        ItemGroupEvents.modifyEntriesEvent(ItemGroups.SPAWN_EGGS).register(entries ->
+                entries.addBefore(Items.TADPOLE_SPAWN_EGG, SoggySwampsItems.SWAMP_SPIDER_SPAWN_EGG));
     }
 }

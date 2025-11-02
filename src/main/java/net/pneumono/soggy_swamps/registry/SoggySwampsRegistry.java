@@ -1,6 +1,5 @@
 package net.pneumono.soggy_swamps.registry;
 
-import net.fabricmc.fabric.api.object.builder.v1.block.entity.FabricBlockEntityTypeBuilder;
 import net.fabricmc.fabric.api.object.builder.v1.block.type.BlockSetTypeBuilder;
 import net.fabricmc.fabric.api.object.builder.v1.block.type.WoodTypeBuilder;
 import net.fabricmc.fabric.api.object.builder.v1.trade.TradeOfferHelper;
@@ -8,7 +7,6 @@ import net.fabricmc.fabric.api.particle.v1.FabricParticleTypes;
 import net.minecraft.block.BlockSetType;
 import net.minecraft.block.DecoratedPotPattern;
 import net.minecraft.block.WoodType;
-import net.minecraft.block.entity.BlockEntityType;
 import net.minecraft.entity.effect.StatusEffect;
 import net.minecraft.entity.effect.StatusEffectCategory;
 import net.minecraft.entity.effect.StatusEffectInstance;
@@ -22,7 +20,6 @@ import net.minecraft.registry.entry.RegistryEntry;
 import net.minecraft.village.TradeOffers;
 import net.pneumono.soggy_swamps.SoggySwamps;
 import net.pneumono.soggy_swamps.content.VenomStatusEffect;
-import net.pneumono.soggy_swamps.content.templespawner.TempleSpawnerBlockEntity;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -63,15 +60,6 @@ public class SoggySwampsRegistry {
                     "venom",
                     new StatusEffectInstance(VENOM, 1800)
             )
-    );
-
-    public static BlockEntityType<TempleSpawnerBlockEntity> TEMPLE_SPAWNER = Registry.register(
-            Registries.BLOCK_ENTITY_TYPE,
-            SoggySwamps.id("temple_spawner"),
-            FabricBlockEntityTypeBuilder.create(
-                    TempleSpawnerBlockEntity::new,
-                    SoggySwampsBlocks.TEMPLE_SPAWNER
-            ).build()
     );
 
     public static void registerSoggySwampsContent() {

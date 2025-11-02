@@ -1,8 +1,0 @@
-{
-  "parent": "minecraft:block/cube_bottom_top_inner_faces",
-  "textures": {
-    "bottom": "soggy_swamps:block/temple_spawner_bottom",
-    "side": "soggy_swamps:block/temple_spawner_side",
-    "top": "soggy_swamps:block/temple_spawner_top"
-  }
-}

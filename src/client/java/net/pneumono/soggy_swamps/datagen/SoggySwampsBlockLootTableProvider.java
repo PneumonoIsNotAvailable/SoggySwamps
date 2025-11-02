@@ -50,6 +50,5 @@ public class SoggySwampsBlockLootTableProvider extends FabricBlockLootTableProvi
         addDrop(SoggySwampsBlocks.MOSSY_MUD_BRICK_SLAB, this::slabDrops);
         addDrop(SoggySwampsBlocks.MOSSY_MUD_BRICK_WALL);
         addDrop(SoggySwampsBlocks.CHISELED_MUD_BRICKS);
-        addDrop(SoggySwampsBlocks.TEMPLE_SPAWNER, dropsNothing());
     }
 }
