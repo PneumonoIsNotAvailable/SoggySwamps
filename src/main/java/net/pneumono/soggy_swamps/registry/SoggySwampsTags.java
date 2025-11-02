@@ -11,7 +11,6 @@ public class SoggySwampsTags {
     public static final TagKey<Block> BLOCK_ALLOWS_SWAMP_RUINS = block("allows_swamp_ruins");
 
     public static final TagKey<Item> ITEM_SWAMP_OAK_LOGS = item("swamp_oak_logs");
-    public static final TagKey<Item> ITEM_MUD_BRICKS = item("mud_bricks");
 
     private static TagKey<Item> item(String name) {
         return TagKey.of(RegistryKeys.ITEM, SoggySwamps.id(name));

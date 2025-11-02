@@ -18,10 +18,4 @@ public class SoggySwampsBlockFamilies extends ModdedBlockFamilies {
             .group("wooden")
             .unlockCriterionName("has_planks")
             .build();
-
-    public static final BlockFamily MOSSY_MUD_BRICK = new BlockFamily.Builder(SoggySwampsBlocks.MOSSY_MUD_BRICKS)
-            .stairs(SoggySwampsBlocks.MOSSY_MUD_BRICK_STAIRS)
-            .slab(SoggySwampsBlocks.MOSSY_MUD_BRICK_SLAB)
-            .wall(SoggySwampsBlocks.MOSSY_MUD_BRICK_WALL)
-            .build();
 }

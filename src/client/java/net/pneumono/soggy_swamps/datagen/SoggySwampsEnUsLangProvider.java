@@ -42,11 +42,6 @@ public class SoggySwampsEnUsLangProvider extends FabricLanguageProvider {
         builder.add(SoggySwampsBlocks.SWAMP_OAK_FENCE_GATE, "Swamp Oak Fence Gate");
         builder.add(SoggySwampsBlocks.SWAMP_OAK_PRESSURE_PLATE, "Swamp Oak Pressure Plate");
         builder.add(SoggySwampsBlocks.SWAMP_OAK_BUTTON, "Swamp Oak Button");
-        builder.add(SoggySwampsBlocks.MOSSY_MUD_BRICKS, "Mossy Mud Bricks");
-        builder.add(SoggySwampsBlocks.MOSSY_MUD_BRICK_STAIRS, "Mossy Mud Brick Stairs");
-        builder.add(SoggySwampsBlocks.MOSSY_MUD_BRICK_SLAB, "Mossy Mud Brick Slab");
-        builder.add(SoggySwampsBlocks.MOSSY_MUD_BRICK_WALL, "Mossy Mud Brick Wall");
-        builder.add(SoggySwampsBlocks.CHISELED_MUD_BRICKS, "Chiseled Mud Bricks");
 
         builder.add(SoggySwampsItems.SWAMP_SPIDER_SPAWN_EGG, "Swamp Spider Spawn Egg");
         builder.add(SoggySwampsItems.SWAMP_SPIDER_EYE, "Swamp Spider Eye");
@@ -84,7 +79,6 @@ public class SoggySwampsEnUsLangProvider extends FabricLanguageProvider {
         builder.add(SoggySwampsTags.BLOCK_SWAMP_OAK_LOGS, "Swamp Oak Logs");
         builder.add(SoggySwampsTags.BLOCK_ALLOWS_SWAMP_RUINS, "Allows Swamp Ruins");
         builder.add(SoggySwampsTags.ITEM_SWAMP_OAK_LOGS, "Swamp Oak Logs");
-        builder.add(SoggySwampsTags.ITEM_MUD_BRICKS, "Mud Bricks");
 
         builder.addItemGroup(SoggySwampsItemGroups.ITEM_GROUP, "Soggy Swamps Items");
         builder.addConfigScreenTitle("Soggy Swamps Configs");

@@ -45,10 +45,5 @@ public class SoggySwampsBlockLootTableProvider extends FabricBlockLootTableProvi
         addDrop(SoggySwampsBlocks.SWAMP_OAK_FENCE_GATE);
         addDrop(SoggySwampsBlocks.SWAMP_OAK_PRESSURE_PLATE);
         addDrop(SoggySwampsBlocks.SWAMP_OAK_BUTTON);
-        addDrop(SoggySwampsBlocks.MOSSY_MUD_BRICKS);
-        addDrop(SoggySwampsBlocks.MOSSY_MUD_BRICK_STAIRS);
-        addDrop(SoggySwampsBlocks.MOSSY_MUD_BRICK_SLAB, this::slabDrops);
-        addDrop(SoggySwampsBlocks.MOSSY_MUD_BRICK_WALL);
-        addDrop(SoggySwampsBlocks.CHISELED_MUD_BRICKS);
     }
 }

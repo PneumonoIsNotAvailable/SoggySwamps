@@ -1,8 +1,0 @@
-{
-  "parent": "minecraft:block/slab_top",
-  "textures": {
-    "bottom": "soggy_swamps:block/mossy_mud_bricks",
-    "side": "soggy_swamps:block/mossy_mud_bricks",
-    "top": "soggy_swamps:block/mossy_mud_bricks"
-  }
-}

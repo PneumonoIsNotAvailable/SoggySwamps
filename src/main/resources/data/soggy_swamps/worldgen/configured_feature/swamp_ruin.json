@@ -15,15 +15,9 @@
       "type": "minecraft:weighted_state_provider",
       "entries": [
         {
-          "weight": 5,
+          "weight": 10,
           "data": {
             "Name": "minecraft:mud_bricks"
-          }
-        },
-        {
-          "weight": 5,
-          "data": {
-            "Name": "soggy_swamps:mossy_mud_bricks"
           }
         },
         {
@@ -38,27 +32,15 @@
       "type": "minecraft:weighted_state_provider",
       "entries": [
         {
-          "weight": 2,
+          "weight": 4,
           "data": {
             "Name": "minecraft:mud_bricks"
           }
         },
         {
-          "weight": 2,
-          "data": {
-            "Name": "soggy_swamps:mossy_mud_bricks"
-          }
-        },
-        {
-          "weight": 3,
+          "weight": 6,
           "data": {
             "Name": "minecraft:mud_brick_slab"
-          }
-        },
-        {
-          "weight": 3,
-          "data": {
-            "Name": "soggy_swamps:mossy_mud_brick_slab"
           }
         },
         {

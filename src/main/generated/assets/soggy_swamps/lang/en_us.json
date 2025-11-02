@@ -1,11 +1,6 @@
 {
   "block.soggy_swamps.bogsprout": "Bogsprout",
   "block.soggy_swamps.cattail": "Cattail",
-  "block.soggy_swamps.chiseled_mud_bricks": "Chiseled Mud Bricks",
-  "block.soggy_swamps.mossy_mud_brick_slab": "Mossy Mud Brick Slab",
-  "block.soggy_swamps.mossy_mud_brick_stairs": "Mossy Mud Brick Stairs",
-  "block.soggy_swamps.mossy_mud_brick_wall": "Mossy Mud Brick Wall",
-  "block.soggy_swamps.mossy_mud_bricks": "Mossy Mud Bricks",
   "block.soggy_swamps.potted_bogsprout": "Potted Bogsprout",
   "block.soggy_swamps.potted_rot_cap": "Potted Rot Cap",
   "block.soggy_swamps.potted_swamp_oak_sapling": "Potted Swamp Oak Sapling",
@@ -62,7 +57,6 @@
   "subtitles.soggy_swamps.item.brush.brushing.mud": "Brushing Mud",
   "tag.block.soggy_swamps.allows_swamp_ruins": "Allows Swamp Ruins",
   "tag.block.soggy_swamps.swamp_oak_logs": "Swamp Oak Logs",
-  "tag.item.soggy_swamps.mud_bricks": "Mud Bricks",
   "tag.item.soggy_swamps.swamp_oak_logs": "Swamp Oak Logs",
   "trim_pattern.soggy_swamps.bubble": "Bubble Armor Trim",
   "trim_pattern.soggy_swamps.spore": "Spore Armor Trim"

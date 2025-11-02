@@ -2,7 +2,6 @@ package net.pneumono.soggy_swamps.datagen;
 
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricRecipeProvider;
-import net.minecraft.block.Blocks;
 import net.minecraft.data.recipe.CookingRecipeJsonBuilder;
 import net.minecraft.data.recipe.RecipeExporter;
 import net.minecraft.data.recipe.RecipeGenerator;
@@ -67,27 +66,6 @@ public class SoggySwampsRecipeGenerator extends RecipeGenerator {
         offerHangingSignRecipe(SoggySwampsItems.SWAMP_OAK_HANGING_SIGN, SoggySwampsBlocks.STRIPPED_SWAMP_OAK_LOG);
         offerBoatRecipe(SoggySwampsItems.SWAMP_OAK_BOAT, SoggySwampsBlocks.SWAMP_OAK_PLANKS);
         offerChestBoatRecipe(SoggySwampsItems.SWAMP_OAK_CHEST_BOAT, SoggySwampsItems.SWAMP_OAK_BOAT);
-
-        generateFamily(SoggySwampsBlockFamilies.MOSSY_MUD_BRICK, FeatureSet.of(FeatureFlags.VANILLA));
-        createShapeless(RecipeCategory.BUILDING_BLOCKS, SoggySwampsBlocks.MOSSY_MUD_BRICKS)
-                .input(SoggySwampsBlocks.MOSSY_MUD_BRICKS)
-                .input(Blocks.VINE)
-                .group("mossy_mud_bricks")
-                .criterion("has_vine", this.conditionsFromItem(Blocks.VINE))
-                .offerTo(this.exporter, convertBetween(SoggySwampsBlocks.MOSSY_MUD_BRICKS, Blocks.VINE));
-        createShapeless(RecipeCategory.BUILDING_BLOCKS, SoggySwampsBlocks.MOSSY_MUD_BRICKS)
-                .input(SoggySwampsBlocks.MOSSY_MUD_BRICKS)
-                .input(Blocks.MOSS_BLOCK)
-                .group("mossy_mud_bricks")
-                .criterion("has_moss_block", this.conditionsFromItem(Blocks.MOSS_BLOCK))
-                .offerTo(this.exporter, convertBetween(SoggySwampsBlocks.MOSSY_MUD_BRICKS, Blocks.MOSS_BLOCK));
-        createChiseledBlockRecipe(RecipeCategory.BUILDING_BLOCKS, SoggySwampsBlocks.CHISELED_MUD_BRICKS, Ingredient.ofItem(Blocks.MUD_BRICK_SLAB))
-                .criterion("has_tag", this.conditionsFromTag(SoggySwampsTags.ITEM_MUD_BRICKS))
-                .offerTo(this.exporter);
-        offerStonecuttingRecipe(RecipeCategory.BUILDING_BLOCKS, SoggySwampsBlocks.MOSSY_MUD_BRICK_SLAB, SoggySwampsBlocks.MOSSY_MUD_BRICKS, 2);
-        offerStonecuttingRecipe(RecipeCategory.BUILDING_BLOCKS, SoggySwampsBlocks.MOSSY_MUD_BRICK_STAIRS, SoggySwampsBlocks.MOSSY_MUD_BRICKS);
-        offerStonecuttingRecipe(RecipeCategory.DECORATIONS, SoggySwampsBlocks.MOSSY_MUD_BRICK_WALL, SoggySwampsBlocks.MOSSY_MUD_BRICKS);
-        offerStonecuttingRecipe(RecipeCategory.BUILDING_BLOCKS, SoggySwampsBlocks.CHISELED_MUD_BRICKS, Items.MUD_BRICKS);
 
         offerSmithingTemplateCopyingRecipe(SoggySwampsItems.SPORE_ARMOR_TRIM_SMITHING_TEMPLATE, Items.MUD_BRICKS);
         offerSmithingTrimRecipe(

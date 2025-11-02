@@ -46,9 +46,6 @@ public class SoggySwampsModelProvider extends FabricModelProvider {
                 SoggySwampsBlocks.SWAMP_OAK_HANGING_SIGN,
                 SoggySwampsBlocks.SWAMP_OAK_WALL_HANGING_SIGN
         );
-
-        generator.registerCubeAllModelTexturePool(SoggySwampsBlocks.MOSSY_MUD_BRICKS).family(SoggySwampsBlockFamilies.MOSSY_MUD_BRICK);
-        generator.registerSimpleCubeAll(SoggySwampsBlocks.CHISELED_MUD_BRICKS);
     }
 
     public void registerSimpleStateWithYRotation(BlockStateModelGenerator generator, Block block) {

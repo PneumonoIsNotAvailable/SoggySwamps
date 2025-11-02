@@ -41,11 +41,6 @@ public class SoggySwampsItemGroups {
                             SoggySwampsItems.SWAMP_OAK_BUTTON,
                             SoggySwampsItems.SWAMP_OAK_BOAT,
                             SoggySwampsItems.SWAMP_OAK_CHEST_BOAT,
-                            SoggySwampsItems.CHISELED_MUD_BRICKS,
-                            SoggySwampsItems.MOSSY_MUD_BRICKS,
-                            SoggySwampsItems.MOSSY_MUD_BRICK_STAIRS,
-                            SoggySwampsItems.MOSSY_MUD_BRICK_SLAB,
-                            SoggySwampsItems.MOSSY_MUD_BRICK_WALL,
                             SoggySwampsItems.CATTAIL,
                             SoggySwampsItems.ROT_CAP,
                             SoggySwampsItems.ROASTED_ROT_CAP,
@@ -76,7 +71,7 @@ public class SoggySwampsItemGroups {
                 .build()
         );
 
-        ItemGroupEvents.modifyEntriesEvent(ItemGroups.BUILDING_BLOCKS).register(entries -> {
+        ItemGroupEvents.modifyEntriesEvent(ItemGroups.BUILDING_BLOCKS).register(entries ->
                 entries.addBefore(Items.BAMBOO_BLOCK,
                         SoggySwampsItems.SWAMP_OAK_LOG,
                         SoggySwampsItems.SWAMP_OAK_WOOD,
@@ -91,15 +86,8 @@ public class SoggySwampsItemGroups {
                         SoggySwampsItems.SWAMP_OAK_TRAPDOOR,
                         SoggySwampsItems.SWAMP_OAK_PRESSURE_PLATE,
                         SoggySwampsItems.SWAMP_OAK_BUTTON
-                );
-                entries.addAfter(Items.MUD_BRICK_WALL, SoggySwampsItems.CHISELED_MUD_BRICKS);
-                entries.addBefore(Items.RESIN_BRICKS,
-                        SoggySwampsItems.MOSSY_MUD_BRICKS,
-                        SoggySwampsItems.MOSSY_MUD_BRICK_STAIRS,
-                        SoggySwampsItems.MOSSY_MUD_BRICK_SLAB,
-                        SoggySwampsItems.MOSSY_MUD_BRICK_WALL
-                );
-        });
+                )
+        );
         ItemGroupEvents.modifyEntriesEvent(ItemGroups.NATURAL).register(entries -> {
             entries.addBefore(Items.MUSHROOM_STEM, SoggySwampsItems.SWAMP_OAK_LOG);
             entries.addBefore(Items.AZALEA_LEAVES, SoggySwampsItems.SWAMP_OAK_LEAVES);
