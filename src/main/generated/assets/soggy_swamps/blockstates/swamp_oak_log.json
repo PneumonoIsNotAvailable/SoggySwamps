@@ -1,7 +1,7 @@
 {
   "variants": {
     "axis=x": {
-      "model": "soggy_swamps:block/swamp_oak_log_horizontal",
+      "model": "soggy_swamps:block/swamp_oak_log",
       "x": 90,
       "y": 90
     },
@@ -9,7 +9,7 @@
       "model": "soggy_swamps:block/swamp_oak_log"
     },
     "axis=z": {
-      "model": "soggy_swamps:block/swamp_oak_log_horizontal",
+      "model": "soggy_swamps:block/swamp_oak_log",
       "x": 90
     }
   }
