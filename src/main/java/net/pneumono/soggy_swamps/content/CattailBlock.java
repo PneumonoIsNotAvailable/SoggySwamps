@@ -2,11 +2,14 @@ package net.pneumono.soggy_swamps.content;
 
 import com.mojang.serialization.MapCodec;
 import net.minecraft.core.BlockPos;
+import net.minecraft.core.Direction;
 import net.minecraft.tags.FluidTags;
+import net.minecraft.util.RandomSource;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.level.LevelReader;
+import net.minecraft.world.level.ScheduledTickAccess;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.DoublePlantBlock;
 import net.minecraft.world.level.block.LiquidBlockContainer;
@@ -50,6 +53,25 @@ public class CattailBlock extends DoublePlantBlock implements LiquidBlockContain
                     fluidState.getAmount() == 8 &&
                     level.getFluidState(pos.above()).isEmpty();
         }
+    }
+
+    @Override
+    protected @NotNull BlockState updateShape(
+            BlockState blockState,
+            LevelReader levelReader,
+            ScheduledTickAccess scheduledTickAccess,
+            BlockPos blockPos,
+            Direction direction,
+            BlockPos blockPos2,
+            BlockState blockState2,
+            RandomSource randomSource
+    ) {
+        BlockState blockState3 = super.updateShape(blockState, levelReader, scheduledTickAccess, blockPos, direction, blockPos2, blockState2, randomSource);
+        if (!blockState3.isAir()) {
+            scheduledTickAccess.scheduleTick(blockPos, Fluids.WATER, Fluids.WATER.getTickDelay(levelReader));
+        }
+
+        return blockState3;
     }
 
     @Override
