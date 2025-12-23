@@ -69,12 +69,18 @@ public class SoggySwampsRegistry {
         SoggySwampsItemGroups.registerSoggySwampsItemGroups();
         SoggySwampsSounds.registerSoggySwampsSounds();
 
-        TradeOfferHelper.registerWanderingTraderOffers(builder -> builder.addOffersToPool(
-                TradeOfferHelper.WanderingTraderOffersBuilder.SELL_COMMON_ITEMS_POOL,
-                new VillagerTrades.ItemsForEmeralds(SoggySwampsItems.SWAMP_OAK_SAPLING, 5, 1, 8, 1),
-                new VillagerTrades.ItemsForEmeralds(SoggySwampsItems.ROT_CAP, 2, 1, 8, 1),
-                new VillagerTrades.ItemsForEmeralds(SoggySwampsItems.VIBRANT_SPROUT, 1, 1, 8, 1),
-                new VillagerTrades.ItemsForEmeralds(SoggySwampsItems.CATTAIL, 1, 1, 8, 1)
-        ));
+        TradeOfferHelper.registerWanderingTraderOffers(builder -> {
+            builder.addOffersToPool(
+                    TradeOfferHelper.WanderingTraderOffersBuilder.SELL_SPECIAL_ITEMS_POOL,
+                    new VillagerTrades.ItemsForEmeralds(SoggySwampsItems.SWAMP_OAK_LOG, 1, 8, 4, 1)
+            );
+            builder.addOffersToPool(
+                    TradeOfferHelper.WanderingTraderOffersBuilder.SELL_COMMON_ITEMS_POOL,
+                    new VillagerTrades.ItemsForEmeralds(SoggySwampsItems.SWAMP_OAK_SAPLING, 5, 1, 8, 1),
+                    new VillagerTrades.ItemsForEmeralds(SoggySwampsItems.ROT_CAP, 2, 1, 8, 1),
+                    new VillagerTrades.ItemsForEmeralds(SoggySwampsItems.VIBRANT_SPROUT, 1, 1, 8, 1),
+                    new VillagerTrades.ItemsForEmeralds(SoggySwampsItems.CATTAIL, 1, 1, 8, 1)
+            );
+        });
     }
 }
