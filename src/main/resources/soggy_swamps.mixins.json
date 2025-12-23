@@ -5,6 +5,7 @@
     "mixins": [
         "DecoratedPotPatternsMixin",
         "FoodDataMixin",
+        "StructureSetAccessor",
         "SwampHutPieceMixin"
     ],
     "injectors": {

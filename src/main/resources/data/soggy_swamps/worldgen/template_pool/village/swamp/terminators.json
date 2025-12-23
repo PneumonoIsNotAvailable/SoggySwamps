@@ -1,0 +1,32 @@
+{
+  "elements": [
+    {
+      "element": {
+        "element_type": "minecraft:legacy_single_pool_element",
+        "location": "soggy_swamps:village/plains/terminators/terminator_1",
+        "processors": "soggy_swamps:street_swamp",
+        "projection": "terrain_matching"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "minecraft:legacy_single_pool_element",
+        "location": "soggy_swamps:village/plains/terminators/terminator_2",
+        "processors": "soggy_swamps:street_swamp",
+        "projection": "terrain_matching"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "minecraft:legacy_single_pool_element",
+        "location": "soggy_swamps:village/plains/terminators/terminator_3",
+        "processors": "soggy_swamps:street_swamp",
+        "projection": "terrain_matching"
+      },
+      "weight": 1
+    }
+  ],
+  "fallback": "minecraft:empty"
+}

@@ -1,0 +1,68 @@
+{
+  "elements": [
+    {
+      "element": {
+        "element_type": "minecraft:legacy_single_pool_element",
+        "location": "soggy_swamps:village/swamp/streets/straight_1",
+        "processors": "soggy_swamps:street_swamp",
+        "projection": "terrain_matching"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "minecraft:legacy_single_pool_element",
+        "location": "soggy_swamps:village/swamp/streets/straight_2",
+        "processors": "soggy_swamps:street_swamp",
+        "projection": "terrain_matching"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "minecraft:legacy_single_pool_element",
+        "location": "soggy_swamps:village/swamp/streets/straight_3",
+        "processors": "soggy_swamps:street_swamp",
+        "projection": "terrain_matching"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "minecraft:legacy_single_pool_element",
+        "location": "soggy_swamps:village/swamp/streets/straight_4",
+        "processors": "soggy_swamps:street_swamp",
+        "projection": "terrain_matching"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "minecraft:legacy_single_pool_element",
+        "location": "soggy_swamps:village/swamp/streets/corner_1",
+        "processors": "soggy_swamps:street_swamp",
+        "projection": "terrain_matching"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "minecraft:legacy_single_pool_element",
+        "location": "soggy_swamps:village/swamp/streets/crossroads_1",
+        "processors": "soggy_swamps:street_swamp",
+        "projection": "terrain_matching"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "minecraft:legacy_single_pool_element",
+        "location": "soggy_swamps:village/swamp/streets/turn",
+        "processors": "soggy_swamps:street_swamp",
+        "projection": "terrain_matching"
+      },
+      "weight": 1
+    }
+  ],
+  "fallback": "soggy_swamps:village/swamp/terminators"
+}

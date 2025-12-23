@@ -4,11 +4,13 @@ import net.fabricmc.fabric.api.biome.v1.BiomeModifications;
 import net.fabricmc.fabric.api.biome.v1.BiomeSelectionContext;
 import net.fabricmc.fabric.api.biome.v1.BiomeSelectors;
 import net.fabricmc.fabric.api.biome.v1.ModificationPhase;
+import net.fabricmc.fabric.api.event.lifecycle.v1.ServerLifecycleEvents;
 import net.minecraft.core.Registry;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.data.worldgen.placement.VegetationPlacements;
 import net.minecraft.resources.ResourceKey;
+import net.minecraft.server.MinecraftServer;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.MobCategory;
 import net.minecraft.world.level.biome.Biomes;
@@ -16,18 +18,26 @@ import net.minecraft.world.level.biome.MobSpawnSettings;
 import net.minecraft.world.level.levelgen.GenerationStep;
 import net.minecraft.world.level.levelgen.feature.ConfiguredFeature;
 import net.minecraft.world.level.levelgen.placement.PlacedFeature;
+import net.minecraft.world.level.levelgen.structure.BuiltinStructureSets;
+import net.minecraft.world.level.levelgen.structure.Structure;
+import net.minecraft.world.level.levelgen.structure.StructureSet;
 import net.pneumono.soggy_swamps.SoggySwamps;
+import net.pneumono.soggy_swamps.mixin.StructureSetAccessor;
 import net.pneumono.soggy_swamps.registry.SoggySwampsEntities;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.function.Predicate;
 
 public class SoggySwampsWorldgen {
+    public static final ResourceKey<Structure> VILLAGE_SWAMP = ResourceKey.create(Registries.STRUCTURE, SoggySwamps.id("village_swamp"));
     public static final ResourceKey<ConfiguredFeature<?, ?>> SWAMP_OAK = ResourceKey.create(Registries.CONFIGURED_FEATURE, SoggySwamps.id("swamp_oak"));
 
     public static void registerSoggySwampsWorldgen() {
         registerWorldgen();
         modifySwamp();
+
+        ServerLifecycleEvents.SERVER_STARTING.register(SoggySwampsWorldgen::modifyVillage);
     }
 
     private static void registerWorldgen() {
@@ -36,6 +46,16 @@ public class SoggySwampsWorldgen {
                 SoggySwamps.id("swamp_ruin"),
                 new SwampRuinFeature(SwampRuinFeature.Config.CODEC)
         );
+    }
+
+    private static void modifyVillage(MinecraftServer server) {
+        Registry<StructureSet> structureSets = server.registryAccess().lookupOrThrow(Registries.STRUCTURE_SET);
+        StructureSet villagesSet = structureSets.getOrThrow(BuiltinStructureSets.VILLAGES).value();
+
+        List<StructureSet.StructureSelectionEntry> villageStructures = new ArrayList<>(villagesSet.structures());
+        villageStructures.add(new StructureSet.StructureSelectionEntry(server.registryAccess().getOrThrow(VILLAGE_SWAMP), 1));
+
+        ((StructureSetAccessor)(Object)villagesSet).setStructures(villageStructures);
     }
 
     private static void modifySwamp() {
