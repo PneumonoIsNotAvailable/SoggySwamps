@@ -28,13 +28,13 @@ public class SoggySwampsRecipeGenerator extends RecipeProvider {
 
     @Override
     public void buildRecipes() {
-        oneToOneConversionRecipe(Items.GREEN_DYE,  SoggySwampsItems.VIBRANT_SPROUT, "green_dye");
+        oneToOneConversionRecipe(Items.GREEN_DYE,  SoggySwampsItems.BOGSPROUT, "green_dye");
         oneToOneConversionRecipe(Items.PURPLE_DYE, SoggySwampsItems.ROT_CAP, "purple_dye", 2);
         oneToOneConversionRecipe(Items.BROWN_DYE, SoggySwampsItems.CATTAIL, "brown_dye", 2);
 
         this.shapeless(RecipeCategory.FOOD, SoggySwampsItems.SWAMP_STEW)
                 .requires(Items.BOWL)
-                .requires(SoggySwampsItems.VIBRANT_SPROUT)
+                .requires(SoggySwampsItems.BOGSPROUT)
                 .requires(Items.SPIDER_EYE)
                 .requires(SoggySwampsItems.ROT_CAP)
                 .requires(Items.BROWN_MUSHROOM)
@@ -43,7 +43,7 @@ public class SoggySwampsRecipeGenerator extends RecipeProvider {
                 .save(this.output, getConversionRecipeName(SoggySwampsItems.SWAMP_STEW, Items.BROWN_MUSHROOM));
         this.shapeless(RecipeCategory.FOOD, SoggySwampsItems.SWAMP_STEW)
                 .requires(Items.BOWL)
-                .requires(SoggySwampsItems.VIBRANT_SPROUT)
+                .requires(SoggySwampsItems.BOGSPROUT)
                 .requires(Items.SPIDER_EYE)
                 .requires(SoggySwampsItems.ROT_CAP)
                 .requires(Items.RED_MUSHROOM)

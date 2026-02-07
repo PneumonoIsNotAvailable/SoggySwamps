@@ -17,13 +17,6 @@ public class SoggySwampsSounds {
 
     public static final SoundEvent ITEM_BRUSH_BRUSHING_MUD =  register("item.brush.brushing.mud");
 
-    public static final SoundEvent ENTITY_ALCHEMIST_AMBIENT = register("entity.alchemist.ambient");
-    public static final SoundEvent ENTITY_ALCHEMIST_CELEBRATE = register("entity.alchemist.celebrate");
-    public static final SoundEvent ENTITY_ALCHEMIST_DEATH = register("entity.alchemist.death");
-    public static final SoundEvent ENTITY_ALCHEMIST_DRINK = register("entity.alchemist.drink");
-    public static final SoundEvent ENTITY_ALCHEMIST_HURT = register("entity.alchemist.hurt");
-    public static final SoundEvent ENTITY_ALCHEMIST_THROW = register("entity.alchemist.throw");
-
     public static final SoundType GROUP_SUSPICIOUS_MUD = new SoundType(
             1.0F,
             1.0F,

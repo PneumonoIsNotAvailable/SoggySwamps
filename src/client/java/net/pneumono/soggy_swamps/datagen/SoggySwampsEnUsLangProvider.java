@@ -54,22 +54,12 @@ public class SoggySwampsEnUsLangProvider extends FabricLanguageProvider {
         builder.add(SoggySwampsItems.SPORE_ARMOR_TRIM_SMITHING_TEMPLATE, "Spore Armor Trim");
         builder.add("trim_pattern.soggy_swamps.spore", "Spore Armor Trim");
         builder.add("trim_pattern.soggy_swamps.bubble", "Bubble Armor Trim");
-        builder.add("item.minecraft.potion.effect.venom", "Potion of Venom");
-        builder.add("item.minecraft.splash_potion.effect.venom", "Splash Potion of Venom");
-        builder.add("item.minecraft.lingering_potion.effect.venom", "Lingering Potion of Venom");
-        builder.add("item.minecraft.tipped_arrow.effect.venom", "Arrow of Venom");
 
         builder.add(SoggySwampsEntities.SWAMP_OAK_BOAT, "Swamp Oak Boat");
         builder.add(SoggySwampsEntities.SWAMP_OAK_CHEST_BOAT, "Swamp Oak Chest Boat");
 
         builder.add(SoggySwampsSounds.BLOCK_ROT_CAP_IDLE, "Flies buzz");
         builder.add(SoggySwampsSounds.ITEM_BRUSH_BRUSHING_MUD, "Brushing Mud");
-        builder.add(SoggySwampsSounds.ENTITY_ALCHEMIST_AMBIENT, "Alchemist giggles");
-        builder.add(SoggySwampsSounds.ENTITY_ALCHEMIST_CELEBRATE, "Alchemist cheers");
-        builder.add(SoggySwampsSounds.ENTITY_ALCHEMIST_DEATH, "Alchemist dies");
-        builder.add(SoggySwampsSounds.ENTITY_ALCHEMIST_DRINK, "Alchemist drinks");
-        builder.add(SoggySwampsSounds.ENTITY_ALCHEMIST_HURT, "Alchemist hurts");
-        builder.add(SoggySwampsSounds.ENTITY_ALCHEMIST_THROW, "Alchemist throws");
 
         builder.add(SoggySwampsTags.BLOCK_SWAMP_OAK_LOGS, "Swamp Oak Logs");
         builder.add(SoggySwampsTags.BLOCK_ALLOWS_SWAMP_RUINS, "Allows Swamp Ruins");

@@ -63,7 +63,7 @@ public class SoggySwampsItems {
 
     public static final BlockItem CATTAIL = registerBlockItem(SoggySwampsBlocks.CATTAIL);
     public static final BlockItem ROT_CAP = registerBlockItem(SoggySwampsBlocks.ROT_CAP);
-    public static final BlockItem VIBRANT_SPROUT = registerBlockItem(SoggySwampsBlocks.BOGSPROUT);
+    public static final BlockItem BOGSPROUT = registerBlockItem(SoggySwampsBlocks.BOGSPROUT);
     public static final BlockItem SWAMP_OAK_SAPLING = registerBlockItem(SoggySwampsBlocks.SWAMP_OAK_SAPLING);
     public static final BlockItem SWAMP_OAK_LEAVES = registerBlockItem(SoggySwampsBlocks.SWAMP_OAK_LEAVES);
     public static final BlockItem SWAMP_OAK_LOG = registerBlockItem(SoggySwampsBlocks.SWAMP_OAK_LOG);
@@ -133,7 +133,7 @@ public class SoggySwampsItems {
         CompostingChanceRegistry composting = CompostingChanceRegistry.INSTANCE;
         composting.add(ROT_CAP, 0.65F);
         composting.add(ROASTED_ROT_CAP, 0.5F);
-        composting.add(VIBRANT_SPROUT, 0.85F);
+        composting.add(BOGSPROUT, 0.85F);
         composting.add(CATTAIL, 0.65F);
         composting.add(SWAMP_OAK_SAPLING, 0.3F);
         composting.add(SWAMP_OAK_LEAVES, 0.3F);

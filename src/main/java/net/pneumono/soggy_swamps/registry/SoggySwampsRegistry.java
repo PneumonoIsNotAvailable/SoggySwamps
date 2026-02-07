@@ -50,7 +50,7 @@ public class SoggySwampsRegistry {
                     TradeOfferHelper.WanderingTraderOffersBuilder.SELL_COMMON_ITEMS_POOL,
                     new VillagerTrades.ItemsForEmeralds(SoggySwampsItems.SWAMP_OAK_SAPLING, 5, 1, 8, 1),
                     new VillagerTrades.ItemsForEmeralds(SoggySwampsItems.ROT_CAP, 2, 1, 8, 1),
-                    new VillagerTrades.ItemsForEmeralds(SoggySwampsItems.VIBRANT_SPROUT, 1, 1, 8, 1),
+                    new VillagerTrades.ItemsForEmeralds(SoggySwampsItems.BOGSPROUT, 1, 1, 8, 1),
                     new VillagerTrades.ItemsForEmeralds(SoggySwampsItems.CATTAIL, 1, 1, 8, 1)
             );
         });

@@ -46,7 +46,7 @@ public class SoggySwampsItemGroups {
                             SoggySwampsItems.CATTAIL,
                             SoggySwampsItems.ROT_CAP,
                             SoggySwampsItems.ROASTED_ROT_CAP,
-                            SoggySwampsItems.VIBRANT_SPROUT,
+                            SoggySwampsItems.BOGSPROUT,
                             SoggySwampsItems.SWAMP_STEW,
                             SoggySwampsItems.SUSPICIOUS_MUD,
                             SoggySwampsItems.DECAY_POTTERY_SHERD,
@@ -82,7 +82,7 @@ public class SoggySwampsItemGroups {
             entries.addBefore(Items.AZALEA, SoggySwampsItems.SWAMP_OAK_SAPLING);
             entries.addAfter(Items.FIREFLY_BUSH,
                     SoggySwampsItems.ROT_CAP,
-                    SoggySwampsItems.VIBRANT_SPROUT,
+                    SoggySwampsItems.BOGSPROUT,
                     SoggySwampsItems.CATTAIL
             );
         });
