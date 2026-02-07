@@ -3,7 +3,7 @@
 	"id": "soggy_swamps",
 	"version": "${version}",
 	"name": "Soggy Swamps",
-	"description": "Adds swamp-related items, blocks, and structures",
+	"description": "Adds swamp-based items and blocks",
 	"authors": [
 		"Pneumono_"
 	],
