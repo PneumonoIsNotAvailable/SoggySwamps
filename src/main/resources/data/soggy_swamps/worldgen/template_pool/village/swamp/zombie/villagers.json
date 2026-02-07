@@ -3,7 +3,7 @@
     {
       "element": {
         "element_type": "minecraft:legacy_single_pool_element",
-        "location": "minecraft:village/plains/zombie/villagers/nitwit",
+        "location": "soggy_swamps:village/swamp/zombie/villagers/nitwit",
         "processors": {
           "processors": []
         },
@@ -14,7 +14,7 @@
     {
       "element": {
         "element_type": "minecraft:legacy_single_pool_element",
-        "location": "minecraft:village/plains/zombie/villagers/unemployed",
+        "location": "soggy_swamps:village/swamp/zombie/villagers/unemployed",
         "processors": {
           "processors": []
         },

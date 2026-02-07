@@ -3,53 +3,8 @@
     {
       "element": {
         "element_type": "minecraft:legacy_single_pool_element",
-        "location": "minecraft:village/plains/zombie/houses/plains_small_house_1",
-        "processors": "minecraft:zombie_plains",
-        "projection": "rigid"
-      },
-      "weight": 2
-    },
-    {
-      "element": {
-        "element_type": "minecraft:legacy_single_pool_element",
-        "location": "minecraft:village/plains/zombie/houses/plains_small_house_2",
-        "processors": "minecraft:zombie_plains",
-        "projection": "rigid"
-      },
-      "weight": 2
-    },
-    {
-      "element": {
-        "element_type": "minecraft:legacy_single_pool_element",
-        "location": "minecraft:village/plains/zombie/houses/plains_small_house_3",
-        "processors": "minecraft:zombie_plains",
-        "projection": "rigid"
-      },
-      "weight": 2
-    },
-    {
-      "element": {
-        "element_type": "minecraft:legacy_single_pool_element",
-        "location": "minecraft:village/plains/zombie/houses/plains_small_house_4",
-        "processors": "minecraft:zombie_plains",
-        "projection": "rigid"
-      },
-      "weight": 2
-    },
-    {
-      "element": {
-        "element_type": "minecraft:legacy_single_pool_element",
-        "location": "minecraft:village/plains/zombie/houses/plains_small_house_5",
-        "processors": "minecraft:zombie_plains",
-        "projection": "rigid"
-      },
-      "weight": 2
-    },
-    {
-      "element": {
-        "element_type": "minecraft:legacy_single_pool_element",
-        "location": "minecraft:village/plains/zombie/houses/plains_small_house_6",
-        "processors": "minecraft:zombie_plains",
+        "location": "soggy_swamps:village/swamp/houses/swamp_accessory_1",
+        "processors": "soggy_swamps:zombie_swamp",
         "projection": "rigid"
       },
       "weight": 1
@@ -57,125 +12,8 @@
     {
       "element": {
         "element_type": "minecraft:legacy_single_pool_element",
-        "location": "minecraft:village/plains/zombie/houses/plains_small_house_7",
-        "processors": "minecraft:zombie_plains",
-        "projection": "rigid"
-      },
-      "weight": 2
-    },
-    {
-      "element": {
-        "element_type": "minecraft:legacy_single_pool_element",
-        "location": "minecraft:village/plains/zombie/houses/plains_small_house_8",
-        "processors": "minecraft:zombie_plains",
-        "projection": "rigid"
-      },
-      "weight": 2
-    },
-    {
-      "element": {
-        "element_type": "minecraft:legacy_single_pool_element",
-        "location": "minecraft:village/plains/zombie/houses/plains_medium_house_1",
-        "processors": "minecraft:zombie_plains",
-        "projection": "rigid"
-      },
-      "weight": 2
-    },
-    {
-      "element": {
-        "element_type": "minecraft:legacy_single_pool_element",
-        "location": "minecraft:village/plains/zombie/houses/plains_medium_house_2",
-        "processors": "minecraft:zombie_plains",
-        "projection": "rigid"
-      },
-      "weight": 2
-    },
-    {
-      "element": {
-        "element_type": "minecraft:legacy_single_pool_element",
-        "location": "minecraft:village/plains/zombie/houses/plains_big_house_1",
-        "processors": "minecraft:zombie_plains",
-        "projection": "rigid"
-      },
-      "weight": 2
-    },
-    {
-      "element": {
-        "element_type": "minecraft:legacy_single_pool_element",
-        "location": "minecraft:village/plains/houses/plains_butcher_shop_1",
-        "processors": "minecraft:zombie_plains",
-        "projection": "rigid"
-      },
-      "weight": 2
-    },
-    {
-      "element": {
-        "element_type": "minecraft:legacy_single_pool_element",
-        "location": "minecraft:village/plains/zombie/houses/plains_butcher_shop_2",
-        "processors": "minecraft:zombie_plains",
-        "projection": "rigid"
-      },
-      "weight": 2
-    },
-    {
-      "element": {
-        "element_type": "minecraft:legacy_single_pool_element",
-        "location": "minecraft:village/plains/houses/plains_tool_smith_1",
-        "processors": "minecraft:zombie_plains",
-        "projection": "rigid"
-      },
-      "weight": 2
-    },
-    {
-      "element": {
-        "element_type": "minecraft:legacy_single_pool_element",
-        "location": "minecraft:village/plains/zombie/houses/plains_fletcher_house_1",
-        "processors": "minecraft:zombie_plains",
-        "projection": "rigid"
-      },
-      "weight": 2
-    },
-    {
-      "element": {
-        "element_type": "minecraft:legacy_single_pool_element",
-        "location": "minecraft:village/plains/zombie/houses/plains_shepherds_house_1",
-        "processors": "minecraft:zombie_plains",
-        "projection": "rigid"
-      },
-      "weight": 2
-    },
-    {
-      "element": {
-        "element_type": "minecraft:legacy_single_pool_element",
-        "location": "minecraft:village/plains/houses/plains_armorer_house_1",
-        "processors": "minecraft:zombie_plains",
-        "projection": "rigid"
-      },
-      "weight": 2
-    },
-    {
-      "element": {
-        "element_type": "minecraft:legacy_single_pool_element",
-        "location": "minecraft:village/plains/houses/plains_fisher_cottage_1",
-        "processors": "minecraft:zombie_plains",
-        "projection": "rigid"
-      },
-      "weight": 2
-    },
-    {
-      "element": {
-        "element_type": "minecraft:legacy_single_pool_element",
-        "location": "minecraft:village/plains/houses/plains_tannery_1",
-        "processors": "minecraft:zombie_plains",
-        "projection": "rigid"
-      },
-      "weight": 2
-    },
-    {
-      "element": {
-        "element_type": "minecraft:legacy_single_pool_element",
-        "location": "minecraft:village/plains/houses/plains_cartographer_1",
-        "processors": "minecraft:zombie_plains",
+        "location": "soggy_swamps:village/swamp/houses/swamp_accessory_2",
+        "processors": "soggy_swamps:zombie_swamp",
         "projection": "rigid"
       },
       "weight": 1
@@ -183,17 +21,8 @@
     {
       "element": {
         "element_type": "minecraft:legacy_single_pool_element",
-        "location": "minecraft:village/plains/houses/plains_library_1",
-        "processors": "minecraft:zombie_plains",
-        "projection": "rigid"
-      },
-      "weight": 3
-    },
-    {
-      "element": {
-        "element_type": "minecraft:legacy_single_pool_element",
-        "location": "minecraft:village/plains/houses/plains_library_2",
-        "processors": "minecraft:zombie_plains",
+        "location": "soggy_swamps:village/swamp/houses/swamp_accessory_3",
+        "processors": "soggy_swamps:zombie_swamp",
         "projection": "rigid"
       },
       "weight": 1
@@ -201,80 +30,8 @@
     {
       "element": {
         "element_type": "minecraft:legacy_single_pool_element",
-        "location": "minecraft:village/plains/houses/plains_masons_house_1",
-        "processors": "minecraft:zombie_plains",
-        "projection": "rigid"
-      },
-      "weight": 2
-    },
-    {
-      "element": {
-        "element_type": "minecraft:legacy_single_pool_element",
-        "location": "minecraft:village/plains/houses/plains_weaponsmith_1",
-        "processors": "minecraft:zombie_plains",
-        "projection": "rigid"
-      },
-      "weight": 2
-    },
-    {
-      "element": {
-        "element_type": "minecraft:legacy_single_pool_element",
-        "location": "minecraft:village/plains/houses/plains_temple_3",
-        "processors": "minecraft:zombie_plains",
-        "projection": "rigid"
-      },
-      "weight": 2
-    },
-    {
-      "element": {
-        "element_type": "minecraft:legacy_single_pool_element",
-        "location": "minecraft:village/plains/houses/plains_temple_4",
-        "processors": "minecraft:zombie_plains",
-        "projection": "rigid"
-      },
-      "weight": 2
-    },
-    {
-      "element": {
-        "element_type": "minecraft:legacy_single_pool_element",
-        "location": "minecraft:village/plains/zombie/houses/plains_stable_1",
-        "processors": "minecraft:zombie_plains",
-        "projection": "rigid"
-      },
-      "weight": 2
-    },
-    {
-      "element": {
-        "element_type": "minecraft:legacy_single_pool_element",
-        "location": "minecraft:village/plains/houses/plains_stable_2",
-        "processors": "minecraft:zombie_plains",
-        "projection": "rigid"
-      },
-      "weight": 2
-    },
-    {
-      "element": {
-        "element_type": "minecraft:legacy_single_pool_element",
-        "location": "minecraft:village/plains/houses/plains_large_farm_1",
-        "processors": "minecraft:zombie_plains",
-        "projection": "rigid"
-      },
-      "weight": 4
-    },
-    {
-      "element": {
-        "element_type": "minecraft:legacy_single_pool_element",
-        "location": "minecraft:village/plains/houses/plains_small_farm_1",
-        "processors": "minecraft:zombie_plains",
-        "projection": "rigid"
-      },
-      "weight": 4
-    },
-    {
-      "element": {
-        "element_type": "minecraft:legacy_single_pool_element",
-        "location": "minecraft:village/plains/houses/plains_animal_pen_1",
-        "processors": "minecraft:zombie_plains",
+        "location": "soggy_swamps:village/swamp/zombie/houses/swamp_farm_1",
+        "processors": "soggy_swamps:zombie_swamp",
         "projection": "rigid"
       },
       "weight": 1
@@ -282,8 +39,8 @@
     {
       "element": {
         "element_type": "minecraft:legacy_single_pool_element",
-        "location": "minecraft:village/plains/houses/plains_animal_pen_2",
-        "processors": "minecraft:zombie_plains",
+        "location": "soggy_swamps:village/swamp/zombie/houses/swamp_farm_2",
+        "processors": "soggy_swamps:zombie_swamp",
         "projection": "rigid"
       },
       "weight": 1
@@ -291,26 +48,224 @@
     {
       "element": {
         "element_type": "minecraft:legacy_single_pool_element",
-        "location": "minecraft:village/plains/zombie/houses/plains_animal_pen_3",
-        "processors": "minecraft:zombie_plains",
+        "location": "soggy_swamps:village/swamp/zombie/houses/swamp_animal_pen_1",
+        "processors": "soggy_swamps:zombie_swamp",
         "projection": "rigid"
       },
-      "weight": 5
+      "weight": 1
     },
     {
       "element": {
         "element_type": "minecraft:legacy_single_pool_element",
-        "location": "minecraft:village/plains/zombie/houses/plains_meeting_point_4",
-        "processors": "minecraft:zombie_plains",
+        "location": "soggy_swamps:village/swamp/zombie/houses/swamp_animal_pen_2",
+        "processors": "soggy_swamps:zombie_swamp",
         "projection": "rigid"
       },
-      "weight": 3
+      "weight": 1
     },
     {
       "element": {
         "element_type": "minecraft:legacy_single_pool_element",
-        "location": "minecraft:village/plains/zombie/houses/plains_meeting_point_5",
-        "processors": "minecraft:zombie_plains",
+        "location": "soggy_swamps:village/swamp/zombie/houses/swamp_small_house_1",
+        "processors": "soggy_swamps:zombie_swamp",
+        "projection": "rigid"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "minecraft:legacy_single_pool_element",
+        "location": "soggy_swamps:village/swamp/zombie/houses/swamp_small_house_2",
+        "processors": "soggy_swamps:zombie_swamp",
+        "projection": "rigid"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "minecraft:legacy_single_pool_element",
+        "location": "soggy_swamps:village/swamp/zombie/houses/swamp_small_house_3",
+        "processors": "soggy_swamps:zombie_swamp",
+        "projection": "rigid"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "minecraft:legacy_single_pool_element",
+        "location": "soggy_swamps:village/swamp/zombie/houses/swamp_small_house_4",
+        "processors": "soggy_swamps:zombie_swamp",
+        "projection": "rigid"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "minecraft:legacy_single_pool_element",
+        "location": "soggy_swamps:village/swamp/zombie/houses/swamp_small_house_5",
+        "processors": "soggy_swamps:zombie_swamp",
+        "projection": "rigid"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "minecraft:legacy_single_pool_element",
+        "location": "soggy_swamps:village/swamp/zombie/houses/swamp_small_house_6",
+        "processors": "soggy_swamps:zombie_swamp",
+        "projection": "rigid"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "minecraft:legacy_single_pool_element",
+        "location": "soggy_swamps:village/swamp/zombie/houses/swamp_small_house_7",
+        "processors": "soggy_swamps:zombie_swamp",
+        "projection": "rigid"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "minecraft:legacy_single_pool_element",
+        "location": "soggy_swamps:village/swamp/zombie/houses/swamp_medium_house_1",
+        "processors": "soggy_swamps:zombie_swamp",
+        "projection": "rigid"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "minecraft:legacy_single_pool_element",
+        "location": "soggy_swamps:village/swamp/zombie/houses/swamp_medium_house_2",
+        "processors": "soggy_swamps:zombie_swamp",
+        "projection": "rigid"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "minecraft:legacy_single_pool_element",
+        "location": "soggy_swamps:village/swamp/zombie/houses/swamp_big_house_1",
+        "processors": "soggy_swamps:zombie_swamp",
+        "projection": "rigid"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "minecraft:legacy_single_pool_element",
+        "location": "soggy_swamps:village/swamp/zombie/houses/swamp_big_house_2",
+        "processors": "soggy_swamps:zombie_swamp",
+        "projection": "rigid"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "minecraft:legacy_single_pool_element",
+        "location": "soggy_swamps:village/swamp/zombie/houses/swamp_library",
+        "processors": "soggy_swamps:zombie_swamp",
+        "projection": "rigid"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "minecraft:legacy_single_pool_element",
+        "location": "soggy_swamps:village/swamp/zombie/houses/swamp_tannery",
+        "processors": "soggy_swamps:zombie_swamp",
+        "projection": "rigid"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "minecraft:legacy_single_pool_element",
+        "location": "soggy_swamps:village/swamp/zombie/houses/swamp_armory",
+        "processors": "soggy_swamps:zombie_swamp",
+        "projection": "rigid"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "minecraft:legacy_single_pool_element",
+        "location": "soggy_swamps:village/swamp/zombie/houses/swamp_butcher",
+        "processors": "soggy_swamps:zombie_swamp",
+        "projection": "rigid"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "minecraft:legacy_single_pool_element",
+        "location": "soggy_swamps:village/swamp/zombie/houses/swamp_cartographer",
+        "processors": "soggy_swamps:zombie_swamp",
+        "projection": "rigid"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "minecraft:legacy_single_pool_element",
+        "location": "soggy_swamps:village/swamp/zombie/houses/swamp_fisher",
+        "processors": "soggy_swamps:zombie_swamp",
+        "projection": "rigid"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "minecraft:legacy_single_pool_element",
+        "location": "soggy_swamps:village/swamp/zombie/houses/swamp_fletcher",
+        "processors": "soggy_swamps:zombie_swamp",
+        "projection": "rigid"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "minecraft:legacy_single_pool_element",
+        "location": "soggy_swamps:village/swamp/zombie/houses/swamp_mason",
+        "processors": "soggy_swamps:zombie_swamp",
+        "projection": "rigid"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "minecraft:legacy_single_pool_element",
+        "location": "soggy_swamps:village/swamp/zombie/houses/swamp_shepherd",
+        "processors": "soggy_swamps:zombie_swamp",
+        "projection": "rigid"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "minecraft:legacy_single_pool_element",
+        "location": "soggy_swamps:village/swamp/zombie/houses/swamp_weaponsmith",
+        "processors": "soggy_swamps:zombie_swamp",
+        "projection": "rigid"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "minecraft:legacy_single_pool_element",
+        "location": "soggy_swamps:village/swamp/zombie/houses/swamp_toolsmith",
+        "processors": "soggy_swamps:zombie_swamp",
+        "projection": "rigid"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "minecraft:legacy_single_pool_element",
+        "location": "soggy_swamps:village/swamp/zombie/houses/swamp_temple",
+        "processors": "soggy_swamps:zombie_swamp",
         "projection": "rigid"
       },
       "weight": 1
@@ -322,5 +277,5 @@
       "weight": 10
     }
   ],
-  "fallback": "minecraft:village/plains/terminators"
+  "fallback": "soggy_swamps:village/swamp/terminators"
 }
