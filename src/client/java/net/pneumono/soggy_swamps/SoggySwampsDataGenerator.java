@@ -18,7 +18,6 @@ public class SoggySwampsDataGenerator implements DataGeneratorEntrypoint {
 		pack.addProvider(SoggySwampsModelProvider::new);
 		pack.addProvider(SoggySwampsRecipeGenerator.SoggySwampsRecipeProvider::new);
 		pack.addProvider(SoggySwampsBlockLootTableProvider::new);
-		pack.addProvider(SoggySwampsEntityLootTableProvider::new);
 		pack.addProvider(SoggySwampsBlockTagProvider::new);
 		pack.addProvider(SoggySwampsItemTagProvider::new);
 		pack.addProvider(SoggySwampsEntityTypeTagProvider::new);

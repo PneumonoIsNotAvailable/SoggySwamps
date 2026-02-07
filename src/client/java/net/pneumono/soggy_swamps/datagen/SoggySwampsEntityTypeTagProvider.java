@@ -16,21 +16,6 @@ public class SoggySwampsEntityTypeTagProvider extends FabricTagProvider.EntityTy
 
     @Override
     protected void addTags(HolderLookup.Provider wrapperLookup) {
-        valueLookupBuilder(EntityTypeTags.ARTHROPOD).add(
-                SoggySwampsEntities.SWAMP_SPIDER
-        );
-        valueLookupBuilder(EntityTypeTags.DISMOUNTS_UNDERWATER).add(
-                SoggySwampsEntities.SWAMP_SPIDER
-        );
-        valueLookupBuilder(EntityTypeTags.FALL_DAMAGE_IMMUNE).add(
-                SoggySwampsEntities.SWAMP_SPIDER
-        );
-        valueLookupBuilder(EntityTypeTags.FROG_FOOD).add(
-                SoggySwampsEntities.SWAMP_SPIDER
-        );
-        valueLookupBuilder(EntityTypeTags.NO_ANGER_FROM_WIND_CHARGE).add(
-                SoggySwampsEntities.SWAMP_SPIDER
-        );
         valueLookupBuilder(EntityTypeTags.BOAT).add(
                 SoggySwampsEntities.SWAMP_OAK_BOAT
         );

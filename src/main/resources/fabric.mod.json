@@ -30,11 +30,7 @@
 		]
 	},
 	"mixins": [
-        "soggy_swamps.mixins.json",
-		{
-			"config": "soggy_swamps.client.mixins.json",
-			"environment": "client"
-		}
+        "soggy_swamps.mixins.json"
 	],
 	"accessWidener" : "soggy_swamps.accesswidener",
 	"depends": {

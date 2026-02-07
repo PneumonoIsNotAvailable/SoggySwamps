@@ -23,7 +23,6 @@ import net.minecraft.world.level.levelgen.structure.Structure;
 import net.minecraft.world.level.levelgen.structure.StructureSet;
 import net.pneumono.soggy_swamps.SoggySwamps;
 import net.pneumono.soggy_swamps.mixin.StructureSetAccessor;
-import net.pneumono.soggy_swamps.registry.SoggySwampsEntities;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -68,10 +67,6 @@ public class SoggySwampsWorldgen {
                 context -> {
                     context.getSpawnSettings().removeSpawnsOfEntityType(EntityType.WITCH);
                     context.getSpawnSettings().addSpawn(MobCategory.MONSTER, new MobSpawnSettings.SpawnerData(EntityType.WITCH, 1, 2), 15);
-
-                    context.getSpawnSettings().removeSpawnsOfEntityType(EntityType.SPIDER);
-                    context.getSpawnSettings().addSpawn(MobCategory.MONSTER, new MobSpawnSettings.SpawnerData(EntityType.SPIDER, 4, 4), 50);
-                    context.getSpawnSettings().addSpawn(MobCategory.MONSTER, new MobSpawnSettings.SpawnerData(SoggySwampsEntities.SWAMP_SPIDER, 4, 4), 75);
                 }
         );
 

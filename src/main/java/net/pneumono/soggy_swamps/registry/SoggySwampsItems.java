@@ -1,7 +1,6 @@
 package net.pneumono.soggy_swamps.registry;
 
 import net.fabricmc.fabric.api.registry.CompostingChanceRegistry;
-import net.fabricmc.fabric.api.registry.FabricBrewingRecipeRegistryBuilder;
 import net.minecraft.core.Registry;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.core.registries.Registries;
@@ -17,35 +16,15 @@ import net.minecraft.world.item.Items;
 import net.minecraft.world.item.Rarity;
 import net.minecraft.world.item.SignItem;
 import net.minecraft.world.item.SmithingTemplateItem;
-import net.minecraft.world.item.SpawnEggItem;
 import net.minecraft.world.item.component.Consumables;
 import net.minecraft.world.item.consume_effects.ApplyStatusEffectsConsumeEffect;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.entity.DecoratedPotPattern;
 import net.pneumono.soggy_swamps.SoggySwamps;
 
-import java.util.List;
 import java.util.function.Function;
 
 public class SoggySwampsItems {
-    public static final SpawnEggItem SWAMP_SPIDER_SPAWN_EGG = register(
-            "swamp_spider_spawn_egg",
-            SpawnEggItem::new,
-            new Item.Properties().spawnEgg(SoggySwampsEntities.SWAMP_SPIDER)
-    );
-    public static final Item SWAMP_SPIDER_EYE = register(
-            "swamp_spider_eye",
-            Item::new,
-            new Item.Properties().food(
-                    new FoodProperties.Builder().nutrition(3).saturationModifier(0.8F).build(),
-                    Consumables.defaultFood()
-                            .onConsume(new ApplyStatusEffectsConsumeEffect(List.of(
-                                    new MobEffectInstance(SoggySwampsRegistry.VENOM, 160, 0),
-                                    new MobEffectInstance(MobEffects.POISON, 100, 0))
-                            ))
-                            .build()
-            )
-    );
     public static final Item SWAMP_STEW = register(
             "swamp_stew",
             Item::new,
@@ -53,7 +32,7 @@ public class SoggySwampsItems {
                     new FoodProperties.Builder().nutrition(10).saturationModifier(0.8F).build(),
                     Consumables.defaultFood()
                             .onConsume(new ApplyStatusEffectsConsumeEffect(
-                                    new MobEffectInstance(SoggySwampsRegistry.VENOM, 200, 0)
+                                    new MobEffectInstance(MobEffects.HUNGER, 200, 0)
                             ))
                             .build()
             )
@@ -65,7 +44,7 @@ public class SoggySwampsItems {
                     new FoodProperties.Builder().nutrition(6).saturationModifier(0.3F).build(),
                     Consumables.defaultFood()
                             .onConsume(new ApplyStatusEffectsConsumeEffect(
-                                    new MobEffectInstance(MobEffects.HUNGER, 600, 0), 0.7F
+                                    new MobEffectInstance(MobEffects.HUNGER, 200, 0), 0.7F
                             ))
                             .build()
             )
@@ -151,11 +130,6 @@ public class SoggySwampsItems {
     }
 
     public static void registerSoggySwampsItems() {
-        FabricBrewingRecipeRegistryBuilder.BUILD.register(builder -> {
-            builder.addStartMix(SWAMP_SPIDER_EYE, SoggySwampsRegistry.VENOM_POTION);
-            builder.addMix(SoggySwampsRegistry.VENOM_POTION, Items.REDSTONE, SoggySwampsRegistry.LONG_VENOM_POTION);
-        });
-
         CompostingChanceRegistry composting = CompostingChanceRegistry.INSTANCE;
         composting.add(ROT_CAP, 0.65F);
         composting.add(ROASTED_ROT_CAP, 0.5F);

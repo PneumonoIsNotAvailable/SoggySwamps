@@ -1,6 +1,5 @@
 package net.pneumono.soggy_swamps.registry;
 
-import net.fabricmc.fabric.api.object.builder.v1.entity.FabricDefaultAttributeRegistry;
 import net.minecraft.core.Registry;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.core.registries.Registries;
@@ -12,20 +11,10 @@ import net.minecraft.world.entity.vehicle.Boat;
 import net.minecraft.world.entity.vehicle.ChestBoat;
 import net.minecraft.world.item.Item;
 import net.pneumono.soggy_swamps.SoggySwamps;
-import net.pneumono.soggy_swamps.content.SwampSpiderEntity;
 
 import java.util.function.Supplier;
 
 public class SoggySwampsEntities {
-    public static EntityType<SwampSpiderEntity> SWAMP_SPIDER = register(
-            "swamp_spider",
-            EntityType.Builder.of(SwampSpiderEntity::new, MobCategory.MONSTER)
-                    .sized(1.4F, 0.9F)
-                    .eyeHeight(0.65F)
-                    .passengerAttachments(0.765F)
-                    .clientTrackingRange(12)
-    );
-
     public static EntityType<Boat> SWAMP_OAK_BOAT = register(
             "swamp_oak_boat",
             EntityType.Builder.of(getBoatFactory(() -> SoggySwampsItems.SWAMP_OAK_BOAT), MobCategory.MISC)
@@ -58,6 +47,6 @@ public class SoggySwampsEntities {
     }
 
     public static void registerSoggySwampsEntities() {
-        FabricDefaultAttributeRegistry.register(SWAMP_SPIDER, SwampSpiderEntity.createSwampSpiderAttributes());
+
     }
 }

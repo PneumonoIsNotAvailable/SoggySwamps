@@ -21,7 +21,7 @@ import org.jetbrains.annotations.NotNull;
 
 import java.util.concurrent.CompletableFuture;
 
-public class SoggySwampsRecipeGenerator extends net.minecraft.data.recipes.RecipeProvider {
+public class SoggySwampsRecipeGenerator extends RecipeProvider {
     public SoggySwampsRecipeGenerator(HolderLookup.Provider registries, RecipeOutput exporter) {
         super(registries, exporter);
     }
@@ -35,20 +35,20 @@ public class SoggySwampsRecipeGenerator extends net.minecraft.data.recipes.Recip
         this.shapeless(RecipeCategory.FOOD, SoggySwampsItems.SWAMP_STEW)
                 .requires(Items.BOWL)
                 .requires(SoggySwampsItems.VIBRANT_SPROUT)
-                .requires(SoggySwampsItems.SWAMP_SPIDER_EYE)
+                .requires(Items.SPIDER_EYE)
                 .requires(SoggySwampsItems.ROT_CAP)
                 .requires(Items.BROWN_MUSHROOM)
                 .group("swamp_stew")
-                .unlockedBy("has_swamp_spider_eye", this.has(SoggySwampsItems.SWAMP_SPIDER_EYE))
+                .unlockedBy("has_rot_cap", this.has(SoggySwampsItems.ROT_CAP))
                 .save(this.output, getConversionRecipeName(SoggySwampsItems.SWAMP_STEW, Items.BROWN_MUSHROOM));
         this.shapeless(RecipeCategory.FOOD, SoggySwampsItems.SWAMP_STEW)
                 .requires(Items.BOWL)
                 .requires(SoggySwampsItems.VIBRANT_SPROUT)
-                .requires(SoggySwampsItems.SWAMP_SPIDER_EYE)
+                .requires(Items.SPIDER_EYE)
                 .requires(SoggySwampsItems.ROT_CAP)
                 .requires(Items.RED_MUSHROOM)
                 .group("swamp_stew")
-                .unlockedBy("has_swamp_spider_eye", this.has(SoggySwampsItems.SWAMP_SPIDER_EYE))
+                .unlockedBy("has_rot_cap", this.has(SoggySwampsItems.ROT_CAP))
                 .save(this.output, getConversionRecipeName(SoggySwampsItems.SWAMP_STEW, Items.RED_MUSHROOM));
 
         SimpleCookingRecipeBuilder.smelting(
@@ -82,7 +82,7 @@ public class SoggySwampsRecipeGenerator extends net.minecraft.data.recipes.Recip
         }
 
         @Override
-        protected RecipeProvider createRecipeProvider(HolderLookup.Provider registryLookup, RecipeOutput exporter) {
+        protected @NotNull RecipeProvider createRecipeProvider(HolderLookup.Provider registryLookup, RecipeOutput exporter) {
             return new SoggySwampsRecipeGenerator(registryLookup, exporter);
         }
 

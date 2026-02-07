@@ -65,8 +65,6 @@ public class SoggySwampsModelProvider extends FabricModelProvider {
 
     @Override
     public void generateItemModels(ItemModelGenerators generator) {
-        generator.generateFlatItem(SoggySwampsItems.SWAMP_SPIDER_SPAWN_EGG, ModelTemplates.FLAT_ITEM);
-        generator.generateFlatItem(SoggySwampsItems.SWAMP_SPIDER_EYE, ModelTemplates.FLAT_ITEM);
         generator.generateFlatItem(SoggySwampsItems.SWAMP_STEW, ModelTemplates.FLAT_ITEM);
         generator.generateFlatItem(SoggySwampsItems.ROASTED_ROT_CAP, ModelTemplates.FLAT_ITEM);
         generator.generateFlatItem(SoggySwampsItems.SWAMP_OAK_BOAT, ModelTemplates.FLAT_ITEM);

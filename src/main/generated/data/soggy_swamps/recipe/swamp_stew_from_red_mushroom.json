@@ -5,7 +5,7 @@
   "ingredients": [
     "minecraft:bowl",
     "soggy_swamps:bogsprout",
-    "soggy_swamps:swamp_spider_eye",
+    "minecraft:spider_eye",
     "soggy_swamps:rot_cap",
     "minecraft:red_mushroom"
   ],

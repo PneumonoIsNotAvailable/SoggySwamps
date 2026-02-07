@@ -43,8 +43,6 @@ public class SoggySwampsEnUsLangProvider extends FabricLanguageProvider {
         builder.add(SoggySwampsBlocks.SWAMP_OAK_PRESSURE_PLATE, "Swamp Oak Pressure Plate");
         builder.add(SoggySwampsBlocks.SWAMP_OAK_BUTTON, "Swamp Oak Button");
 
-        builder.add(SoggySwampsItems.SWAMP_SPIDER_SPAWN_EGG, "Swamp Spider Spawn Egg");
-        builder.add(SoggySwampsItems.SWAMP_SPIDER_EYE, "Swamp Spider Eye");
         builder.add(SoggySwampsItems.SWAMP_STEW, "Swamp Stew");
         builder.add(SoggySwampsItems.ROASTED_ROT_CAP, "Roasted Rot Cap");
         builder.add(SoggySwampsItems.SWAMP_OAK_BOAT, "Swamp Oak Boat");
@@ -61,11 +59,8 @@ public class SoggySwampsEnUsLangProvider extends FabricLanguageProvider {
         builder.add("item.minecraft.lingering_potion.effect.venom", "Lingering Potion of Venom");
         builder.add("item.minecraft.tipped_arrow.effect.venom", "Arrow of Venom");
 
-        builder.add(SoggySwampsEntities.SWAMP_SPIDER, "Swamp Spider");
         builder.add(SoggySwampsEntities.SWAMP_OAK_BOAT, "Swamp Oak Boat");
         builder.add(SoggySwampsEntities.SWAMP_OAK_CHEST_BOAT, "Swamp Oak Chest Boat");
-
-        builder.add(SoggySwampsRegistry.VENOM.value(), "Venom");
 
         builder.add(SoggySwampsSounds.BLOCK_ROT_CAP_IDLE, "Flies buzz");
         builder.add(SoggySwampsSounds.ITEM_BRUSH_BRUSHING_MUD, "Brushing Mud");

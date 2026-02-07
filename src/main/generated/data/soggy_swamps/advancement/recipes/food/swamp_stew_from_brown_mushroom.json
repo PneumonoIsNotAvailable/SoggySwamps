@@ -1,11 +1,11 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_swamp_spider_eye": {
+    "has_rot_cap": {
       "conditions": {
         "items": [
           {
-            "items": "soggy_swamps:swamp_spider_eye"
+            "items": "soggy_swamps:rot_cap"
           }
         ]
       },
@@ -21,7 +21,7 @@
   "requirements": [
     [
       "has_the_recipe",
-      "has_swamp_spider_eye"
+      "has_rot_cap"
     ]
   ],
   "rewards": {

@@ -16,7 +16,6 @@ import net.minecraft.client.renderer.entity.EntityRenderers;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceKey;
 import net.pneumono.soggy_swamps.content.FlyParticle;
-import net.pneumono.soggy_swamps.content.SwampSpiderEntityRenderer;
 import net.pneumono.soggy_swamps.registry.SoggySwampsBlocks;
 import net.pneumono.soggy_swamps.registry.SoggySwampsEntities;
 import net.pneumono.soggy_swamps.registry.SoggySwampsRegistry;
@@ -55,10 +54,6 @@ public class SoggySwampsClient implements ClientModInitializer {
 		EntityModelLayerRegistry.registerModelLayer(SWAMP_OAK_BOAT, BoatModel::createBoatModel);
 		EntityModelLayerRegistry.registerModelLayer(SWAMP_OAK_CHEST_BOAT, BoatModel::createChestBoatModel);
 
-		EntityRenderers.register(
-				SoggySwampsEntities.SWAMP_SPIDER,
-				SwampSpiderEntityRenderer::new
-		);
 		EntityRenderers.register(
 				SoggySwampsEntities.SWAMP_OAK_BOAT,
 				context -> new BoatRenderer(context, SWAMP_OAK_BOAT)

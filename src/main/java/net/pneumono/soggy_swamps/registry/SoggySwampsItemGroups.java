@@ -11,7 +11,6 @@ import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.CreativeModeTabs;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
-import net.minecraft.world.item.alchemy.PotionContents;
 import net.pneumono.soggy_swamps.SoggySwamps;
 
 import java.util.stream.Stream;
@@ -48,7 +47,6 @@ public class SoggySwampsItemGroups {
                             SoggySwampsItems.ROT_CAP,
                             SoggySwampsItems.ROASTED_ROT_CAP,
                             SoggySwampsItems.VIBRANT_SPROUT,
-                            SoggySwampsItems.SWAMP_SPIDER_EYE,
                             SoggySwampsItems.SWAMP_STEW,
                             SoggySwampsItems.SUSPICIOUS_MUD,
                             SoggySwampsItems.DECAY_POTTERY_SHERD,
@@ -56,19 +54,6 @@ public class SoggySwampsItemGroups {
                             SoggySwampsItems.SLIME_POTTERY_SHERD,
                             SoggySwampsItems.WEALTH_POTTERY_SHERD,
                             SoggySwampsItems.SPORE_ARMOR_TRIM_SMITHING_TEMPLATE
-                    ).map(ItemStack::new).toList());
-
-                    entries.accept(PotionContents.createItemStack(Items.POTION, SoggySwampsRegistry.VENOM_POTION));
-                    entries.accept(PotionContents.createItemStack(Items.POTION, SoggySwampsRegistry.LONG_VENOM_POTION));
-                    entries.accept(PotionContents.createItemStack(Items.SPLASH_POTION, SoggySwampsRegistry.VENOM_POTION));
-                    entries.accept(PotionContents.createItemStack(Items.SPLASH_POTION, SoggySwampsRegistry.LONG_VENOM_POTION));
-                    entries.accept(PotionContents.createItemStack(Items.LINGERING_POTION, SoggySwampsRegistry.VENOM_POTION));
-                    entries.accept(PotionContents.createItemStack(Items.LINGERING_POTION, SoggySwampsRegistry.LONG_VENOM_POTION));
-                    entries.accept(PotionContents.createItemStack(Items.TIPPED_ARROW, SoggySwampsRegistry.VENOM_POTION));
-                    entries.accept(PotionContents.createItemStack(Items.TIPPED_ARROW, SoggySwampsRegistry.LONG_VENOM_POTION));
-
-                    entries.acceptAll(Stream.of(
-                            SoggySwampsItems.SWAMP_SPIDER_SPAWN_EGG
                     ).map(ItemStack::new).toList());
                 })
                 .build()
@@ -115,12 +100,10 @@ public class SoggySwampsItemGroups {
                 )
         );
         ItemGroupEvents.modifyEntriesEvent(CreativeModeTabs.FOOD_AND_DRINKS).register(entries -> {
-            entries.addAfter(Items.SPIDER_EYE, SoggySwampsItems.SWAMP_SPIDER_EYE);
             entries.addAfter(Items.RABBIT_STEW, SoggySwampsItems.SWAMP_STEW);
             entries.addAfter(Items.ROTTEN_FLESH, SoggySwampsItems.ROASTED_ROT_CAP);
         });
         ItemGroupEvents.modifyEntriesEvent(CreativeModeTabs.INGREDIENTS).register(entries -> {
-            entries.addAfter(Items.SPIDER_EYE, SoggySwampsItems.SWAMP_SPIDER_EYE);
             entries.addAfter(Items.DANGER_POTTERY_SHERD, SoggySwampsItems.DECAY_POTTERY_SHERD);
             entries.addAfter(Items.GUSTER_POTTERY_SHERD, SoggySwampsItems.HAT_POTTERY_SHERD);
             entries.addAfter(Items.SKULL_POTTERY_SHERD, SoggySwampsItems.SLIME_POTTERY_SHERD);
@@ -129,7 +112,5 @@ public class SoggySwampsItemGroups {
                     SoggySwampsItems.SPORE_ARMOR_TRIM_SMITHING_TEMPLATE
             );
         });
-        ItemGroupEvents.modifyEntriesEvent(CreativeModeTabs.SPAWN_EGGS).register(entries ->
-                entries.addBefore(Items.TADPOLE_SPAWN_EGG, SoggySwampsItems.SWAMP_SPIDER_SPAWN_EGG));
     }
 }
