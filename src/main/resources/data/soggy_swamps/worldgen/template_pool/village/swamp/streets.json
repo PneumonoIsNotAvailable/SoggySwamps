@@ -48,7 +48,25 @@
     {
       "element": {
         "element_type": "minecraft:legacy_single_pool_element",
+        "location": "soggy_swamps:village/swamp/streets/corner_2",
+        "processors": "soggy_swamps:street_swamp",
+        "projection": "terrain_matching"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "minecraft:legacy_single_pool_element",
         "location": "soggy_swamps:village/swamp/streets/crossroads_1",
+        "processors": "soggy_swamps:street_swamp",
+        "projection": "terrain_matching"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "minecraft:legacy_single_pool_element",
+        "location": "soggy_swamps:village/swamp/streets/crossroads_2",
         "processors": "soggy_swamps:street_swamp",
         "projection": "terrain_matching"
       },

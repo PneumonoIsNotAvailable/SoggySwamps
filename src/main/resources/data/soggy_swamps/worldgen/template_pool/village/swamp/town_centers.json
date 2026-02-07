@@ -14,7 +14,7 @@
     {
       "element": {
         "element_type": "minecraft:legacy_single_pool_element",
-        "location": "soggy_swamps:village/swamp/town_centers/swamp_center_1",
+        "location": "soggy_swamps:village/swamp/town_centers/swamp_center_2",
         "processors": {
           "processors": []
         },
@@ -25,7 +25,7 @@
     {
       "element": {
         "element_type": "minecraft:legacy_single_pool_element",
-        "location": "soggy_swamps:village/swamp/town_centers/swamp_center_1",
+        "location": "soggy_swamps:village/swamp/town_centers/swamp_center_3",
         "processors": {
           "processors": []
         },
