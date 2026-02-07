@@ -1,7 +1,7 @@
 package net.pneumono.soggy_swamps;
 
 import net.fabricmc.api.ModInitializer;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 import net.pneumono.soggy_swamps.registry.SoggySwampsRegistry;
 import net.pneumono.soggy_swamps.worldgen.SoggySwampsWorldgen;
 import org.slf4j.Logger;
@@ -20,7 +20,7 @@ public class SoggySwamps implements ModInitializer {
 		SoggySwampsWorldgen.registerSoggySwampsWorldgen();
 	}
 
-	public static ResourceLocation id(String path) {
-		return ResourceLocation.fromNamespaceAndPath(MOD_ID, path);
+	public static Identifier id(String path) {
+		return Identifier.fromNamespaceAndPath(MOD_ID, path);
 	}
 }

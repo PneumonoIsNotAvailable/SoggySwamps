@@ -17,7 +17,7 @@ import net.pneumono.soggy_swamps.SoggySwamps;
 import net.pneumono.soggy_swamps.registry.SoggySwampsBlocks;
 import net.pneumono.soggy_swamps.registry.SoggySwampsItems;
 import net.pneumono.soggy_swamps.registry.SoggySwampsTags;
-import org.jetbrains.annotations.NotNull;
+import org.jspecify.annotations.NonNull;
 
 import java.util.concurrent.CompletableFuture;
 
@@ -82,12 +82,12 @@ public class SoggySwampsRecipeGenerator extends RecipeProvider {
         }
 
         @Override
-        protected @NotNull RecipeProvider createRecipeProvider(HolderLookup.Provider registryLookup, RecipeOutput exporter) {
+        protected @NonNull RecipeProvider createRecipeProvider(HolderLookup.@NonNull Provider registryLookup, @NonNull RecipeOutput exporter) {
             return new SoggySwampsRecipeGenerator(registryLookup, exporter);
         }
 
         @Override
-        public @NotNull String getName() {
+        public @NonNull String getName() {
             return "Recipes";
         }
     }

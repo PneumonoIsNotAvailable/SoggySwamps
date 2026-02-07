@@ -9,6 +9,7 @@ import net.minecraft.world.level.block.FlowerPotBlock;
 import net.minecraft.world.level.block.state.BlockState;
 import net.pneumono.soggy_swamps.registry.SoggySwampsRegistry;
 import net.pneumono.soggy_swamps.registry.SoggySwampsSounds;
+import org.jspecify.annotations.NonNull;
 
 public class PottedRotCapBlock extends FlowerPotBlock {
     public PottedRotCapBlock(Block content, Properties settings) {
@@ -16,7 +17,7 @@ public class PottedRotCapBlock extends FlowerPotBlock {
     }
 
     @Override
-    public void animateTick(BlockState state, Level level, BlockPos pos, RandomSource random) {
+    public void animateTick(@NonNull BlockState state, @NonNull Level level, @NonNull BlockPos pos, RandomSource random) {
         if (random.nextInt(30) == 0) {
             level.playLocalSound(pos, SoggySwampsSounds.BLOCK_ROT_CAP_IDLE, SoundSource.AMBIENT, 1.0F, 1.0F, false);
         }

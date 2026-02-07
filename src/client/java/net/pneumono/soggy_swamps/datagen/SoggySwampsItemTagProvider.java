@@ -10,6 +10,7 @@ import net.minecraft.tags.TagKey;
 import net.minecraft.world.item.Item;
 import net.pneumono.soggy_swamps.registry.SoggySwampsItems;
 import net.pneumono.soggy_swamps.registry.SoggySwampsTags;
+import org.jspecify.annotations.NonNull;
 
 import java.util.concurrent.CompletableFuture;
 
@@ -19,7 +20,7 @@ public class SoggySwampsItemTagProvider extends FabricTagProvider.ItemTagProvide
     }
 
     @Override
-    protected void addTags(HolderLookup.Provider wrapperLookup) {
+    protected void addTags(HolderLookup.@NonNull Provider wrapperLookup) {
         tag(SoggySwampsTags.ITEM_SWAMP_OAK_LOGS).add(
                 SoggySwampsItems.SWAMP_OAK_LOG,
                 SoggySwampsItems.SWAMP_OAK_WOOD,

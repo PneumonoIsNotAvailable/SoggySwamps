@@ -5,9 +5,8 @@ import net.fabricmc.fabric.api.client.particle.v1.ParticleFactoryRegistry;
 import net.fabricmc.fabric.api.client.rendering.v1.BlockRenderLayerMap;
 import net.fabricmc.fabric.api.client.rendering.v1.ColorProviderRegistry;
 import net.fabricmc.fabric.api.client.rendering.v1.EntityModelLayerRegistry;
-import net.minecraft.client.model.BoatModel;
-import net.minecraft.client.model.SpiderModel;
 import net.minecraft.client.model.geom.ModelLayerLocation;
+import net.minecraft.client.model.object.boat.BoatModel;
 import net.minecraft.client.renderer.BiomeColors;
 import net.minecraft.client.renderer.Sheets;
 import net.minecraft.client.renderer.chunk.ChunkSectionLayer;
@@ -21,9 +20,6 @@ import net.pneumono.soggy_swamps.registry.SoggySwampsEntities;
 import net.pneumono.soggy_swamps.registry.SoggySwampsRegistry;
 
 public class SoggySwampsClient implements ClientModInitializer {
-	public static final ModelLayerLocation SWAMP_SPIDER = new ModelLayerLocation(
-			SoggySwamps.id("swamp_spider"), "main"
-	);
 	public static final ModelLayerLocation SWAMP_OAK_BOAT = new ModelLayerLocation(
 			SoggySwamps.id("boat/swamp_oak"), "main"
 	);
@@ -43,14 +39,13 @@ public class SoggySwampsClient implements ClientModInitializer {
 		BlockRenderLayerMap.putBlock(SoggySwampsBlocks.POTTED_SWAMP_OAK_SAPLING, ChunkSectionLayer.CUTOUT);
 		BlockRenderLayerMap.putBlock(SoggySwampsBlocks.SWAMP_OAK_DOOR, ChunkSectionLayer.TRANSLUCENT);
 		BlockRenderLayerMap.putBlock(SoggySwampsBlocks.SWAMP_OAK_TRAPDOOR, ChunkSectionLayer.CUTOUT);
-		BlockRenderLayerMap.putBlock(SoggySwampsBlocks.SWAMP_OAK_LEAVES, ChunkSectionLayer.CUTOUT_MIPPED);
+		BlockRenderLayerMap.putBlock(SoggySwampsBlocks.SWAMP_OAK_LEAVES, ChunkSectionLayer.CUTOUT);
 
 		ColorProviderRegistry.BLOCK.register(
 				(state, level, pos, tintIndex) -> level != null && pos != null ? BiomeColors.getAverageFoliageColor(level, pos) : -12012264,
 				SoggySwampsBlocks.SWAMP_OAK_LEAVES
 		);
 
-		EntityModelLayerRegistry.registerModelLayer(SWAMP_SPIDER, SpiderModel::createSpiderBodyLayer);
 		EntityModelLayerRegistry.registerModelLayer(SWAMP_OAK_BOAT, BoatModel::createBoatModel);
 		EntityModelLayerRegistry.registerModelLayer(SWAMP_OAK_CHEST_BOAT, BoatModel::createChestBoatModel);
 

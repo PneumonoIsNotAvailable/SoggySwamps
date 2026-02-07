@@ -9,8 +9,8 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.core.particles.SimpleParticleType;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.level.pathfinder.PathComputationType;
-import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Nullable;
+import org.jspecify.annotations.NonNull;
+import org.jspecify.annotations.Nullable;
 
 public class FlyParticle extends SingleQuadParticle {
     protected double lastVelocityX;
@@ -29,7 +29,7 @@ public class FlyParticle extends SingleQuadParticle {
     }
 
     @Override
-    public @NotNull Layer getLayer() {
+    public @NonNull Layer getLayer() {
         return Layer.TRANSLUCENT;
     }
 
@@ -125,7 +125,7 @@ public class FlyParticle extends SingleQuadParticle {
 
         @Nullable
         @Override
-        public Particle createParticle(SimpleParticleType parameters, ClientLevel level, double x, double y, double z, double velocityX, double velocityY, double velocityZ, RandomSource random) {
+        public Particle createParticle(SimpleParticleType parameters, @NonNull ClientLevel level, double x, double y, double z, double velocityX, double velocityY, double velocityZ, @NonNull RandomSource random) {
             FlyParticle flyParticle = new FlyParticle(
                     level, x, y, z, 0.5 - level.random.nextDouble(), level.random.nextBoolean() ? velocityY : -velocityY, 0.5 - level.random.nextDouble(), this.spriteProvider.get(random)
             );

@@ -6,6 +6,7 @@ import net.fabricmc.fabric.api.tag.convention.v2.ConventionalEntityTypeTags;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.tags.EntityTypeTags;
 import net.pneumono.soggy_swamps.registry.SoggySwampsEntities;
+import org.jspecify.annotations.NonNull;
 
 import java.util.concurrent.CompletableFuture;
 
@@ -15,7 +16,7 @@ public class SoggySwampsEntityTypeTagProvider extends FabricTagProvider.EntityTy
     }
 
     @Override
-    protected void addTags(HolderLookup.Provider wrapperLookup) {
+    protected void addTags(HolderLookup.@NonNull Provider wrapperLookup) {
         valueLookupBuilder(EntityTypeTags.BOAT).add(
                 SoggySwampsEntities.SWAMP_OAK_BOAT
         );

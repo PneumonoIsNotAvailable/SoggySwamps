@@ -11,6 +11,7 @@ import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.pneumono.soggy_swamps.registry.SoggySwampsBlocks;
 import net.pneumono.soggy_swamps.registry.SoggySwampsTags;
+import org.jspecify.annotations.NonNull;
 
 import java.util.concurrent.CompletableFuture;
 
@@ -20,7 +21,7 @@ public class SoggySwampsBlockTagProvider extends FabricTagProvider.BlockTagProvi
     }
 
     @Override
-    protected void addTags(HolderLookup.Provider wrapperLookup) {
+    protected void addTags(HolderLookup.@NonNull Provider wrapperLookup) {
         tag(SoggySwampsTags.BLOCK_SWAMP_OAK_LOGS).add(
                 SoggySwampsBlocks.SWAMP_OAK_LOG,
                 SoggySwampsBlocks.SWAMP_OAK_WOOD,

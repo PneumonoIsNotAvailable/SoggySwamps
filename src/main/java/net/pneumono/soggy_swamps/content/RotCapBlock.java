@@ -20,14 +20,14 @@ import net.minecraft.world.phys.shapes.VoxelShape;
 import net.pneumono.soggy_swamps.SoggySwamps;
 import net.pneumono.soggy_swamps.registry.SoggySwampsRegistry;
 import net.pneumono.soggy_swamps.registry.SoggySwampsSounds;
-import org.jetbrains.annotations.NotNull;
+import org.jspecify.annotations.NonNull;
 
 public class RotCapBlock extends VegetationBlock implements BonemealableBlock {
     public static final MapCodec<RotCapBlock> CODEC = simpleCodec(RotCapBlock::new);
     private static final VoxelShape SHAPE = Shapes.or(Block.column(12.0, 4.0, 8.0), Block.column(4.0, 0.0, 4.0));
 
     @Override
-    protected @NotNull MapCodec<RotCapBlock> codec() {
+    protected @NonNull MapCodec<RotCapBlock> codec() {
         return CODEC;
     }
 
@@ -36,7 +36,7 @@ public class RotCapBlock extends VegetationBlock implements BonemealableBlock {
     }
 
     @Override
-    public void animateTick(BlockState state, Level level, BlockPos pos, RandomSource random) {
+    public void animateTick(@NonNull BlockState state, @NonNull Level level, @NonNull BlockPos pos, RandomSource random) {
         if (random.nextInt(30) == 0) {
             level.playLocalSound(pos, SoggySwampsSounds.BLOCK_ROT_CAP_IDLE, SoundSource.AMBIENT, 1.0F, 1.0F, false);
         }
@@ -50,17 +50,17 @@ public class RotCapBlock extends VegetationBlock implements BonemealableBlock {
     }
 
     @Override
-    public boolean isValidBonemealTarget(LevelReader level, BlockPos pos, BlockState state) {
+    public boolean isValidBonemealTarget(@NonNull LevelReader level, @NonNull BlockPos pos, @NonNull BlockState state) {
         return BonemealableBlock.hasSpreadableNeighbourPos(level, pos, state);
     }
 
     @Override
-    public boolean isBonemealSuccess(Level level, RandomSource random, BlockPos pos, BlockState state) {
+    public boolean isBonemealSuccess(@NonNull Level level, @NonNull RandomSource random, @NonNull BlockPos pos, @NonNull BlockState state) {
         return true;
     }
 
     @Override
-    public void performBonemeal(ServerLevel level, RandomSource random, BlockPos pos, BlockState state) {
+    public void performBonemeal(ServerLevel level, @NonNull RandomSource random, @NonNull BlockPos pos, @NonNull BlockState state) {
         level.registryAccess()
                 .lookup(Registries.CONFIGURED_FEATURE)
                 .flatMap((registry) ->
@@ -74,7 +74,7 @@ public class RotCapBlock extends VegetationBlock implements BonemealableBlock {
     }
 
     @Override
-    protected @NotNull VoxelShape getShape(BlockState state, BlockGetter level, BlockPos pos, CollisionContext context) {
+    protected @NonNull VoxelShape getShape(@NonNull BlockState state, @NonNull BlockGetter level, @NonNull BlockPos pos, @NonNull CollisionContext context) {
         return SHAPE;
     }
 }

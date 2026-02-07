@@ -20,15 +20,15 @@ import net.minecraft.world.level.material.FluidState;
 import net.minecraft.world.level.material.Fluids;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
-import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Nullable;
+import org.jspecify.annotations.NonNull;
+import org.jspecify.annotations.Nullable;
 
 public class CattailBlock extends DoublePlantBlock implements LiquidBlockContainer {
     public static final MapCodec<CattailBlock> CODEC = simpleCodec(CattailBlock::new);
     private static final VoxelShape SHAPE = Block.column(12.0, 0.0, 16.0);
 
     @Override
-    public @NotNull MapCodec<CattailBlock> codec() {
+    public @NonNull MapCodec<CattailBlock> codec() {
         return CODEC;
     }
 
@@ -37,12 +37,12 @@ public class CattailBlock extends DoublePlantBlock implements LiquidBlockContain
     }
 
     @Override
-    protected @NotNull VoxelShape getShape(BlockState state, BlockGetter level, BlockPos pos, CollisionContext context) {
+    protected @NonNull VoxelShape getShape(@NonNull BlockState state, @NonNull BlockGetter level, @NonNull BlockPos pos, @NonNull CollisionContext context) {
         return SHAPE;
     }
 
     @Override
-    protected boolean canSurvive(BlockState state, LevelReader level, BlockPos pos) {
+    protected boolean canSurvive(BlockState state, @NonNull LevelReader level, @NonNull BlockPos pos) {
         if (state.getValue(HALF) == DoubleBlockHalf.UPPER) {
             BlockState blockState = level.getBlockState(pos.below());
             return blockState.is(this) && blockState.getValue(HALF) == DoubleBlockHalf.LOWER;
@@ -56,15 +56,15 @@ public class CattailBlock extends DoublePlantBlock implements LiquidBlockContain
     }
 
     @Override
-    protected @NotNull BlockState updateShape(
-            BlockState blockState,
-            LevelReader levelReader,
-            ScheduledTickAccess scheduledTickAccess,
-            BlockPos blockPos,
-            Direction direction,
-            BlockPos blockPos2,
-            BlockState blockState2,
-            RandomSource randomSource
+    protected @NonNull BlockState updateShape(
+            @NonNull BlockState blockState,
+            @NonNull LevelReader levelReader,
+            @NonNull ScheduledTickAccess scheduledTickAccess,
+            @NonNull BlockPos blockPos,
+            @NonNull Direction direction,
+            @NonNull BlockPos blockPos2,
+            @NonNull BlockState blockState2,
+            @NonNull RandomSource randomSource
     ) {
         BlockState blockState3 = super.updateShape(blockState, levelReader, scheduledTickAccess, blockPos, direction, blockPos2, blockState2, randomSource);
         if (!blockState3.isAir()) {
@@ -75,17 +75,17 @@ public class CattailBlock extends DoublePlantBlock implements LiquidBlockContain
     }
 
     @Override
-    protected @NotNull FluidState getFluidState(BlockState state) {
+    protected @NonNull FluidState getFluidState(BlockState state) {
         return state.getValue(HALF) == DoubleBlockHalf.LOWER ? Fluids.WATER.getSource(false) : Fluids.EMPTY.defaultFluidState();
     }
 
     @Override
-    public boolean canPlaceLiquid(@Nullable LivingEntity filler, BlockGetter level, BlockPos pos, BlockState state, Fluid fluid) {
+    public boolean canPlaceLiquid(@Nullable LivingEntity filler, @NonNull BlockGetter level, @NonNull BlockPos pos, @NonNull BlockState state, @NonNull Fluid fluid) {
         return false;
     }
 
     @Override
-    public boolean placeLiquid(LevelAccessor level, BlockPos pos, BlockState state, FluidState fluidState) {
+    public boolean placeLiquid(@NonNull LevelAccessor level, @NonNull BlockPos pos, @NonNull BlockState state, @NonNull FluidState fluidState) {
         return false;
     }
 }

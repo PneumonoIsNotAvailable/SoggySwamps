@@ -107,7 +107,7 @@ public class SoggySwampsItems {
     @SuppressWarnings("deprecation")
     protected static BlockItem registerBlockItem(Block block) {
         return SoggySwampsItems.register(
-                block.builtInRegistryHolder().key().location().getPath(),
+                block.builtInRegistryHolder().key().identifier().getPath(),
                 settings -> new BlockItem(block, settings),
                 new Item.Properties().useBlockDescriptionPrefix()
         );

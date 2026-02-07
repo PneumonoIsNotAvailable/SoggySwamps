@@ -1,5 +1,5 @@
 plugins {
-	id("fabric-loom") version "1.14-SNAPSHOT"
+	id("fabric-loom") version "1.15-SNAPSHOT"
 	id("maven-publish")
 }
 
@@ -39,8 +39,6 @@ loom {
 			sourceSet(sourceSets["client"])
 		}
 	}
-
-	accessWidenerPath = file("src/main/resources/soggy_swamps.accesswidener")
 }
 
 fabricApi {
