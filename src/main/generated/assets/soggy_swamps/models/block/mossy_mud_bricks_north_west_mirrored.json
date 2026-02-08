@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/cube_north_west_mirrored_all",
+  "textures": {
+    "all": "soggy_swamps:block/mossy_mud_bricks"
+  }
+}

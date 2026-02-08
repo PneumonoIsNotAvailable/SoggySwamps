@@ -62,6 +62,17 @@ public class SoggySwampsBlockTagProvider extends FabricTagProvider.BlockTagProvi
         tag(BlockTags.WOODEN_PRESSURE_PLATES).add(SoggySwampsBlocks.SWAMP_OAK_PRESSURE_PLATE);
         tag(BlockTags.WOODEN_BUTTONS).add(SoggySwampsBlocks.SWAMP_OAK_BUTTON);
 
+        tag(BlockTags.STAIRS).add(SoggySwampsBlocks.MOSSY_MUD_BRICK_STAIRS);
+        tag(BlockTags.SLABS).add(SoggySwampsBlocks.MOSSY_MUD_BRICK_SLAB);
+        tag(BlockTags.WALLS).add(SoggySwampsBlocks.MOSSY_MUD_BRICK_WALL);
+
+        tag(BlockTags.MINEABLE_WITH_PICKAXE).add(
+                SoggySwampsBlocks.CHISELED_MUD_BRICKS,
+                SoggySwampsBlocks.MOSSY_MUD_BRICKS,
+                SoggySwampsBlocks.MOSSY_MUD_BRICK_STAIRS,
+                SoggySwampsBlocks.MOSSY_MUD_BRICK_SLAB,
+                SoggySwampsBlocks.MOSSY_MUD_BRICK_WALL
+        );
         tag(BlockTags.MINEABLE_WITH_SHOVEL).add(SoggySwampsBlocks.SUSPICIOUS_MUD);
 
         tag(ConventionalBlockTags.SMALL_FLOWERS).add(SoggySwampsBlocks.BOGSPROUT);

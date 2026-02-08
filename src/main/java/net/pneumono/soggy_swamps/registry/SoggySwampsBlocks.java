@@ -7,26 +7,7 @@ import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.world.effect.MobEffects;
-import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.block.Blocks;
-import net.minecraft.world.level.block.ButtonBlock;
-import net.minecraft.world.level.block.CeilingHangingSignBlock;
-import net.minecraft.world.level.block.DoorBlock;
-import net.minecraft.world.level.block.FenceBlock;
-import net.minecraft.world.level.block.FenceGateBlock;
-import net.minecraft.world.level.block.FlowerPotBlock;
-import net.minecraft.world.level.block.LeavesBlock;
-import net.minecraft.world.level.block.PressurePlateBlock;
-import net.minecraft.world.level.block.RotatedPillarBlock;
-import net.minecraft.world.level.block.SaplingBlock;
-import net.minecraft.world.level.block.SlabBlock;
-import net.minecraft.world.level.block.SoundType;
-import net.minecraft.world.level.block.StairBlock;
-import net.minecraft.world.level.block.StandingSignBlock;
-import net.minecraft.world.level.block.TintedParticleLeavesBlock;
-import net.minecraft.world.level.block.TrapDoorBlock;
-import net.minecraft.world.level.block.WallHangingSignBlock;
-import net.minecraft.world.level.block.WallSignBlock;
+import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.grower.TreeGrower;
 import net.minecraft.world.level.block.state.BlockBehaviour;
@@ -227,6 +208,31 @@ public class SoggySwampsBlocks {
             "swamp_oak_button",
             properties -> new ButtonBlock(SoggySwampsRegistry.SWAMP_OAK_BLOCK_SET_TYPE, 30, properties),
             Blocks.buttonProperties()
+    );
+    public static final Block CHISELED_MUD_BRICKS = register(
+            "chiseled_mud_bricks",
+            Block::new,
+            BlockBehaviour.Properties.ofFullCopy(Blocks.MUD_BRICKS)
+    );
+    public static final Block MOSSY_MUD_BRICKS = register(
+            "mossy_mud_bricks",
+            Block::new,
+            BlockBehaviour.Properties.ofFullCopy(Blocks.MUD_BRICKS)
+    );
+    public static final StairBlock MOSSY_MUD_BRICK_STAIRS = register(
+            "mossy_mud_brick_stairs",
+            properties -> new StairBlock(Blocks.MUD_BRICKS.defaultBlockState(), properties),
+            BlockBehaviour.Properties.ofFullCopy(MOSSY_MUD_BRICKS)
+    );
+    public static final SlabBlock MOSSY_MUD_BRICK_SLAB = register(
+            "mossy_mud_brick_slab",
+            SlabBlock::new,
+            BlockBehaviour.Properties.ofFullCopy(MOSSY_MUD_BRICKS)
+    );
+    public static final WallBlock MOSSY_MUD_BRICK_WALL = register(
+            "mossy_mud_brick_wall",
+            WallBlock::new,
+            BlockBehaviour.Properties.ofFullCopy(MOSSY_MUD_BRICKS).forceSolidOn()
     );
 
     private static BlockBehaviour.Properties createSwampOak() {

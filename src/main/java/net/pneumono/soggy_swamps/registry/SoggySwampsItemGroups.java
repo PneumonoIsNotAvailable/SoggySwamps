@@ -22,45 +22,9 @@ public class SoggySwampsItemGroups {
         Registry.register(BuiltInRegistries.CREATIVE_MODE_TAB, ITEM_GROUP, FabricItemGroup.builder()
                 .icon(SoggySwampsItems.SWAMP_OAK_SAPLING::getDefaultInstance)
                 .title(Component.translatable("itemGroup.soggy_swamps.soggy_swamps"))
-                .displayItems((displayContext, entries) -> {
-                    entries.acceptAll(Stream.of(
-                            SoggySwampsItems.SWAMP_OAK_SAPLING,
-                            SoggySwampsItems.SWAMP_OAK_LEAVES,
-                            SoggySwampsItems.SWAMP_OAK_LOG,
-                            SoggySwampsItems.SWAMP_OAK_WOOD,
-                            SoggySwampsItems.STRIPPED_SWAMP_OAK_LOG,
-                            SoggySwampsItems.STRIPPED_SWAMP_OAK_WOOD,
-                            SoggySwampsItems.SWAMP_OAK_PLANKS,
-                            SoggySwampsItems.SWAMP_OAK_STAIRS,
-                            SoggySwampsItems.SWAMP_OAK_SLAB,
-                            SoggySwampsItems.SWAMP_OAK_SIGN,
-                            SoggySwampsItems.SWAMP_OAK_HANGING_SIGN,
-                            SoggySwampsItems.SWAMP_OAK_DOOR,
-                            SoggySwampsItems.SWAMP_OAK_TRAPDOOR,
-                            SoggySwampsItems.SWAMP_OAK_FENCE,
-                            SoggySwampsItems.SWAMP_OAK_FENCE_GATE,
-                            SoggySwampsItems.SWAMP_OAK_PRESSURE_PLATE,
-                            SoggySwampsItems.SWAMP_OAK_BUTTON,
-                            SoggySwampsItems.SWAMP_OAK_BOAT,
-                            SoggySwampsItems.SWAMP_OAK_CHEST_BOAT,
-                            SoggySwampsItems.CATTAIL,
-                            SoggySwampsItems.ROT_CAP,
-                            SoggySwampsItems.ROASTED_ROT_CAP,
-                            SoggySwampsItems.BOGSPROUT,
-                            SoggySwampsItems.SWAMP_STEW,
-                            SoggySwampsItems.SUSPICIOUS_MUD,
-                            SoggySwampsItems.DECAY_POTTERY_SHERD,
-                            SoggySwampsItems.HAT_POTTERY_SHERD,
-                            SoggySwampsItems.SLIME_POTTERY_SHERD,
-                            SoggySwampsItems.WEALTH_POTTERY_SHERD,
-                            SoggySwampsItems.SPORE_ARMOR_TRIM_SMITHING_TEMPLATE
-                    ).map(ItemStack::new).toList());
-                })
-                .build()
-        );
-
-        ItemGroupEvents.modifyEntriesEvent(CreativeModeTabs.BUILDING_BLOCKS).register(entries ->
-                entries.addBefore(Items.BAMBOO_BLOCK,
+                .displayItems((displayContext, entries) -> entries.acceptAll(Stream.of(
+                        SoggySwampsItems.SWAMP_OAK_SAPLING,
+                        SoggySwampsItems.SWAMP_OAK_LEAVES,
                         SoggySwampsItems.SWAMP_OAK_LOG,
                         SoggySwampsItems.SWAMP_OAK_WOOD,
                         SoggySwampsItems.STRIPPED_SWAMP_OAK_LOG,
@@ -68,14 +32,60 @@ public class SoggySwampsItemGroups {
                         SoggySwampsItems.SWAMP_OAK_PLANKS,
                         SoggySwampsItems.SWAMP_OAK_STAIRS,
                         SoggySwampsItems.SWAMP_OAK_SLAB,
-                        SoggySwampsItems.SWAMP_OAK_FENCE,
-                        SoggySwampsItems.SWAMP_OAK_FENCE_GATE,
+                        SoggySwampsItems.SWAMP_OAK_SIGN,
+                        SoggySwampsItems.SWAMP_OAK_HANGING_SIGN,
                         SoggySwampsItems.SWAMP_OAK_DOOR,
                         SoggySwampsItems.SWAMP_OAK_TRAPDOOR,
+                        SoggySwampsItems.SWAMP_OAK_FENCE,
+                        SoggySwampsItems.SWAMP_OAK_FENCE_GATE,
                         SoggySwampsItems.SWAMP_OAK_PRESSURE_PLATE,
-                        SoggySwampsItems.SWAMP_OAK_BUTTON
-                )
+                        SoggySwampsItems.SWAMP_OAK_BUTTON,
+                        SoggySwampsItems.SWAMP_OAK_BOAT,
+                        SoggySwampsItems.SWAMP_OAK_CHEST_BOAT,
+                        SoggySwampsItems.CHISELED_MUD_BRICKS,
+                        SoggySwampsItems.MOSSY_MUD_BRICKS,
+                        SoggySwampsItems.MOSSY_MUD_BRICK_STAIRS,
+                        SoggySwampsItems.MOSSY_MUD_BRICK_SLAB,
+                        SoggySwampsItems.MOSSY_MUD_BRICK_WALL,
+                        SoggySwampsItems.CATTAIL,
+                        SoggySwampsItems.ROT_CAP,
+                        SoggySwampsItems.ROASTED_ROT_CAP,
+                        SoggySwampsItems.BOGSPROUT,
+                        SoggySwampsItems.SWAMP_STEW,
+                        SoggySwampsItems.SUSPICIOUS_MUD,
+                        SoggySwampsItems.DECAY_POTTERY_SHERD,
+                        SoggySwampsItems.HAT_POTTERY_SHERD,
+                        SoggySwampsItems.SLIME_POTTERY_SHERD,
+                        SoggySwampsItems.WEALTH_POTTERY_SHERD,
+                        SoggySwampsItems.SPORE_ARMOR_TRIM_SMITHING_TEMPLATE
+                ).map(ItemStack::new).toList()))
+                .build()
         );
+
+        ItemGroupEvents.modifyEntriesEvent(CreativeModeTabs.BUILDING_BLOCKS).register(entries -> {
+            entries.addBefore(Items.BAMBOO_BLOCK,
+                    SoggySwampsItems.SWAMP_OAK_LOG,
+                    SoggySwampsItems.SWAMP_OAK_WOOD,
+                    SoggySwampsItems.STRIPPED_SWAMP_OAK_LOG,
+                    SoggySwampsItems.STRIPPED_SWAMP_OAK_WOOD,
+                    SoggySwampsItems.SWAMP_OAK_PLANKS,
+                    SoggySwampsItems.SWAMP_OAK_STAIRS,
+                    SoggySwampsItems.SWAMP_OAK_SLAB,
+                    SoggySwampsItems.SWAMP_OAK_FENCE,
+                    SoggySwampsItems.SWAMP_OAK_FENCE_GATE,
+                    SoggySwampsItems.SWAMP_OAK_DOOR,
+                    SoggySwampsItems.SWAMP_OAK_TRAPDOOR,
+                    SoggySwampsItems.SWAMP_OAK_PRESSURE_PLATE,
+                    SoggySwampsItems.SWAMP_OAK_BUTTON
+            );
+            entries.addAfter(Items.MUD_BRICK_WALL,
+                    SoggySwampsItems.CHISELED_MUD_BRICKS,
+                    SoggySwampsItems.MOSSY_MUD_BRICKS,
+                    SoggySwampsItems.MOSSY_MUD_BRICK_STAIRS,
+                    SoggySwampsItems.MOSSY_MUD_BRICK_SLAB,
+                    SoggySwampsItems.MOSSY_MUD_BRICK_WALL
+            );
+        });
         ItemGroupEvents.modifyEntriesEvent(CreativeModeTabs.NATURAL_BLOCKS).register(entries -> {
             entries.addBefore(Items.MUSHROOM_STEM, SoggySwampsItems.SWAMP_OAK_LOG);
             entries.addBefore(Items.AZALEA_LEAVES, SoggySwampsItems.SWAMP_OAK_LEAVES);

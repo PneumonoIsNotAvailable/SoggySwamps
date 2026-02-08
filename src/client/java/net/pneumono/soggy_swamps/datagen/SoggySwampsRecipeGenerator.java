@@ -13,6 +13,7 @@ import net.minecraft.world.flag.FeatureFlagSet;
 import net.minecraft.world.flag.FeatureFlags;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.crafting.Ingredient;
+import net.minecraft.world.level.block.Blocks;
 import net.pneumono.soggy_swamps.SoggySwamps;
 import net.pneumono.soggy_swamps.registry.SoggySwampsBlocks;
 import net.pneumono.soggy_swamps.registry.SoggySwampsItems;
@@ -67,6 +68,13 @@ public class SoggySwampsRecipeGenerator extends RecipeProvider {
         hangingSign(SoggySwampsItems.SWAMP_OAK_HANGING_SIGN, SoggySwampsBlocks.STRIPPED_SWAMP_OAK_LOG);
         woodenBoat(SoggySwampsItems.SWAMP_OAK_BOAT, SoggySwampsBlocks.SWAMP_OAK_PLANKS);
         chestBoat(SoggySwampsItems.SWAMP_OAK_CHEST_BOAT, SoggySwampsItems.SWAMP_OAK_BOAT);
+
+        chiseled(
+                RecipeCategory.BUILDING_BLOCKS,
+                SoggySwampsBlocks.CHISELED_MUD_BRICKS,
+                Blocks.MUD_BRICK_SLAB
+        );
+        generateRecipes(SoggySwampsBlockFamilies.MOSSY_MUD_BRICK, FeatureFlagSet.of(FeatureFlags.VANILLA));
 
         copySmithingTemplate(SoggySwampsItems.SPORE_ARMOR_TRIM_SMITHING_TEMPLATE, Items.MUD_BRICKS);
         trimSmithing(

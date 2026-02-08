@@ -43,6 +43,11 @@ public class SoggySwampsEnUsLangProvider extends FabricLanguageProvider {
         builder.add(SoggySwampsBlocks.SWAMP_OAK_FENCE_GATE, "Swamp Oak Fence Gate");
         builder.add(SoggySwampsBlocks.SWAMP_OAK_PRESSURE_PLATE, "Swamp Oak Pressure Plate");
         builder.add(SoggySwampsBlocks.SWAMP_OAK_BUTTON, "Swamp Oak Button");
+        builder.add(SoggySwampsBlocks.CHISELED_MUD_BRICKS, "Chiseled Mud Bricks");
+        builder.add(SoggySwampsBlocks.MOSSY_MUD_BRICKS, "Mossy Mud Bricks");
+        builder.add(SoggySwampsBlocks.MOSSY_MUD_BRICK_STAIRS, "Mossy Mud Brick Stairs");
+        builder.add(SoggySwampsBlocks.MOSSY_MUD_BRICK_SLAB, "Mossy Mud Brick Slab");
+        builder.add(SoggySwampsBlocks.MOSSY_MUD_BRICK_WALL, "Mossy Mud Brick Wall");
 
         builder.add(SoggySwampsItems.SWAMP_STEW, "Swamp Stew");
         builder.add(SoggySwampsItems.ROASTED_ROT_CAP, "Roasted Rot Cap");

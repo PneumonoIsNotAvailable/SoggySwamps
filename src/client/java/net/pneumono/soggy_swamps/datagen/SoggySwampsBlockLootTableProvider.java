@@ -24,6 +24,7 @@ public class SoggySwampsBlockLootTableProvider extends FabricBlockLootTableProvi
         dropPottedContents(SoggySwampsBlocks.POTTED_ROT_CAP);
         dropSelf(SoggySwampsBlocks.BOGSPROUT);
         dropPottedContents(SoggySwampsBlocks.POTTED_BOGSPROUT);
+
         dropSelf(SoggySwampsBlocks.SWAMP_OAK_SAPLING);
         dropPottedContents(SoggySwampsBlocks.POTTED_SWAMP_OAK_SAPLING);
         add(
@@ -45,5 +46,11 @@ public class SoggySwampsBlockLootTableProvider extends FabricBlockLootTableProvi
         dropSelf(SoggySwampsBlocks.SWAMP_OAK_FENCE_GATE);
         dropSelf(SoggySwampsBlocks.SWAMP_OAK_PRESSURE_PLATE);
         dropSelf(SoggySwampsBlocks.SWAMP_OAK_BUTTON);
+
+        dropSelf(SoggySwampsBlocks.CHISELED_MUD_BRICKS);
+        dropSelf(SoggySwampsBlocks.MOSSY_MUD_BRICKS);
+        dropSelf(SoggySwampsBlocks.MOSSY_MUD_BRICK_STAIRS);
+        add(SoggySwampsBlocks.MOSSY_MUD_BRICK_SLAB, this::createSlabItemTable);
+        dropSelf(SoggySwampsBlocks.MOSSY_MUD_BRICK_WALL);
     }
 }
