@@ -66,12 +66,12 @@ public class SoggySwampsBlocks {
     );
     public static final FlowerPotBlock POTTED_ROT_CAP = register(
             "potted_rot_cap",
-            settings -> new PottedRotCapBlock(ROT_CAP, settings),
+            properties -> new PottedRotCapBlock(ROT_CAP, properties),
             Blocks.flowerPotProperties()
     );
     public static final BogsproutBlock BOGSPROUT = register(
             "bogsprout",
-            settings -> new BogsproutBlock(MobEffects.REGENERATION, 10.0F, settings),
+            properties -> new BogsproutBlock(MobEffects.REGENERATION, 10.0F, properties),
             BlockBehaviour.Properties.of()
                     .mapColor(MapColor.PLANT)
                     .noCollision()
@@ -82,12 +82,12 @@ public class SoggySwampsBlocks {
     );
     public static final FlowerPotBlock POTTED_BOGSPROUT = register(
             "potted_bogsprout",
-            settings -> new FlowerPotBlock(BOGSPROUT, settings),
+            properties -> new FlowerPotBlock(BOGSPROUT, properties),
             Blocks.flowerPotProperties()
     );
     public static final BrushableMudBlock SUSPICIOUS_MUD = register(
             "suspicious_mud",
-            settings -> new BrushableMudBlock(Blocks.MUD, SoggySwampsSounds.ITEM_BRUSH_BRUSHING_MUD, SoggySwampsSounds.ITEM_BRUSH_BRUSHING_MUD, settings),
+            properties -> new BrushableMudBlock(Blocks.MUD, SoggySwampsSounds.ITEM_BRUSH_BRUSHING_MUD, SoggySwampsSounds.ITEM_BRUSH_BRUSHING_MUD, properties),
             BlockBehaviour.Properties.of()
                     .mapColor(MapColor.TERRACOTTA_CYAN)
                     .isValidSpawn(Blocks::always)
@@ -100,14 +100,14 @@ public class SoggySwampsBlocks {
     );
     public static final SaplingBlock SWAMP_OAK_SAPLING = register(
             "swamp_oak_sapling",
-            settings -> new SaplingBlock(
+            properties -> new SaplingBlock(
                     new TreeGrower(
                             "swamp_oak",
                             Optional.empty(),
                             Optional.of(SoggySwampsWorldgen.SWAMP_OAK),
                             Optional.empty()
                     ),
-                    settings
+                    properties
             ),
             BlockBehaviour.Properties.of()
                     .mapColor(MapColor.PLANT)
@@ -119,12 +119,12 @@ public class SoggySwampsBlocks {
     );
     public static final FlowerPotBlock POTTED_SWAMP_OAK_SAPLING = register(
             "potted_swamp_oak_sapling",
-            settings -> new FlowerPotBlock(SWAMP_OAK_SAPLING, settings),
+            properties -> new FlowerPotBlock(SWAMP_OAK_SAPLING, properties),
             Blocks.flowerPotProperties()
     );
     public static final LeavesBlock SWAMP_OAK_LEAVES = register(
             "swamp_oak_leaves",
-            settings -> new TintedParticleLeavesBlock(0.01F, settings),
+            properties -> new TintedParticleLeavesBlock(0.01F, properties),
             Blocks.leavesProperties(SoundType.GRASS)
     );
     public static final RotatedPillarBlock SWAMP_OAK_LOG = register(
@@ -135,14 +135,12 @@ public class SoggySwampsBlocks {
     public static final RotatedPillarBlock SWAMP_OAK_WOOD = register(
             "swamp_oak_wood",
             RotatedPillarBlock::new,
-            createSwampOak()
-                    .strength(2.0F)
+            createSwampOak().strength(2.0F)
     );
     public static final RotatedPillarBlock STRIPPED_SWAMP_OAK_LOG = register(
             "stripped_swamp_oak_log",
             RotatedPillarBlock::new,
-            createSwampOak()
-                    .strength(2.0F)
+            createSwampOak().strength(2.0F)
     );
     public static final RotatedPillarBlock STRIPPED_SWAMP_OAK_WOOD = register(
             "stripped_swamp_oak_wood",
@@ -152,12 +150,11 @@ public class SoggySwampsBlocks {
     public static final Block SWAMP_OAK_PLANKS = register(
             "swamp_oak_planks",
             Block::new,
-            createSwampOak()
-                    .strength(2.0F, 3.0F)
+            createSwampOak().strength(2.0F, 3.0F)
     );
     public static final StairBlock SWAMP_OAK_STAIRS = register(
             "swamp_oak_stairs",
-            settings -> new StairBlock(SWAMP_OAK_PLANKS.defaultBlockState(), settings),
+            properties -> new StairBlock(SWAMP_OAK_PLANKS.defaultBlockState(), properties),
             BlockBehaviour.Properties.ofFullCopy(SWAMP_OAK_PLANKS)
     );
     public static final SlabBlock SWAMP_OAK_SLAB = register(
@@ -167,7 +164,7 @@ public class SoggySwampsBlocks {
     );
     public static final StandingSignBlock SWAMP_OAK_SIGN = register(
             "swamp_oak_sign",
-            settings -> new StandingSignBlock(SoggySwampsRegistry.SWAMP_OAK_WOOD_TYPE, settings),
+            properties -> new StandingSignBlock(SoggySwampsRegistry.SWAMP_OAK_WOOD_TYPE, properties),
             createSwampOak()
                     .strength(1.0F)
                     .forceSolidOn()
@@ -175,33 +172,33 @@ public class SoggySwampsBlocks {
     );
     public static final WallSignBlock SWAMP_OAK_WALL_SIGN = register(
             "swamp_oak_wall_sign",
-            settings -> new WallSignBlock(SoggySwampsRegistry.SWAMP_OAK_WOOD_TYPE, settings),
+            properties -> new WallSignBlock(SoggySwampsRegistry.SWAMP_OAK_WOOD_TYPE, properties),
             BlockBehaviour.Properties.ofFullCopy(SWAMP_OAK_SIGN)
                     .overrideLootTable(SWAMP_OAK_SIGN.getLootTable())
                     .overrideDescription(SWAMP_OAK_SIGN.getDescriptionId())
     );
     public static final CeilingHangingSignBlock SWAMP_OAK_HANGING_SIGN = register(
             "swamp_oak_hanging_sign",
-            settings -> new CeilingHangingSignBlock(SoggySwampsRegistry.SWAMP_OAK_WOOD_TYPE, settings),
+            properties -> new CeilingHangingSignBlock(SoggySwampsRegistry.SWAMP_OAK_WOOD_TYPE, properties),
             BlockBehaviour.Properties.ofFullCopy(SWAMP_OAK_SIGN)
     );
     public static final WallHangingSignBlock SWAMP_OAK_WALL_HANGING_SIGN = register(
             "swamp_oak_wall_hanging_sign",
-            settings -> new WallHangingSignBlock(SoggySwampsRegistry.SWAMP_OAK_WOOD_TYPE, settings),
+            properties -> new WallHangingSignBlock(SoggySwampsRegistry.SWAMP_OAK_WOOD_TYPE, properties),
             BlockBehaviour.Properties.ofFullCopy(SWAMP_OAK_HANGING_SIGN)
                     .overrideLootTable(SWAMP_OAK_HANGING_SIGN.getLootTable())
                     .overrideDescription(SWAMP_OAK_HANGING_SIGN.getDescriptionId())
     );
     public static final DoorBlock SWAMP_OAK_DOOR = register(
             "swamp_oak_door",
-            settings -> new DoorBlock(SoggySwampsRegistry.SWAMP_OAK_BLOCK_SET_TYPE, settings),
+            properties -> new DoorBlock(SoggySwampsRegistry.SWAMP_OAK_BLOCK_SET_TYPE, properties),
             BlockBehaviour.Properties.ofFullCopy(SWAMP_OAK_PLANKS)
                     .strength(3.0F)
                     .noOcclusion()
     );
     public static final TrapDoorBlock SWAMP_OAK_TRAPDOOR = register(
             "swamp_oak_trapdoor",
-            settings -> new TrapDoorBlock(SoggySwampsRegistry.SWAMP_OAK_BLOCK_SET_TYPE, settings),
+            properties -> new TrapDoorBlock(SoggySwampsRegistry.SWAMP_OAK_BLOCK_SET_TYPE, properties),
             BlockBehaviour.Properties.ofFullCopy(SWAMP_OAK_PLANKS)
                     .strength(3.0F)
                     .noOcclusion()
@@ -214,12 +211,12 @@ public class SoggySwampsBlocks {
     );
     public static final FenceGateBlock SWAMP_OAK_FENCE_GATE = register(
             "swamp_oak_fence_gate",
-            settings -> new FenceGateBlock(SoggySwampsRegistry.SWAMP_OAK_WOOD_TYPE, settings),
+            properties -> new FenceGateBlock(SoggySwampsRegistry.SWAMP_OAK_WOOD_TYPE, properties),
             BlockBehaviour.Properties.ofFullCopy(SWAMP_OAK_PLANKS).forceSolidOn()
     );
     public static final PressurePlateBlock SWAMP_OAK_PRESSURE_PLATE = register(
             "swamp_oak_pressure_plate",
-            settings -> new PressurePlateBlock(SoggySwampsRegistry.SWAMP_OAK_BLOCK_SET_TYPE, settings),
+            properties -> new PressurePlateBlock(SoggySwampsRegistry.SWAMP_OAK_BLOCK_SET_TYPE, properties),
             BlockBehaviour.Properties.ofFullCopy(SWAMP_OAK_PLANKS)
                     .forceSolidOn()
                     .noCollision()
@@ -228,7 +225,7 @@ public class SoggySwampsBlocks {
     );
     public static final ButtonBlock SWAMP_OAK_BUTTON = register(
             "swamp_oak_button",
-            settings -> new ButtonBlock(SoggySwampsRegistry.SWAMP_OAK_BLOCK_SET_TYPE, 30, settings),
+            properties -> new ButtonBlock(SoggySwampsRegistry.SWAMP_OAK_BLOCK_SET_TYPE, 30, properties),
             Blocks.buttonProperties()
     );
 
@@ -240,9 +237,9 @@ public class SoggySwampsBlocks {
                 .ignitedByLava();
     }
 
-    protected static <T extends Block> T register(String name, Function<BlockBehaviour.Properties, T> factory, BlockBehaviour.Properties settings) {
+    protected static <T extends Block> T register(String name, Function<BlockBehaviour.Properties, T> factory, BlockBehaviour.Properties properties) {
         ResourceKey<Block> key = ResourceKey.create(Registries.BLOCK, SoggySwamps.id(name));
-        return Registry.register(BuiltInRegistries.BLOCK, key, factory.apply(settings.setId(key)));
+        return Registry.register(BuiltInRegistries.BLOCK, key, factory.apply(properties.setId(key)));
     }
 
     public static void registerSoggySwampsBlocks() {
