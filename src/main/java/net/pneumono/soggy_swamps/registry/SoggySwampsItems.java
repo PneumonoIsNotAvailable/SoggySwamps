@@ -51,7 +51,6 @@ public class SoggySwampsItems {
     );
 
     public static final BlockItem SUSPICIOUS_MUD = registerBlockItem(SoggySwampsBlocks.SUSPICIOUS_MUD);
-    public static final Item HAT_POTTERY_SHERD = registerPotterySherd("hat");
     public static final Item SLIME_POTTERY_SHERD = registerPotterySherd("slime");
     public static final Item DECAY_POTTERY_SHERD = registerPotterySherd("decay");
     public static final Item WEALTH_POTTERY_SHERD = registerPotterySherd("wealth");

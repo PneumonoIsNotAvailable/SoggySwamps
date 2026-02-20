@@ -148,7 +148,6 @@ public class SoggySwampsModelProvider extends FabricModelProvider {
         generators.generateFlatItem(SoggySwampsItems.ROASTED_ROT_CAP, ModelTemplates.FLAT_ITEM);
         generators.generateFlatItem(SoggySwampsItems.SWAMP_OAK_BOAT, ModelTemplates.FLAT_ITEM);
         generators.generateFlatItem(SoggySwampsItems.SWAMP_OAK_CHEST_BOAT, ModelTemplates.FLAT_ITEM);
-        generators.generateFlatItem(SoggySwampsItems.HAT_POTTERY_SHERD, ModelTemplates.FLAT_ITEM);
         generators.generateFlatItem(SoggySwampsItems.SLIME_POTTERY_SHERD, ModelTemplates.FLAT_ITEM);
         generators.generateFlatItem(SoggySwampsItems.DECAY_POTTERY_SHERD, ModelTemplates.FLAT_ITEM);
         generators.generateFlatItem(SoggySwampsItems.WEALTH_POTTERY_SHERD, ModelTemplates.FLAT_ITEM);

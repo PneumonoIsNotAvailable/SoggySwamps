@@ -10,10 +10,6 @@
         },
         {
           "type": "minecraft:item",
-          "name": "soggy_swamps:hat_pottery_sherd"
-        },
-        {
-          "type": "minecraft:item",
           "name": "soggy_swamps:slime_pottery_sherd"
         },
         {

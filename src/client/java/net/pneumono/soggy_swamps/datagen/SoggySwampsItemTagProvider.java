@@ -52,7 +52,6 @@ public class SoggySwampsItemTagProvider extends FabricTagProvider.ItemTagProvide
         tag(ItemTags.WALLS).add(SoggySwampsItems.MOSSY_MUD_BRICK_WALL);
 
         tag(ItemTags.DECORATED_POT_SHERDS).add(
-                SoggySwampsItems.HAT_POTTERY_SHERD,
                 SoggySwampsItems.SLIME_POTTERY_SHERD,
                 SoggySwampsItems.DECAY_POTTERY_SHERD,
                 SoggySwampsItems.WEALTH_POTTERY_SHERD

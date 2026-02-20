@@ -54,7 +54,6 @@ public class SoggySwampsItemGroups {
                         SoggySwampsItems.SWAMP_STEW,
                         SoggySwampsItems.SUSPICIOUS_MUD,
                         SoggySwampsItems.DECAY_POTTERY_SHERD,
-                        SoggySwampsItems.HAT_POTTERY_SHERD,
                         SoggySwampsItems.SLIME_POTTERY_SHERD,
                         SoggySwampsItems.WEALTH_POTTERY_SHERD,
                         SoggySwampsItems.SPORE_ARMOR_TRIM_SMITHING_TEMPLATE
@@ -115,7 +114,6 @@ public class SoggySwampsItemGroups {
         });
         ItemGroupEvents.modifyEntriesEvent(CreativeModeTabs.INGREDIENTS).register(entries -> {
             entries.addAfter(Items.DANGER_POTTERY_SHERD, SoggySwampsItems.DECAY_POTTERY_SHERD);
-            entries.addAfter(Items.GUSTER_POTTERY_SHERD, SoggySwampsItems.HAT_POTTERY_SHERD);
             entries.addAfter(Items.SKULL_POTTERY_SHERD, SoggySwampsItems.SLIME_POTTERY_SHERD);
             entries.addAfter(Items.SNORT_POTTERY_SHERD, SoggySwampsItems.WEALTH_POTTERY_SHERD);
             entries.addAfter(Items.BOLT_ARMOR_TRIM_SMITHING_TEMPLATE,
