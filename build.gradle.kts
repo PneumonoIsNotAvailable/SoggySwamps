@@ -1,6 +1,7 @@
 plugins {
 	id("fabric-loom") version "1.15-SNAPSHOT"
 	id("maven-publish")
+	id("me.modmuss50.mod-publish-plugin") version "1.1.0"
 }
 
 java.sourceCompatibility = JavaVersion.VERSION_21
@@ -65,11 +66,15 @@ dependencies {
 tasks {
 	processResources {
 		inputs.property("version", project.property("mod_version"))
+		inputs.property("min_supported", project.property("min_supported_version"))
+		inputs.property("max_supported", project.property("max_supported_version"))
 
 		filesMatching("fabric.mod.json") {
 			expand(
 				mutableMapOf(
-					"version" to project.property("mod_version")
+					"version" to project.property("mod_version"),
+					"min_supported" to project.property("min_supported_version"),
+					"max_supported" to project.property("max_supported_version")
 				)
 			)
 		}
@@ -87,6 +92,48 @@ tasks {
 		from("LICENSE") {
 			rename {"${it}_${base.archivesName.get()}"}
 		}
+	}
+}
+
+publishMods {
+	file = tasks.remapJar.get().archiveFile
+	additionalFiles.from(tasks.remapSourcesJar.get().archiveFile)
+	displayName = "Entity Block ${project.version}"
+	version = "${project.version}"
+	changelog = rootProject.file("CHANGELOG.md").readText()
+	type = STABLE
+	modLoaders.addAll("fabric", "quilt")
+
+	val modrinthToken = providers.environmentVariable("MODRINTH_TOKEN")
+	val discordToken = providers.environmentVariable("DISCORD_TOKEN")
+
+	dryRun = modrinthToken.getOrNull() == null || discordToken.getOrNull() == null
+
+	modrinth {
+		accessToken = modrinthToken
+		projectId = "T9ocGk23"
+
+		minecraftVersionRange {
+			start = "${property("min_supported_version")}"
+			end = "${property("max_supported_version")}"
+		}
+
+		requires {
+			// PneumonoCore
+			id = "ZLKQjA7t"
+		}
+
+		requires {
+			// Fabric API
+			id = "P7dR8mSH"
+		}
+	}
+
+	discord {
+		webhookUrl = discordToken
+		dryRunWebhookUrl = discordToken
+
+		content = changelog.map { "# Soggy Swamps version ${project.version}\n" + it }
 	}
 }
 
