@@ -131,7 +131,6 @@ publishMods {
 
 	discord {
 		webhookUrl = discordToken
-		dryRunWebhookUrl = discordToken
 
 		content = changelog.map { "# Soggy Swamps version ${project.version}\n" + it }
 	}
