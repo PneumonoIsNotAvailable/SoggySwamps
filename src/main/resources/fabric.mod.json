@@ -8,9 +8,18 @@
 		"Pneumono_"
 	],
 	"contact": {
-		"homepage": "https://github.com/PneumonoIsNotAvailable/SoggySwamps",
+		"homepage": "https://modrinth.com/project/MYEsLzrI",
 		"sources": "https://github.com/PneumonoIsNotAvailable/SoggySwamps",
 		"issues": "https://github.com/PneumonoIsNotAvailable/SoggySwamps/issues"
+	},
+	"custom": {
+		"modmenu": {
+			"links": {
+				"modmenu.donate": "https://ko-fi.com/pneumono",
+				"modmenu.discord": "https://discord.gg/ap6wD2XUzs",
+				"modmenu.modrinth": "https://modrinth.com/project/MYEsLzrI"
+			}
+		}
 	},
 	"license": "MIT",
 	"icon": "assets/soggy_swamps/icon.png",
