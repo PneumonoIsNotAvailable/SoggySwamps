@@ -4,9 +4,7 @@
       "element": {
         "element_type": "minecraft:single_pool_element",
         "location": "soggy_swamps:swamp_tower/lower",
-        "processors": {
-          "processors": []
-        },
+        "processors": "soggy_swamps:swamp_tower",
         "projection": "rigid"
       },
       "weight": 1
