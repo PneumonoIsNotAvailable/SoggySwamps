@@ -11,5 +11,6 @@
   "start_pool": "soggy_swamps:swamp_tower/upper",
   "step": "surface_structures",
   "terrain_adaptation": "beard_thin",
-  "use_expansion_hack": true
+  "use_expansion_hack": true,
+  "liquid_settings": "ignore_waterlogging"
 }
