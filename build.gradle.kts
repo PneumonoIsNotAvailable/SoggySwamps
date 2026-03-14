@@ -132,6 +132,10 @@ publishMods {
 	discord {
 		webhookUrl = discordToken
 
+		username = "Soggy Swamps Updates"
+
+		avatarUrl = "https://github.com/PneumonoIsNotAvailable/SoggySwamps/blob/master/src/main/resources/assets/soggy_swamps/icon.png?raw=true"
+
 		content = changelog.map { "# Soggy Swamps version ${project.version}\n<@&1472490332783378472>\n" + it }
 	}
 }
