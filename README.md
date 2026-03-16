@@ -29,6 +29,6 @@ Brushing the Suspicious Mud here will get you 3 new sherds and the new Spore Arm
 
 ## Dependencies
 
-Soggy Swamps depends on my core mod, [PneumonoCore](https://modrinth.com/project/ZLKQjA7t)
+Soggy Swamps depends on [PneumonoCore](https://modrinth.com/project/ZLKQjA7t)
 
 [Download Soggy Swamps on Modrinth](https://modrinth.com/project/MYEsLzrI)
