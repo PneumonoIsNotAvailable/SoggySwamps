@@ -14,7 +14,7 @@ making both materials less difficult to get if you can't find a Mangrove Swamp.
 
 ![A screenshot of a small hut built from Swamp Oak, with Rot Caps, Bogsprouts, and Cattails used for decoration](images/hut.png)
 
-A full Swamp Oak woodset, complete with Shrek-inspired doors.
+A full Swamp Oak woodset, with trees designed to emulate the feel of the original vanilla swamp.
 Three new plants, Rot Caps, Bogsprouts, and Cattails, which can all be used to craft some otherwise tricky-to-find dyes.
 
 ![A screenshot of a Swamp Village](images/village.png)
