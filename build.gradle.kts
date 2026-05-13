@@ -98,7 +98,7 @@ tasks {
 publishMods {
 	file = tasks.remapJar.get().archiveFile
 	additionalFiles.from(tasks.remapSourcesJar.get().archiveFile)
-	displayName = "Entity Block ${project.version}"
+	displayName = "Soggy Swamps ${project.version}"
 	version = "${project.version}"
 	changelog = rootProject.file("CHANGELOG.md").readText()
 	type = STABLE
